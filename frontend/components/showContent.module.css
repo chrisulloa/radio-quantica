@@ -1,0 +1,25 @@
+#showContent a {
+  color: #35ff11;
+}
+
+#showContent p {
+  margin-bottom: 1rem; /* between paragraphs */
+  color: #b1b1b1;
+}
+
+#showContent a:hover {
+  color: black;
+  background-color: #35ff11;
+}
+
+#showContent h1 {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+  margin-top: 1.25rem;
+}
+
+#showContent ul {
+  margin-left: 0.5rem;
+  list-style-position: inside;
+  list-style-type: disc;
+}

@@ -1,0 +1,20 @@
+@import '~payload/scss';
+
+.custom-image-preview {
+    &__input {
+      // Payload exports a mixin from the vars file for quickly applying formInput rules to the class for our input
+      @include formInput
+    }
+    &__image_container {
+        width: 100%;
+        margin: 2rem 2rem 2rem 2rem;
+        justify-items: center;
+    }
+    &__image {
+        width: 30%;
+    }
+    &__container {
+        margin: 2rem 1rem 1rem 1rem;
+    }
+}
+  

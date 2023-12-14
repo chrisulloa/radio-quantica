@@ -1,0 +1,40 @@
+#slider {
+  writing-mode: bt-lr; /* IE */
+  -webkit-appearance: slider-vertical; /* Chromium */
+}
+
+#slider::-webkit-slider-runnable-track {
+  cursor: pointer;
+  animate: 0.2s;
+  background: #b1b1b1;
+  border-radius: 10px;
+}
+
+#slider::-moz-range-track {
+  cursor: pointer;
+  animate: 0.2s;
+  background: #b1b1b1;
+  border-radius: 10px;
+}
+
+#slider::-ms-track {
+  cursor: pointer;
+  animate: 0.2s;
+  background: #b1b1b1;
+  border-radius: 10px;
+}
+
+@media (max-width: 419px) {
+  .banner-scroll {
+    animation: bannermove 7s 0.1s linear infinite;
+  }
+}
+
+@keyframes bannermove {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

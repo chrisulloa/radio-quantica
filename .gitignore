@@ -1,0 +1,4 @@
+*.swp
+.DS_STORE
+.deployed
+__deployer__.zip
