@@ -9,6 +9,7 @@ import NewsMedia from './newsMedia';
 import Tags from './tags';
 import OnboardingEmails from './onboardingEmails';
 import MailingListSubscribers from './mailingListSubscribers';
+import MerchPreviews from './merchPreview';
 
 const Collections = [
   Users,
@@ -22,6 +23,7 @@ const Collections = [
   Tags,
   OnboardingEmails,
   MailingListSubscribers,
+  MerchPreviews,
 ];
 
 export default Collections;

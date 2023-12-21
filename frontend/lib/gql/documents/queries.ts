@@ -310,6 +310,9 @@ export const latestNewsQuery = graphql(`
         updatedAt
         authorName
         authorId
+        previewBanner {
+          url
+        }
       }
     }
   }
@@ -327,6 +330,9 @@ export const draftNewsPostQuery = graphql(`
       publishDate
       slug
       title
+      previewBanner {
+        url
+      }
       tags {
         name
         id
@@ -402,6 +408,22 @@ export const searchHostsQuery = graphql(`
       docs {
         name
         id
+      }
+    }
+  }
+`);
+
+export const merchPreviewsQuery = graphql(`
+  query MerchPreviews($limit: Int) {
+    MerchPreviews(limit: $limit) {
+      docs {
+        id
+        blurb
+        image {
+          url
+        }
+        title
+        url
       }
     }
   }

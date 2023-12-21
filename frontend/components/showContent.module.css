@@ -1,5 +1,5 @@
 #showContent a {
-  color: #35ff11;
+  color: white;
 }
 
 #showContent p {
@@ -9,7 +9,7 @@
 
 #showContent a:hover {
   color: black;
-  background-color: #35ff11;
+  background-color: white;
 }
 
 #showContent h1 {

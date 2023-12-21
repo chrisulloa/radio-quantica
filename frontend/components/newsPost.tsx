@@ -61,7 +61,7 @@ export default function NewsPost({
     return <div></div>;
   }
   return (
-    <div className="mx-2 sm:ml-8 md:mb-5 md:w-4/6 lg:w-3/5 xl:w-5/12">
+    <div className="mx-2 sm:ml-8 md:mb-5 md:w-4/6 lg:w-4/5 xl:w-6/12">
       <NewsHeader currentPath={router.asPath} post={post}></NewsHeader>
       <div className="w-full text-[18px] text-[#bfbfbf]">
         <NewsHeaderBackground

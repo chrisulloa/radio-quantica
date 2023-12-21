@@ -21,8 +21,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cdn.particle.fm',
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000'
       },
     ],
   },

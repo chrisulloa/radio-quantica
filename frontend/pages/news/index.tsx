@@ -107,7 +107,7 @@ export default function NewsPage({
     }
   };
   if (!newsPosts) {
-    return <div className="text-neon-green">Unable to load news...</div>;
+    return <div className="text-white">Unable to load news...</div>;
   }
   return (
     <div className="px-5 sm:px-10 w-full md:w-10/12 xl:w-8/12 2xl:w-7/12 mb-5">
@@ -126,6 +126,7 @@ export default function NewsPage({
                     newWindow={false}
                     date={doc.publishDate}
                     description={doc.blurb}
+                    previewBannerUrl={doc.previewBanner?.url}
                   ></NewsCard>
                 );
               }

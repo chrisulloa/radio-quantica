@@ -51,16 +51,16 @@ export default buildConfig({
   serverURL,
   collections: Collections,
   plugins: [
-    cloudStorage({
-      collections: {
-        newsMedia: {
-          prefix: 'news-media',
-          adapter,
-          generateFileURL: (args) =>
-            `${CDNBaseURL}/${args.prefix}/${args.filename}`,
-        },
-      },
-    }),
+    // cloudStorage({
+    //   collections: {
+    //     newsMedia: {
+    //       prefix: 'news-media',
+    //       adapter,
+    //       generateFileURL: (args) =>
+    //         `${CDNBaseURL}/${args.prefix}/${args.filename}`,
+    //     },
+    //   },
+    // }),
   ],
   graphQL: {
     queries: (GraphQL, payload) => ({

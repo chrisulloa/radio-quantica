@@ -18,16 +18,16 @@ const ArchiveCardInfoSection = ({ archive }: { archive: MinArchive }) => {
     return <div></div>;
   }
   return (
-    <div className="mt-4">
-      <div className="flex flex-row justify-center">
+    <div className="mt-4 group-hover:opacity-75">
+      <div className="flex flex-row justify-center mb-1">
         <div className="grow text-white text-lg col-span-1">
           {archive.show?.showName}
         </div>
-        <div className="text-white border-b border-dos-grey text-xs col-span-1 ml-5 my-auto py-1">
+        <div className="text-white text-xs col-span-1 ml-5 my-auto py-1">
           {formatCompactShowDate(archive.date)}
         </div>
       </div>
-      <div className="text-white opacity-80 col-span-2">
+      <div className="text-white opacity-80 col-span-2 text-sm">
         <p>w/ {archive.hosts?.map((host) => host?.name).join(" + ")}</p>
       </div>
     </div>

@@ -10,7 +10,7 @@ export const DownArrow = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className=" stroke-neon-green"
+      className=" stroke-white"
     >
       <polyline points="6 9 12 15 18 9"></polyline>
     </svg>
@@ -28,7 +28,7 @@ export const UpArrow = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="stroke-neon-green"
+      className="stroke-white"
     >
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>

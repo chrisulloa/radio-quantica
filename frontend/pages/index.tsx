@@ -1,26 +1,25 @@
-import { getAllCategories, ShowData, getAllShowData } from "../lib/shows";
-import ShowCard from "../components/showCard";
-import CategoriesCard from "../components/categoriesCard";
 import Head from "next/head";
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import fuzzysort from "fuzzysort";
-import debounce from "lodash/debounce";
+import { useEffect, useState } from "react";
 import { NewsCard } from "../components/newsCard";
 import {
   latestNewsQuery,
   archivePicksQuery,
+  merchPreviewsQuery,
 } from "../lib/gql/documents/queries";
 import client from "../lib/services/graphql";
-import { ArchivesPicksQuery, NewsPostsQuery } from "../lib/gql/types/graphql";
+import {
+  ArchivesPicksQuery,
+  MerchPreviewsQuery,
+  NewsPostsQuery,
+} from "../lib/gql/types/graphql";
 import React from "react";
 import { ArchiveCard } from "../components/archiveCard";
 import { deviceIsMobile } from "../lib/deviceInfo";
 import { SearchIcon } from "../components/searchIcon";
+import { MerchPreviewCard } from "../components/merchPreviewCard";
 
 export async function getStaticProps() {
-  const categories = await getAllCategories();
-  const allShowData = await getAllShowData(true);
   const { data } = await client.query({
     query: latestNewsQuery,
     variables: { page: 1, limit: 3, sort: "-publishDate" },
@@ -40,13 +39,22 @@ export async function getStaticProps() {
     },
     fetchPolicy: "no-cache",
   });
+  const { data: merchPreviewsData } = await client.query({
+    query: merchPreviewsQuery,
+    variables: {
+      limit: 3,
+      sort: "-createdAt",
+    },
+    fetchPolicy: "no-cache",
+  });
   const archivePicks = picksData.Archives;
+  const merchPreviews = merchPreviewsData.MerchPreviews;
   return {
     props: {
-      categories,
-      allShowData,
       newsPosts,
       archivePicks,
+
+      merchPreviews,
     },
   };
 }
@@ -124,6 +132,33 @@ const ArchivePicksCards = (props: {
   );
 };
 
+const MerchPreviewCards = (props: {
+  merchPreviews: MerchPreviewsQuery["MerchPreviews"];
+  isMobile: boolean;
+}) => {
+  const { merchPreviews } = props;
+  if (!merchPreviews || !merchPreviews.docs) {
+    return <div></div>;
+  }
+  return (
+    <React.Fragment>
+      {merchPreviews.docs.map((doc, i) => {
+        if (doc && doc.title) {
+          return (
+            <MerchPreviewCard
+              key={doc?.id}
+              link={doc?.url}
+              title={doc.title}
+              blurb={doc.blurb}
+              imageUrl={doc.image?.url}
+            ></MerchPreviewCard>
+          );
+        }
+      })}
+    </React.Fragment>
+  );
+};
+
 const NewsCards = (props: { posts: NewsPostsQuery["NewsPosts"] }) => {
   const { posts } = props;
   if (!posts || !posts.docs) {
@@ -141,6 +176,7 @@ const NewsCards = (props: { posts: NewsPostsQuery["NewsPosts"] }) => {
               title={doc.title}
               description={doc.blurb}
               date={doc.publishDate}
+              previewBannerUrl={doc.previewBanner?.url}
             ></NewsCard>
           );
         }
@@ -150,51 +186,25 @@ const NewsCards = (props: { posts: NewsPostsQuery["NewsPosts"] }) => {
 };
 
 export default function Home({
-  categories,
-  allShowData,
   newsPosts,
   archivePicks,
+  merchPreviews,
 }: {
   categories: string[];
-  allShowData: ShowData[];
   newsPosts: NewsPostsQuery["NewsPosts"];
   archivePicks: ArchivesPicksQuery["Archives"];
+  merchPreviews: MerchPreviewsQuery["MerchPreviews"];
 }) {
-  useEffect(() => {
-    return () => {
-      debouncedResults.cancel();
-    };
-  });
-
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     setIsMobile(deviceIsMobile());
   }, []);
-  const [shows, setShows] = useState<ShowData[]>(allShowData);
-  const handleSearch = useCallback(
-    (e: any) => {
-      e.preventDefault();
-      const val = e.target.value;
-      if (val) {
-        const results = fuzzysort.go(val, allShowData, {
-          keys: ["host", "title", "description"],
-          threshold: -25000,
-        });
-        setShows(results.map((r) => r.obj));
-      } else {
-        setShows(allShowData);
-      }
-    },
-    [allShowData]
-  );
-  const debouncedResults = useMemo(() => {
-    return debounce(handleSearch, 200);
-  }, [handleSearch]);
+
   return (
     <div>
       <HomePageHeader></HomePageHeader>
-      <div className="w-11/12 lg:w-9/12 2xl:w-7/12 md:ml-10 mx-auto my-3">
-        <div className="flex justify-between mt-2">
+      <div className="w-11/12 lg:w-9/12 2xl:w-7/12 md:ml-10 mx-auto">
+        <div className="flex justify-between">
           <h1 className="text-white">NEWS</h1>
           <Link
             href="/news"
@@ -203,13 +213,19 @@ export default function Home({
             MORE →
           </Link>
         </div>
-        <div className="grid gap-5 w-full mt-5 mb-5 md:grid-cols-3 grid-cols-1">
+        <div className="grid gap-5 w-full mb-5 md:grid-cols-3 grid-cols-1">
           {newsPosts && <NewsCards posts={newsPosts}></NewsCards>}
         </div>
         <div className="flex justify-between">
           <h1 className="text-white">STAFF PICKS</h1>
+          <Link
+            href="/latest"
+            className="text-white hover:bg-white hover:text-black p-1"
+          >
+            MORE →
+          </Link>
         </div>
-        <div className="grid gap-5 w-full mt-5 mb-8 md:grid-cols-3 grid-cols-1">
+        <div className="grid gap-5 w-full mb-8 md:grid-cols-3 grid-cols-1">
           {archivePicks && (
             <ArchivePicksCards
               archives={archivePicks}
@@ -217,7 +233,24 @@ export default function Home({
             ></ArchivePicksCards>
           )}
         </div>
-        <hr className="pt-5 h-4" />
+        <div className="flex justify-between">
+          <h1 className="text-white">MERCH</h1>
+          <Link
+            href="https://particlefm.bandcamp.com/"
+            target="_blank"
+            className="text-white hover:bg-white hover:text-black"
+          >
+            MORE →
+          </Link>
+        </div>
+        <div className="grid gap-5 w-full mb-8 md:grid-cols-3 grid-cols-1">
+          {archivePicks && (
+            <MerchPreviewCards
+              merchPreviews={merchPreviews}
+              isMobile={isMobile}
+            ></MerchPreviewCards>
+          )}
+        </div>
       </div>
     </div>
   );
