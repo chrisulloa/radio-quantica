@@ -9,15 +9,6 @@ const withTM = require("next-transpile-modules")([
 ]);
 
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/schedule',
-        destination: '/calendar',
-        permanent: true,
-      },
-    ]
-  },
   images: {
     remotePatterns: [
       {
@@ -25,6 +16,11 @@ const nextConfig = {
         hostname: 'localhost',
         port: '3000'
       },
+      {
+        protocol: 'https',
+        hostname: "cdn.particle.fm",
+        port: '',
+      }
     ],
   },
   reactStrictMode: true,

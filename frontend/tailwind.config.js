@@ -41,7 +41,8 @@ module.exports = {
         5: '5px'
       },
       fontFamily: {
-        sans: ['var(--font-fixed-sys)', ...fontFamily.sans],
+        openSans: ['var(--font-space-mono)', ...fontFamily.sans],
+        eurostile: ['var(--font-eurostile)', ...fontFamily.sans]
       },
     },
   },

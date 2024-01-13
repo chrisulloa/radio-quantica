@@ -6,7 +6,7 @@ const navbarItems = [
   { text: "Shows", link: "/shows" },
   { text: "News", link: "/news" },
   { text: "About", link: "/about" },
-  { text: "Calendar", link: "/calendar" },
+  { text: "Schedule", link: "schedule" },
   {
     text: "Donate",
     link: "https://www.gofundme.com/f/help-internet-radio-station-particle-fm-grow",
