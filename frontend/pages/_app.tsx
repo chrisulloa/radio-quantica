@@ -12,6 +12,7 @@ import localFont from "@next/font/local";
 const spaceMono = Space_Mono({
   subsets: ["latin"],
   weight: "400",
+  style: "normal",
   variable: "--font-space-mono",
 });
 

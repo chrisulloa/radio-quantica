@@ -16,7 +16,6 @@ import {
 import React from "react";
 import { ArchiveCard } from "../components/archiveCard";
 import { deviceIsMobile } from "../lib/deviceInfo";
-import { SearchIcon } from "../components/searchIcon";
 import { MerchPreviewCard } from "../components/merchPreviewCard";
 
 export async function getStaticProps() {
@@ -215,23 +214,6 @@ export default function Home({
         </div>
         <div className="grid gap-5 w-full mb-5 md:grid-cols-3 grid-cols-1">
           {newsPosts && <NewsCards posts={newsPosts}></NewsCards>}
-        </div>
-        <div className="flex justify-between">
-          <h1 className="text-white">STAFF PICKS</h1>
-          <Link
-            href="/latest"
-            className="text-white hover:bg-white hover:text-black p-1"
-          >
-            MORE →
-          </Link>
-        </div>
-        <div className="grid gap-5 w-full mb-8 md:grid-cols-3 grid-cols-1">
-          {archivePicks && (
-            <ArchivePicksCards
-              archives={archivePicks}
-              isMobile={isMobile}
-            ></ArchivePicksCards>
-          )}
         </div>
         <div className="flex justify-between">
           <h1 className="text-white">MERCH</h1>

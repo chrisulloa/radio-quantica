@@ -22,7 +22,7 @@ export function GoBackLink({ fallback, isHidden }: IGoBackLinkProps) {
   return hasPrevPage ? (
     <Link
       type="button"
-      className="text-white px-2 hover:text-black hover:bg-white"
+      className="text-white px-2 hover:text-black hover:bg-white text-md"
       href={prevPage}
     >
       ← Back

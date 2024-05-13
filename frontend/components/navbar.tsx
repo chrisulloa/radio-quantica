@@ -2,7 +2,6 @@ import Link from "next/link";
 import React, { useCallback, useState } from "react";
 
 const navbarItems = [
-  { text: "Latest", link: "/latest" },
   { text: "Shows", link: "/shows" },
   { text: "News", link: "/news" },
   { text: "About", link: "/about" },

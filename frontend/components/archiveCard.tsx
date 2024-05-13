@@ -23,11 +23,13 @@ const ArchiveCardInfoSection = ({ archive }: { archive: MinArchive }) => {
         <div className="grow text-white text-lg col-span-1">
           {archive.show?.showName}
         </div>
-        <div className="text-white text-xs col-span-1 ml-5 my-auto py-1">
-          {formatCompactShowDate(archive.date)}
+        <div>
+          <div className="text-white text-xs col-span-1 ml-5 my-auto py-1">
+            {formatCompactShowDate(archive.date)}
+          </div>
         </div>
       </div>
-      <div className="text-white opacity-80 col-span-2 text-sm">
+      <div className="text-white opacity-80 col-span-2 font-space-mono">
         <p>w/ {archive.hosts?.map((host) => host?.name).join(" + ")}</p>
       </div>
     </div>
@@ -46,7 +48,7 @@ const DescriptionOrCover = ({
                  sm:w-full sm:h-full overflow-scroll sm:absolute top-0 bottom-0
                  w-0 h-0
                  hidden sm:block
-                 text-white bg-black lg:text`}
+                 text-white bg-black lg:text font-space-mono`}
     >
       <div className="hidden sm:block">
         <h1 className="w-full">About</h1>

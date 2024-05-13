@@ -2,7 +2,6 @@ import { useQuery } from "@apollo/client";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import ArchivesList from "../../../components/archivesList";
 import Card from "../../../components/card";
 import GoBackLink from "../../../components/goBack";
 import { LoadingOverlay } from "../../../components/loadingOverlay";
@@ -99,13 +98,6 @@ export const PastShows = (props: { showTitle: string; showPageId: string }) => {
             <LoadingSpinner delay={250} />
           </div>
         )}
-        <PastShowsHeader showTitle={showTitle}></PastShowsHeader>
-
-        <ArchivesList
-          show={data}
-          showPageId={showPageId}
-          fetchMore={fetchMoreWithUpdate}
-        />
       </div>
     </div>
   );
@@ -166,23 +158,22 @@ export default function Show({
       <div className="col-span-4">
         <Card>{showNameAndHost}</Card>
       </div>
-      <ShowContent content={content} />
-      <PastShows showTitle={show.title} showPageId={showPageId}></PastShows>
-      <div className="col-span-4 text-white my-4">CATEGORIES</div>
-      <div className="col-span-4 flex flex-wrap gap-y-5 gap-x-5">
+      <div className="col-span-4 flex flex-wrap gap-y-5 gap-x-5 mt-5">
         {show.categories.map((category) => {
           return (
             <Link
               href={`/categories/${category}`}
               key={category}
-              className="text-center leading-tight w-fit h-fit px-5 py-1 border text-white border-white hover:bg-white hover:text-black"
+              className="text-center leading-tight w-fit h-fit px-5 py-1 border text-white border-white hover:bg-white hover:text-black text-sm"
             >
               {category}
             </Link>
           );
         })}
       </div>
-      <div className="mt-8 mb-4 col-span-4">
+      <ShowContent content={content} />
+      <hr className="mt-8 mb-6 col-span-4"></hr>
+      <div className="col-span-4 ">
         <GoBackLink fallback="/"></GoBackLink>
       </div>
     </div>

@@ -23,7 +23,7 @@ export const NewsCard = ({
       target={newWindow ? "_blank" : ""}
       className="py-3 h-full cursor-pointer text-white font-bold group hover:opacity-50"
     >
-      <h1 className="text-lg border-b-black border-b w-fit mb-4">{title}</h1>
+      <h1 className="text-md border-b-black border-b w-fit mb-4">{title}</h1>
       {previewBannerUrl && (
         <div className="mt-1 mb-3 overflow-hidden relative h-60 w-full">
           <Image
@@ -35,11 +35,11 @@ export const NewsCard = ({
         </div>
       )}
       {date && (
-        <div className="text-white text-xs w-min mt-3 py-1 mb-2">
+        <div className="text-white text-xs w-min mt-3 py-1 mb-1">
           {formatCompactShowDate(date)}
         </div>
       )}
-      <div className="text-[0.985rem] col-span-3 text-sm text-dos-grey">
+      <div className="text-[0.985rem] col-span-3 text-sm text-dos-grey font-space-mono">
         {description}
       </div>
     </Link>

@@ -28,8 +28,8 @@ export const MerchPreviewCard = ({
           ></Image>
         </div>
       )}
-      <h1 className="text-lg mb-3 border-black border-b w-fit">{title}</h1>
-      <div className="text-dos-grey text-[0.985rem] col-span-3 text-xs">
+      <h1 className="text-md mb-1 border-black border-b w-fit">{title}</h1>
+      <div className="text-dos-grey text-[0.985rem] col-span-3 text-sm font-space-mono">
         {blurb}
       </div>
     </Link>
