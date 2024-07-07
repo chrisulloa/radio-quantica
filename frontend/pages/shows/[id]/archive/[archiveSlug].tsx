@@ -161,10 +161,10 @@ function ArchivePage({
           ></ArchiveContent>
         </div>
         <div className="mt-2 sm:mt-0 col-span-4 flex justify-between">
-          <GoBackLink fallback={`/show/${showId}`}></GoBackLink>
+          <GoBackLink fallback={`/shows/${showId}`}></GoBackLink>
           <Link
             className="text-white px-2 hover:bg-white hover:text-black"
-            href={`/show/${showId}`}
+            href={`/shows/${showId}`}
           >
             Show Page →
           </Link>

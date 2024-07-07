@@ -14,7 +14,7 @@ export default function ShowCard({
     <Card>
       <div className="leading-tight tracking-tight text-[18px] break-words">
         <Link
-          href={`/show/${id}`}
+          href={`/shows/${id}`}
           className="hover:bg-black hover:text-dos-grey"
         >
           {title} w/ {host}

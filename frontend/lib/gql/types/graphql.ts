@@ -4344,43 +4344,36 @@ export type Mutation = {
 
 export type MutationCreateArchiveArgs = {
   data: MutationArchiveInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationCreateArchiveUploadArgs = {
   data: MutationArchiveUploadInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationCreateCategoryArgs = {
   data: MutationCategoryInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationCreateHostArgs = {
   data: MutationHostInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationCreateMailingListSubscriberArgs = {
   data: MutationMailingListSubscriberInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationCreateMerchPreviewArgs = {
   data: MutationMerchPreviewInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationCreateNewsMediaArgs = {
   data: MutationNewsMediaInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -4392,31 +4385,26 @@ export type MutationCreateNewsPostArgs = {
 
 export type MutationCreateOnboardingEmailArgs = {
   data: MutationOnboardingEmailInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationCreatePayloadPreferenceArgs = {
   data: MutationPayloadPreferenceInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationCreateShowArgs = {
   data: MutationShowInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationCreateTagArgs = {
   data: MutationTagInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationCreateUserArgs = {
   data: MutationUserInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -4522,7 +4510,6 @@ export type MutationUnlockUserArgs = {
 export type MutationUpdateArchiveArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationArchiveUpdateInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
@@ -4530,7 +4517,6 @@ export type MutationUpdateArchiveArgs = {
 export type MutationUpdateArchiveUploadArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationArchiveUploadUpdateInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
@@ -4538,7 +4524,6 @@ export type MutationUpdateArchiveUploadArgs = {
 export type MutationUpdateCategoryArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationCategoryUpdateInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
@@ -4546,7 +4531,6 @@ export type MutationUpdateCategoryArgs = {
 export type MutationUpdateHostArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationHostUpdateInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
@@ -4554,7 +4538,6 @@ export type MutationUpdateHostArgs = {
 export type MutationUpdateMailingListSubscriberArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationMailingListSubscriberUpdateInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
@@ -4562,7 +4545,6 @@ export type MutationUpdateMailingListSubscriberArgs = {
 export type MutationUpdateMerchPreviewArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationMerchPreviewUpdateInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
@@ -4570,7 +4552,6 @@ export type MutationUpdateMerchPreviewArgs = {
 export type MutationUpdateNewsMediaArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationNewsMediaUpdateInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
@@ -4586,7 +4567,6 @@ export type MutationUpdateNewsPostArgs = {
 export type MutationUpdateOnboardingEmailArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationOnboardingEmailUpdateInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
@@ -4594,7 +4574,6 @@ export type MutationUpdateOnboardingEmailArgs = {
 export type MutationUpdatePayloadPreferenceArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationPayloadPreferenceUpdateInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
@@ -4602,7 +4581,6 @@ export type MutationUpdatePayloadPreferenceArgs = {
 export type MutationUpdateShowArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationShowUpdateInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
@@ -4610,7 +4588,6 @@ export type MutationUpdateShowArgs = {
 export type MutationUpdateTagArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationTagUpdateInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
@@ -4618,7 +4595,6 @@ export type MutationUpdateTagArgs = {
 export type MutationUpdateUserArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationUserUpdateInput;
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
@@ -8113,6 +8089,11 @@ export type NewsPostVersion = {
   parent?: Maybe<NewsPost>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   version?: Maybe<NewsPostVersion_Version>;
+};
+
+
+export type NewsPostVersionParentArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type NewsPostVersion_Version = {
@@ -11688,6 +11669,19 @@ export type Query = {
   Tags?: Maybe<Tags>;
   User?: Maybe<User>;
   Users?: Maybe<Users>;
+  countArchiveUploads?: Maybe<CountArchiveUploads>;
+  countArchives?: Maybe<CountArchives>;
+  countCategories?: Maybe<CountCategories>;
+  countHosts?: Maybe<CountHosts>;
+  countMailingListSubscribers?: Maybe<CountMailingListSubscribers>;
+  countMerchPreviews?: Maybe<CountMerchPreviews>;
+  countNewsMedias?: Maybe<CountNewsMedias>;
+  countNewsPosts?: Maybe<CountNewsPosts>;
+  countOnboardingEmails?: Maybe<CountOnboardingEmails>;
+  countPayloadPreferences?: Maybe<CountPayloadPreferences>;
+  countShows?: Maybe<CountShows>;
+  countTags?: Maybe<CountTags>;
+  countUsers?: Maybe<CountUsers>;
   docAccessArchive?: Maybe<ArchiveDocAccess>;
   docAccessArchiveUpload?: Maybe<ArchiveUploadsDocAccess>;
   docAccessCategory?: Maybe<CategoriesDocAccess>;
@@ -11709,19 +11703,16 @@ export type Query = {
 
 
 export type QueryArchiveArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
 
 export type QueryArchiveUploadArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
 
 export type QueryArchiveUploadsArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
@@ -11730,7 +11721,6 @@ export type QueryArchiveUploadsArgs = {
 
 
 export type QueryArchivesArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
@@ -11739,7 +11729,6 @@ export type QueryArchivesArgs = {
 
 
 export type QueryCategoriesArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
@@ -11748,19 +11737,16 @@ export type QueryCategoriesArgs = {
 
 
 export type QueryCategoryArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
 
 export type QueryHostArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
 
 export type QueryHostsArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
@@ -11769,13 +11755,11 @@ export type QueryHostsArgs = {
 
 
 export type QueryMailingListSubscriberArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
 
 export type QueryMailingListSubscribersArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
@@ -11784,13 +11768,11 @@ export type QueryMailingListSubscribersArgs = {
 
 
 export type QueryMerchPreviewArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
 
 export type QueryMerchPreviewsArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
@@ -11799,13 +11781,11 @@ export type QueryMerchPreviewsArgs = {
 
 
 export type QueryNewsMediaArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
 
 export type QueryNewsMediasArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
@@ -11834,13 +11814,11 @@ export type QueryNewsPostsArgs = {
 
 
 export type QueryOnboardingEmailArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
 
 export type QueryOnboardingEmailsArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
@@ -11849,13 +11827,11 @@ export type QueryOnboardingEmailsArgs = {
 
 
 export type QueryPayloadPreferenceArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
 
 export type QueryPayloadPreferencesArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
@@ -11864,7 +11840,6 @@ export type QueryPayloadPreferencesArgs = {
 
 
 export type QueryShowArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
@@ -11875,7 +11850,6 @@ export type QueryShowBySlugArgs = {
 
 
 export type QueryShowsArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
@@ -11889,13 +11863,11 @@ export type QueryShowsByCategoryArgs = {
 
 
 export type QueryTagArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
 
 export type QueryTagsArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
@@ -11904,16 +11876,80 @@ export type QueryTagsArgs = {
 
 
 export type QueryUserArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
 };
 
 
 export type QueryUsersArgs = {
-  draft?: InputMaybe<Scalars['Boolean']>;
   limit?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
+  where?: InputMaybe<User_Where>;
+};
+
+
+export type QueryCountArchiveUploadsArgs = {
+  where?: InputMaybe<ArchiveUpload_Where>;
+};
+
+
+export type QueryCountArchivesArgs = {
+  where?: InputMaybe<Archive_Where>;
+};
+
+
+export type QueryCountCategoriesArgs = {
+  where?: InputMaybe<Category_Where>;
+};
+
+
+export type QueryCountHostsArgs = {
+  where?: InputMaybe<Host_Where>;
+};
+
+
+export type QueryCountMailingListSubscribersArgs = {
+  where?: InputMaybe<MailingListSubscriber_Where>;
+};
+
+
+export type QueryCountMerchPreviewsArgs = {
+  where?: InputMaybe<MerchPreview_Where>;
+};
+
+
+export type QueryCountNewsMediasArgs = {
+  where?: InputMaybe<NewsMedia_Where>;
+};
+
+
+export type QueryCountNewsPostsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  where?: InputMaybe<NewsPost_Where>;
+};
+
+
+export type QueryCountOnboardingEmailsArgs = {
+  where?: InputMaybe<OnboardingEmail_Where>;
+};
+
+
+export type QueryCountPayloadPreferencesArgs = {
+  where?: InputMaybe<PayloadPreference_Where>;
+};
+
+
+export type QueryCountShowsArgs = {
+  where?: InputMaybe<Show_Where>;
+};
+
+
+export type QueryCountTagsArgs = {
+  where?: InputMaybe<Tag_Where>;
+};
+
+
+export type QueryCountUsersArgs = {
   where?: InputMaybe<User_Where>;
 };
 
@@ -13840,6 +13876,71 @@ export type CategoriesDocAccess = {
   fields?: Maybe<CategoriesDocAccessFields>;
   read?: Maybe<CategoriesReadDocAccess>;
   update?: Maybe<CategoriesUpdateDocAccess>;
+};
+
+export type CountArchiveUploads = {
+  __typename?: 'countArchiveUploads';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountArchives = {
+  __typename?: 'countArchives';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountCategories = {
+  __typename?: 'countCategories';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountHosts = {
+  __typename?: 'countHosts';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountMailingListSubscribers = {
+  __typename?: 'countMailingListSubscribers';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountMerchPreviews = {
+  __typename?: 'countMerchPreviews';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountNewsMedias = {
+  __typename?: 'countNewsMedias';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountNewsPosts = {
+  __typename?: 'countNewsPosts';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountOnboardingEmails = {
+  __typename?: 'countOnboardingEmails';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountPayloadPreferences = {
+  __typename?: 'countPayloadPreferences';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountShows = {
+  __typename?: 'countShows';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountTags = {
+  __typename?: 'countTags';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountUsers = {
+  __typename?: 'countUsers';
+  totalDocs?: Maybe<Scalars['Int']>;
 };
 
 export type HostsAccess = {
