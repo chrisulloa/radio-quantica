@@ -17,7 +17,7 @@ import {
   spacesURL,
   spacesBucket,
   validCORSURLs,
-  serverURL,
+  // serverURL,
   CDNBaseURL,
 } from './utils/config';
 
@@ -48,19 +48,19 @@ export default buildConfig({
     window: 18000,
     max: 5000,
   },
-  serverURL,
+  // serverURL,
   collections: Collections,
   plugins: [
-    // cloudStorage({
-    //   collections: {
-    //     newsMedia: {
-    //       prefix: 'news-media',
-    //       adapter,
-    //       generateFileURL: (args) =>
-    //         `${CDNBaseURL}/${args.prefix}/${args.filename}`,
-    //     },
-    //   },
-    // }),
+    cloudStorage({
+      collections: {
+        newsMedia: {
+          prefix: 'news-media',
+          adapter,
+          generateFileURL: (args) =>
+            `${CDNBaseURL}/${args.prefix}/${args.filename}`,
+        },
+      },
+    }),
   ],
   graphQL: {
     queries: (GraphQL, payload) => ({
