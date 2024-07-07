@@ -19,7 +19,7 @@ export const serverURL =
     ? 'http://localhost:3000'
     : 'https://api.particle.fm';
 
-export const CDNBaseURL = 'https://cdn.particle.fm';
+export const CDNBaseURL = 'https://radio-quantica.ams3.cdn.digitaloceanspaces.com';
 
-export const spacesURL = 'https://sfo3.digitaloceanspaces.com';
-export const spacesBucket = 'particle-fm-space';
+export const spacesURL = 'https://ams3.digitaloceanspaces.com';
+export const spacesBucket = 'radio-quantica';
