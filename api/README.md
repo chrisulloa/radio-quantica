@@ -1,40 +1,24 @@
-# Particle FM: GraphQL API
+# Radio Quantica: Payload CMS & API
 
-This is the backend API service for the Particle FM website and admin tooling.
-It is written in Typescript and uses
-[Apollo Server](https://www.apollographql.com/docs/) for handling GraphQL
-services.
+This is the backend API service for the Radio Quantica website and admin
+tooling. It is written in Typescript and uses
+[Payload CMS](https://payloadcms.com/) providing a GraphQL endpoint and REST API
+as well as an admin console.
 
 ## How to Run Locally
 
-First start the Postgres DB with Docker: `./run-db.sh`, then you can query the
-database locally:
-
-```
-psql -d defaultdb -U doadmin -p 5432 -h localhost
-password: test
-```
+First start a MongoDB instance locally with Docker.
 
 Next install dependencies with `npm install`
 
-Now run `npm run dev` and access the service at `localhost:3000/graphql`
-
-```
-INFO 2023-01-02T01:43:26.716Z: Fetching azuracast_creds from creds.json file.
-INFO 2023-01-02T01:43:26.732Z: 🚀 Server ready at http://localhost:3000/graphql
-```
+Now run `npm run dev` and access the service at `localhost:3000/admin`
 
 The project uses [nodemon](https://github.com/remy/nodemon) for hot reloading.
 
 ## How to Develop
 
-After making changes to the `/resources/schema.graphql` file you will need to
-generate types for use in the Typescript code by running `npm run generate`.
-
-Similarly any changes to the
-[Prisma](https://www.prisma.io/docs/concepts/components/prisma-migrate/get-started)
-schema will require you to run migrations with `npm run migrate:dev` to apply to
-your local database (prod migrations are run as part of the build).
+You can edit and add collections in the `src/collections` directory to update
+the Payload CMS schema.
 
 ## Deployment
 
