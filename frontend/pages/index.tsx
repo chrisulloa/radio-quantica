@@ -9,7 +9,6 @@ import {
 import client from "../lib/services/graphql";
 import { MerchPreviewsQuery, NewsPostsQuery } from "../lib/gql/types/graphql";
 import React from "react";
-import { ArchiveCard } from "../components/archiveCard";
 import { deviceIsMobile } from "../lib/deviceInfo";
 import { MerchPreviewCard } from "../components/merchPreviewCard";
 

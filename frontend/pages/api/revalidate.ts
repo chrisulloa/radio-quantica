@@ -17,8 +17,7 @@ export default async function handler(
 
   if (
     isString(path) &&
-    (path?.includes("/archive/") ||
-      path?.includes("/shows/") ||
+    (path?.includes("/shows/") ||
       path?.includes("/categories/") ||
       path?.includes("/news/") ||
       path === "/news" ||
