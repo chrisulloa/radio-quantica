@@ -10,141 +10,12 @@ export const getShowByFields = graphql(`
   }
 `);
 
-export const showArchiveBySlug = graphql(`
-  query ArchiveBySlug($where: Archive_where) {
-    Archives(where: $where) {
-      docs {
-        show {
-          id
-          slug
-        }
-        fullTitle
-        date
-        hosts {
-          name
-        }
-        subtitle
-        slug
-        images {
-          imageUrl640
-          imageUrl320
-          imageUrl1080
-        }
-        archiveUploads {
-          id
-          url
-          service
-          description
-        }
-      }
-    }
-  }
-`);
-
 export const getShowSlug = graphql(`
   query Shows($where: Show_where) {
     Shows(where: $where) {
       docs {
         slug
       }
-    }
-  }
-`);
-
-export const showArchivesQuery = graphql(`
-  query Archives(
-    $where: Archive_where
-    $limit: Int
-    $sort: String
-    $page: Int
-  ) {
-    Archives(where: $where, limit: $limit, sort: $sort, page: $page) {
-      docs {
-        fullTitle
-        subtitle
-        hosts {
-          name
-        }
-        slug
-        date
-        archiveUploads {
-          description
-        }
-      }
-      page
-      hasNextPage
-      hasPrevPage
-    }
-  }
-`);
-
-export const showByName = graphql(`
-  query Archive($where: Archive_where) {
-    Archives(where: $where) {
-      docs {
-        id
-        createdAt
-        updatedAt
-        slug
-        categories {
-          id
-          createdAt
-          updatedAt
-          name
-        }
-        date
-        subtitle
-        fullTitle
-        hosts {
-          id
-          createdAt
-          updatedAt
-          name
-          email
-        }
-        show {
-          id
-          createdAt
-          updatedAt
-          showName
-          slug
-          description
-          primaryHosts {
-            id
-            createdAt
-            updatedAt
-            name
-            email
-          }
-        }
-        archiveUploads {
-          id
-          createdAt
-          updatedAt
-          archive {
-            id
-            createdAt
-            updatedAt
-            slug
-            date
-            subtitle
-            fullTitle
-          }
-          service
-          url
-          description
-        }
-      }
-      totalDocs
-      offset
-      limit
-      totalPages
-      page
-      pagingCounter
-      hasPrevPage
-      hasNextPage
-      prevPage
-      nextPage
     }
   }
 `);
@@ -201,46 +72,6 @@ export const showsQuery = graphql(`
     }
   }
 `);
-
-export const allArchivesQuery = graphql(
-  `
-    query AllArchives(
-      $page: Int
-      $limit: Int
-      $sort: String
-      $where: Archive_where
-    ) {
-      Archives(page: $page, limit: $limit, sort: $sort, where: $where) {
-        hasNextPage
-        hasPrevPage
-        page
-        docs {
-          id
-          show {
-            slug
-            showName
-            id
-          }
-          images {
-            imageUrl640
-            imageUrl320
-            imageUrl1080
-          }
-          hosts {
-            name
-          }
-          archiveUploads {
-            description
-          }
-          subtitle
-          fullTitle
-          date
-          slug
-        }
-      }
-    }
-  `
-);
 
 export const allCategories = graphql(
   `
@@ -367,36 +198,6 @@ export const tagLookupQuery = graphql(`
       docs {
         id
         name
-      }
-    }
-  }
-`);
-
-export const archivePicksQuery = graphql(`
-  query ArchivesPicks($limit: Int, $where: Archive_where, $sort: String) {
-    Archives(limit: $limit, where: $where, sort: $sort) {
-      docs {
-        id
-        show {
-          slug
-          showName
-          id
-        }
-        images {
-          imageUrl640
-          imageUrl320
-          imageUrl1080
-        }
-        hosts {
-          name
-        }
-        archiveUploads {
-          description
-        }
-        subtitle
-        fullTitle
-        date
-        slug
       }
     }
   }

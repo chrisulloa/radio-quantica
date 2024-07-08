@@ -4,15 +4,10 @@ import { useEffect, useState } from "react";
 import { NewsCard } from "../components/newsCard";
 import {
   latestNewsQuery,
-  archivePicksQuery,
   merchPreviewsQuery,
 } from "../lib/gql/documents/queries";
 import client from "../lib/services/graphql";
-import {
-  ArchivesPicksQuery,
-  MerchPreviewsQuery,
-  NewsPostsQuery,
-} from "../lib/gql/types/graphql";
+import { MerchPreviewsQuery, NewsPostsQuery } from "../lib/gql/types/graphql";
 import React from "react";
 import { ArchiveCard } from "../components/archiveCard";
 import { deviceIsMobile } from "../lib/deviceInfo";
@@ -25,19 +20,6 @@ export async function getStaticProps() {
     fetchPolicy: "no-cache",
   });
   const newsPosts = data.NewsPosts;
-  const { data: picksData } = await client.query({
-    query: archivePicksQuery,
-    variables: {
-      limit: 3,
-      sort: "-date",
-      where: {
-        staffPick: {
-          equals: true,
-        },
-      },
-    },
-    fetchPolicy: "no-cache",
-  });
   const { data: merchPreviewsData } = await client.query({
     query: merchPreviewsQuery,
     variables: {
@@ -46,13 +28,10 @@ export async function getStaticProps() {
     },
     fetchPolicy: "no-cache",
   });
-  const archivePicks = picksData.Archives;
   const merchPreviews = merchPreviewsData.MerchPreviews;
   return {
     props: {
       newsPosts,
-      archivePicks,
-
       merchPreviews,
     },
   };
@@ -101,33 +80,6 @@ const HomePageHeader = () => {
       ></meta>
       <meta property="og:image:type" content="image/jpg"></meta>
     </Head>
-  );
-};
-
-const ArchivePicksCards = (props: {
-  archives: ArchivesPicksQuery["Archives"];
-  isMobile: boolean;
-}) => {
-  const { archives } = props;
-  if (!archives || !archives.docs) {
-    return <div></div>;
-  }
-  return (
-    <React.Fragment>
-      {archives.docs.map((doc, i) => {
-        if (doc && doc.fullTitle && doc.date) {
-          return (
-            <ArchiveCard
-              key={doc?.id}
-              archive={doc}
-              showId={doc.show?.slug}
-              index={i}
-              isMobile={props.isMobile}
-            ></ArchiveCard>
-          );
-        }
-      })}
-    </React.Fragment>
   );
 };
 
@@ -186,12 +138,10 @@ const NewsCards = (props: { posts: NewsPostsQuery["NewsPosts"] }) => {
 
 export default function Home({
   newsPosts,
-  archivePicks,
   merchPreviews,
 }: {
   categories: string[];
   newsPosts: NewsPostsQuery["NewsPosts"];
-  archivePicks: ArchivesPicksQuery["Archives"];
   merchPreviews: MerchPreviewsQuery["MerchPreviews"];
 }) {
   const [isMobile, setIsMobile] = useState(false);
@@ -224,14 +174,6 @@ export default function Home({
           >
             MORE →
           </Link>
-        </div>
-        <div className="grid gap-5 w-full mb-8 md:grid-cols-3 grid-cols-1">
-          {archivePicks && (
-            <MerchPreviewCards
-              merchPreviews={merchPreviews}
-              isMobile={isMobile}
-            ></MerchPreviewCards>
-          )}
         </div>
       </div>
     </div>

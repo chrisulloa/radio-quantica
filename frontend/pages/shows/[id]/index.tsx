@@ -1,18 +1,10 @@
-import { useQuery } from "@apollo/client";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Card from "../../../components/card";
 import GoBackLink from "../../../components/goBack";
-import { LoadingOverlay } from "../../../components/loadingOverlay";
-import { LoadingSpinner } from "../../../components/loadingSpinner";
 import { ShowContent } from "../../../components/showContent";
 import { getAllShowIDs, getShowData, ShowData } from "../../../lib/shows";
-import {
-  getShowByFields,
-  showArchivesQuery,
-} from "../../../lib/gql/documents/queries";
-import { ArchivesQuery } from "../../../lib/gql/types/graphql";
 
 export async function getStaticPaths() {
   const allShowIDs = await getAllShowIDs();
@@ -39,69 +31,6 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
     },
   };
 }
-
-export const PastShowsHeader = (props: { showTitle: string }) => {
-  return (
-    <div
-      key={`${props.showTitle}-past-shows`}
-      className="text-white text-base mb-2 tracking-wide"
-    >
-      PAST SHOWS
-    </div>
-  );
-};
-
-const updateQuery = (
-  previousResult: ArchivesQuery,
-  { fetchMoreResult }: { fetchMoreResult: ArchivesQuery }
-) => {
-  return Boolean(
-    fetchMoreResult.Archives?.docs && fetchMoreResult.Archives?.docs.length
-  )
-    ? fetchMoreResult
-    : previousResult;
-};
-
-export const PastShows = (props: { showTitle: string; showPageId: string }) => {
-  const { showTitle, showPageId } = props;
-  const showIdResult = useQuery(getShowByFields, {
-    variables: { where: { slug: { equals: showPageId } } },
-  });
-
-  const showId =
-    showIdResult.data?.Shows?.docs && showIdResult.data?.Shows?.docs[0]?.id;
-
-  const { loading, error, data, fetchMore } = useQuery(showArchivesQuery, {
-    skip: !showId,
-    variables: {
-      where: { show: { equals: showId } },
-      limit: 5,
-      sort: "-date",
-      page: 1,
-    },
-    notifyOnNetworkStatusChange: true,
-  });
-
-  const fetchMoreWithUpdate = (variables: any) => {
-    return fetchMore({ variables, updateQuery });
-  };
-
-  if (error || !data?.Archives?.docs || data?.Archives?.docs.length === 0)
-    return <div></div>;
-
-  return (
-    <div className="relative col-span-4 mb-4">
-      <div key={`${showTitle}-archives`} className="col-span-4 h-min">
-        {loading && <LoadingOverlay delay={250} />}
-        {loading && (
-          <div className="absolute z-20 left-1/2 top-1/2">
-            <LoadingSpinner delay={250} />
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
 
 export default function Show({
   showPageId,
