@@ -164,12 +164,18 @@ export default function Home({
         <div className="flex justify-between">
           <h1 className="text-white">MERCH</h1>
           <Link
-            href="https://particlefm.bandcamp.com/"
+            href="https://quanticaonline.bandcamp.com/merch"
             target="_blank"
             className="text-white hover:bg-white hover:text-black"
           >
             MORE →
           </Link>
+          {merchPreviews && (
+            <MerchPreviewCards
+              merchPreviews={merchPreviews}
+              isMobile={isMobile}
+            ></MerchPreviewCards>
+          )}
         </div>
       </div>
     </div>

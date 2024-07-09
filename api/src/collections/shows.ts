@@ -72,7 +72,6 @@ const Shows: CollectionConfig = {
       name: 'coverImage',
       type: 'upload',
       relationTo: 'media',
-      required: true,
     },
   ],
 };

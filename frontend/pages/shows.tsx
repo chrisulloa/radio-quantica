@@ -5,7 +5,6 @@ import ShowCard from "../components/showCard";
 import CategoriesCard from "../components/categoriesCard";
 import { SearchIcon } from "../components/searchIcon";
 import { ShowData, getAllCategories, getAllShowData } from "../lib/shows";
-import Link from "next/link";
 import Head from "next/head";
 
 export async function getStaticProps() {
@@ -91,15 +90,7 @@ export default function Shows({
     <div className="grid gap-y-5 md:gap-36 lg:gap-42 w-11/12 md:w-9/12 2xl:w-7/12 md:ml-10 mx-auto grid-cols-1 md:grid-cols-6 mb-8">
       <ShowsPageHeader></ShowsPageHeader>
       <div className="col-span-1 md:my-0 sm:col-span-4">
-        <div className="flex justify-between">
-          <h1 className="text-white">RADIO SHOWS</h1>
-          <Link
-            href="/latest"
-            className="text-white mb-5 hover:bg-white hover:text-black"
-          >
-            LATEST →
-          </Link>
-        </div>
+        <h1 className="text-white">RADIO SHOWS</h1>
         <form
           autoComplete={"off"}
           id="chatInput"
