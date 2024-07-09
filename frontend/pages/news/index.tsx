@@ -36,7 +36,7 @@ export async function getStaticProps() {
 
 const NewsPageHeader = () => (
   <Head>
-    <title>Latest News - PARTICLE.FM</title>
+    <title>Latest News - Rádio Quântica</title>
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@quanticaonline" />
     <meta name="twitter:title" content="Rádio Quântica | Latest News" />

@@ -240,7 +240,7 @@ const PlayerView = () => {
       setViewportWidth(getViewportWidth())
     );
     const audio = audioRef.current;
-    if (audio) audio.title = `${currentShow} - PARTICLE.FM`;
+    if (audio) audio.title = `${currentShow} - Rádio Quântica`;
   }, [audioRef, currentShow]);
 
   const player = (

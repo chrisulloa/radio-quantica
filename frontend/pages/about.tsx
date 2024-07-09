@@ -59,7 +59,7 @@ export default function About() {
   return (
     <div className="mx-4 sm:ml-8">
       <Head>
-        <title>Our project and mission - PARTICLE.FM</title>
+        <title>Our project and mission - Rádio Quântica</title>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@quanticaonline" />
         <meta name="twitter:title" content="Rádio Quântica | About Us" />

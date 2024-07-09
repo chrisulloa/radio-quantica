@@ -19,7 +19,7 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
   const show = await getShowData(params.id);
   if (!show) return { props: { showPageId: params.id } };
   const showNameAndHost = `${show.title} w/ ${show.host}`;
-  const title = `${showNameAndHost} - PARTICLE.FM`;
+  const title = `${showNameAndHost} - Rádio Quântica`;
 
   return {
     props: {

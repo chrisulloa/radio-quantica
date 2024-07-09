@@ -70,7 +70,7 @@ const NewsTagHeader = (props: { tagName: string }) => {
   const capitalizedName = capitalize(props.tagName);
   return (
     <Head>
-      <title>{`${capitalizedName} News - PARTICLE.FM`}</title>
+      <title>{`${capitalizedName} News - Rádio Quântica`}</title>
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@quanticaonline" />
       <meta

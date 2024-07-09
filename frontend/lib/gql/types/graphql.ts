@@ -245,9 +245,10 @@ export type Access = {
   aboutPage?: Maybe<AboutPageAccess>;
   canAccessAdmin: Scalars['Boolean'];
   categories?: Maybe<CategoriesAccess>;
+  donatePage?: Maybe<DonatePageAccess>;
   hosts?: Maybe<HostsAccess>;
+  media?: Maybe<MediaAccess>;
   merchPreview?: Maybe<MerchPreviewAccess>;
-  newsMedia?: Maybe<NewsMediaAccess>;
   newsPosts?: Maybe<NewsPostsAccess>;
   payload_preferences?: Maybe<Payload_PreferencesAccess>;
   shows?: Maybe<ShowsAccess>;
@@ -576,6 +577,283 @@ export type Category_Where_Or = {
   id?: InputMaybe<Category_Id_Operator>;
   name?: InputMaybe<Category_Name_Operator>;
   updatedAt?: InputMaybe<Category_UpdatedAt_Operator>;
+};
+
+export type DonatePage = {
+  __typename?: 'DonatePage';
+  Content?: Maybe<Scalars['JSON']>;
+  DonateUrl?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+
+export type DonatePageContentArgs = {
+  depth?: InputMaybe<Scalars['Int']>;
+};
+
+export type DonatePageDocAccessFields = {
+  __typename?: 'DonatePageDocAccessFields';
+  Content?: Maybe<DonatePageDocAccessFields_Content>;
+  DonateUrl?: Maybe<DonatePageDocAccessFields_DonateUrl>;
+  createdAt?: Maybe<DonatePageDocAccessFields_CreatedAt>;
+  updatedAt?: Maybe<DonatePageDocAccessFields_UpdatedAt>;
+};
+
+export type DonatePageDocAccessFields_Content = {
+  __typename?: 'DonatePageDocAccessFields_Content';
+  create?: Maybe<DonatePageDocAccessFields_Content_Create>;
+  delete?: Maybe<DonatePageDocAccessFields_Content_Delete>;
+  read?: Maybe<DonatePageDocAccessFields_Content_Read>;
+  update?: Maybe<DonatePageDocAccessFields_Content_Update>;
+};
+
+export type DonatePageDocAccessFields_Content_Create = {
+  __typename?: 'DonatePageDocAccessFields_Content_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_Content_Delete = {
+  __typename?: 'DonatePageDocAccessFields_Content_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_Content_Read = {
+  __typename?: 'DonatePageDocAccessFields_Content_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_Content_Update = {
+  __typename?: 'DonatePageDocAccessFields_Content_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_DonateUrl = {
+  __typename?: 'DonatePageDocAccessFields_DonateUrl';
+  create?: Maybe<DonatePageDocAccessFields_DonateUrl_Create>;
+  delete?: Maybe<DonatePageDocAccessFields_DonateUrl_Delete>;
+  read?: Maybe<DonatePageDocAccessFields_DonateUrl_Read>;
+  update?: Maybe<DonatePageDocAccessFields_DonateUrl_Update>;
+};
+
+export type DonatePageDocAccessFields_DonateUrl_Create = {
+  __typename?: 'DonatePageDocAccessFields_DonateUrl_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_DonateUrl_Delete = {
+  __typename?: 'DonatePageDocAccessFields_DonateUrl_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_DonateUrl_Read = {
+  __typename?: 'DonatePageDocAccessFields_DonateUrl_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_DonateUrl_Update = {
+  __typename?: 'DonatePageDocAccessFields_DonateUrl_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_CreatedAt = {
+  __typename?: 'DonatePageDocAccessFields_createdAt';
+  create?: Maybe<DonatePageDocAccessFields_CreatedAt_Create>;
+  delete?: Maybe<DonatePageDocAccessFields_CreatedAt_Delete>;
+  read?: Maybe<DonatePageDocAccessFields_CreatedAt_Read>;
+  update?: Maybe<DonatePageDocAccessFields_CreatedAt_Update>;
+};
+
+export type DonatePageDocAccessFields_CreatedAt_Create = {
+  __typename?: 'DonatePageDocAccessFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_CreatedAt_Delete = {
+  __typename?: 'DonatePageDocAccessFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_CreatedAt_Read = {
+  __typename?: 'DonatePageDocAccessFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_CreatedAt_Update = {
+  __typename?: 'DonatePageDocAccessFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_UpdatedAt = {
+  __typename?: 'DonatePageDocAccessFields_updatedAt';
+  create?: Maybe<DonatePageDocAccessFields_UpdatedAt_Create>;
+  delete?: Maybe<DonatePageDocAccessFields_UpdatedAt_Delete>;
+  read?: Maybe<DonatePageDocAccessFields_UpdatedAt_Read>;
+  update?: Maybe<DonatePageDocAccessFields_UpdatedAt_Update>;
+};
+
+export type DonatePageDocAccessFields_UpdatedAt_Create = {
+  __typename?: 'DonatePageDocAccessFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_UpdatedAt_Delete = {
+  __typename?: 'DonatePageDocAccessFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_UpdatedAt_Read = {
+  __typename?: 'DonatePageDocAccessFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_UpdatedAt_Update = {
+  __typename?: 'DonatePageDocAccessFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields = {
+  __typename?: 'DonatePageFields';
+  Content?: Maybe<DonatePageFields_Content>;
+  DonateUrl?: Maybe<DonatePageFields_DonateUrl>;
+  createdAt?: Maybe<DonatePageFields_CreatedAt>;
+  updatedAt?: Maybe<DonatePageFields_UpdatedAt>;
+};
+
+export type DonatePageFields_Content = {
+  __typename?: 'DonatePageFields_Content';
+  create?: Maybe<DonatePageFields_Content_Create>;
+  delete?: Maybe<DonatePageFields_Content_Delete>;
+  read?: Maybe<DonatePageFields_Content_Read>;
+  update?: Maybe<DonatePageFields_Content_Update>;
+};
+
+export type DonatePageFields_Content_Create = {
+  __typename?: 'DonatePageFields_Content_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_Content_Delete = {
+  __typename?: 'DonatePageFields_Content_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_Content_Read = {
+  __typename?: 'DonatePageFields_Content_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_Content_Update = {
+  __typename?: 'DonatePageFields_Content_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_DonateUrl = {
+  __typename?: 'DonatePageFields_DonateUrl';
+  create?: Maybe<DonatePageFields_DonateUrl_Create>;
+  delete?: Maybe<DonatePageFields_DonateUrl_Delete>;
+  read?: Maybe<DonatePageFields_DonateUrl_Read>;
+  update?: Maybe<DonatePageFields_DonateUrl_Update>;
+};
+
+export type DonatePageFields_DonateUrl_Create = {
+  __typename?: 'DonatePageFields_DonateUrl_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_DonateUrl_Delete = {
+  __typename?: 'DonatePageFields_DonateUrl_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_DonateUrl_Read = {
+  __typename?: 'DonatePageFields_DonateUrl_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_DonateUrl_Update = {
+  __typename?: 'DonatePageFields_DonateUrl_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_CreatedAt = {
+  __typename?: 'DonatePageFields_createdAt';
+  create?: Maybe<DonatePageFields_CreatedAt_Create>;
+  delete?: Maybe<DonatePageFields_CreatedAt_Delete>;
+  read?: Maybe<DonatePageFields_CreatedAt_Read>;
+  update?: Maybe<DonatePageFields_CreatedAt_Update>;
+};
+
+export type DonatePageFields_CreatedAt_Create = {
+  __typename?: 'DonatePageFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_CreatedAt_Delete = {
+  __typename?: 'DonatePageFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_CreatedAt_Read = {
+  __typename?: 'DonatePageFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_CreatedAt_Update = {
+  __typename?: 'DonatePageFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_UpdatedAt = {
+  __typename?: 'DonatePageFields_updatedAt';
+  create?: Maybe<DonatePageFields_UpdatedAt_Create>;
+  delete?: Maybe<DonatePageFields_UpdatedAt_Delete>;
+  read?: Maybe<DonatePageFields_UpdatedAt_Read>;
+  update?: Maybe<DonatePageFields_UpdatedAt_Update>;
+};
+
+export type DonatePageFields_UpdatedAt_Create = {
+  __typename?: 'DonatePageFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_UpdatedAt_Delete = {
+  __typename?: 'DonatePageFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_UpdatedAt_Read = {
+  __typename?: 'DonatePageFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_UpdatedAt_Update = {
+  __typename?: 'DonatePageFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageReadAccess = {
+  __typename?: 'DonatePageReadAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type DonatePageReadDocAccess = {
+  __typename?: 'DonatePageReadDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type DonatePageUpdateAccess = {
+  __typename?: 'DonatePageUpdateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type DonatePageUpdateDocAccess = {
+  __typename?: 'DonatePageUpdateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
 };
 
 export enum FallbackLocaleInputType {
@@ -1064,12 +1342,3586 @@ export enum LocaleInputType {
   Pt = 'pt'
 }
 
+export type Media = {
+  __typename?: 'Media';
+  alt?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  filename?: Maybe<Scalars['String']>;
+  filesize?: Maybe<Scalars['Float']>;
+  focalX?: Maybe<Scalars['Float']>;
+  focalY?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['String']>;
+  mimeType?: Maybe<Scalars['String']>;
+  prefix?: Maybe<Scalars['String']>;
+  sizes?: Maybe<Media_Sizes>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  url?: Maybe<Scalars['String']>;
+  width?: Maybe<Scalars['Float']>;
+};
+
+export type MediaCreateAccess = {
+  __typename?: 'MediaCreateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type MediaCreateDocAccess = {
+  __typename?: 'MediaCreateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type MediaDeleteAccess = {
+  __typename?: 'MediaDeleteAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type MediaDeleteDocAccess = {
+  __typename?: 'MediaDeleteDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type MediaDocAccessFields = {
+  __typename?: 'MediaDocAccessFields';
+  alt?: Maybe<MediaDocAccessFields_Alt>;
+  createdAt?: Maybe<MediaDocAccessFields_CreatedAt>;
+  filename?: Maybe<MediaDocAccessFields_Filename>;
+  filesize?: Maybe<MediaDocAccessFields_Filesize>;
+  focalX?: Maybe<MediaDocAccessFields_FocalX>;
+  focalY?: Maybe<MediaDocAccessFields_FocalY>;
+  height?: Maybe<MediaDocAccessFields_Height>;
+  mimeType?: Maybe<MediaDocAccessFields_MimeType>;
+  prefix?: Maybe<MediaDocAccessFields_Prefix>;
+  sizes?: Maybe<MediaDocAccessFields_Sizes>;
+  updatedAt?: Maybe<MediaDocAccessFields_UpdatedAt>;
+  url?: Maybe<MediaDocAccessFields_Url>;
+  width?: Maybe<MediaDocAccessFields_Width>;
+};
+
+export type MediaDocAccessFields_Alt = {
+  __typename?: 'MediaDocAccessFields_alt';
+  create?: Maybe<MediaDocAccessFields_Alt_Create>;
+  delete?: Maybe<MediaDocAccessFields_Alt_Delete>;
+  read?: Maybe<MediaDocAccessFields_Alt_Read>;
+  update?: Maybe<MediaDocAccessFields_Alt_Update>;
+};
+
+export type MediaDocAccessFields_Alt_Create = {
+  __typename?: 'MediaDocAccessFields_alt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Alt_Delete = {
+  __typename?: 'MediaDocAccessFields_alt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Alt_Read = {
+  __typename?: 'MediaDocAccessFields_alt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Alt_Update = {
+  __typename?: 'MediaDocAccessFields_alt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_CreatedAt = {
+  __typename?: 'MediaDocAccessFields_createdAt';
+  create?: Maybe<MediaDocAccessFields_CreatedAt_Create>;
+  delete?: Maybe<MediaDocAccessFields_CreatedAt_Delete>;
+  read?: Maybe<MediaDocAccessFields_CreatedAt_Read>;
+  update?: Maybe<MediaDocAccessFields_CreatedAt_Update>;
+};
+
+export type MediaDocAccessFields_CreatedAt_Create = {
+  __typename?: 'MediaDocAccessFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_CreatedAt_Delete = {
+  __typename?: 'MediaDocAccessFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_CreatedAt_Read = {
+  __typename?: 'MediaDocAccessFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_CreatedAt_Update = {
+  __typename?: 'MediaDocAccessFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Filename = {
+  __typename?: 'MediaDocAccessFields_filename';
+  create?: Maybe<MediaDocAccessFields_Filename_Create>;
+  delete?: Maybe<MediaDocAccessFields_Filename_Delete>;
+  read?: Maybe<MediaDocAccessFields_Filename_Read>;
+  update?: Maybe<MediaDocAccessFields_Filename_Update>;
+};
+
+export type MediaDocAccessFields_Filename_Create = {
+  __typename?: 'MediaDocAccessFields_filename_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Filename_Delete = {
+  __typename?: 'MediaDocAccessFields_filename_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Filename_Read = {
+  __typename?: 'MediaDocAccessFields_filename_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Filename_Update = {
+  __typename?: 'MediaDocAccessFields_filename_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Filesize = {
+  __typename?: 'MediaDocAccessFields_filesize';
+  create?: Maybe<MediaDocAccessFields_Filesize_Create>;
+  delete?: Maybe<MediaDocAccessFields_Filesize_Delete>;
+  read?: Maybe<MediaDocAccessFields_Filesize_Read>;
+  update?: Maybe<MediaDocAccessFields_Filesize_Update>;
+};
+
+export type MediaDocAccessFields_Filesize_Create = {
+  __typename?: 'MediaDocAccessFields_filesize_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Filesize_Delete = {
+  __typename?: 'MediaDocAccessFields_filesize_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Filesize_Read = {
+  __typename?: 'MediaDocAccessFields_filesize_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Filesize_Update = {
+  __typename?: 'MediaDocAccessFields_filesize_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_FocalX = {
+  __typename?: 'MediaDocAccessFields_focalX';
+  create?: Maybe<MediaDocAccessFields_FocalX_Create>;
+  delete?: Maybe<MediaDocAccessFields_FocalX_Delete>;
+  read?: Maybe<MediaDocAccessFields_FocalX_Read>;
+  update?: Maybe<MediaDocAccessFields_FocalX_Update>;
+};
+
+export type MediaDocAccessFields_FocalX_Create = {
+  __typename?: 'MediaDocAccessFields_focalX_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_FocalX_Delete = {
+  __typename?: 'MediaDocAccessFields_focalX_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_FocalX_Read = {
+  __typename?: 'MediaDocAccessFields_focalX_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_FocalX_Update = {
+  __typename?: 'MediaDocAccessFields_focalX_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_FocalY = {
+  __typename?: 'MediaDocAccessFields_focalY';
+  create?: Maybe<MediaDocAccessFields_FocalY_Create>;
+  delete?: Maybe<MediaDocAccessFields_FocalY_Delete>;
+  read?: Maybe<MediaDocAccessFields_FocalY_Read>;
+  update?: Maybe<MediaDocAccessFields_FocalY_Update>;
+};
+
+export type MediaDocAccessFields_FocalY_Create = {
+  __typename?: 'MediaDocAccessFields_focalY_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_FocalY_Delete = {
+  __typename?: 'MediaDocAccessFields_focalY_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_FocalY_Read = {
+  __typename?: 'MediaDocAccessFields_focalY_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_FocalY_Update = {
+  __typename?: 'MediaDocAccessFields_focalY_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Height = {
+  __typename?: 'MediaDocAccessFields_height';
+  create?: Maybe<MediaDocAccessFields_Height_Create>;
+  delete?: Maybe<MediaDocAccessFields_Height_Delete>;
+  read?: Maybe<MediaDocAccessFields_Height_Read>;
+  update?: Maybe<MediaDocAccessFields_Height_Update>;
+};
+
+export type MediaDocAccessFields_Height_Create = {
+  __typename?: 'MediaDocAccessFields_height_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Height_Delete = {
+  __typename?: 'MediaDocAccessFields_height_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Height_Read = {
+  __typename?: 'MediaDocAccessFields_height_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Height_Update = {
+  __typename?: 'MediaDocAccessFields_height_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_MimeType = {
+  __typename?: 'MediaDocAccessFields_mimeType';
+  create?: Maybe<MediaDocAccessFields_MimeType_Create>;
+  delete?: Maybe<MediaDocAccessFields_MimeType_Delete>;
+  read?: Maybe<MediaDocAccessFields_MimeType_Read>;
+  update?: Maybe<MediaDocAccessFields_MimeType_Update>;
+};
+
+export type MediaDocAccessFields_MimeType_Create = {
+  __typename?: 'MediaDocAccessFields_mimeType_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_MimeType_Delete = {
+  __typename?: 'MediaDocAccessFields_mimeType_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_MimeType_Read = {
+  __typename?: 'MediaDocAccessFields_mimeType_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_MimeType_Update = {
+  __typename?: 'MediaDocAccessFields_mimeType_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Prefix = {
+  __typename?: 'MediaDocAccessFields_prefix';
+  create?: Maybe<MediaDocAccessFields_Prefix_Create>;
+  delete?: Maybe<MediaDocAccessFields_Prefix_Delete>;
+  read?: Maybe<MediaDocAccessFields_Prefix_Read>;
+  update?: Maybe<MediaDocAccessFields_Prefix_Update>;
+};
+
+export type MediaDocAccessFields_Prefix_Create = {
+  __typename?: 'MediaDocAccessFields_prefix_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Prefix_Delete = {
+  __typename?: 'MediaDocAccessFields_prefix_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Prefix_Read = {
+  __typename?: 'MediaDocAccessFields_prefix_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Prefix_Update = {
+  __typename?: 'MediaDocAccessFields_prefix_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes = {
+  __typename?: 'MediaDocAccessFields_sizes';
+  create?: Maybe<MediaDocAccessFields_Sizes_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Delete>;
+  fields?: Maybe<MediaDocAccessFields_Sizes_Fields>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Fields = {
+  __typename?: 'MediaDocAccessFields_sizes_Fields';
+  lg?: Maybe<MediaDocAccessFields_Sizes_Lg>;
+  opengraph?: Maybe<MediaDocAccessFields_Sizes_Opengraph>;
+  sm?: Maybe<MediaDocAccessFields_Sizes_Sm>;
+  xl?: Maybe<MediaDocAccessFields_Sizes_Xl>;
+  xs?: Maybe<MediaDocAccessFields_Sizes_Xs>;
+};
+
+export type MediaDocAccessFields_Sizes_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg = {
+  __typename?: 'MediaDocAccessFields_sizes_lg';
+  create?: Maybe<MediaDocAccessFields_Sizes_Lg_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Lg_Delete>;
+  fields?: Maybe<MediaDocAccessFields_Sizes_Lg_Fields>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Lg_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Lg_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Fields = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_Fields';
+  filename?: Maybe<MediaDocAccessFields_Sizes_Lg_Filename>;
+  filesize?: Maybe<MediaDocAccessFields_Sizes_Lg_Filesize>;
+  height?: Maybe<MediaDocAccessFields_Sizes_Lg_Height>;
+  mimeType?: Maybe<MediaDocAccessFields_Sizes_Lg_MimeType>;
+  url?: Maybe<MediaDocAccessFields_Sizes_Lg_Url>;
+  width?: Maybe<MediaDocAccessFields_Sizes_Lg_Width>;
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Filename = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_filename';
+  create?: Maybe<MediaDocAccessFields_Sizes_Lg_Filename_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Lg_Filename_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Lg_Filename_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Lg_Filename_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Filename_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_filename_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Filename_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_filename_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Filename_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_filename_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Filename_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_filename_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Filesize = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_filesize';
+  create?: Maybe<MediaDocAccessFields_Sizes_Lg_Filesize_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Lg_Filesize_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Lg_Filesize_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Lg_Filesize_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Filesize_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_filesize_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Filesize_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_filesize_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Filesize_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_filesize_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Filesize_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_filesize_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Height = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_height';
+  create?: Maybe<MediaDocAccessFields_Sizes_Lg_Height_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Lg_Height_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Lg_Height_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Lg_Height_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Height_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_height_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Height_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_height_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Height_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_height_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Height_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_height_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_MimeType = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_mimeType';
+  create?: Maybe<MediaDocAccessFields_Sizes_Lg_MimeType_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Lg_MimeType_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Lg_MimeType_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Lg_MimeType_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Lg_MimeType_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_mimeType_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_MimeType_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_mimeType_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_MimeType_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_mimeType_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_MimeType_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_mimeType_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Url = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_url';
+  create?: Maybe<MediaDocAccessFields_Sizes_Lg_Url_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Lg_Url_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Lg_Url_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Lg_Url_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Url_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Url_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Url_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Url_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Width = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_width';
+  create?: Maybe<MediaDocAccessFields_Sizes_Lg_Width_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Lg_Width_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Lg_Width_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Lg_Width_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Width_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_width_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Width_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_width_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Width_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_width_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Lg_Width_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_lg_width_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph';
+  create?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Delete>;
+  fields?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Fields>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Fields = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_Fields';
+  filename?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Filename>;
+  filesize?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Filesize>;
+  height?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Height>;
+  mimeType?: Maybe<MediaDocAccessFields_Sizes_Opengraph_MimeType>;
+  url?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Url>;
+  width?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Width>;
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Filename = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_filename';
+  create?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Filename_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Filename_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Filename_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Filename_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Filename_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_filename_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Filename_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_filename_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Filename_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_filename_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Filename_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_filename_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Filesize = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_filesize';
+  create?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Filesize_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Filesize_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Filesize_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Filesize_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Filesize_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_filesize_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Filesize_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_filesize_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Filesize_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_filesize_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Filesize_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_filesize_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Height = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_height';
+  create?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Height_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Height_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Height_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Height_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Height_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_height_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Height_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_height_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Height_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_height_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Height_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_height_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_MimeType = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_mimeType';
+  create?: Maybe<MediaDocAccessFields_Sizes_Opengraph_MimeType_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Opengraph_MimeType_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Opengraph_MimeType_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Opengraph_MimeType_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_MimeType_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_mimeType_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_MimeType_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_mimeType_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_MimeType_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_mimeType_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_MimeType_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_mimeType_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Url = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_url';
+  create?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Url_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Url_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Url_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Url_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Url_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Url_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Url_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Url_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Width = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_width';
+  create?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Width_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Width_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Width_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Opengraph_Width_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Width_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_width_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Width_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_width_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Width_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_width_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Opengraph_Width_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_opengraph_width_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm = {
+  __typename?: 'MediaDocAccessFields_sizes_sm';
+  create?: Maybe<MediaDocAccessFields_Sizes_Sm_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Sm_Delete>;
+  fields?: Maybe<MediaDocAccessFields_Sizes_Sm_Fields>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Sm_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Sm_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Fields = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_Fields';
+  filename?: Maybe<MediaDocAccessFields_Sizes_Sm_Filename>;
+  filesize?: Maybe<MediaDocAccessFields_Sizes_Sm_Filesize>;
+  height?: Maybe<MediaDocAccessFields_Sizes_Sm_Height>;
+  mimeType?: Maybe<MediaDocAccessFields_Sizes_Sm_MimeType>;
+  url?: Maybe<MediaDocAccessFields_Sizes_Sm_Url>;
+  width?: Maybe<MediaDocAccessFields_Sizes_Sm_Width>;
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Filename = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_filename';
+  create?: Maybe<MediaDocAccessFields_Sizes_Sm_Filename_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Sm_Filename_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Sm_Filename_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Sm_Filename_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Filename_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_filename_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Filename_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_filename_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Filename_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_filename_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Filename_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_filename_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Filesize = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_filesize';
+  create?: Maybe<MediaDocAccessFields_Sizes_Sm_Filesize_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Sm_Filesize_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Sm_Filesize_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Sm_Filesize_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Filesize_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_filesize_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Filesize_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_filesize_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Filesize_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_filesize_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Filesize_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_filesize_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Height = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_height';
+  create?: Maybe<MediaDocAccessFields_Sizes_Sm_Height_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Sm_Height_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Sm_Height_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Sm_Height_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Height_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_height_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Height_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_height_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Height_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_height_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Height_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_height_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_MimeType = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_mimeType';
+  create?: Maybe<MediaDocAccessFields_Sizes_Sm_MimeType_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Sm_MimeType_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Sm_MimeType_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Sm_MimeType_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Sm_MimeType_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_mimeType_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_MimeType_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_mimeType_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_MimeType_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_mimeType_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_MimeType_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_mimeType_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Url = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_url';
+  create?: Maybe<MediaDocAccessFields_Sizes_Sm_Url_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Sm_Url_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Sm_Url_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Sm_Url_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Url_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Url_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Url_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Url_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Width = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_width';
+  create?: Maybe<MediaDocAccessFields_Sizes_Sm_Width_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Sm_Width_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Sm_Width_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Sm_Width_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Width_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_width_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Width_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_width_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Width_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_width_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Sm_Width_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_sm_width_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl = {
+  __typename?: 'MediaDocAccessFields_sizes_xl';
+  create?: Maybe<MediaDocAccessFields_Sizes_Xl_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Xl_Delete>;
+  fields?: Maybe<MediaDocAccessFields_Sizes_Xl_Fields>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Xl_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Xl_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Fields = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_Fields';
+  filename?: Maybe<MediaDocAccessFields_Sizes_Xl_Filename>;
+  filesize?: Maybe<MediaDocAccessFields_Sizes_Xl_Filesize>;
+  height?: Maybe<MediaDocAccessFields_Sizes_Xl_Height>;
+  mimeType?: Maybe<MediaDocAccessFields_Sizes_Xl_MimeType>;
+  url?: Maybe<MediaDocAccessFields_Sizes_Xl_Url>;
+  width?: Maybe<MediaDocAccessFields_Sizes_Xl_Width>;
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Filename = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_filename';
+  create?: Maybe<MediaDocAccessFields_Sizes_Xl_Filename_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Xl_Filename_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Xl_Filename_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Xl_Filename_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Filename_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_filename_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Filename_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_filename_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Filename_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_filename_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Filename_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_filename_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Filesize = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_filesize';
+  create?: Maybe<MediaDocAccessFields_Sizes_Xl_Filesize_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Xl_Filesize_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Xl_Filesize_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Xl_Filesize_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Filesize_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_filesize_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Filesize_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_filesize_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Filesize_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_filesize_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Filesize_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_filesize_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Height = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_height';
+  create?: Maybe<MediaDocAccessFields_Sizes_Xl_Height_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Xl_Height_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Xl_Height_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Xl_Height_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Height_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_height_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Height_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_height_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Height_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_height_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Height_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_height_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_MimeType = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_mimeType';
+  create?: Maybe<MediaDocAccessFields_Sizes_Xl_MimeType_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Xl_MimeType_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Xl_MimeType_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Xl_MimeType_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Xl_MimeType_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_mimeType_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_MimeType_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_mimeType_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_MimeType_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_mimeType_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_MimeType_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_mimeType_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Url = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_url';
+  create?: Maybe<MediaDocAccessFields_Sizes_Xl_Url_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Xl_Url_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Xl_Url_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Xl_Url_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Url_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Url_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Url_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Url_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Width = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_width';
+  create?: Maybe<MediaDocAccessFields_Sizes_Xl_Width_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Xl_Width_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Xl_Width_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Xl_Width_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Width_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_width_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Width_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_width_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Width_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_width_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xl_Width_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_xl_width_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs = {
+  __typename?: 'MediaDocAccessFields_sizes_xs';
+  create?: Maybe<MediaDocAccessFields_Sizes_Xs_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Xs_Delete>;
+  fields?: Maybe<MediaDocAccessFields_Sizes_Xs_Fields>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Xs_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Xs_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Fields = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_Fields';
+  filename?: Maybe<MediaDocAccessFields_Sizes_Xs_Filename>;
+  filesize?: Maybe<MediaDocAccessFields_Sizes_Xs_Filesize>;
+  height?: Maybe<MediaDocAccessFields_Sizes_Xs_Height>;
+  mimeType?: Maybe<MediaDocAccessFields_Sizes_Xs_MimeType>;
+  url?: Maybe<MediaDocAccessFields_Sizes_Xs_Url>;
+  width?: Maybe<MediaDocAccessFields_Sizes_Xs_Width>;
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Filename = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_filename';
+  create?: Maybe<MediaDocAccessFields_Sizes_Xs_Filename_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Xs_Filename_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Xs_Filename_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Xs_Filename_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Filename_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_filename_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Filename_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_filename_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Filename_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_filename_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Filename_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_filename_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Filesize = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_filesize';
+  create?: Maybe<MediaDocAccessFields_Sizes_Xs_Filesize_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Xs_Filesize_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Xs_Filesize_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Xs_Filesize_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Filesize_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_filesize_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Filesize_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_filesize_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Filesize_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_filesize_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Filesize_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_filesize_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Height = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_height';
+  create?: Maybe<MediaDocAccessFields_Sizes_Xs_Height_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Xs_Height_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Xs_Height_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Xs_Height_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Height_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_height_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Height_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_height_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Height_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_height_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Height_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_height_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_MimeType = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_mimeType';
+  create?: Maybe<MediaDocAccessFields_Sizes_Xs_MimeType_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Xs_MimeType_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Xs_MimeType_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Xs_MimeType_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Xs_MimeType_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_mimeType_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_MimeType_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_mimeType_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_MimeType_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_mimeType_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_MimeType_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_mimeType_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Url = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_url';
+  create?: Maybe<MediaDocAccessFields_Sizes_Xs_Url_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Xs_Url_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Xs_Url_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Xs_Url_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Url_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Url_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Url_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Url_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Width = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_width';
+  create?: Maybe<MediaDocAccessFields_Sizes_Xs_Width_Create>;
+  delete?: Maybe<MediaDocAccessFields_Sizes_Xs_Width_Delete>;
+  read?: Maybe<MediaDocAccessFields_Sizes_Xs_Width_Read>;
+  update?: Maybe<MediaDocAccessFields_Sizes_Xs_Width_Update>;
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Width_Create = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_width_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Width_Delete = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_width_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Width_Read = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_width_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Sizes_Xs_Width_Update = {
+  __typename?: 'MediaDocAccessFields_sizes_xs_width_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_UpdatedAt = {
+  __typename?: 'MediaDocAccessFields_updatedAt';
+  create?: Maybe<MediaDocAccessFields_UpdatedAt_Create>;
+  delete?: Maybe<MediaDocAccessFields_UpdatedAt_Delete>;
+  read?: Maybe<MediaDocAccessFields_UpdatedAt_Read>;
+  update?: Maybe<MediaDocAccessFields_UpdatedAt_Update>;
+};
+
+export type MediaDocAccessFields_UpdatedAt_Create = {
+  __typename?: 'MediaDocAccessFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_UpdatedAt_Delete = {
+  __typename?: 'MediaDocAccessFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_UpdatedAt_Read = {
+  __typename?: 'MediaDocAccessFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_UpdatedAt_Update = {
+  __typename?: 'MediaDocAccessFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Url = {
+  __typename?: 'MediaDocAccessFields_url';
+  create?: Maybe<MediaDocAccessFields_Url_Create>;
+  delete?: Maybe<MediaDocAccessFields_Url_Delete>;
+  read?: Maybe<MediaDocAccessFields_Url_Read>;
+  update?: Maybe<MediaDocAccessFields_Url_Update>;
+};
+
+export type MediaDocAccessFields_Url_Create = {
+  __typename?: 'MediaDocAccessFields_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Url_Delete = {
+  __typename?: 'MediaDocAccessFields_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Url_Read = {
+  __typename?: 'MediaDocAccessFields_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Url_Update = {
+  __typename?: 'MediaDocAccessFields_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Width = {
+  __typename?: 'MediaDocAccessFields_width';
+  create?: Maybe<MediaDocAccessFields_Width_Create>;
+  delete?: Maybe<MediaDocAccessFields_Width_Delete>;
+  read?: Maybe<MediaDocAccessFields_Width_Read>;
+  update?: Maybe<MediaDocAccessFields_Width_Update>;
+};
+
+export type MediaDocAccessFields_Width_Create = {
+  __typename?: 'MediaDocAccessFields_width_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Width_Delete = {
+  __typename?: 'MediaDocAccessFields_width_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Width_Read = {
+  __typename?: 'MediaDocAccessFields_width_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_Width_Update = {
+  __typename?: 'MediaDocAccessFields_width_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields = {
+  __typename?: 'MediaFields';
+  alt?: Maybe<MediaFields_Alt>;
+  createdAt?: Maybe<MediaFields_CreatedAt>;
+  filename?: Maybe<MediaFields_Filename>;
+  filesize?: Maybe<MediaFields_Filesize>;
+  focalX?: Maybe<MediaFields_FocalX>;
+  focalY?: Maybe<MediaFields_FocalY>;
+  height?: Maybe<MediaFields_Height>;
+  mimeType?: Maybe<MediaFields_MimeType>;
+  prefix?: Maybe<MediaFields_Prefix>;
+  sizes?: Maybe<MediaFields_Sizes>;
+  updatedAt?: Maybe<MediaFields_UpdatedAt>;
+  url?: Maybe<MediaFields_Url>;
+  width?: Maybe<MediaFields_Width>;
+};
+
+export type MediaFields_Alt = {
+  __typename?: 'MediaFields_alt';
+  create?: Maybe<MediaFields_Alt_Create>;
+  delete?: Maybe<MediaFields_Alt_Delete>;
+  read?: Maybe<MediaFields_Alt_Read>;
+  update?: Maybe<MediaFields_Alt_Update>;
+};
+
+export type MediaFields_Alt_Create = {
+  __typename?: 'MediaFields_alt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Alt_Delete = {
+  __typename?: 'MediaFields_alt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Alt_Read = {
+  __typename?: 'MediaFields_alt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Alt_Update = {
+  __typename?: 'MediaFields_alt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_CreatedAt = {
+  __typename?: 'MediaFields_createdAt';
+  create?: Maybe<MediaFields_CreatedAt_Create>;
+  delete?: Maybe<MediaFields_CreatedAt_Delete>;
+  read?: Maybe<MediaFields_CreatedAt_Read>;
+  update?: Maybe<MediaFields_CreatedAt_Update>;
+};
+
+export type MediaFields_CreatedAt_Create = {
+  __typename?: 'MediaFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_CreatedAt_Delete = {
+  __typename?: 'MediaFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_CreatedAt_Read = {
+  __typename?: 'MediaFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_CreatedAt_Update = {
+  __typename?: 'MediaFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Filename = {
+  __typename?: 'MediaFields_filename';
+  create?: Maybe<MediaFields_Filename_Create>;
+  delete?: Maybe<MediaFields_Filename_Delete>;
+  read?: Maybe<MediaFields_Filename_Read>;
+  update?: Maybe<MediaFields_Filename_Update>;
+};
+
+export type MediaFields_Filename_Create = {
+  __typename?: 'MediaFields_filename_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Filename_Delete = {
+  __typename?: 'MediaFields_filename_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Filename_Read = {
+  __typename?: 'MediaFields_filename_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Filename_Update = {
+  __typename?: 'MediaFields_filename_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Filesize = {
+  __typename?: 'MediaFields_filesize';
+  create?: Maybe<MediaFields_Filesize_Create>;
+  delete?: Maybe<MediaFields_Filesize_Delete>;
+  read?: Maybe<MediaFields_Filesize_Read>;
+  update?: Maybe<MediaFields_Filesize_Update>;
+};
+
+export type MediaFields_Filesize_Create = {
+  __typename?: 'MediaFields_filesize_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Filesize_Delete = {
+  __typename?: 'MediaFields_filesize_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Filesize_Read = {
+  __typename?: 'MediaFields_filesize_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Filesize_Update = {
+  __typename?: 'MediaFields_filesize_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_FocalX = {
+  __typename?: 'MediaFields_focalX';
+  create?: Maybe<MediaFields_FocalX_Create>;
+  delete?: Maybe<MediaFields_FocalX_Delete>;
+  read?: Maybe<MediaFields_FocalX_Read>;
+  update?: Maybe<MediaFields_FocalX_Update>;
+};
+
+export type MediaFields_FocalX_Create = {
+  __typename?: 'MediaFields_focalX_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_FocalX_Delete = {
+  __typename?: 'MediaFields_focalX_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_FocalX_Read = {
+  __typename?: 'MediaFields_focalX_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_FocalX_Update = {
+  __typename?: 'MediaFields_focalX_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_FocalY = {
+  __typename?: 'MediaFields_focalY';
+  create?: Maybe<MediaFields_FocalY_Create>;
+  delete?: Maybe<MediaFields_FocalY_Delete>;
+  read?: Maybe<MediaFields_FocalY_Read>;
+  update?: Maybe<MediaFields_FocalY_Update>;
+};
+
+export type MediaFields_FocalY_Create = {
+  __typename?: 'MediaFields_focalY_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_FocalY_Delete = {
+  __typename?: 'MediaFields_focalY_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_FocalY_Read = {
+  __typename?: 'MediaFields_focalY_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_FocalY_Update = {
+  __typename?: 'MediaFields_focalY_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Height = {
+  __typename?: 'MediaFields_height';
+  create?: Maybe<MediaFields_Height_Create>;
+  delete?: Maybe<MediaFields_Height_Delete>;
+  read?: Maybe<MediaFields_Height_Read>;
+  update?: Maybe<MediaFields_Height_Update>;
+};
+
+export type MediaFields_Height_Create = {
+  __typename?: 'MediaFields_height_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Height_Delete = {
+  __typename?: 'MediaFields_height_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Height_Read = {
+  __typename?: 'MediaFields_height_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Height_Update = {
+  __typename?: 'MediaFields_height_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_MimeType = {
+  __typename?: 'MediaFields_mimeType';
+  create?: Maybe<MediaFields_MimeType_Create>;
+  delete?: Maybe<MediaFields_MimeType_Delete>;
+  read?: Maybe<MediaFields_MimeType_Read>;
+  update?: Maybe<MediaFields_MimeType_Update>;
+};
+
+export type MediaFields_MimeType_Create = {
+  __typename?: 'MediaFields_mimeType_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_MimeType_Delete = {
+  __typename?: 'MediaFields_mimeType_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_MimeType_Read = {
+  __typename?: 'MediaFields_mimeType_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_MimeType_Update = {
+  __typename?: 'MediaFields_mimeType_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Prefix = {
+  __typename?: 'MediaFields_prefix';
+  create?: Maybe<MediaFields_Prefix_Create>;
+  delete?: Maybe<MediaFields_Prefix_Delete>;
+  read?: Maybe<MediaFields_Prefix_Read>;
+  update?: Maybe<MediaFields_Prefix_Update>;
+};
+
+export type MediaFields_Prefix_Create = {
+  __typename?: 'MediaFields_prefix_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Prefix_Delete = {
+  __typename?: 'MediaFields_prefix_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Prefix_Read = {
+  __typename?: 'MediaFields_prefix_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Prefix_Update = {
+  __typename?: 'MediaFields_prefix_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes = {
+  __typename?: 'MediaFields_sizes';
+  create?: Maybe<MediaFields_Sizes_Create>;
+  delete?: Maybe<MediaFields_Sizes_Delete>;
+  fields?: Maybe<MediaFields_Sizes_Fields>;
+  read?: Maybe<MediaFields_Sizes_Read>;
+  update?: Maybe<MediaFields_Sizes_Update>;
+};
+
+export type MediaFields_Sizes_Create = {
+  __typename?: 'MediaFields_sizes_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Delete = {
+  __typename?: 'MediaFields_sizes_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Fields = {
+  __typename?: 'MediaFields_sizes_Fields';
+  lg?: Maybe<MediaFields_Sizes_Lg>;
+  opengraph?: Maybe<MediaFields_Sizes_Opengraph>;
+  sm?: Maybe<MediaFields_Sizes_Sm>;
+  xl?: Maybe<MediaFields_Sizes_Xl>;
+  xs?: Maybe<MediaFields_Sizes_Xs>;
+};
+
+export type MediaFields_Sizes_Read = {
+  __typename?: 'MediaFields_sizes_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Update = {
+  __typename?: 'MediaFields_sizes_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg = {
+  __typename?: 'MediaFields_sizes_lg';
+  create?: Maybe<MediaFields_Sizes_Lg_Create>;
+  delete?: Maybe<MediaFields_Sizes_Lg_Delete>;
+  fields?: Maybe<MediaFields_Sizes_Lg_Fields>;
+  read?: Maybe<MediaFields_Sizes_Lg_Read>;
+  update?: Maybe<MediaFields_Sizes_Lg_Update>;
+};
+
+export type MediaFields_Sizes_Lg_Create = {
+  __typename?: 'MediaFields_sizes_lg_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Delete = {
+  __typename?: 'MediaFields_sizes_lg_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Fields = {
+  __typename?: 'MediaFields_sizes_lg_Fields';
+  filename?: Maybe<MediaFields_Sizes_Lg_Filename>;
+  filesize?: Maybe<MediaFields_Sizes_Lg_Filesize>;
+  height?: Maybe<MediaFields_Sizes_Lg_Height>;
+  mimeType?: Maybe<MediaFields_Sizes_Lg_MimeType>;
+  url?: Maybe<MediaFields_Sizes_Lg_Url>;
+  width?: Maybe<MediaFields_Sizes_Lg_Width>;
+};
+
+export type MediaFields_Sizes_Lg_Read = {
+  __typename?: 'MediaFields_sizes_lg_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Update = {
+  __typename?: 'MediaFields_sizes_lg_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Filename = {
+  __typename?: 'MediaFields_sizes_lg_filename';
+  create?: Maybe<MediaFields_Sizes_Lg_Filename_Create>;
+  delete?: Maybe<MediaFields_Sizes_Lg_Filename_Delete>;
+  read?: Maybe<MediaFields_Sizes_Lg_Filename_Read>;
+  update?: Maybe<MediaFields_Sizes_Lg_Filename_Update>;
+};
+
+export type MediaFields_Sizes_Lg_Filename_Create = {
+  __typename?: 'MediaFields_sizes_lg_filename_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Filename_Delete = {
+  __typename?: 'MediaFields_sizes_lg_filename_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Filename_Read = {
+  __typename?: 'MediaFields_sizes_lg_filename_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Filename_Update = {
+  __typename?: 'MediaFields_sizes_lg_filename_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Filesize = {
+  __typename?: 'MediaFields_sizes_lg_filesize';
+  create?: Maybe<MediaFields_Sizes_Lg_Filesize_Create>;
+  delete?: Maybe<MediaFields_Sizes_Lg_Filesize_Delete>;
+  read?: Maybe<MediaFields_Sizes_Lg_Filesize_Read>;
+  update?: Maybe<MediaFields_Sizes_Lg_Filesize_Update>;
+};
+
+export type MediaFields_Sizes_Lg_Filesize_Create = {
+  __typename?: 'MediaFields_sizes_lg_filesize_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Filesize_Delete = {
+  __typename?: 'MediaFields_sizes_lg_filesize_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Filesize_Read = {
+  __typename?: 'MediaFields_sizes_lg_filesize_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Filesize_Update = {
+  __typename?: 'MediaFields_sizes_lg_filesize_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Height = {
+  __typename?: 'MediaFields_sizes_lg_height';
+  create?: Maybe<MediaFields_Sizes_Lg_Height_Create>;
+  delete?: Maybe<MediaFields_Sizes_Lg_Height_Delete>;
+  read?: Maybe<MediaFields_Sizes_Lg_Height_Read>;
+  update?: Maybe<MediaFields_Sizes_Lg_Height_Update>;
+};
+
+export type MediaFields_Sizes_Lg_Height_Create = {
+  __typename?: 'MediaFields_sizes_lg_height_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Height_Delete = {
+  __typename?: 'MediaFields_sizes_lg_height_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Height_Read = {
+  __typename?: 'MediaFields_sizes_lg_height_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Height_Update = {
+  __typename?: 'MediaFields_sizes_lg_height_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_MimeType = {
+  __typename?: 'MediaFields_sizes_lg_mimeType';
+  create?: Maybe<MediaFields_Sizes_Lg_MimeType_Create>;
+  delete?: Maybe<MediaFields_Sizes_Lg_MimeType_Delete>;
+  read?: Maybe<MediaFields_Sizes_Lg_MimeType_Read>;
+  update?: Maybe<MediaFields_Sizes_Lg_MimeType_Update>;
+};
+
+export type MediaFields_Sizes_Lg_MimeType_Create = {
+  __typename?: 'MediaFields_sizes_lg_mimeType_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_MimeType_Delete = {
+  __typename?: 'MediaFields_sizes_lg_mimeType_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_MimeType_Read = {
+  __typename?: 'MediaFields_sizes_lg_mimeType_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_MimeType_Update = {
+  __typename?: 'MediaFields_sizes_lg_mimeType_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Url = {
+  __typename?: 'MediaFields_sizes_lg_url';
+  create?: Maybe<MediaFields_Sizes_Lg_Url_Create>;
+  delete?: Maybe<MediaFields_Sizes_Lg_Url_Delete>;
+  read?: Maybe<MediaFields_Sizes_Lg_Url_Read>;
+  update?: Maybe<MediaFields_Sizes_Lg_Url_Update>;
+};
+
+export type MediaFields_Sizes_Lg_Url_Create = {
+  __typename?: 'MediaFields_sizes_lg_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Url_Delete = {
+  __typename?: 'MediaFields_sizes_lg_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Url_Read = {
+  __typename?: 'MediaFields_sizes_lg_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Url_Update = {
+  __typename?: 'MediaFields_sizes_lg_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Width = {
+  __typename?: 'MediaFields_sizes_lg_width';
+  create?: Maybe<MediaFields_Sizes_Lg_Width_Create>;
+  delete?: Maybe<MediaFields_Sizes_Lg_Width_Delete>;
+  read?: Maybe<MediaFields_Sizes_Lg_Width_Read>;
+  update?: Maybe<MediaFields_Sizes_Lg_Width_Update>;
+};
+
+export type MediaFields_Sizes_Lg_Width_Create = {
+  __typename?: 'MediaFields_sizes_lg_width_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Width_Delete = {
+  __typename?: 'MediaFields_sizes_lg_width_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Width_Read = {
+  __typename?: 'MediaFields_sizes_lg_width_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Lg_Width_Update = {
+  __typename?: 'MediaFields_sizes_lg_width_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph = {
+  __typename?: 'MediaFields_sizes_opengraph';
+  create?: Maybe<MediaFields_Sizes_Opengraph_Create>;
+  delete?: Maybe<MediaFields_Sizes_Opengraph_Delete>;
+  fields?: Maybe<MediaFields_Sizes_Opengraph_Fields>;
+  read?: Maybe<MediaFields_Sizes_Opengraph_Read>;
+  update?: Maybe<MediaFields_Sizes_Opengraph_Update>;
+};
+
+export type MediaFields_Sizes_Opengraph_Create = {
+  __typename?: 'MediaFields_sizes_opengraph_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Delete = {
+  __typename?: 'MediaFields_sizes_opengraph_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Fields = {
+  __typename?: 'MediaFields_sizes_opengraph_Fields';
+  filename?: Maybe<MediaFields_Sizes_Opengraph_Filename>;
+  filesize?: Maybe<MediaFields_Sizes_Opengraph_Filesize>;
+  height?: Maybe<MediaFields_Sizes_Opengraph_Height>;
+  mimeType?: Maybe<MediaFields_Sizes_Opengraph_MimeType>;
+  url?: Maybe<MediaFields_Sizes_Opengraph_Url>;
+  width?: Maybe<MediaFields_Sizes_Opengraph_Width>;
+};
+
+export type MediaFields_Sizes_Opengraph_Read = {
+  __typename?: 'MediaFields_sizes_opengraph_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Update = {
+  __typename?: 'MediaFields_sizes_opengraph_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Filename = {
+  __typename?: 'MediaFields_sizes_opengraph_filename';
+  create?: Maybe<MediaFields_Sizes_Opengraph_Filename_Create>;
+  delete?: Maybe<MediaFields_Sizes_Opengraph_Filename_Delete>;
+  read?: Maybe<MediaFields_Sizes_Opengraph_Filename_Read>;
+  update?: Maybe<MediaFields_Sizes_Opengraph_Filename_Update>;
+};
+
+export type MediaFields_Sizes_Opengraph_Filename_Create = {
+  __typename?: 'MediaFields_sizes_opengraph_filename_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Filename_Delete = {
+  __typename?: 'MediaFields_sizes_opengraph_filename_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Filename_Read = {
+  __typename?: 'MediaFields_sizes_opengraph_filename_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Filename_Update = {
+  __typename?: 'MediaFields_sizes_opengraph_filename_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Filesize = {
+  __typename?: 'MediaFields_sizes_opengraph_filesize';
+  create?: Maybe<MediaFields_Sizes_Opengraph_Filesize_Create>;
+  delete?: Maybe<MediaFields_Sizes_Opengraph_Filesize_Delete>;
+  read?: Maybe<MediaFields_Sizes_Opengraph_Filesize_Read>;
+  update?: Maybe<MediaFields_Sizes_Opengraph_Filesize_Update>;
+};
+
+export type MediaFields_Sizes_Opengraph_Filesize_Create = {
+  __typename?: 'MediaFields_sizes_opengraph_filesize_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Filesize_Delete = {
+  __typename?: 'MediaFields_sizes_opengraph_filesize_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Filesize_Read = {
+  __typename?: 'MediaFields_sizes_opengraph_filesize_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Filesize_Update = {
+  __typename?: 'MediaFields_sizes_opengraph_filesize_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Height = {
+  __typename?: 'MediaFields_sizes_opengraph_height';
+  create?: Maybe<MediaFields_Sizes_Opengraph_Height_Create>;
+  delete?: Maybe<MediaFields_Sizes_Opengraph_Height_Delete>;
+  read?: Maybe<MediaFields_Sizes_Opengraph_Height_Read>;
+  update?: Maybe<MediaFields_Sizes_Opengraph_Height_Update>;
+};
+
+export type MediaFields_Sizes_Opengraph_Height_Create = {
+  __typename?: 'MediaFields_sizes_opengraph_height_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Height_Delete = {
+  __typename?: 'MediaFields_sizes_opengraph_height_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Height_Read = {
+  __typename?: 'MediaFields_sizes_opengraph_height_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Height_Update = {
+  __typename?: 'MediaFields_sizes_opengraph_height_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_MimeType = {
+  __typename?: 'MediaFields_sizes_opengraph_mimeType';
+  create?: Maybe<MediaFields_Sizes_Opengraph_MimeType_Create>;
+  delete?: Maybe<MediaFields_Sizes_Opengraph_MimeType_Delete>;
+  read?: Maybe<MediaFields_Sizes_Opengraph_MimeType_Read>;
+  update?: Maybe<MediaFields_Sizes_Opengraph_MimeType_Update>;
+};
+
+export type MediaFields_Sizes_Opengraph_MimeType_Create = {
+  __typename?: 'MediaFields_sizes_opengraph_mimeType_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_MimeType_Delete = {
+  __typename?: 'MediaFields_sizes_opengraph_mimeType_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_MimeType_Read = {
+  __typename?: 'MediaFields_sizes_opengraph_mimeType_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_MimeType_Update = {
+  __typename?: 'MediaFields_sizes_opengraph_mimeType_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Url = {
+  __typename?: 'MediaFields_sizes_opengraph_url';
+  create?: Maybe<MediaFields_Sizes_Opengraph_Url_Create>;
+  delete?: Maybe<MediaFields_Sizes_Opengraph_Url_Delete>;
+  read?: Maybe<MediaFields_Sizes_Opengraph_Url_Read>;
+  update?: Maybe<MediaFields_Sizes_Opengraph_Url_Update>;
+};
+
+export type MediaFields_Sizes_Opengraph_Url_Create = {
+  __typename?: 'MediaFields_sizes_opengraph_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Url_Delete = {
+  __typename?: 'MediaFields_sizes_opengraph_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Url_Read = {
+  __typename?: 'MediaFields_sizes_opengraph_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Url_Update = {
+  __typename?: 'MediaFields_sizes_opengraph_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Width = {
+  __typename?: 'MediaFields_sizes_opengraph_width';
+  create?: Maybe<MediaFields_Sizes_Opengraph_Width_Create>;
+  delete?: Maybe<MediaFields_Sizes_Opengraph_Width_Delete>;
+  read?: Maybe<MediaFields_Sizes_Opengraph_Width_Read>;
+  update?: Maybe<MediaFields_Sizes_Opengraph_Width_Update>;
+};
+
+export type MediaFields_Sizes_Opengraph_Width_Create = {
+  __typename?: 'MediaFields_sizes_opengraph_width_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Width_Delete = {
+  __typename?: 'MediaFields_sizes_opengraph_width_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Width_Read = {
+  __typename?: 'MediaFields_sizes_opengraph_width_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Opengraph_Width_Update = {
+  __typename?: 'MediaFields_sizes_opengraph_width_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm = {
+  __typename?: 'MediaFields_sizes_sm';
+  create?: Maybe<MediaFields_Sizes_Sm_Create>;
+  delete?: Maybe<MediaFields_Sizes_Sm_Delete>;
+  fields?: Maybe<MediaFields_Sizes_Sm_Fields>;
+  read?: Maybe<MediaFields_Sizes_Sm_Read>;
+  update?: Maybe<MediaFields_Sizes_Sm_Update>;
+};
+
+export type MediaFields_Sizes_Sm_Create = {
+  __typename?: 'MediaFields_sizes_sm_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Delete = {
+  __typename?: 'MediaFields_sizes_sm_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Fields = {
+  __typename?: 'MediaFields_sizes_sm_Fields';
+  filename?: Maybe<MediaFields_Sizes_Sm_Filename>;
+  filesize?: Maybe<MediaFields_Sizes_Sm_Filesize>;
+  height?: Maybe<MediaFields_Sizes_Sm_Height>;
+  mimeType?: Maybe<MediaFields_Sizes_Sm_MimeType>;
+  url?: Maybe<MediaFields_Sizes_Sm_Url>;
+  width?: Maybe<MediaFields_Sizes_Sm_Width>;
+};
+
+export type MediaFields_Sizes_Sm_Read = {
+  __typename?: 'MediaFields_sizes_sm_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Update = {
+  __typename?: 'MediaFields_sizes_sm_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Filename = {
+  __typename?: 'MediaFields_sizes_sm_filename';
+  create?: Maybe<MediaFields_Sizes_Sm_Filename_Create>;
+  delete?: Maybe<MediaFields_Sizes_Sm_Filename_Delete>;
+  read?: Maybe<MediaFields_Sizes_Sm_Filename_Read>;
+  update?: Maybe<MediaFields_Sizes_Sm_Filename_Update>;
+};
+
+export type MediaFields_Sizes_Sm_Filename_Create = {
+  __typename?: 'MediaFields_sizes_sm_filename_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Filename_Delete = {
+  __typename?: 'MediaFields_sizes_sm_filename_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Filename_Read = {
+  __typename?: 'MediaFields_sizes_sm_filename_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Filename_Update = {
+  __typename?: 'MediaFields_sizes_sm_filename_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Filesize = {
+  __typename?: 'MediaFields_sizes_sm_filesize';
+  create?: Maybe<MediaFields_Sizes_Sm_Filesize_Create>;
+  delete?: Maybe<MediaFields_Sizes_Sm_Filesize_Delete>;
+  read?: Maybe<MediaFields_Sizes_Sm_Filesize_Read>;
+  update?: Maybe<MediaFields_Sizes_Sm_Filesize_Update>;
+};
+
+export type MediaFields_Sizes_Sm_Filesize_Create = {
+  __typename?: 'MediaFields_sizes_sm_filesize_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Filesize_Delete = {
+  __typename?: 'MediaFields_sizes_sm_filesize_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Filesize_Read = {
+  __typename?: 'MediaFields_sizes_sm_filesize_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Filesize_Update = {
+  __typename?: 'MediaFields_sizes_sm_filesize_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Height = {
+  __typename?: 'MediaFields_sizes_sm_height';
+  create?: Maybe<MediaFields_Sizes_Sm_Height_Create>;
+  delete?: Maybe<MediaFields_Sizes_Sm_Height_Delete>;
+  read?: Maybe<MediaFields_Sizes_Sm_Height_Read>;
+  update?: Maybe<MediaFields_Sizes_Sm_Height_Update>;
+};
+
+export type MediaFields_Sizes_Sm_Height_Create = {
+  __typename?: 'MediaFields_sizes_sm_height_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Height_Delete = {
+  __typename?: 'MediaFields_sizes_sm_height_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Height_Read = {
+  __typename?: 'MediaFields_sizes_sm_height_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Height_Update = {
+  __typename?: 'MediaFields_sizes_sm_height_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_MimeType = {
+  __typename?: 'MediaFields_sizes_sm_mimeType';
+  create?: Maybe<MediaFields_Sizes_Sm_MimeType_Create>;
+  delete?: Maybe<MediaFields_Sizes_Sm_MimeType_Delete>;
+  read?: Maybe<MediaFields_Sizes_Sm_MimeType_Read>;
+  update?: Maybe<MediaFields_Sizes_Sm_MimeType_Update>;
+};
+
+export type MediaFields_Sizes_Sm_MimeType_Create = {
+  __typename?: 'MediaFields_sizes_sm_mimeType_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_MimeType_Delete = {
+  __typename?: 'MediaFields_sizes_sm_mimeType_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_MimeType_Read = {
+  __typename?: 'MediaFields_sizes_sm_mimeType_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_MimeType_Update = {
+  __typename?: 'MediaFields_sizes_sm_mimeType_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Url = {
+  __typename?: 'MediaFields_sizes_sm_url';
+  create?: Maybe<MediaFields_Sizes_Sm_Url_Create>;
+  delete?: Maybe<MediaFields_Sizes_Sm_Url_Delete>;
+  read?: Maybe<MediaFields_Sizes_Sm_Url_Read>;
+  update?: Maybe<MediaFields_Sizes_Sm_Url_Update>;
+};
+
+export type MediaFields_Sizes_Sm_Url_Create = {
+  __typename?: 'MediaFields_sizes_sm_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Url_Delete = {
+  __typename?: 'MediaFields_sizes_sm_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Url_Read = {
+  __typename?: 'MediaFields_sizes_sm_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Url_Update = {
+  __typename?: 'MediaFields_sizes_sm_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Width = {
+  __typename?: 'MediaFields_sizes_sm_width';
+  create?: Maybe<MediaFields_Sizes_Sm_Width_Create>;
+  delete?: Maybe<MediaFields_Sizes_Sm_Width_Delete>;
+  read?: Maybe<MediaFields_Sizes_Sm_Width_Read>;
+  update?: Maybe<MediaFields_Sizes_Sm_Width_Update>;
+};
+
+export type MediaFields_Sizes_Sm_Width_Create = {
+  __typename?: 'MediaFields_sizes_sm_width_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Width_Delete = {
+  __typename?: 'MediaFields_sizes_sm_width_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Width_Read = {
+  __typename?: 'MediaFields_sizes_sm_width_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Sm_Width_Update = {
+  __typename?: 'MediaFields_sizes_sm_width_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl = {
+  __typename?: 'MediaFields_sizes_xl';
+  create?: Maybe<MediaFields_Sizes_Xl_Create>;
+  delete?: Maybe<MediaFields_Sizes_Xl_Delete>;
+  fields?: Maybe<MediaFields_Sizes_Xl_Fields>;
+  read?: Maybe<MediaFields_Sizes_Xl_Read>;
+  update?: Maybe<MediaFields_Sizes_Xl_Update>;
+};
+
+export type MediaFields_Sizes_Xl_Create = {
+  __typename?: 'MediaFields_sizes_xl_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Delete = {
+  __typename?: 'MediaFields_sizes_xl_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Fields = {
+  __typename?: 'MediaFields_sizes_xl_Fields';
+  filename?: Maybe<MediaFields_Sizes_Xl_Filename>;
+  filesize?: Maybe<MediaFields_Sizes_Xl_Filesize>;
+  height?: Maybe<MediaFields_Sizes_Xl_Height>;
+  mimeType?: Maybe<MediaFields_Sizes_Xl_MimeType>;
+  url?: Maybe<MediaFields_Sizes_Xl_Url>;
+  width?: Maybe<MediaFields_Sizes_Xl_Width>;
+};
+
+export type MediaFields_Sizes_Xl_Read = {
+  __typename?: 'MediaFields_sizes_xl_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Update = {
+  __typename?: 'MediaFields_sizes_xl_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Filename = {
+  __typename?: 'MediaFields_sizes_xl_filename';
+  create?: Maybe<MediaFields_Sizes_Xl_Filename_Create>;
+  delete?: Maybe<MediaFields_Sizes_Xl_Filename_Delete>;
+  read?: Maybe<MediaFields_Sizes_Xl_Filename_Read>;
+  update?: Maybe<MediaFields_Sizes_Xl_Filename_Update>;
+};
+
+export type MediaFields_Sizes_Xl_Filename_Create = {
+  __typename?: 'MediaFields_sizes_xl_filename_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Filename_Delete = {
+  __typename?: 'MediaFields_sizes_xl_filename_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Filename_Read = {
+  __typename?: 'MediaFields_sizes_xl_filename_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Filename_Update = {
+  __typename?: 'MediaFields_sizes_xl_filename_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Filesize = {
+  __typename?: 'MediaFields_sizes_xl_filesize';
+  create?: Maybe<MediaFields_Sizes_Xl_Filesize_Create>;
+  delete?: Maybe<MediaFields_Sizes_Xl_Filesize_Delete>;
+  read?: Maybe<MediaFields_Sizes_Xl_Filesize_Read>;
+  update?: Maybe<MediaFields_Sizes_Xl_Filesize_Update>;
+};
+
+export type MediaFields_Sizes_Xl_Filesize_Create = {
+  __typename?: 'MediaFields_sizes_xl_filesize_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Filesize_Delete = {
+  __typename?: 'MediaFields_sizes_xl_filesize_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Filesize_Read = {
+  __typename?: 'MediaFields_sizes_xl_filesize_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Filesize_Update = {
+  __typename?: 'MediaFields_sizes_xl_filesize_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Height = {
+  __typename?: 'MediaFields_sizes_xl_height';
+  create?: Maybe<MediaFields_Sizes_Xl_Height_Create>;
+  delete?: Maybe<MediaFields_Sizes_Xl_Height_Delete>;
+  read?: Maybe<MediaFields_Sizes_Xl_Height_Read>;
+  update?: Maybe<MediaFields_Sizes_Xl_Height_Update>;
+};
+
+export type MediaFields_Sizes_Xl_Height_Create = {
+  __typename?: 'MediaFields_sizes_xl_height_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Height_Delete = {
+  __typename?: 'MediaFields_sizes_xl_height_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Height_Read = {
+  __typename?: 'MediaFields_sizes_xl_height_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Height_Update = {
+  __typename?: 'MediaFields_sizes_xl_height_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_MimeType = {
+  __typename?: 'MediaFields_sizes_xl_mimeType';
+  create?: Maybe<MediaFields_Sizes_Xl_MimeType_Create>;
+  delete?: Maybe<MediaFields_Sizes_Xl_MimeType_Delete>;
+  read?: Maybe<MediaFields_Sizes_Xl_MimeType_Read>;
+  update?: Maybe<MediaFields_Sizes_Xl_MimeType_Update>;
+};
+
+export type MediaFields_Sizes_Xl_MimeType_Create = {
+  __typename?: 'MediaFields_sizes_xl_mimeType_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_MimeType_Delete = {
+  __typename?: 'MediaFields_sizes_xl_mimeType_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_MimeType_Read = {
+  __typename?: 'MediaFields_sizes_xl_mimeType_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_MimeType_Update = {
+  __typename?: 'MediaFields_sizes_xl_mimeType_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Url = {
+  __typename?: 'MediaFields_sizes_xl_url';
+  create?: Maybe<MediaFields_Sizes_Xl_Url_Create>;
+  delete?: Maybe<MediaFields_Sizes_Xl_Url_Delete>;
+  read?: Maybe<MediaFields_Sizes_Xl_Url_Read>;
+  update?: Maybe<MediaFields_Sizes_Xl_Url_Update>;
+};
+
+export type MediaFields_Sizes_Xl_Url_Create = {
+  __typename?: 'MediaFields_sizes_xl_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Url_Delete = {
+  __typename?: 'MediaFields_sizes_xl_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Url_Read = {
+  __typename?: 'MediaFields_sizes_xl_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Url_Update = {
+  __typename?: 'MediaFields_sizes_xl_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Width = {
+  __typename?: 'MediaFields_sizes_xl_width';
+  create?: Maybe<MediaFields_Sizes_Xl_Width_Create>;
+  delete?: Maybe<MediaFields_Sizes_Xl_Width_Delete>;
+  read?: Maybe<MediaFields_Sizes_Xl_Width_Read>;
+  update?: Maybe<MediaFields_Sizes_Xl_Width_Update>;
+};
+
+export type MediaFields_Sizes_Xl_Width_Create = {
+  __typename?: 'MediaFields_sizes_xl_width_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Width_Delete = {
+  __typename?: 'MediaFields_sizes_xl_width_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Width_Read = {
+  __typename?: 'MediaFields_sizes_xl_width_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xl_Width_Update = {
+  __typename?: 'MediaFields_sizes_xl_width_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs = {
+  __typename?: 'MediaFields_sizes_xs';
+  create?: Maybe<MediaFields_Sizes_Xs_Create>;
+  delete?: Maybe<MediaFields_Sizes_Xs_Delete>;
+  fields?: Maybe<MediaFields_Sizes_Xs_Fields>;
+  read?: Maybe<MediaFields_Sizes_Xs_Read>;
+  update?: Maybe<MediaFields_Sizes_Xs_Update>;
+};
+
+export type MediaFields_Sizes_Xs_Create = {
+  __typename?: 'MediaFields_sizes_xs_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Delete = {
+  __typename?: 'MediaFields_sizes_xs_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Fields = {
+  __typename?: 'MediaFields_sizes_xs_Fields';
+  filename?: Maybe<MediaFields_Sizes_Xs_Filename>;
+  filesize?: Maybe<MediaFields_Sizes_Xs_Filesize>;
+  height?: Maybe<MediaFields_Sizes_Xs_Height>;
+  mimeType?: Maybe<MediaFields_Sizes_Xs_MimeType>;
+  url?: Maybe<MediaFields_Sizes_Xs_Url>;
+  width?: Maybe<MediaFields_Sizes_Xs_Width>;
+};
+
+export type MediaFields_Sizes_Xs_Read = {
+  __typename?: 'MediaFields_sizes_xs_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Update = {
+  __typename?: 'MediaFields_sizes_xs_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Filename = {
+  __typename?: 'MediaFields_sizes_xs_filename';
+  create?: Maybe<MediaFields_Sizes_Xs_Filename_Create>;
+  delete?: Maybe<MediaFields_Sizes_Xs_Filename_Delete>;
+  read?: Maybe<MediaFields_Sizes_Xs_Filename_Read>;
+  update?: Maybe<MediaFields_Sizes_Xs_Filename_Update>;
+};
+
+export type MediaFields_Sizes_Xs_Filename_Create = {
+  __typename?: 'MediaFields_sizes_xs_filename_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Filename_Delete = {
+  __typename?: 'MediaFields_sizes_xs_filename_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Filename_Read = {
+  __typename?: 'MediaFields_sizes_xs_filename_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Filename_Update = {
+  __typename?: 'MediaFields_sizes_xs_filename_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Filesize = {
+  __typename?: 'MediaFields_sizes_xs_filesize';
+  create?: Maybe<MediaFields_Sizes_Xs_Filesize_Create>;
+  delete?: Maybe<MediaFields_Sizes_Xs_Filesize_Delete>;
+  read?: Maybe<MediaFields_Sizes_Xs_Filesize_Read>;
+  update?: Maybe<MediaFields_Sizes_Xs_Filesize_Update>;
+};
+
+export type MediaFields_Sizes_Xs_Filesize_Create = {
+  __typename?: 'MediaFields_sizes_xs_filesize_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Filesize_Delete = {
+  __typename?: 'MediaFields_sizes_xs_filesize_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Filesize_Read = {
+  __typename?: 'MediaFields_sizes_xs_filesize_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Filesize_Update = {
+  __typename?: 'MediaFields_sizes_xs_filesize_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Height = {
+  __typename?: 'MediaFields_sizes_xs_height';
+  create?: Maybe<MediaFields_Sizes_Xs_Height_Create>;
+  delete?: Maybe<MediaFields_Sizes_Xs_Height_Delete>;
+  read?: Maybe<MediaFields_Sizes_Xs_Height_Read>;
+  update?: Maybe<MediaFields_Sizes_Xs_Height_Update>;
+};
+
+export type MediaFields_Sizes_Xs_Height_Create = {
+  __typename?: 'MediaFields_sizes_xs_height_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Height_Delete = {
+  __typename?: 'MediaFields_sizes_xs_height_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Height_Read = {
+  __typename?: 'MediaFields_sizes_xs_height_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Height_Update = {
+  __typename?: 'MediaFields_sizes_xs_height_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_MimeType = {
+  __typename?: 'MediaFields_sizes_xs_mimeType';
+  create?: Maybe<MediaFields_Sizes_Xs_MimeType_Create>;
+  delete?: Maybe<MediaFields_Sizes_Xs_MimeType_Delete>;
+  read?: Maybe<MediaFields_Sizes_Xs_MimeType_Read>;
+  update?: Maybe<MediaFields_Sizes_Xs_MimeType_Update>;
+};
+
+export type MediaFields_Sizes_Xs_MimeType_Create = {
+  __typename?: 'MediaFields_sizes_xs_mimeType_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_MimeType_Delete = {
+  __typename?: 'MediaFields_sizes_xs_mimeType_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_MimeType_Read = {
+  __typename?: 'MediaFields_sizes_xs_mimeType_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_MimeType_Update = {
+  __typename?: 'MediaFields_sizes_xs_mimeType_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Url = {
+  __typename?: 'MediaFields_sizes_xs_url';
+  create?: Maybe<MediaFields_Sizes_Xs_Url_Create>;
+  delete?: Maybe<MediaFields_Sizes_Xs_Url_Delete>;
+  read?: Maybe<MediaFields_Sizes_Xs_Url_Read>;
+  update?: Maybe<MediaFields_Sizes_Xs_Url_Update>;
+};
+
+export type MediaFields_Sizes_Xs_Url_Create = {
+  __typename?: 'MediaFields_sizes_xs_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Url_Delete = {
+  __typename?: 'MediaFields_sizes_xs_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Url_Read = {
+  __typename?: 'MediaFields_sizes_xs_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Url_Update = {
+  __typename?: 'MediaFields_sizes_xs_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Width = {
+  __typename?: 'MediaFields_sizes_xs_width';
+  create?: Maybe<MediaFields_Sizes_Xs_Width_Create>;
+  delete?: Maybe<MediaFields_Sizes_Xs_Width_Delete>;
+  read?: Maybe<MediaFields_Sizes_Xs_Width_Read>;
+  update?: Maybe<MediaFields_Sizes_Xs_Width_Update>;
+};
+
+export type MediaFields_Sizes_Xs_Width_Create = {
+  __typename?: 'MediaFields_sizes_xs_width_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Width_Delete = {
+  __typename?: 'MediaFields_sizes_xs_width_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Width_Read = {
+  __typename?: 'MediaFields_sizes_xs_width_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Sizes_Xs_Width_Update = {
+  __typename?: 'MediaFields_sizes_xs_width_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_UpdatedAt = {
+  __typename?: 'MediaFields_updatedAt';
+  create?: Maybe<MediaFields_UpdatedAt_Create>;
+  delete?: Maybe<MediaFields_UpdatedAt_Delete>;
+  read?: Maybe<MediaFields_UpdatedAt_Read>;
+  update?: Maybe<MediaFields_UpdatedAt_Update>;
+};
+
+export type MediaFields_UpdatedAt_Create = {
+  __typename?: 'MediaFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_UpdatedAt_Delete = {
+  __typename?: 'MediaFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_UpdatedAt_Read = {
+  __typename?: 'MediaFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_UpdatedAt_Update = {
+  __typename?: 'MediaFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Url = {
+  __typename?: 'MediaFields_url';
+  create?: Maybe<MediaFields_Url_Create>;
+  delete?: Maybe<MediaFields_Url_Delete>;
+  read?: Maybe<MediaFields_Url_Read>;
+  update?: Maybe<MediaFields_Url_Update>;
+};
+
+export type MediaFields_Url_Create = {
+  __typename?: 'MediaFields_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Url_Delete = {
+  __typename?: 'MediaFields_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Url_Read = {
+  __typename?: 'MediaFields_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Url_Update = {
+  __typename?: 'MediaFields_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Width = {
+  __typename?: 'MediaFields_width';
+  create?: Maybe<MediaFields_Width_Create>;
+  delete?: Maybe<MediaFields_Width_Delete>;
+  read?: Maybe<MediaFields_Width_Read>;
+  update?: Maybe<MediaFields_Width_Update>;
+};
+
+export type MediaFields_Width_Create = {
+  __typename?: 'MediaFields_width_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Width_Delete = {
+  __typename?: 'MediaFields_width_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Width_Read = {
+  __typename?: 'MediaFields_width_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_Width_Update = {
+  __typename?: 'MediaFields_width_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaReadAccess = {
+  __typename?: 'MediaReadAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type MediaReadDocAccess = {
+  __typename?: 'MediaReadDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type MediaUpdateAccess = {
+  __typename?: 'MediaUpdateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type MediaUpdateDocAccess = {
+  __typename?: 'MediaUpdateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type Media_Sizes = {
+  __typename?: 'Media_Sizes';
+  lg?: Maybe<Media_Sizes_Lg>;
+  opengraph?: Maybe<Media_Sizes_Opengraph>;
+  sm?: Maybe<Media_Sizes_Sm>;
+  xl?: Maybe<Media_Sizes_Xl>;
+  xs?: Maybe<Media_Sizes_Xs>;
+};
+
+export type Media_Sizes_Lg = {
+  __typename?: 'Media_Sizes_Lg';
+  filename?: Maybe<Scalars['String']>;
+  filesize?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  mimeType?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+  width?: Maybe<Scalars['Float']>;
+};
+
+export type Media_Sizes_Opengraph = {
+  __typename?: 'Media_Sizes_Opengraph';
+  filename?: Maybe<Scalars['String']>;
+  filesize?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  mimeType?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+  width?: Maybe<Scalars['Float']>;
+};
+
+export type Media_Sizes_Sm = {
+  __typename?: 'Media_Sizes_Sm';
+  filename?: Maybe<Scalars['String']>;
+  filesize?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  mimeType?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+  width?: Maybe<Scalars['Float']>;
+};
+
+export type Media_Sizes_Xl = {
+  __typename?: 'Media_Sizes_Xl';
+  filename?: Maybe<Scalars['String']>;
+  filesize?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  mimeType?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+  width?: Maybe<Scalars['Float']>;
+};
+
+export type Media_Sizes_Xs = {
+  __typename?: 'Media_Sizes_Xs';
+  filename?: Maybe<Scalars['String']>;
+  filesize?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  mimeType?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+  width?: Maybe<Scalars['Float']>;
+};
+
+export type Media_Alt_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type Media_Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_FocalX_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_FocalY_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Prefix_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Lg__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Lg__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Sizes__Lg__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Sizes__Lg__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Lg__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Lg__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Sizes__Opengraph__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Opengraph__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Sizes__Opengraph__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Sizes__Opengraph__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Opengraph__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Opengraph__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Sizes__Sm__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Sm__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Sizes__Sm__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Sizes__Sm__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Sm__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Sm__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Sizes__Xl__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Xl__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Sizes__Xl__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Sizes__Xl__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Xl__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Xl__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Sizes__Xs__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Xs__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Sizes__Xs__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_Sizes__Xs__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Xs__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Sizes__Xs__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Media_UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type Media_Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Media_Where = {
+  AND?: InputMaybe<Array<InputMaybe<Media_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<Media_Where_Or>>>;
+  alt?: InputMaybe<Media_Alt_Operator>;
+  createdAt?: InputMaybe<Media_CreatedAt_Operator>;
+  filename?: InputMaybe<Media_Filename_Operator>;
+  filesize?: InputMaybe<Media_Filesize_Operator>;
+  focalX?: InputMaybe<Media_FocalX_Operator>;
+  focalY?: InputMaybe<Media_FocalY_Operator>;
+  height?: InputMaybe<Media_Height_Operator>;
+  id?: InputMaybe<Media_Id_Operator>;
+  mimeType?: InputMaybe<Media_MimeType_Operator>;
+  prefix?: InputMaybe<Media_Prefix_Operator>;
+  sizes__lg__filename?: InputMaybe<Media_Sizes__Lg__Filename_Operator>;
+  sizes__lg__filesize?: InputMaybe<Media_Sizes__Lg__Filesize_Operator>;
+  sizes__lg__height?: InputMaybe<Media_Sizes__Lg__Height_Operator>;
+  sizes__lg__mimeType?: InputMaybe<Media_Sizes__Lg__MimeType_Operator>;
+  sizes__lg__url?: InputMaybe<Media_Sizes__Lg__Url_Operator>;
+  sizes__lg__width?: InputMaybe<Media_Sizes__Lg__Width_Operator>;
+  sizes__opengraph__filename?: InputMaybe<Media_Sizes__Opengraph__Filename_Operator>;
+  sizes__opengraph__filesize?: InputMaybe<Media_Sizes__Opengraph__Filesize_Operator>;
+  sizes__opengraph__height?: InputMaybe<Media_Sizes__Opengraph__Height_Operator>;
+  sizes__opengraph__mimeType?: InputMaybe<Media_Sizes__Opengraph__MimeType_Operator>;
+  sizes__opengraph__url?: InputMaybe<Media_Sizes__Opengraph__Url_Operator>;
+  sizes__opengraph__width?: InputMaybe<Media_Sizes__Opengraph__Width_Operator>;
+  sizes__sm__filename?: InputMaybe<Media_Sizes__Sm__Filename_Operator>;
+  sizes__sm__filesize?: InputMaybe<Media_Sizes__Sm__Filesize_Operator>;
+  sizes__sm__height?: InputMaybe<Media_Sizes__Sm__Height_Operator>;
+  sizes__sm__mimeType?: InputMaybe<Media_Sizes__Sm__MimeType_Operator>;
+  sizes__sm__url?: InputMaybe<Media_Sizes__Sm__Url_Operator>;
+  sizes__sm__width?: InputMaybe<Media_Sizes__Sm__Width_Operator>;
+  sizes__xl__filename?: InputMaybe<Media_Sizes__Xl__Filename_Operator>;
+  sizes__xl__filesize?: InputMaybe<Media_Sizes__Xl__Filesize_Operator>;
+  sizes__xl__height?: InputMaybe<Media_Sizes__Xl__Height_Operator>;
+  sizes__xl__mimeType?: InputMaybe<Media_Sizes__Xl__MimeType_Operator>;
+  sizes__xl__url?: InputMaybe<Media_Sizes__Xl__Url_Operator>;
+  sizes__xl__width?: InputMaybe<Media_Sizes__Xl__Width_Operator>;
+  sizes__xs__filename?: InputMaybe<Media_Sizes__Xs__Filename_Operator>;
+  sizes__xs__filesize?: InputMaybe<Media_Sizes__Xs__Filesize_Operator>;
+  sizes__xs__height?: InputMaybe<Media_Sizes__Xs__Height_Operator>;
+  sizes__xs__mimeType?: InputMaybe<Media_Sizes__Xs__MimeType_Operator>;
+  sizes__xs__url?: InputMaybe<Media_Sizes__Xs__Url_Operator>;
+  sizes__xs__width?: InputMaybe<Media_Sizes__Xs__Width_Operator>;
+  updatedAt?: InputMaybe<Media_UpdatedAt_Operator>;
+  url?: InputMaybe<Media_Url_Operator>;
+  width?: InputMaybe<Media_Width_Operator>;
+};
+
+export type Media_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<Media_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<Media_Where_Or>>>;
+  alt?: InputMaybe<Media_Alt_Operator>;
+  createdAt?: InputMaybe<Media_CreatedAt_Operator>;
+  filename?: InputMaybe<Media_Filename_Operator>;
+  filesize?: InputMaybe<Media_Filesize_Operator>;
+  focalX?: InputMaybe<Media_FocalX_Operator>;
+  focalY?: InputMaybe<Media_FocalY_Operator>;
+  height?: InputMaybe<Media_Height_Operator>;
+  id?: InputMaybe<Media_Id_Operator>;
+  mimeType?: InputMaybe<Media_MimeType_Operator>;
+  prefix?: InputMaybe<Media_Prefix_Operator>;
+  sizes__lg__filename?: InputMaybe<Media_Sizes__Lg__Filename_Operator>;
+  sizes__lg__filesize?: InputMaybe<Media_Sizes__Lg__Filesize_Operator>;
+  sizes__lg__height?: InputMaybe<Media_Sizes__Lg__Height_Operator>;
+  sizes__lg__mimeType?: InputMaybe<Media_Sizes__Lg__MimeType_Operator>;
+  sizes__lg__url?: InputMaybe<Media_Sizes__Lg__Url_Operator>;
+  sizes__lg__width?: InputMaybe<Media_Sizes__Lg__Width_Operator>;
+  sizes__opengraph__filename?: InputMaybe<Media_Sizes__Opengraph__Filename_Operator>;
+  sizes__opengraph__filesize?: InputMaybe<Media_Sizes__Opengraph__Filesize_Operator>;
+  sizes__opengraph__height?: InputMaybe<Media_Sizes__Opengraph__Height_Operator>;
+  sizes__opengraph__mimeType?: InputMaybe<Media_Sizes__Opengraph__MimeType_Operator>;
+  sizes__opengraph__url?: InputMaybe<Media_Sizes__Opengraph__Url_Operator>;
+  sizes__opengraph__width?: InputMaybe<Media_Sizes__Opengraph__Width_Operator>;
+  sizes__sm__filename?: InputMaybe<Media_Sizes__Sm__Filename_Operator>;
+  sizes__sm__filesize?: InputMaybe<Media_Sizes__Sm__Filesize_Operator>;
+  sizes__sm__height?: InputMaybe<Media_Sizes__Sm__Height_Operator>;
+  sizes__sm__mimeType?: InputMaybe<Media_Sizes__Sm__MimeType_Operator>;
+  sizes__sm__url?: InputMaybe<Media_Sizes__Sm__Url_Operator>;
+  sizes__sm__width?: InputMaybe<Media_Sizes__Sm__Width_Operator>;
+  sizes__xl__filename?: InputMaybe<Media_Sizes__Xl__Filename_Operator>;
+  sizes__xl__filesize?: InputMaybe<Media_Sizes__Xl__Filesize_Operator>;
+  sizes__xl__height?: InputMaybe<Media_Sizes__Xl__Height_Operator>;
+  sizes__xl__mimeType?: InputMaybe<Media_Sizes__Xl__MimeType_Operator>;
+  sizes__xl__url?: InputMaybe<Media_Sizes__Xl__Url_Operator>;
+  sizes__xl__width?: InputMaybe<Media_Sizes__Xl__Width_Operator>;
+  sizes__xs__filename?: InputMaybe<Media_Sizes__Xs__Filename_Operator>;
+  sizes__xs__filesize?: InputMaybe<Media_Sizes__Xs__Filesize_Operator>;
+  sizes__xs__height?: InputMaybe<Media_Sizes__Xs__Height_Operator>;
+  sizes__xs__mimeType?: InputMaybe<Media_Sizes__Xs__MimeType_Operator>;
+  sizes__xs__url?: InputMaybe<Media_Sizes__Xs__Url_Operator>;
+  sizes__xs__width?: InputMaybe<Media_Sizes__Xs__Width_Operator>;
+  updatedAt?: InputMaybe<Media_UpdatedAt_Operator>;
+  url?: InputMaybe<Media_Url_Operator>;
+  width?: InputMaybe<Media_Width_Operator>;
+};
+
+export type Media_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<Media_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<Media_Where_Or>>>;
+  alt?: InputMaybe<Media_Alt_Operator>;
+  createdAt?: InputMaybe<Media_CreatedAt_Operator>;
+  filename?: InputMaybe<Media_Filename_Operator>;
+  filesize?: InputMaybe<Media_Filesize_Operator>;
+  focalX?: InputMaybe<Media_FocalX_Operator>;
+  focalY?: InputMaybe<Media_FocalY_Operator>;
+  height?: InputMaybe<Media_Height_Operator>;
+  id?: InputMaybe<Media_Id_Operator>;
+  mimeType?: InputMaybe<Media_MimeType_Operator>;
+  prefix?: InputMaybe<Media_Prefix_Operator>;
+  sizes__lg__filename?: InputMaybe<Media_Sizes__Lg__Filename_Operator>;
+  sizes__lg__filesize?: InputMaybe<Media_Sizes__Lg__Filesize_Operator>;
+  sizes__lg__height?: InputMaybe<Media_Sizes__Lg__Height_Operator>;
+  sizes__lg__mimeType?: InputMaybe<Media_Sizes__Lg__MimeType_Operator>;
+  sizes__lg__url?: InputMaybe<Media_Sizes__Lg__Url_Operator>;
+  sizes__lg__width?: InputMaybe<Media_Sizes__Lg__Width_Operator>;
+  sizes__opengraph__filename?: InputMaybe<Media_Sizes__Opengraph__Filename_Operator>;
+  sizes__opengraph__filesize?: InputMaybe<Media_Sizes__Opengraph__Filesize_Operator>;
+  sizes__opengraph__height?: InputMaybe<Media_Sizes__Opengraph__Height_Operator>;
+  sizes__opengraph__mimeType?: InputMaybe<Media_Sizes__Opengraph__MimeType_Operator>;
+  sizes__opengraph__url?: InputMaybe<Media_Sizes__Opengraph__Url_Operator>;
+  sizes__opengraph__width?: InputMaybe<Media_Sizes__Opengraph__Width_Operator>;
+  sizes__sm__filename?: InputMaybe<Media_Sizes__Sm__Filename_Operator>;
+  sizes__sm__filesize?: InputMaybe<Media_Sizes__Sm__Filesize_Operator>;
+  sizes__sm__height?: InputMaybe<Media_Sizes__Sm__Height_Operator>;
+  sizes__sm__mimeType?: InputMaybe<Media_Sizes__Sm__MimeType_Operator>;
+  sizes__sm__url?: InputMaybe<Media_Sizes__Sm__Url_Operator>;
+  sizes__sm__width?: InputMaybe<Media_Sizes__Sm__Width_Operator>;
+  sizes__xl__filename?: InputMaybe<Media_Sizes__Xl__Filename_Operator>;
+  sizes__xl__filesize?: InputMaybe<Media_Sizes__Xl__Filesize_Operator>;
+  sizes__xl__height?: InputMaybe<Media_Sizes__Xl__Height_Operator>;
+  sizes__xl__mimeType?: InputMaybe<Media_Sizes__Xl__MimeType_Operator>;
+  sizes__xl__url?: InputMaybe<Media_Sizes__Xl__Url_Operator>;
+  sizes__xl__width?: InputMaybe<Media_Sizes__Xl__Width_Operator>;
+  sizes__xs__filename?: InputMaybe<Media_Sizes__Xs__Filename_Operator>;
+  sizes__xs__filesize?: InputMaybe<Media_Sizes__Xs__Filesize_Operator>;
+  sizes__xs__height?: InputMaybe<Media_Sizes__Xs__Height_Operator>;
+  sizes__xs__mimeType?: InputMaybe<Media_Sizes__Xs__MimeType_Operator>;
+  sizes__xs__url?: InputMaybe<Media_Sizes__Xs__Url_Operator>;
+  sizes__xs__width?: InputMaybe<Media_Sizes__Xs__Width_Operator>;
+  updatedAt?: InputMaybe<Media_UpdatedAt_Operator>;
+  url?: InputMaybe<Media_Url_Operator>;
+  width?: InputMaybe<Media_Width_Operator>;
+};
+
+export type Media_Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
 export type MerchPreview = {
   __typename?: 'MerchPreview';
   blurb: Scalars['String'];
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['String']>;
-  image?: Maybe<NewsMedia>;
+  image?: Maybe<Media>;
   title: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
   url: Scalars['String'];
@@ -2207,8 +6059,8 @@ export type Mutation = {
   __typename?: 'Mutation';
   createCategory?: Maybe<Category>;
   createHost?: Maybe<Host>;
+  createMedia?: Maybe<Media>;
   createMerchPreview?: Maybe<MerchPreview>;
-  createNewsMedia?: Maybe<NewsMedia>;
   createNewsPost?: Maybe<NewsPost>;
   createPayloadPreference?: Maybe<PayloadPreference>;
   createShow?: Maybe<Show>;
@@ -2216,8 +6068,8 @@ export type Mutation = {
   createUser?: Maybe<User>;
   deleteCategory?: Maybe<Category>;
   deleteHost?: Maybe<Host>;
+  deleteMedia?: Maybe<Media>;
   deleteMerchPreview?: Maybe<MerchPreview>;
-  deleteNewsMedia?: Maybe<NewsMedia>;
   deleteNewsPost?: Maybe<NewsPost>;
   deletePayloadPreference?: Maybe<PayloadPreference>;
   deleteShow?: Maybe<Show>;
@@ -2232,9 +6084,10 @@ export type Mutation = {
   unlockUser: Scalars['Boolean'];
   updateAboutPage?: Maybe<AboutPage>;
   updateCategory?: Maybe<Category>;
+  updateDonatePage?: Maybe<DonatePage>;
   updateHost?: Maybe<Host>;
+  updateMedia?: Maybe<Media>;
   updateMerchPreview?: Maybe<MerchPreview>;
-  updateNewsMedia?: Maybe<NewsMedia>;
   updateNewsPost?: Maybe<NewsPost>;
   updatePayloadPreference?: Maybe<PayloadPreference>;
   updateShow?: Maybe<Show>;
@@ -2256,14 +6109,14 @@ export type MutationCreateHostArgs = {
 };
 
 
-export type MutationCreateMerchPreviewArgs = {
-  data: MutationMerchPreviewInput;
+export type MutationCreateMediaArgs = {
+  data: MutationMediaInput;
   locale?: InputMaybe<LocaleInputType>;
 };
 
 
-export type MutationCreateNewsMediaArgs = {
-  data: MutationNewsMediaInput;
+export type MutationCreateMerchPreviewArgs = {
+  data: MutationMerchPreviewInput;
   locale?: InputMaybe<LocaleInputType>;
 };
 
@@ -2309,12 +6162,12 @@ export type MutationDeleteHostArgs = {
 };
 
 
-export type MutationDeleteMerchPreviewArgs = {
+export type MutationDeleteMediaArgs = {
   id: Scalars['String'];
 };
 
 
-export type MutationDeleteNewsMediaArgs = {
+export type MutationDeleteMerchPreviewArgs = {
   id: Scalars['String'];
 };
 
@@ -2388,6 +6241,13 @@ export type MutationUpdateCategoryArgs = {
 };
 
 
+export type MutationUpdateDonatePageArgs = {
+  data: MutationDonatePageInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
 export type MutationUpdateHostArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationHostUpdateInput;
@@ -2396,17 +6256,17 @@ export type MutationUpdateHostArgs = {
 };
 
 
-export type MutationUpdateMerchPreviewArgs = {
+export type MutationUpdateMediaArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
-  data: MutationMerchPreviewUpdateInput;
+  data: MutationMediaUpdateInput;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
 };
 
 
-export type MutationUpdateNewsMediaArgs = {
+export type MutationUpdateMerchPreviewArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
-  data: MutationNewsMediaUpdateInput;
+  data: MutationMerchPreviewUpdateInput;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
 };
@@ -2457,3595 +6317,6 @@ export type MutationVerifyEmailUserArgs = {
   token?: InputMaybe<Scalars['String']>;
 };
 
-export type NewsMedia = {
-  __typename?: 'NewsMedia';
-  alt?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['DateTime']>;
-  filename?: Maybe<Scalars['String']>;
-  filesize?: Maybe<Scalars['Float']>;
-  focalX?: Maybe<Scalars['Float']>;
-  focalY?: Maybe<Scalars['Float']>;
-  height?: Maybe<Scalars['Float']>;
-  id?: Maybe<Scalars['String']>;
-  mimeType?: Maybe<Scalars['String']>;
-  prefix?: Maybe<Scalars['String']>;
-  sizes?: Maybe<NewsMedia_Sizes>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Float']>;
-};
-
-export type NewsMediaCreateAccess = {
-  __typename?: 'NewsMediaCreateAccess';
-  permission: Scalars['Boolean'];
-  where?: Maybe<Scalars['JSONObject']>;
-};
-
-export type NewsMediaCreateDocAccess = {
-  __typename?: 'NewsMediaCreateDocAccess';
-  permission: Scalars['Boolean'];
-  where?: Maybe<Scalars['JSONObject']>;
-};
-
-export type NewsMediaDeleteAccess = {
-  __typename?: 'NewsMediaDeleteAccess';
-  permission: Scalars['Boolean'];
-  where?: Maybe<Scalars['JSONObject']>;
-};
-
-export type NewsMediaDeleteDocAccess = {
-  __typename?: 'NewsMediaDeleteDocAccess';
-  permission: Scalars['Boolean'];
-  where?: Maybe<Scalars['JSONObject']>;
-};
-
-export type NewsMediaDocAccessFields = {
-  __typename?: 'NewsMediaDocAccessFields';
-  alt?: Maybe<NewsMediaDocAccessFields_Alt>;
-  createdAt?: Maybe<NewsMediaDocAccessFields_CreatedAt>;
-  filename?: Maybe<NewsMediaDocAccessFields_Filename>;
-  filesize?: Maybe<NewsMediaDocAccessFields_Filesize>;
-  focalX?: Maybe<NewsMediaDocAccessFields_FocalX>;
-  focalY?: Maybe<NewsMediaDocAccessFields_FocalY>;
-  height?: Maybe<NewsMediaDocAccessFields_Height>;
-  mimeType?: Maybe<NewsMediaDocAccessFields_MimeType>;
-  prefix?: Maybe<NewsMediaDocAccessFields_Prefix>;
-  sizes?: Maybe<NewsMediaDocAccessFields_Sizes>;
-  updatedAt?: Maybe<NewsMediaDocAccessFields_UpdatedAt>;
-  url?: Maybe<NewsMediaDocAccessFields_Url>;
-  width?: Maybe<NewsMediaDocAccessFields_Width>;
-};
-
-export type NewsMediaDocAccessFields_Alt = {
-  __typename?: 'NewsMediaDocAccessFields_alt';
-  create?: Maybe<NewsMediaDocAccessFields_Alt_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Alt_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Alt_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Alt_Update>;
-};
-
-export type NewsMediaDocAccessFields_Alt_Create = {
-  __typename?: 'NewsMediaDocAccessFields_alt_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Alt_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_alt_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Alt_Read = {
-  __typename?: 'NewsMediaDocAccessFields_alt_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Alt_Update = {
-  __typename?: 'NewsMediaDocAccessFields_alt_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_CreatedAt = {
-  __typename?: 'NewsMediaDocAccessFields_createdAt';
-  create?: Maybe<NewsMediaDocAccessFields_CreatedAt_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_CreatedAt_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_CreatedAt_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_CreatedAt_Update>;
-};
-
-export type NewsMediaDocAccessFields_CreatedAt_Create = {
-  __typename?: 'NewsMediaDocAccessFields_createdAt_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_CreatedAt_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_createdAt_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_CreatedAt_Read = {
-  __typename?: 'NewsMediaDocAccessFields_createdAt_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_CreatedAt_Update = {
-  __typename?: 'NewsMediaDocAccessFields_createdAt_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Filename = {
-  __typename?: 'NewsMediaDocAccessFields_filename';
-  create?: Maybe<NewsMediaDocAccessFields_Filename_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Filename_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Filename_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Filename_Update>;
-};
-
-export type NewsMediaDocAccessFields_Filename_Create = {
-  __typename?: 'NewsMediaDocAccessFields_filename_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Filename_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_filename_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Filename_Read = {
-  __typename?: 'NewsMediaDocAccessFields_filename_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Filename_Update = {
-  __typename?: 'NewsMediaDocAccessFields_filename_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Filesize = {
-  __typename?: 'NewsMediaDocAccessFields_filesize';
-  create?: Maybe<NewsMediaDocAccessFields_Filesize_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Filesize_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Filesize_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Filesize_Update>;
-};
-
-export type NewsMediaDocAccessFields_Filesize_Create = {
-  __typename?: 'NewsMediaDocAccessFields_filesize_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Filesize_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_filesize_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Filesize_Read = {
-  __typename?: 'NewsMediaDocAccessFields_filesize_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Filesize_Update = {
-  __typename?: 'NewsMediaDocAccessFields_filesize_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_FocalX = {
-  __typename?: 'NewsMediaDocAccessFields_focalX';
-  create?: Maybe<NewsMediaDocAccessFields_FocalX_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_FocalX_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_FocalX_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_FocalX_Update>;
-};
-
-export type NewsMediaDocAccessFields_FocalX_Create = {
-  __typename?: 'NewsMediaDocAccessFields_focalX_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_FocalX_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_focalX_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_FocalX_Read = {
-  __typename?: 'NewsMediaDocAccessFields_focalX_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_FocalX_Update = {
-  __typename?: 'NewsMediaDocAccessFields_focalX_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_FocalY = {
-  __typename?: 'NewsMediaDocAccessFields_focalY';
-  create?: Maybe<NewsMediaDocAccessFields_FocalY_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_FocalY_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_FocalY_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_FocalY_Update>;
-};
-
-export type NewsMediaDocAccessFields_FocalY_Create = {
-  __typename?: 'NewsMediaDocAccessFields_focalY_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_FocalY_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_focalY_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_FocalY_Read = {
-  __typename?: 'NewsMediaDocAccessFields_focalY_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_FocalY_Update = {
-  __typename?: 'NewsMediaDocAccessFields_focalY_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Height = {
-  __typename?: 'NewsMediaDocAccessFields_height';
-  create?: Maybe<NewsMediaDocAccessFields_Height_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Height_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Height_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Height_Update>;
-};
-
-export type NewsMediaDocAccessFields_Height_Create = {
-  __typename?: 'NewsMediaDocAccessFields_height_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Height_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_height_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Height_Read = {
-  __typename?: 'NewsMediaDocAccessFields_height_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Height_Update = {
-  __typename?: 'NewsMediaDocAccessFields_height_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_MimeType = {
-  __typename?: 'NewsMediaDocAccessFields_mimeType';
-  create?: Maybe<NewsMediaDocAccessFields_MimeType_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_MimeType_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_MimeType_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_MimeType_Update>;
-};
-
-export type NewsMediaDocAccessFields_MimeType_Create = {
-  __typename?: 'NewsMediaDocAccessFields_mimeType_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_MimeType_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_mimeType_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_MimeType_Read = {
-  __typename?: 'NewsMediaDocAccessFields_mimeType_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_MimeType_Update = {
-  __typename?: 'NewsMediaDocAccessFields_mimeType_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Prefix = {
-  __typename?: 'NewsMediaDocAccessFields_prefix';
-  create?: Maybe<NewsMediaDocAccessFields_Prefix_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Prefix_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Prefix_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Prefix_Update>;
-};
-
-export type NewsMediaDocAccessFields_Prefix_Create = {
-  __typename?: 'NewsMediaDocAccessFields_prefix_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Prefix_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_prefix_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Prefix_Read = {
-  __typename?: 'NewsMediaDocAccessFields_prefix_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Prefix_Update = {
-  __typename?: 'NewsMediaDocAccessFields_prefix_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes = {
-  __typename?: 'NewsMediaDocAccessFields_sizes';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Delete>;
-  fields?: Maybe<NewsMediaDocAccessFields_Sizes_Fields>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Fields = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_Fields';
-  lg?: Maybe<NewsMediaDocAccessFields_Sizes_Lg>;
-  opengraph?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph>;
-  sm?: Maybe<NewsMediaDocAccessFields_Sizes_Sm>;
-  xl?: Maybe<NewsMediaDocAccessFields_Sizes_Xl>;
-  xs?: Maybe<NewsMediaDocAccessFields_Sizes_Xs>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Delete>;
-  fields?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Fields>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Fields = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_Fields';
-  filename?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Filename>;
-  filesize?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Filesize>;
-  height?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Height>;
-  mimeType?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_MimeType>;
-  url?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Url>;
-  width?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Width>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Filename = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_filename';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Filename_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Filename_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Filename_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Filename_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Filename_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_filename_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Filename_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_filename_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Filename_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_filename_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Filename_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_filename_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Filesize = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_filesize';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Filesize_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Filesize_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Filesize_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Filesize_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Filesize_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_filesize_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Filesize_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_filesize_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Filesize_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_filesize_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Filesize_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_filesize_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Height = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_height';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Height_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Height_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Height_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Height_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Height_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_height_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Height_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_height_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Height_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_height_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Height_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_height_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_MimeType = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_mimeType';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_MimeType_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_MimeType_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_MimeType_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_MimeType_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_MimeType_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_mimeType_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_MimeType_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_mimeType_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_MimeType_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_mimeType_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_MimeType_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_mimeType_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Url = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_url';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Url_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Url_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Url_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Url_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Url_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_url_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Url_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_url_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Url_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_url_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Url_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_url_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Width = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_width';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Width_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Width_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Width_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Lg_Width_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Width_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_width_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Width_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_width_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Width_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_width_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Lg_Width_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_lg_width_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Delete>;
-  fields?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Fields>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Fields = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_Fields';
-  filename?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Filename>;
-  filesize?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Filesize>;
-  height?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Height>;
-  mimeType?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_MimeType>;
-  url?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Url>;
-  width?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Width>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Filename = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_filename';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Filename_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Filename_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Filename_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Filename_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Filename_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_filename_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Filename_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_filename_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Filename_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_filename_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Filename_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_filename_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Filesize = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_filesize';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Filesize_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Filesize_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Filesize_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Filesize_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Filesize_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_filesize_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Filesize_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_filesize_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Filesize_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_filesize_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Filesize_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_filesize_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Height = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_height';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Height_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Height_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Height_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Height_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Height_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_height_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Height_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_height_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Height_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_height_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Height_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_height_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_MimeType = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_mimeType';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_MimeType_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_MimeType_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_MimeType_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_MimeType_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_MimeType_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_mimeType_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_MimeType_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_mimeType_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_MimeType_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_mimeType_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_MimeType_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_mimeType_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Url = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_url';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Url_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Url_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Url_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Url_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Url_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_url_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Url_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_url_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Url_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_url_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Url_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_url_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Width = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_width';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Width_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Width_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Width_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Opengraph_Width_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Width_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_width_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Width_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_width_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Width_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_width_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Opengraph_Width_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_opengraph_width_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Delete>;
-  fields?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Fields>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Fields = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_Fields';
-  filename?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Filename>;
-  filesize?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Filesize>;
-  height?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Height>;
-  mimeType?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_MimeType>;
-  url?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Url>;
-  width?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Width>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Filename = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_filename';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Filename_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Filename_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Filename_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Filename_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Filename_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_filename_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Filename_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_filename_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Filename_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_filename_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Filename_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_filename_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Filesize = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_filesize';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Filesize_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Filesize_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Filesize_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Filesize_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Filesize_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_filesize_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Filesize_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_filesize_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Filesize_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_filesize_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Filesize_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_filesize_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Height = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_height';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Height_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Height_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Height_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Height_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Height_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_height_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Height_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_height_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Height_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_height_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Height_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_height_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_MimeType = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_mimeType';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_MimeType_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_MimeType_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_MimeType_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_MimeType_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_MimeType_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_mimeType_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_MimeType_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_mimeType_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_MimeType_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_mimeType_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_MimeType_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_mimeType_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Url = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_url';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Url_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Url_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Url_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Url_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Url_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_url_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Url_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_url_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Url_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_url_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Url_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_url_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Width = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_width';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Width_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Width_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Width_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Sm_Width_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Width_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_width_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Width_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_width_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Width_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_width_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Sm_Width_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_sm_width_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Delete>;
-  fields?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Fields>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Fields = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_Fields';
-  filename?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Filename>;
-  filesize?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Filesize>;
-  height?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Height>;
-  mimeType?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_MimeType>;
-  url?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Url>;
-  width?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Width>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Filename = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_filename';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Filename_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Filename_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Filename_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Filename_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Filename_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_filename_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Filename_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_filename_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Filename_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_filename_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Filename_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_filename_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Filesize = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_filesize';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Filesize_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Filesize_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Filesize_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Filesize_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Filesize_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_filesize_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Filesize_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_filesize_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Filesize_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_filesize_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Filesize_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_filesize_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Height = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_height';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Height_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Height_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Height_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Height_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Height_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_height_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Height_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_height_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Height_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_height_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Height_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_height_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_MimeType = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_mimeType';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_MimeType_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_MimeType_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_MimeType_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_MimeType_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_MimeType_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_mimeType_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_MimeType_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_mimeType_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_MimeType_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_mimeType_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_MimeType_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_mimeType_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Url = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_url';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Url_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Url_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Url_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Url_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Url_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_url_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Url_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_url_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Url_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_url_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Url_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_url_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Width = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_width';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Width_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Width_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Width_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Xl_Width_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Width_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_width_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Width_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_width_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Width_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_width_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xl_Width_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xl_width_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Delete>;
-  fields?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Fields>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Fields = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_Fields';
-  filename?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Filename>;
-  filesize?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Filesize>;
-  height?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Height>;
-  mimeType?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_MimeType>;
-  url?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Url>;
-  width?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Width>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Filename = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_filename';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Filename_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Filename_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Filename_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Filename_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Filename_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_filename_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Filename_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_filename_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Filename_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_filename_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Filename_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_filename_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Filesize = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_filesize';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Filesize_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Filesize_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Filesize_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Filesize_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Filesize_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_filesize_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Filesize_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_filesize_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Filesize_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_filesize_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Filesize_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_filesize_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Height = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_height';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Height_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Height_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Height_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Height_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Height_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_height_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Height_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_height_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Height_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_height_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Height_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_height_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_MimeType = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_mimeType';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_MimeType_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_MimeType_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_MimeType_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_MimeType_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_MimeType_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_mimeType_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_MimeType_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_mimeType_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_MimeType_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_mimeType_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_MimeType_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_mimeType_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Url = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_url';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Url_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Url_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Url_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Url_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Url_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_url_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Url_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_url_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Url_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_url_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Url_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_url_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Width = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_width';
-  create?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Width_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Width_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Width_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Sizes_Xs_Width_Update>;
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Width_Create = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_width_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Width_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_width_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Width_Read = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_width_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Sizes_Xs_Width_Update = {
-  __typename?: 'NewsMediaDocAccessFields_sizes_xs_width_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_UpdatedAt = {
-  __typename?: 'NewsMediaDocAccessFields_updatedAt';
-  create?: Maybe<NewsMediaDocAccessFields_UpdatedAt_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_UpdatedAt_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_UpdatedAt_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_UpdatedAt_Update>;
-};
-
-export type NewsMediaDocAccessFields_UpdatedAt_Create = {
-  __typename?: 'NewsMediaDocAccessFields_updatedAt_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_UpdatedAt_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_updatedAt_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_UpdatedAt_Read = {
-  __typename?: 'NewsMediaDocAccessFields_updatedAt_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_UpdatedAt_Update = {
-  __typename?: 'NewsMediaDocAccessFields_updatedAt_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Url = {
-  __typename?: 'NewsMediaDocAccessFields_url';
-  create?: Maybe<NewsMediaDocAccessFields_Url_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Url_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Url_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Url_Update>;
-};
-
-export type NewsMediaDocAccessFields_Url_Create = {
-  __typename?: 'NewsMediaDocAccessFields_url_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Url_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_url_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Url_Read = {
-  __typename?: 'NewsMediaDocAccessFields_url_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Url_Update = {
-  __typename?: 'NewsMediaDocAccessFields_url_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Width = {
-  __typename?: 'NewsMediaDocAccessFields_width';
-  create?: Maybe<NewsMediaDocAccessFields_Width_Create>;
-  delete?: Maybe<NewsMediaDocAccessFields_Width_Delete>;
-  read?: Maybe<NewsMediaDocAccessFields_Width_Read>;
-  update?: Maybe<NewsMediaDocAccessFields_Width_Update>;
-};
-
-export type NewsMediaDocAccessFields_Width_Create = {
-  __typename?: 'NewsMediaDocAccessFields_width_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Width_Delete = {
-  __typename?: 'NewsMediaDocAccessFields_width_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Width_Read = {
-  __typename?: 'NewsMediaDocAccessFields_width_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaDocAccessFields_Width_Update = {
-  __typename?: 'NewsMediaDocAccessFields_width_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields = {
-  __typename?: 'NewsMediaFields';
-  alt?: Maybe<NewsMediaFields_Alt>;
-  createdAt?: Maybe<NewsMediaFields_CreatedAt>;
-  filename?: Maybe<NewsMediaFields_Filename>;
-  filesize?: Maybe<NewsMediaFields_Filesize>;
-  focalX?: Maybe<NewsMediaFields_FocalX>;
-  focalY?: Maybe<NewsMediaFields_FocalY>;
-  height?: Maybe<NewsMediaFields_Height>;
-  mimeType?: Maybe<NewsMediaFields_MimeType>;
-  prefix?: Maybe<NewsMediaFields_Prefix>;
-  sizes?: Maybe<NewsMediaFields_Sizes>;
-  updatedAt?: Maybe<NewsMediaFields_UpdatedAt>;
-  url?: Maybe<NewsMediaFields_Url>;
-  width?: Maybe<NewsMediaFields_Width>;
-};
-
-export type NewsMediaFields_Alt = {
-  __typename?: 'NewsMediaFields_alt';
-  create?: Maybe<NewsMediaFields_Alt_Create>;
-  delete?: Maybe<NewsMediaFields_Alt_Delete>;
-  read?: Maybe<NewsMediaFields_Alt_Read>;
-  update?: Maybe<NewsMediaFields_Alt_Update>;
-};
-
-export type NewsMediaFields_Alt_Create = {
-  __typename?: 'NewsMediaFields_alt_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Alt_Delete = {
-  __typename?: 'NewsMediaFields_alt_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Alt_Read = {
-  __typename?: 'NewsMediaFields_alt_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Alt_Update = {
-  __typename?: 'NewsMediaFields_alt_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_CreatedAt = {
-  __typename?: 'NewsMediaFields_createdAt';
-  create?: Maybe<NewsMediaFields_CreatedAt_Create>;
-  delete?: Maybe<NewsMediaFields_CreatedAt_Delete>;
-  read?: Maybe<NewsMediaFields_CreatedAt_Read>;
-  update?: Maybe<NewsMediaFields_CreatedAt_Update>;
-};
-
-export type NewsMediaFields_CreatedAt_Create = {
-  __typename?: 'NewsMediaFields_createdAt_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_CreatedAt_Delete = {
-  __typename?: 'NewsMediaFields_createdAt_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_CreatedAt_Read = {
-  __typename?: 'NewsMediaFields_createdAt_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_CreatedAt_Update = {
-  __typename?: 'NewsMediaFields_createdAt_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Filename = {
-  __typename?: 'NewsMediaFields_filename';
-  create?: Maybe<NewsMediaFields_Filename_Create>;
-  delete?: Maybe<NewsMediaFields_Filename_Delete>;
-  read?: Maybe<NewsMediaFields_Filename_Read>;
-  update?: Maybe<NewsMediaFields_Filename_Update>;
-};
-
-export type NewsMediaFields_Filename_Create = {
-  __typename?: 'NewsMediaFields_filename_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Filename_Delete = {
-  __typename?: 'NewsMediaFields_filename_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Filename_Read = {
-  __typename?: 'NewsMediaFields_filename_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Filename_Update = {
-  __typename?: 'NewsMediaFields_filename_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Filesize = {
-  __typename?: 'NewsMediaFields_filesize';
-  create?: Maybe<NewsMediaFields_Filesize_Create>;
-  delete?: Maybe<NewsMediaFields_Filesize_Delete>;
-  read?: Maybe<NewsMediaFields_Filesize_Read>;
-  update?: Maybe<NewsMediaFields_Filesize_Update>;
-};
-
-export type NewsMediaFields_Filesize_Create = {
-  __typename?: 'NewsMediaFields_filesize_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Filesize_Delete = {
-  __typename?: 'NewsMediaFields_filesize_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Filesize_Read = {
-  __typename?: 'NewsMediaFields_filesize_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Filesize_Update = {
-  __typename?: 'NewsMediaFields_filesize_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_FocalX = {
-  __typename?: 'NewsMediaFields_focalX';
-  create?: Maybe<NewsMediaFields_FocalX_Create>;
-  delete?: Maybe<NewsMediaFields_FocalX_Delete>;
-  read?: Maybe<NewsMediaFields_FocalX_Read>;
-  update?: Maybe<NewsMediaFields_FocalX_Update>;
-};
-
-export type NewsMediaFields_FocalX_Create = {
-  __typename?: 'NewsMediaFields_focalX_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_FocalX_Delete = {
-  __typename?: 'NewsMediaFields_focalX_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_FocalX_Read = {
-  __typename?: 'NewsMediaFields_focalX_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_FocalX_Update = {
-  __typename?: 'NewsMediaFields_focalX_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_FocalY = {
-  __typename?: 'NewsMediaFields_focalY';
-  create?: Maybe<NewsMediaFields_FocalY_Create>;
-  delete?: Maybe<NewsMediaFields_FocalY_Delete>;
-  read?: Maybe<NewsMediaFields_FocalY_Read>;
-  update?: Maybe<NewsMediaFields_FocalY_Update>;
-};
-
-export type NewsMediaFields_FocalY_Create = {
-  __typename?: 'NewsMediaFields_focalY_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_FocalY_Delete = {
-  __typename?: 'NewsMediaFields_focalY_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_FocalY_Read = {
-  __typename?: 'NewsMediaFields_focalY_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_FocalY_Update = {
-  __typename?: 'NewsMediaFields_focalY_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Height = {
-  __typename?: 'NewsMediaFields_height';
-  create?: Maybe<NewsMediaFields_Height_Create>;
-  delete?: Maybe<NewsMediaFields_Height_Delete>;
-  read?: Maybe<NewsMediaFields_Height_Read>;
-  update?: Maybe<NewsMediaFields_Height_Update>;
-};
-
-export type NewsMediaFields_Height_Create = {
-  __typename?: 'NewsMediaFields_height_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Height_Delete = {
-  __typename?: 'NewsMediaFields_height_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Height_Read = {
-  __typename?: 'NewsMediaFields_height_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Height_Update = {
-  __typename?: 'NewsMediaFields_height_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_MimeType = {
-  __typename?: 'NewsMediaFields_mimeType';
-  create?: Maybe<NewsMediaFields_MimeType_Create>;
-  delete?: Maybe<NewsMediaFields_MimeType_Delete>;
-  read?: Maybe<NewsMediaFields_MimeType_Read>;
-  update?: Maybe<NewsMediaFields_MimeType_Update>;
-};
-
-export type NewsMediaFields_MimeType_Create = {
-  __typename?: 'NewsMediaFields_mimeType_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_MimeType_Delete = {
-  __typename?: 'NewsMediaFields_mimeType_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_MimeType_Read = {
-  __typename?: 'NewsMediaFields_mimeType_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_MimeType_Update = {
-  __typename?: 'NewsMediaFields_mimeType_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Prefix = {
-  __typename?: 'NewsMediaFields_prefix';
-  create?: Maybe<NewsMediaFields_Prefix_Create>;
-  delete?: Maybe<NewsMediaFields_Prefix_Delete>;
-  read?: Maybe<NewsMediaFields_Prefix_Read>;
-  update?: Maybe<NewsMediaFields_Prefix_Update>;
-};
-
-export type NewsMediaFields_Prefix_Create = {
-  __typename?: 'NewsMediaFields_prefix_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Prefix_Delete = {
-  __typename?: 'NewsMediaFields_prefix_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Prefix_Read = {
-  __typename?: 'NewsMediaFields_prefix_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Prefix_Update = {
-  __typename?: 'NewsMediaFields_prefix_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes = {
-  __typename?: 'NewsMediaFields_sizes';
-  create?: Maybe<NewsMediaFields_Sizes_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Delete>;
-  fields?: Maybe<NewsMediaFields_Sizes_Fields>;
-  read?: Maybe<NewsMediaFields_Sizes_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Update>;
-};
-
-export type NewsMediaFields_Sizes_Create = {
-  __typename?: 'NewsMediaFields_sizes_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Delete = {
-  __typename?: 'NewsMediaFields_sizes_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Fields = {
-  __typename?: 'NewsMediaFields_sizes_Fields';
-  lg?: Maybe<NewsMediaFields_Sizes_Lg>;
-  opengraph?: Maybe<NewsMediaFields_Sizes_Opengraph>;
-  sm?: Maybe<NewsMediaFields_Sizes_Sm>;
-  xl?: Maybe<NewsMediaFields_Sizes_Xl>;
-  xs?: Maybe<NewsMediaFields_Sizes_Xs>;
-};
-
-export type NewsMediaFields_Sizes_Read = {
-  __typename?: 'NewsMediaFields_sizes_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Update = {
-  __typename?: 'NewsMediaFields_sizes_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg = {
-  __typename?: 'NewsMediaFields_sizes_lg';
-  create?: Maybe<NewsMediaFields_Sizes_Lg_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Lg_Delete>;
-  fields?: Maybe<NewsMediaFields_Sizes_Lg_Fields>;
-  read?: Maybe<NewsMediaFields_Sizes_Lg_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Lg_Update>;
-};
-
-export type NewsMediaFields_Sizes_Lg_Create = {
-  __typename?: 'NewsMediaFields_sizes_lg_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Delete = {
-  __typename?: 'NewsMediaFields_sizes_lg_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Fields = {
-  __typename?: 'NewsMediaFields_sizes_lg_Fields';
-  filename?: Maybe<NewsMediaFields_Sizes_Lg_Filename>;
-  filesize?: Maybe<NewsMediaFields_Sizes_Lg_Filesize>;
-  height?: Maybe<NewsMediaFields_Sizes_Lg_Height>;
-  mimeType?: Maybe<NewsMediaFields_Sizes_Lg_MimeType>;
-  url?: Maybe<NewsMediaFields_Sizes_Lg_Url>;
-  width?: Maybe<NewsMediaFields_Sizes_Lg_Width>;
-};
-
-export type NewsMediaFields_Sizes_Lg_Read = {
-  __typename?: 'NewsMediaFields_sizes_lg_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Update = {
-  __typename?: 'NewsMediaFields_sizes_lg_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Filename = {
-  __typename?: 'NewsMediaFields_sizes_lg_filename';
-  create?: Maybe<NewsMediaFields_Sizes_Lg_Filename_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Lg_Filename_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Lg_Filename_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Lg_Filename_Update>;
-};
-
-export type NewsMediaFields_Sizes_Lg_Filename_Create = {
-  __typename?: 'NewsMediaFields_sizes_lg_filename_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Filename_Delete = {
-  __typename?: 'NewsMediaFields_sizes_lg_filename_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Filename_Read = {
-  __typename?: 'NewsMediaFields_sizes_lg_filename_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Filename_Update = {
-  __typename?: 'NewsMediaFields_sizes_lg_filename_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Filesize = {
-  __typename?: 'NewsMediaFields_sizes_lg_filesize';
-  create?: Maybe<NewsMediaFields_Sizes_Lg_Filesize_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Lg_Filesize_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Lg_Filesize_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Lg_Filesize_Update>;
-};
-
-export type NewsMediaFields_Sizes_Lg_Filesize_Create = {
-  __typename?: 'NewsMediaFields_sizes_lg_filesize_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Filesize_Delete = {
-  __typename?: 'NewsMediaFields_sizes_lg_filesize_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Filesize_Read = {
-  __typename?: 'NewsMediaFields_sizes_lg_filesize_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Filesize_Update = {
-  __typename?: 'NewsMediaFields_sizes_lg_filesize_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Height = {
-  __typename?: 'NewsMediaFields_sizes_lg_height';
-  create?: Maybe<NewsMediaFields_Sizes_Lg_Height_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Lg_Height_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Lg_Height_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Lg_Height_Update>;
-};
-
-export type NewsMediaFields_Sizes_Lg_Height_Create = {
-  __typename?: 'NewsMediaFields_sizes_lg_height_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Height_Delete = {
-  __typename?: 'NewsMediaFields_sizes_lg_height_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Height_Read = {
-  __typename?: 'NewsMediaFields_sizes_lg_height_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Height_Update = {
-  __typename?: 'NewsMediaFields_sizes_lg_height_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_MimeType = {
-  __typename?: 'NewsMediaFields_sizes_lg_mimeType';
-  create?: Maybe<NewsMediaFields_Sizes_Lg_MimeType_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Lg_MimeType_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Lg_MimeType_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Lg_MimeType_Update>;
-};
-
-export type NewsMediaFields_Sizes_Lg_MimeType_Create = {
-  __typename?: 'NewsMediaFields_sizes_lg_mimeType_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_MimeType_Delete = {
-  __typename?: 'NewsMediaFields_sizes_lg_mimeType_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_MimeType_Read = {
-  __typename?: 'NewsMediaFields_sizes_lg_mimeType_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_MimeType_Update = {
-  __typename?: 'NewsMediaFields_sizes_lg_mimeType_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Url = {
-  __typename?: 'NewsMediaFields_sizes_lg_url';
-  create?: Maybe<NewsMediaFields_Sizes_Lg_Url_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Lg_Url_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Lg_Url_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Lg_Url_Update>;
-};
-
-export type NewsMediaFields_Sizes_Lg_Url_Create = {
-  __typename?: 'NewsMediaFields_sizes_lg_url_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Url_Delete = {
-  __typename?: 'NewsMediaFields_sizes_lg_url_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Url_Read = {
-  __typename?: 'NewsMediaFields_sizes_lg_url_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Url_Update = {
-  __typename?: 'NewsMediaFields_sizes_lg_url_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Width = {
-  __typename?: 'NewsMediaFields_sizes_lg_width';
-  create?: Maybe<NewsMediaFields_Sizes_Lg_Width_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Lg_Width_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Lg_Width_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Lg_Width_Update>;
-};
-
-export type NewsMediaFields_Sizes_Lg_Width_Create = {
-  __typename?: 'NewsMediaFields_sizes_lg_width_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Width_Delete = {
-  __typename?: 'NewsMediaFields_sizes_lg_width_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Width_Read = {
-  __typename?: 'NewsMediaFields_sizes_lg_width_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Lg_Width_Update = {
-  __typename?: 'NewsMediaFields_sizes_lg_width_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph = {
-  __typename?: 'NewsMediaFields_sizes_opengraph';
-  create?: Maybe<NewsMediaFields_Sizes_Opengraph_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Opengraph_Delete>;
-  fields?: Maybe<NewsMediaFields_Sizes_Opengraph_Fields>;
-  read?: Maybe<NewsMediaFields_Sizes_Opengraph_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Opengraph_Update>;
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Create = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Delete = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Fields = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_Fields';
-  filename?: Maybe<NewsMediaFields_Sizes_Opengraph_Filename>;
-  filesize?: Maybe<NewsMediaFields_Sizes_Opengraph_Filesize>;
-  height?: Maybe<NewsMediaFields_Sizes_Opengraph_Height>;
-  mimeType?: Maybe<NewsMediaFields_Sizes_Opengraph_MimeType>;
-  url?: Maybe<NewsMediaFields_Sizes_Opengraph_Url>;
-  width?: Maybe<NewsMediaFields_Sizes_Opengraph_Width>;
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Read = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Update = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Filename = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_filename';
-  create?: Maybe<NewsMediaFields_Sizes_Opengraph_Filename_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Opengraph_Filename_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Opengraph_Filename_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Opengraph_Filename_Update>;
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Filename_Create = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_filename_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Filename_Delete = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_filename_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Filename_Read = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_filename_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Filename_Update = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_filename_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Filesize = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_filesize';
-  create?: Maybe<NewsMediaFields_Sizes_Opengraph_Filesize_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Opengraph_Filesize_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Opengraph_Filesize_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Opengraph_Filesize_Update>;
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Filesize_Create = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_filesize_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Filesize_Delete = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_filesize_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Filesize_Read = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_filesize_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Filesize_Update = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_filesize_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Height = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_height';
-  create?: Maybe<NewsMediaFields_Sizes_Opengraph_Height_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Opengraph_Height_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Opengraph_Height_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Opengraph_Height_Update>;
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Height_Create = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_height_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Height_Delete = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_height_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Height_Read = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_height_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Height_Update = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_height_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_MimeType = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_mimeType';
-  create?: Maybe<NewsMediaFields_Sizes_Opengraph_MimeType_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Opengraph_MimeType_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Opengraph_MimeType_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Opengraph_MimeType_Update>;
-};
-
-export type NewsMediaFields_Sizes_Opengraph_MimeType_Create = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_mimeType_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_MimeType_Delete = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_mimeType_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_MimeType_Read = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_mimeType_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_MimeType_Update = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_mimeType_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Url = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_url';
-  create?: Maybe<NewsMediaFields_Sizes_Opengraph_Url_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Opengraph_Url_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Opengraph_Url_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Opengraph_Url_Update>;
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Url_Create = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_url_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Url_Delete = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_url_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Url_Read = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_url_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Url_Update = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_url_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Width = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_width';
-  create?: Maybe<NewsMediaFields_Sizes_Opengraph_Width_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Opengraph_Width_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Opengraph_Width_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Opengraph_Width_Update>;
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Width_Create = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_width_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Width_Delete = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_width_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Width_Read = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_width_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Opengraph_Width_Update = {
-  __typename?: 'NewsMediaFields_sizes_opengraph_width_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm = {
-  __typename?: 'NewsMediaFields_sizes_sm';
-  create?: Maybe<NewsMediaFields_Sizes_Sm_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Sm_Delete>;
-  fields?: Maybe<NewsMediaFields_Sizes_Sm_Fields>;
-  read?: Maybe<NewsMediaFields_Sizes_Sm_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Sm_Update>;
-};
-
-export type NewsMediaFields_Sizes_Sm_Create = {
-  __typename?: 'NewsMediaFields_sizes_sm_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Delete = {
-  __typename?: 'NewsMediaFields_sizes_sm_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Fields = {
-  __typename?: 'NewsMediaFields_sizes_sm_Fields';
-  filename?: Maybe<NewsMediaFields_Sizes_Sm_Filename>;
-  filesize?: Maybe<NewsMediaFields_Sizes_Sm_Filesize>;
-  height?: Maybe<NewsMediaFields_Sizes_Sm_Height>;
-  mimeType?: Maybe<NewsMediaFields_Sizes_Sm_MimeType>;
-  url?: Maybe<NewsMediaFields_Sizes_Sm_Url>;
-  width?: Maybe<NewsMediaFields_Sizes_Sm_Width>;
-};
-
-export type NewsMediaFields_Sizes_Sm_Read = {
-  __typename?: 'NewsMediaFields_sizes_sm_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Update = {
-  __typename?: 'NewsMediaFields_sizes_sm_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Filename = {
-  __typename?: 'NewsMediaFields_sizes_sm_filename';
-  create?: Maybe<NewsMediaFields_Sizes_Sm_Filename_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Sm_Filename_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Sm_Filename_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Sm_Filename_Update>;
-};
-
-export type NewsMediaFields_Sizes_Sm_Filename_Create = {
-  __typename?: 'NewsMediaFields_sizes_sm_filename_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Filename_Delete = {
-  __typename?: 'NewsMediaFields_sizes_sm_filename_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Filename_Read = {
-  __typename?: 'NewsMediaFields_sizes_sm_filename_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Filename_Update = {
-  __typename?: 'NewsMediaFields_sizes_sm_filename_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Filesize = {
-  __typename?: 'NewsMediaFields_sizes_sm_filesize';
-  create?: Maybe<NewsMediaFields_Sizes_Sm_Filesize_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Sm_Filesize_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Sm_Filesize_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Sm_Filesize_Update>;
-};
-
-export type NewsMediaFields_Sizes_Sm_Filesize_Create = {
-  __typename?: 'NewsMediaFields_sizes_sm_filesize_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Filesize_Delete = {
-  __typename?: 'NewsMediaFields_sizes_sm_filesize_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Filesize_Read = {
-  __typename?: 'NewsMediaFields_sizes_sm_filesize_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Filesize_Update = {
-  __typename?: 'NewsMediaFields_sizes_sm_filesize_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Height = {
-  __typename?: 'NewsMediaFields_sizes_sm_height';
-  create?: Maybe<NewsMediaFields_Sizes_Sm_Height_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Sm_Height_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Sm_Height_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Sm_Height_Update>;
-};
-
-export type NewsMediaFields_Sizes_Sm_Height_Create = {
-  __typename?: 'NewsMediaFields_sizes_sm_height_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Height_Delete = {
-  __typename?: 'NewsMediaFields_sizes_sm_height_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Height_Read = {
-  __typename?: 'NewsMediaFields_sizes_sm_height_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Height_Update = {
-  __typename?: 'NewsMediaFields_sizes_sm_height_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_MimeType = {
-  __typename?: 'NewsMediaFields_sizes_sm_mimeType';
-  create?: Maybe<NewsMediaFields_Sizes_Sm_MimeType_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Sm_MimeType_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Sm_MimeType_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Sm_MimeType_Update>;
-};
-
-export type NewsMediaFields_Sizes_Sm_MimeType_Create = {
-  __typename?: 'NewsMediaFields_sizes_sm_mimeType_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_MimeType_Delete = {
-  __typename?: 'NewsMediaFields_sizes_sm_mimeType_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_MimeType_Read = {
-  __typename?: 'NewsMediaFields_sizes_sm_mimeType_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_MimeType_Update = {
-  __typename?: 'NewsMediaFields_sizes_sm_mimeType_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Url = {
-  __typename?: 'NewsMediaFields_sizes_sm_url';
-  create?: Maybe<NewsMediaFields_Sizes_Sm_Url_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Sm_Url_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Sm_Url_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Sm_Url_Update>;
-};
-
-export type NewsMediaFields_Sizes_Sm_Url_Create = {
-  __typename?: 'NewsMediaFields_sizes_sm_url_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Url_Delete = {
-  __typename?: 'NewsMediaFields_sizes_sm_url_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Url_Read = {
-  __typename?: 'NewsMediaFields_sizes_sm_url_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Url_Update = {
-  __typename?: 'NewsMediaFields_sizes_sm_url_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Width = {
-  __typename?: 'NewsMediaFields_sizes_sm_width';
-  create?: Maybe<NewsMediaFields_Sizes_Sm_Width_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Sm_Width_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Sm_Width_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Sm_Width_Update>;
-};
-
-export type NewsMediaFields_Sizes_Sm_Width_Create = {
-  __typename?: 'NewsMediaFields_sizes_sm_width_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Width_Delete = {
-  __typename?: 'NewsMediaFields_sizes_sm_width_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Width_Read = {
-  __typename?: 'NewsMediaFields_sizes_sm_width_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Sm_Width_Update = {
-  __typename?: 'NewsMediaFields_sizes_sm_width_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl = {
-  __typename?: 'NewsMediaFields_sizes_xl';
-  create?: Maybe<NewsMediaFields_Sizes_Xl_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Xl_Delete>;
-  fields?: Maybe<NewsMediaFields_Sizes_Xl_Fields>;
-  read?: Maybe<NewsMediaFields_Sizes_Xl_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Xl_Update>;
-};
-
-export type NewsMediaFields_Sizes_Xl_Create = {
-  __typename?: 'NewsMediaFields_sizes_xl_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Delete = {
-  __typename?: 'NewsMediaFields_sizes_xl_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Fields = {
-  __typename?: 'NewsMediaFields_sizes_xl_Fields';
-  filename?: Maybe<NewsMediaFields_Sizes_Xl_Filename>;
-  filesize?: Maybe<NewsMediaFields_Sizes_Xl_Filesize>;
-  height?: Maybe<NewsMediaFields_Sizes_Xl_Height>;
-  mimeType?: Maybe<NewsMediaFields_Sizes_Xl_MimeType>;
-  url?: Maybe<NewsMediaFields_Sizes_Xl_Url>;
-  width?: Maybe<NewsMediaFields_Sizes_Xl_Width>;
-};
-
-export type NewsMediaFields_Sizes_Xl_Read = {
-  __typename?: 'NewsMediaFields_sizes_xl_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Update = {
-  __typename?: 'NewsMediaFields_sizes_xl_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Filename = {
-  __typename?: 'NewsMediaFields_sizes_xl_filename';
-  create?: Maybe<NewsMediaFields_Sizes_Xl_Filename_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Xl_Filename_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Xl_Filename_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Xl_Filename_Update>;
-};
-
-export type NewsMediaFields_Sizes_Xl_Filename_Create = {
-  __typename?: 'NewsMediaFields_sizes_xl_filename_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Filename_Delete = {
-  __typename?: 'NewsMediaFields_sizes_xl_filename_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Filename_Read = {
-  __typename?: 'NewsMediaFields_sizes_xl_filename_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Filename_Update = {
-  __typename?: 'NewsMediaFields_sizes_xl_filename_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Filesize = {
-  __typename?: 'NewsMediaFields_sizes_xl_filesize';
-  create?: Maybe<NewsMediaFields_Sizes_Xl_Filesize_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Xl_Filesize_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Xl_Filesize_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Xl_Filesize_Update>;
-};
-
-export type NewsMediaFields_Sizes_Xl_Filesize_Create = {
-  __typename?: 'NewsMediaFields_sizes_xl_filesize_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Filesize_Delete = {
-  __typename?: 'NewsMediaFields_sizes_xl_filesize_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Filesize_Read = {
-  __typename?: 'NewsMediaFields_sizes_xl_filesize_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Filesize_Update = {
-  __typename?: 'NewsMediaFields_sizes_xl_filesize_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Height = {
-  __typename?: 'NewsMediaFields_sizes_xl_height';
-  create?: Maybe<NewsMediaFields_Sizes_Xl_Height_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Xl_Height_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Xl_Height_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Xl_Height_Update>;
-};
-
-export type NewsMediaFields_Sizes_Xl_Height_Create = {
-  __typename?: 'NewsMediaFields_sizes_xl_height_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Height_Delete = {
-  __typename?: 'NewsMediaFields_sizes_xl_height_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Height_Read = {
-  __typename?: 'NewsMediaFields_sizes_xl_height_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Height_Update = {
-  __typename?: 'NewsMediaFields_sizes_xl_height_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_MimeType = {
-  __typename?: 'NewsMediaFields_sizes_xl_mimeType';
-  create?: Maybe<NewsMediaFields_Sizes_Xl_MimeType_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Xl_MimeType_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Xl_MimeType_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Xl_MimeType_Update>;
-};
-
-export type NewsMediaFields_Sizes_Xl_MimeType_Create = {
-  __typename?: 'NewsMediaFields_sizes_xl_mimeType_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_MimeType_Delete = {
-  __typename?: 'NewsMediaFields_sizes_xl_mimeType_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_MimeType_Read = {
-  __typename?: 'NewsMediaFields_sizes_xl_mimeType_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_MimeType_Update = {
-  __typename?: 'NewsMediaFields_sizes_xl_mimeType_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Url = {
-  __typename?: 'NewsMediaFields_sizes_xl_url';
-  create?: Maybe<NewsMediaFields_Sizes_Xl_Url_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Xl_Url_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Xl_Url_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Xl_Url_Update>;
-};
-
-export type NewsMediaFields_Sizes_Xl_Url_Create = {
-  __typename?: 'NewsMediaFields_sizes_xl_url_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Url_Delete = {
-  __typename?: 'NewsMediaFields_sizes_xl_url_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Url_Read = {
-  __typename?: 'NewsMediaFields_sizes_xl_url_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Url_Update = {
-  __typename?: 'NewsMediaFields_sizes_xl_url_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Width = {
-  __typename?: 'NewsMediaFields_sizes_xl_width';
-  create?: Maybe<NewsMediaFields_Sizes_Xl_Width_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Xl_Width_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Xl_Width_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Xl_Width_Update>;
-};
-
-export type NewsMediaFields_Sizes_Xl_Width_Create = {
-  __typename?: 'NewsMediaFields_sizes_xl_width_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Width_Delete = {
-  __typename?: 'NewsMediaFields_sizes_xl_width_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Width_Read = {
-  __typename?: 'NewsMediaFields_sizes_xl_width_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xl_Width_Update = {
-  __typename?: 'NewsMediaFields_sizes_xl_width_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs = {
-  __typename?: 'NewsMediaFields_sizes_xs';
-  create?: Maybe<NewsMediaFields_Sizes_Xs_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Xs_Delete>;
-  fields?: Maybe<NewsMediaFields_Sizes_Xs_Fields>;
-  read?: Maybe<NewsMediaFields_Sizes_Xs_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Xs_Update>;
-};
-
-export type NewsMediaFields_Sizes_Xs_Create = {
-  __typename?: 'NewsMediaFields_sizes_xs_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Delete = {
-  __typename?: 'NewsMediaFields_sizes_xs_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Fields = {
-  __typename?: 'NewsMediaFields_sizes_xs_Fields';
-  filename?: Maybe<NewsMediaFields_Sizes_Xs_Filename>;
-  filesize?: Maybe<NewsMediaFields_Sizes_Xs_Filesize>;
-  height?: Maybe<NewsMediaFields_Sizes_Xs_Height>;
-  mimeType?: Maybe<NewsMediaFields_Sizes_Xs_MimeType>;
-  url?: Maybe<NewsMediaFields_Sizes_Xs_Url>;
-  width?: Maybe<NewsMediaFields_Sizes_Xs_Width>;
-};
-
-export type NewsMediaFields_Sizes_Xs_Read = {
-  __typename?: 'NewsMediaFields_sizes_xs_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Update = {
-  __typename?: 'NewsMediaFields_sizes_xs_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Filename = {
-  __typename?: 'NewsMediaFields_sizes_xs_filename';
-  create?: Maybe<NewsMediaFields_Sizes_Xs_Filename_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Xs_Filename_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Xs_Filename_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Xs_Filename_Update>;
-};
-
-export type NewsMediaFields_Sizes_Xs_Filename_Create = {
-  __typename?: 'NewsMediaFields_sizes_xs_filename_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Filename_Delete = {
-  __typename?: 'NewsMediaFields_sizes_xs_filename_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Filename_Read = {
-  __typename?: 'NewsMediaFields_sizes_xs_filename_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Filename_Update = {
-  __typename?: 'NewsMediaFields_sizes_xs_filename_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Filesize = {
-  __typename?: 'NewsMediaFields_sizes_xs_filesize';
-  create?: Maybe<NewsMediaFields_Sizes_Xs_Filesize_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Xs_Filesize_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Xs_Filesize_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Xs_Filesize_Update>;
-};
-
-export type NewsMediaFields_Sizes_Xs_Filesize_Create = {
-  __typename?: 'NewsMediaFields_sizes_xs_filesize_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Filesize_Delete = {
-  __typename?: 'NewsMediaFields_sizes_xs_filesize_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Filesize_Read = {
-  __typename?: 'NewsMediaFields_sizes_xs_filesize_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Filesize_Update = {
-  __typename?: 'NewsMediaFields_sizes_xs_filesize_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Height = {
-  __typename?: 'NewsMediaFields_sizes_xs_height';
-  create?: Maybe<NewsMediaFields_Sizes_Xs_Height_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Xs_Height_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Xs_Height_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Xs_Height_Update>;
-};
-
-export type NewsMediaFields_Sizes_Xs_Height_Create = {
-  __typename?: 'NewsMediaFields_sizes_xs_height_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Height_Delete = {
-  __typename?: 'NewsMediaFields_sizes_xs_height_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Height_Read = {
-  __typename?: 'NewsMediaFields_sizes_xs_height_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Height_Update = {
-  __typename?: 'NewsMediaFields_sizes_xs_height_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_MimeType = {
-  __typename?: 'NewsMediaFields_sizes_xs_mimeType';
-  create?: Maybe<NewsMediaFields_Sizes_Xs_MimeType_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Xs_MimeType_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Xs_MimeType_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Xs_MimeType_Update>;
-};
-
-export type NewsMediaFields_Sizes_Xs_MimeType_Create = {
-  __typename?: 'NewsMediaFields_sizes_xs_mimeType_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_MimeType_Delete = {
-  __typename?: 'NewsMediaFields_sizes_xs_mimeType_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_MimeType_Read = {
-  __typename?: 'NewsMediaFields_sizes_xs_mimeType_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_MimeType_Update = {
-  __typename?: 'NewsMediaFields_sizes_xs_mimeType_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Url = {
-  __typename?: 'NewsMediaFields_sizes_xs_url';
-  create?: Maybe<NewsMediaFields_Sizes_Xs_Url_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Xs_Url_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Xs_Url_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Xs_Url_Update>;
-};
-
-export type NewsMediaFields_Sizes_Xs_Url_Create = {
-  __typename?: 'NewsMediaFields_sizes_xs_url_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Url_Delete = {
-  __typename?: 'NewsMediaFields_sizes_xs_url_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Url_Read = {
-  __typename?: 'NewsMediaFields_sizes_xs_url_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Url_Update = {
-  __typename?: 'NewsMediaFields_sizes_xs_url_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Width = {
-  __typename?: 'NewsMediaFields_sizes_xs_width';
-  create?: Maybe<NewsMediaFields_Sizes_Xs_Width_Create>;
-  delete?: Maybe<NewsMediaFields_Sizes_Xs_Width_Delete>;
-  read?: Maybe<NewsMediaFields_Sizes_Xs_Width_Read>;
-  update?: Maybe<NewsMediaFields_Sizes_Xs_Width_Update>;
-};
-
-export type NewsMediaFields_Sizes_Xs_Width_Create = {
-  __typename?: 'NewsMediaFields_sizes_xs_width_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Width_Delete = {
-  __typename?: 'NewsMediaFields_sizes_xs_width_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Width_Read = {
-  __typename?: 'NewsMediaFields_sizes_xs_width_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Sizes_Xs_Width_Update = {
-  __typename?: 'NewsMediaFields_sizes_xs_width_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_UpdatedAt = {
-  __typename?: 'NewsMediaFields_updatedAt';
-  create?: Maybe<NewsMediaFields_UpdatedAt_Create>;
-  delete?: Maybe<NewsMediaFields_UpdatedAt_Delete>;
-  read?: Maybe<NewsMediaFields_UpdatedAt_Read>;
-  update?: Maybe<NewsMediaFields_UpdatedAt_Update>;
-};
-
-export type NewsMediaFields_UpdatedAt_Create = {
-  __typename?: 'NewsMediaFields_updatedAt_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_UpdatedAt_Delete = {
-  __typename?: 'NewsMediaFields_updatedAt_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_UpdatedAt_Read = {
-  __typename?: 'NewsMediaFields_updatedAt_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_UpdatedAt_Update = {
-  __typename?: 'NewsMediaFields_updatedAt_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Url = {
-  __typename?: 'NewsMediaFields_url';
-  create?: Maybe<NewsMediaFields_Url_Create>;
-  delete?: Maybe<NewsMediaFields_Url_Delete>;
-  read?: Maybe<NewsMediaFields_Url_Read>;
-  update?: Maybe<NewsMediaFields_Url_Update>;
-};
-
-export type NewsMediaFields_Url_Create = {
-  __typename?: 'NewsMediaFields_url_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Url_Delete = {
-  __typename?: 'NewsMediaFields_url_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Url_Read = {
-  __typename?: 'NewsMediaFields_url_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Url_Update = {
-  __typename?: 'NewsMediaFields_url_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Width = {
-  __typename?: 'NewsMediaFields_width';
-  create?: Maybe<NewsMediaFields_Width_Create>;
-  delete?: Maybe<NewsMediaFields_Width_Delete>;
-  read?: Maybe<NewsMediaFields_Width_Read>;
-  update?: Maybe<NewsMediaFields_Width_Update>;
-};
-
-export type NewsMediaFields_Width_Create = {
-  __typename?: 'NewsMediaFields_width_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Width_Delete = {
-  __typename?: 'NewsMediaFields_width_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Width_Read = {
-  __typename?: 'NewsMediaFields_width_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaFields_Width_Update = {
-  __typename?: 'NewsMediaFields_width_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type NewsMediaReadAccess = {
-  __typename?: 'NewsMediaReadAccess';
-  permission: Scalars['Boolean'];
-  where?: Maybe<Scalars['JSONObject']>;
-};
-
-export type NewsMediaReadDocAccess = {
-  __typename?: 'NewsMediaReadDocAccess';
-  permission: Scalars['Boolean'];
-  where?: Maybe<Scalars['JSONObject']>;
-};
-
-export type NewsMediaUpdateAccess = {
-  __typename?: 'NewsMediaUpdateAccess';
-  permission: Scalars['Boolean'];
-  where?: Maybe<Scalars['JSONObject']>;
-};
-
-export type NewsMediaUpdateDocAccess = {
-  __typename?: 'NewsMediaUpdateDocAccess';
-  permission: Scalars['Boolean'];
-  where?: Maybe<Scalars['JSONObject']>;
-};
-
-export type NewsMedia_Sizes = {
-  __typename?: 'NewsMedia_Sizes';
-  lg?: Maybe<NewsMedia_Sizes_Lg>;
-  opengraph?: Maybe<NewsMedia_Sizes_Opengraph>;
-  sm?: Maybe<NewsMedia_Sizes_Sm>;
-  xl?: Maybe<NewsMedia_Sizes_Xl>;
-  xs?: Maybe<NewsMedia_Sizes_Xs>;
-};
-
-export type NewsMedia_Sizes_Lg = {
-  __typename?: 'NewsMedia_Sizes_Lg';
-  filename?: Maybe<Scalars['String']>;
-  filesize?: Maybe<Scalars['Float']>;
-  height?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes_Opengraph = {
-  __typename?: 'NewsMedia_Sizes_Opengraph';
-  filename?: Maybe<Scalars['String']>;
-  filesize?: Maybe<Scalars['Float']>;
-  height?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes_Sm = {
-  __typename?: 'NewsMedia_Sizes_Sm';
-  filename?: Maybe<Scalars['String']>;
-  filesize?: Maybe<Scalars['Float']>;
-  height?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes_Xl = {
-  __typename?: 'NewsMedia_Sizes_Xl';
-  filename?: Maybe<Scalars['String']>;
-  filesize?: Maybe<Scalars['Float']>;
-  height?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes_Xs = {
-  __typename?: 'NewsMedia_Sizes_Xs';
-  filename?: Maybe<Scalars['String']>;
-  filesize?: Maybe<Scalars['Float']>;
-  height?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Alt_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_CreatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['DateTime']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
-  less_than?: InputMaybe<Scalars['DateTime']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']>;
-  like?: InputMaybe<Scalars['DateTime']>;
-  not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type NewsMedia_Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_FocalX_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_FocalY_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Id_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Prefix_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Lg__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Lg__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes__Lg__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes__Lg__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Lg__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Lg__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes__Opengraph__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Opengraph__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes__Opengraph__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes__Opengraph__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Opengraph__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Opengraph__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes__Sm__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Sm__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes__Sm__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes__Sm__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Sm__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Sm__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes__Xl__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Xl__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes__Xl__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes__Xl__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Xl__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Xl__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes__Xs__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Xs__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes__Xs__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_Sizes__Xs__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Xs__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Sizes__Xs__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedia_UpdatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['DateTime']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
-  less_than?: InputMaybe<Scalars['DateTime']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']>;
-  like?: InputMaybe<Scalars['DateTime']>;
-  not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type NewsMedia_Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsMedia_Where = {
-  AND?: InputMaybe<Array<InputMaybe<NewsMedia_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<NewsMedia_Where_Or>>>;
-  alt?: InputMaybe<NewsMedia_Alt_Operator>;
-  createdAt?: InputMaybe<NewsMedia_CreatedAt_Operator>;
-  filename?: InputMaybe<NewsMedia_Filename_Operator>;
-  filesize?: InputMaybe<NewsMedia_Filesize_Operator>;
-  focalX?: InputMaybe<NewsMedia_FocalX_Operator>;
-  focalY?: InputMaybe<NewsMedia_FocalY_Operator>;
-  height?: InputMaybe<NewsMedia_Height_Operator>;
-  id?: InputMaybe<NewsMedia_Id_Operator>;
-  mimeType?: InputMaybe<NewsMedia_MimeType_Operator>;
-  prefix?: InputMaybe<NewsMedia_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<NewsMedia_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<NewsMedia_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<NewsMedia_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<NewsMedia_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<NewsMedia_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<NewsMedia_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<NewsMedia_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<NewsMedia_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<NewsMedia_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<NewsMedia_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<NewsMedia_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<NewsMedia_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<NewsMedia_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<NewsMedia_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<NewsMedia_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<NewsMedia_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<NewsMedia_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<NewsMedia_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<NewsMedia_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<NewsMedia_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<NewsMedia_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<NewsMedia_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<NewsMedia_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<NewsMedia_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<NewsMedia_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<NewsMedia_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<NewsMedia_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<NewsMedia_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<NewsMedia_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<NewsMedia_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<NewsMedia_UpdatedAt_Operator>;
-  url?: InputMaybe<NewsMedia_Url_Operator>;
-  width?: InputMaybe<NewsMedia_Width_Operator>;
-};
-
-export type NewsMedia_Where_And = {
-  AND?: InputMaybe<Array<InputMaybe<NewsMedia_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<NewsMedia_Where_Or>>>;
-  alt?: InputMaybe<NewsMedia_Alt_Operator>;
-  createdAt?: InputMaybe<NewsMedia_CreatedAt_Operator>;
-  filename?: InputMaybe<NewsMedia_Filename_Operator>;
-  filesize?: InputMaybe<NewsMedia_Filesize_Operator>;
-  focalX?: InputMaybe<NewsMedia_FocalX_Operator>;
-  focalY?: InputMaybe<NewsMedia_FocalY_Operator>;
-  height?: InputMaybe<NewsMedia_Height_Operator>;
-  id?: InputMaybe<NewsMedia_Id_Operator>;
-  mimeType?: InputMaybe<NewsMedia_MimeType_Operator>;
-  prefix?: InputMaybe<NewsMedia_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<NewsMedia_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<NewsMedia_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<NewsMedia_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<NewsMedia_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<NewsMedia_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<NewsMedia_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<NewsMedia_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<NewsMedia_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<NewsMedia_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<NewsMedia_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<NewsMedia_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<NewsMedia_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<NewsMedia_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<NewsMedia_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<NewsMedia_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<NewsMedia_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<NewsMedia_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<NewsMedia_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<NewsMedia_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<NewsMedia_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<NewsMedia_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<NewsMedia_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<NewsMedia_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<NewsMedia_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<NewsMedia_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<NewsMedia_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<NewsMedia_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<NewsMedia_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<NewsMedia_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<NewsMedia_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<NewsMedia_UpdatedAt_Operator>;
-  url?: InputMaybe<NewsMedia_Url_Operator>;
-  width?: InputMaybe<NewsMedia_Width_Operator>;
-};
-
-export type NewsMedia_Where_Or = {
-  AND?: InputMaybe<Array<InputMaybe<NewsMedia_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<NewsMedia_Where_Or>>>;
-  alt?: InputMaybe<NewsMedia_Alt_Operator>;
-  createdAt?: InputMaybe<NewsMedia_CreatedAt_Operator>;
-  filename?: InputMaybe<NewsMedia_Filename_Operator>;
-  filesize?: InputMaybe<NewsMedia_Filesize_Operator>;
-  focalX?: InputMaybe<NewsMedia_FocalX_Operator>;
-  focalY?: InputMaybe<NewsMedia_FocalY_Operator>;
-  height?: InputMaybe<NewsMedia_Height_Operator>;
-  id?: InputMaybe<NewsMedia_Id_Operator>;
-  mimeType?: InputMaybe<NewsMedia_MimeType_Operator>;
-  prefix?: InputMaybe<NewsMedia_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<NewsMedia_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<NewsMedia_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<NewsMedia_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<NewsMedia_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<NewsMedia_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<NewsMedia_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<NewsMedia_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<NewsMedia_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<NewsMedia_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<NewsMedia_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<NewsMedia_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<NewsMedia_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<NewsMedia_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<NewsMedia_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<NewsMedia_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<NewsMedia_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<NewsMedia_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<NewsMedia_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<NewsMedia_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<NewsMedia_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<NewsMedia_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<NewsMedia_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<NewsMedia_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<NewsMedia_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<NewsMedia_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<NewsMedia_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<NewsMedia_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<NewsMedia_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<NewsMedia_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<NewsMedia_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<NewsMedia_UpdatedAt_Operator>;
-  url?: InputMaybe<NewsMedia_Url_Operator>;
-  width?: InputMaybe<NewsMedia_Width_Operator>;
-};
-
-export type NewsMedia_Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsMedias = {
-  __typename?: 'NewsMedias';
-  docs?: Maybe<Array<Maybe<NewsMedia>>>;
-  hasNextPage?: Maybe<Scalars['Boolean']>;
-  hasPrevPage?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
-  nextPage?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-  pagingCounter?: Maybe<Scalars['Int']>;
-  prevPage?: Maybe<Scalars['Int']>;
-  totalDocs?: Maybe<Scalars['Int']>;
-  totalPages?: Maybe<Scalars['Int']>;
-};
-
 export type NewsPost = {
   __typename?: 'NewsPost';
   _status?: Maybe<NewsPost__Status>;
@@ -6056,7 +6327,7 @@ export type NewsPost = {
   content?: Maybe<Scalars['JSON']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['String']>;
-  previewBanner?: Maybe<NewsMedia>;
+  previewBanner?: Maybe<Media>;
   publishDate?: Maybe<Scalars['DateTime']>;
   slug?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Tag>>;
@@ -6119,7 +6390,7 @@ export type NewsPostVersion_Version = {
   blurb?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['JSON']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  previewBanner?: Maybe<NewsMedia>;
+  previewBanner?: Maybe<Media>;
   publishDate?: Maybe<Scalars['DateTime']>;
   slug?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Tag>>;
@@ -8905,12 +9176,12 @@ export type Query = {
   Access?: Maybe<Access>;
   Categories?: Maybe<Categories>;
   Category?: Maybe<Category>;
+  DonatePage?: Maybe<DonatePage>;
   Host?: Maybe<Host>;
   Hosts?: Maybe<Hosts>;
+  Media?: Maybe<Media>;
   MerchPreview?: Maybe<MerchPreview>;
   MerchPreviews?: Maybe<MerchPreviews>;
-  NewsMedia?: Maybe<NewsMedia>;
-  NewsMedias?: Maybe<NewsMedias>;
   NewsPost?: Maybe<NewsPost>;
   NewsPostBySlug?: Maybe<NewsPost>;
   NewsPosts?: Maybe<NewsPosts>;
@@ -8924,20 +9195,22 @@ export type Query = {
   Tags?: Maybe<Tags>;
   User?: Maybe<User>;
   Users?: Maybe<Users>;
+  allMedia?: Maybe<AllMedia>;
   countCategories?: Maybe<CountCategories>;
   countHosts?: Maybe<CountHosts>;
   countMerchPreviews?: Maybe<CountMerchPreviews>;
-  countNewsMedias?: Maybe<CountNewsMedias>;
   countNewsPosts?: Maybe<CountNewsPosts>;
   countPayloadPreferences?: Maybe<CountPayloadPreferences>;
   countShows?: Maybe<CountShows>;
   countTags?: Maybe<CountTags>;
   countUsers?: Maybe<CountUsers>;
+  countallMedia?: Maybe<CountallMedia>;
   docAccessAboutPage?: Maybe<AboutPageDocAccess>;
   docAccessCategory?: Maybe<CategoriesDocAccess>;
+  docAccessDonatePage?: Maybe<DonatePageDocAccess>;
   docAccessHost?: Maybe<HostsDocAccess>;
+  docAccessMedia?: Maybe<MediaDocAccess>;
   docAccessMerchPreview?: Maybe<MerchPreviewDocAccess>;
-  docAccessNewsMedia?: Maybe<NewsMediaDocAccess>;
   docAccessNewsPost?: Maybe<NewsPostsDocAccess>;
   docAccessPayloadPreference?: Maybe<Payload_PreferencesDocAccess>;
   docAccessShow?: Maybe<ShowsDocAccess>;
@@ -8974,6 +9247,13 @@ export type QueryCategoryArgs = {
 };
 
 
+export type QueryDonatePageArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
 export type QueryHostArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
@@ -8991,6 +9271,13 @@ export type QueryHostsArgs = {
 };
 
 
+export type QueryMediaArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
 export type QueryMerchPreviewArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
@@ -9005,23 +9292,6 @@ export type QueryMerchPreviewsArgs = {
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<MerchPreview_Where>;
-};
-
-
-export type QueryNewsMediaArgs = {
-  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
-  id: Scalars['String'];
-  locale?: InputMaybe<LocaleInputType>;
-};
-
-
-export type QueryNewsMediasArgs = {
-  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<LocaleInputType>;
-  page?: InputMaybe<Scalars['Int']>;
-  sort?: InputMaybe<Scalars['String']>;
-  where?: InputMaybe<NewsMedia_Where>;
 };
 
 
@@ -9127,6 +9397,16 @@ export type QueryUsersArgs = {
 };
 
 
+export type QueryAllMediaArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
+  page?: InputMaybe<Scalars['Int']>;
+  sort?: InputMaybe<Scalars['String']>;
+  where?: InputMaybe<Media_Where>;
+};
+
+
 export type QueryCountCategoriesArgs = {
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<Category_Where>;
@@ -9142,12 +9422,6 @@ export type QueryCountHostsArgs = {
 export type QueryCountMerchPreviewsArgs = {
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<MerchPreview_Where>;
-};
-
-
-export type QueryCountNewsMediasArgs = {
-  locale?: InputMaybe<LocaleInputType>;
-  where?: InputMaybe<NewsMedia_Where>;
 };
 
 
@@ -9182,6 +9456,12 @@ export type QueryCountUsersArgs = {
 };
 
 
+export type QueryCountallMediaArgs = {
+  locale?: InputMaybe<LocaleInputType>;
+  where?: InputMaybe<Media_Where>;
+};
+
+
 export type QueryDocAccessCategoryArgs = {
   id: Scalars['String'];
 };
@@ -9192,12 +9472,12 @@ export type QueryDocAccessHostArgs = {
 };
 
 
-export type QueryDocAccessMerchPreviewArgs = {
+export type QueryDocAccessMediaArgs = {
   id: Scalars['String'];
 };
 
 
-export type QueryDocAccessNewsMediaArgs = {
+export type QueryDocAccessMerchPreviewArgs = {
   id: Scalars['String'];
 };
 
@@ -9247,6 +9527,7 @@ export type Show = {
   __typename?: 'Show';
   active?: Maybe<Scalars['Boolean']>;
   categories?: Maybe<Array<Category>>;
+  coverImage: Media;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['JSON'];
   id?: Maybe<Scalars['String']>;
@@ -9263,6 +9544,13 @@ export type ShowCategoriesArgs = {
 };
 
 
+export type ShowCoverImageArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
+  where?: InputMaybe<Show_CoverImage_Where>;
+};
+
+
 export type ShowDescriptionArgs = {
   depth?: InputMaybe<Scalars['Int']>;
 };
@@ -9271,6 +9559,603 @@ export type ShowDescriptionArgs = {
 export type ShowPrimaryHostsArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   locale?: InputMaybe<LocaleInputType>;
+};
+
+export type Show_CoverImage_Alt_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type Show_CoverImage_Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_FocalX_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_FocalY_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Prefix_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Lg__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Lg__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Sizes__Lg__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Sizes__Lg__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Lg__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Lg__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Sizes__Opengraph__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Opengraph__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Sizes__Opengraph__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Sizes__Opengraph__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Opengraph__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Opengraph__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Sizes__Sm__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Sm__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Sizes__Sm__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Sizes__Sm__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Sm__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Sm__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Sizes__Xl__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Xl__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Sizes__Xl__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Sizes__Xl__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Xl__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Xl__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Sizes__Xs__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Xs__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Sizes__Xs__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_Sizes__Xs__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Xs__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Sizes__Xs__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Show_CoverImage_UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type Show_CoverImage_Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Show_CoverImage_Where = {
+  AND?: InputMaybe<Array<InputMaybe<Show_CoverImage_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<Show_CoverImage_Where_Or>>>;
+  alt?: InputMaybe<Show_CoverImage_Alt_Operator>;
+  createdAt?: InputMaybe<Show_CoverImage_CreatedAt_Operator>;
+  filename?: InputMaybe<Show_CoverImage_Filename_Operator>;
+  filesize?: InputMaybe<Show_CoverImage_Filesize_Operator>;
+  focalX?: InputMaybe<Show_CoverImage_FocalX_Operator>;
+  focalY?: InputMaybe<Show_CoverImage_FocalY_Operator>;
+  height?: InputMaybe<Show_CoverImage_Height_Operator>;
+  id?: InputMaybe<Show_CoverImage_Id_Operator>;
+  mimeType?: InputMaybe<Show_CoverImage_MimeType_Operator>;
+  prefix?: InputMaybe<Show_CoverImage_Prefix_Operator>;
+  sizes__lg__filename?: InputMaybe<Show_CoverImage_Sizes__Lg__Filename_Operator>;
+  sizes__lg__filesize?: InputMaybe<Show_CoverImage_Sizes__Lg__Filesize_Operator>;
+  sizes__lg__height?: InputMaybe<Show_CoverImage_Sizes__Lg__Height_Operator>;
+  sizes__lg__mimeType?: InputMaybe<Show_CoverImage_Sizes__Lg__MimeType_Operator>;
+  sizes__lg__url?: InputMaybe<Show_CoverImage_Sizes__Lg__Url_Operator>;
+  sizes__lg__width?: InputMaybe<Show_CoverImage_Sizes__Lg__Width_Operator>;
+  sizes__opengraph__filename?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Filename_Operator>;
+  sizes__opengraph__filesize?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Filesize_Operator>;
+  sizes__opengraph__height?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Height_Operator>;
+  sizes__opengraph__mimeType?: InputMaybe<Show_CoverImage_Sizes__Opengraph__MimeType_Operator>;
+  sizes__opengraph__url?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Url_Operator>;
+  sizes__opengraph__width?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Width_Operator>;
+  sizes__sm__filename?: InputMaybe<Show_CoverImage_Sizes__Sm__Filename_Operator>;
+  sizes__sm__filesize?: InputMaybe<Show_CoverImage_Sizes__Sm__Filesize_Operator>;
+  sizes__sm__height?: InputMaybe<Show_CoverImage_Sizes__Sm__Height_Operator>;
+  sizes__sm__mimeType?: InputMaybe<Show_CoverImage_Sizes__Sm__MimeType_Operator>;
+  sizes__sm__url?: InputMaybe<Show_CoverImage_Sizes__Sm__Url_Operator>;
+  sizes__sm__width?: InputMaybe<Show_CoverImage_Sizes__Sm__Width_Operator>;
+  sizes__xl__filename?: InputMaybe<Show_CoverImage_Sizes__Xl__Filename_Operator>;
+  sizes__xl__filesize?: InputMaybe<Show_CoverImage_Sizes__Xl__Filesize_Operator>;
+  sizes__xl__height?: InputMaybe<Show_CoverImage_Sizes__Xl__Height_Operator>;
+  sizes__xl__mimeType?: InputMaybe<Show_CoverImage_Sizes__Xl__MimeType_Operator>;
+  sizes__xl__url?: InputMaybe<Show_CoverImage_Sizes__Xl__Url_Operator>;
+  sizes__xl__width?: InputMaybe<Show_CoverImage_Sizes__Xl__Width_Operator>;
+  sizes__xs__filename?: InputMaybe<Show_CoverImage_Sizes__Xs__Filename_Operator>;
+  sizes__xs__filesize?: InputMaybe<Show_CoverImage_Sizes__Xs__Filesize_Operator>;
+  sizes__xs__height?: InputMaybe<Show_CoverImage_Sizes__Xs__Height_Operator>;
+  sizes__xs__mimeType?: InputMaybe<Show_CoverImage_Sizes__Xs__MimeType_Operator>;
+  sizes__xs__url?: InputMaybe<Show_CoverImage_Sizes__Xs__Url_Operator>;
+  sizes__xs__width?: InputMaybe<Show_CoverImage_Sizes__Xs__Width_Operator>;
+  updatedAt?: InputMaybe<Show_CoverImage_UpdatedAt_Operator>;
+  url?: InputMaybe<Show_CoverImage_Url_Operator>;
+  width?: InputMaybe<Show_CoverImage_Width_Operator>;
+};
+
+export type Show_CoverImage_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<Show_CoverImage_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<Show_CoverImage_Where_Or>>>;
+  alt?: InputMaybe<Show_CoverImage_Alt_Operator>;
+  createdAt?: InputMaybe<Show_CoverImage_CreatedAt_Operator>;
+  filename?: InputMaybe<Show_CoverImage_Filename_Operator>;
+  filesize?: InputMaybe<Show_CoverImage_Filesize_Operator>;
+  focalX?: InputMaybe<Show_CoverImage_FocalX_Operator>;
+  focalY?: InputMaybe<Show_CoverImage_FocalY_Operator>;
+  height?: InputMaybe<Show_CoverImage_Height_Operator>;
+  id?: InputMaybe<Show_CoverImage_Id_Operator>;
+  mimeType?: InputMaybe<Show_CoverImage_MimeType_Operator>;
+  prefix?: InputMaybe<Show_CoverImage_Prefix_Operator>;
+  sizes__lg__filename?: InputMaybe<Show_CoverImage_Sizes__Lg__Filename_Operator>;
+  sizes__lg__filesize?: InputMaybe<Show_CoverImage_Sizes__Lg__Filesize_Operator>;
+  sizes__lg__height?: InputMaybe<Show_CoverImage_Sizes__Lg__Height_Operator>;
+  sizes__lg__mimeType?: InputMaybe<Show_CoverImage_Sizes__Lg__MimeType_Operator>;
+  sizes__lg__url?: InputMaybe<Show_CoverImage_Sizes__Lg__Url_Operator>;
+  sizes__lg__width?: InputMaybe<Show_CoverImage_Sizes__Lg__Width_Operator>;
+  sizes__opengraph__filename?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Filename_Operator>;
+  sizes__opengraph__filesize?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Filesize_Operator>;
+  sizes__opengraph__height?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Height_Operator>;
+  sizes__opengraph__mimeType?: InputMaybe<Show_CoverImage_Sizes__Opengraph__MimeType_Operator>;
+  sizes__opengraph__url?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Url_Operator>;
+  sizes__opengraph__width?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Width_Operator>;
+  sizes__sm__filename?: InputMaybe<Show_CoverImage_Sizes__Sm__Filename_Operator>;
+  sizes__sm__filesize?: InputMaybe<Show_CoverImage_Sizes__Sm__Filesize_Operator>;
+  sizes__sm__height?: InputMaybe<Show_CoverImage_Sizes__Sm__Height_Operator>;
+  sizes__sm__mimeType?: InputMaybe<Show_CoverImage_Sizes__Sm__MimeType_Operator>;
+  sizes__sm__url?: InputMaybe<Show_CoverImage_Sizes__Sm__Url_Operator>;
+  sizes__sm__width?: InputMaybe<Show_CoverImage_Sizes__Sm__Width_Operator>;
+  sizes__xl__filename?: InputMaybe<Show_CoverImage_Sizes__Xl__Filename_Operator>;
+  sizes__xl__filesize?: InputMaybe<Show_CoverImage_Sizes__Xl__Filesize_Operator>;
+  sizes__xl__height?: InputMaybe<Show_CoverImage_Sizes__Xl__Height_Operator>;
+  sizes__xl__mimeType?: InputMaybe<Show_CoverImage_Sizes__Xl__MimeType_Operator>;
+  sizes__xl__url?: InputMaybe<Show_CoverImage_Sizes__Xl__Url_Operator>;
+  sizes__xl__width?: InputMaybe<Show_CoverImage_Sizes__Xl__Width_Operator>;
+  sizes__xs__filename?: InputMaybe<Show_CoverImage_Sizes__Xs__Filename_Operator>;
+  sizes__xs__filesize?: InputMaybe<Show_CoverImage_Sizes__Xs__Filesize_Operator>;
+  sizes__xs__height?: InputMaybe<Show_CoverImage_Sizes__Xs__Height_Operator>;
+  sizes__xs__mimeType?: InputMaybe<Show_CoverImage_Sizes__Xs__MimeType_Operator>;
+  sizes__xs__url?: InputMaybe<Show_CoverImage_Sizes__Xs__Url_Operator>;
+  sizes__xs__width?: InputMaybe<Show_CoverImage_Sizes__Xs__Width_Operator>;
+  updatedAt?: InputMaybe<Show_CoverImage_UpdatedAt_Operator>;
+  url?: InputMaybe<Show_CoverImage_Url_Operator>;
+  width?: InputMaybe<Show_CoverImage_Width_Operator>;
+};
+
+export type Show_CoverImage_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<Show_CoverImage_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<Show_CoverImage_Where_Or>>>;
+  alt?: InputMaybe<Show_CoverImage_Alt_Operator>;
+  createdAt?: InputMaybe<Show_CoverImage_CreatedAt_Operator>;
+  filename?: InputMaybe<Show_CoverImage_Filename_Operator>;
+  filesize?: InputMaybe<Show_CoverImage_Filesize_Operator>;
+  focalX?: InputMaybe<Show_CoverImage_FocalX_Operator>;
+  focalY?: InputMaybe<Show_CoverImage_FocalY_Operator>;
+  height?: InputMaybe<Show_CoverImage_Height_Operator>;
+  id?: InputMaybe<Show_CoverImage_Id_Operator>;
+  mimeType?: InputMaybe<Show_CoverImage_MimeType_Operator>;
+  prefix?: InputMaybe<Show_CoverImage_Prefix_Operator>;
+  sizes__lg__filename?: InputMaybe<Show_CoverImage_Sizes__Lg__Filename_Operator>;
+  sizes__lg__filesize?: InputMaybe<Show_CoverImage_Sizes__Lg__Filesize_Operator>;
+  sizes__lg__height?: InputMaybe<Show_CoverImage_Sizes__Lg__Height_Operator>;
+  sizes__lg__mimeType?: InputMaybe<Show_CoverImage_Sizes__Lg__MimeType_Operator>;
+  sizes__lg__url?: InputMaybe<Show_CoverImage_Sizes__Lg__Url_Operator>;
+  sizes__lg__width?: InputMaybe<Show_CoverImage_Sizes__Lg__Width_Operator>;
+  sizes__opengraph__filename?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Filename_Operator>;
+  sizes__opengraph__filesize?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Filesize_Operator>;
+  sizes__opengraph__height?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Height_Operator>;
+  sizes__opengraph__mimeType?: InputMaybe<Show_CoverImage_Sizes__Opengraph__MimeType_Operator>;
+  sizes__opengraph__url?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Url_Operator>;
+  sizes__opengraph__width?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Width_Operator>;
+  sizes__sm__filename?: InputMaybe<Show_CoverImage_Sizes__Sm__Filename_Operator>;
+  sizes__sm__filesize?: InputMaybe<Show_CoverImage_Sizes__Sm__Filesize_Operator>;
+  sizes__sm__height?: InputMaybe<Show_CoverImage_Sizes__Sm__Height_Operator>;
+  sizes__sm__mimeType?: InputMaybe<Show_CoverImage_Sizes__Sm__MimeType_Operator>;
+  sizes__sm__url?: InputMaybe<Show_CoverImage_Sizes__Sm__Url_Operator>;
+  sizes__sm__width?: InputMaybe<Show_CoverImage_Sizes__Sm__Width_Operator>;
+  sizes__xl__filename?: InputMaybe<Show_CoverImage_Sizes__Xl__Filename_Operator>;
+  sizes__xl__filesize?: InputMaybe<Show_CoverImage_Sizes__Xl__Filesize_Operator>;
+  sizes__xl__height?: InputMaybe<Show_CoverImage_Sizes__Xl__Height_Operator>;
+  sizes__xl__mimeType?: InputMaybe<Show_CoverImage_Sizes__Xl__MimeType_Operator>;
+  sizes__xl__url?: InputMaybe<Show_CoverImage_Sizes__Xl__Url_Operator>;
+  sizes__xl__width?: InputMaybe<Show_CoverImage_Sizes__Xl__Width_Operator>;
+  sizes__xs__filename?: InputMaybe<Show_CoverImage_Sizes__Xs__Filename_Operator>;
+  sizes__xs__filesize?: InputMaybe<Show_CoverImage_Sizes__Xs__Filesize_Operator>;
+  sizes__xs__height?: InputMaybe<Show_CoverImage_Sizes__Xs__Height_Operator>;
+  sizes__xs__mimeType?: InputMaybe<Show_CoverImage_Sizes__Xs__MimeType_Operator>;
+  sizes__xs__url?: InputMaybe<Show_CoverImage_Sizes__Xs__Url_Operator>;
+  sizes__xs__width?: InputMaybe<Show_CoverImage_Sizes__Xs__Width_Operator>;
+  updatedAt?: InputMaybe<Show_CoverImage_UpdatedAt_Operator>;
+  url?: InputMaybe<Show_CoverImage_Url_Operator>;
+  width?: InputMaybe<Show_CoverImage_Width_Operator>;
+};
+
+export type Show_CoverImage_Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
 };
 
 export type Show_Active_Operator = {
@@ -9286,6 +10171,11 @@ export type Show_Categories_Operator = {
   in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
   not_equals?: InputMaybe<Scalars['JSON']>;
   not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+};
+
+export type Show_CoverImage_Operator = {
+  equals?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
 };
 
 export type Show_CreatedAt_Operator = {
@@ -9361,6 +10251,7 @@ export type Show_Where = {
   OR?: InputMaybe<Array<InputMaybe<Show_Where_Or>>>;
   active?: InputMaybe<Show_Active_Operator>;
   categories?: InputMaybe<Show_Categories_Operator>;
+  coverImage?: InputMaybe<Show_CoverImage_Operator>;
   createdAt?: InputMaybe<Show_CreatedAt_Operator>;
   description?: InputMaybe<Show_Description_Operator>;
   id?: InputMaybe<Show_Id_Operator>;
@@ -9375,6 +10266,7 @@ export type Show_Where_And = {
   OR?: InputMaybe<Array<InputMaybe<Show_Where_Or>>>;
   active?: InputMaybe<Show_Active_Operator>;
   categories?: InputMaybe<Show_Categories_Operator>;
+  coverImage?: InputMaybe<Show_CoverImage_Operator>;
   createdAt?: InputMaybe<Show_CreatedAt_Operator>;
   description?: InputMaybe<Show_Description_Operator>;
   id?: InputMaybe<Show_Id_Operator>;
@@ -9389,6 +10281,7 @@ export type Show_Where_Or = {
   OR?: InputMaybe<Array<InputMaybe<Show_Where_Or>>>;
   active?: InputMaybe<Show_Active_Operator>;
   categories?: InputMaybe<Show_Categories_Operator>;
+  coverImage?: InputMaybe<Show_CoverImage_Operator>;
   createdAt?: InputMaybe<Show_CreatedAt_Operator>;
   description?: InputMaybe<Show_Description_Operator>;
   id?: InputMaybe<Show_Id_Operator>;
@@ -9456,6 +10349,7 @@ export type ShowsDocAccessFields = {
   __typename?: 'ShowsDocAccessFields';
   active?: Maybe<ShowsDocAccessFields_Active>;
   categories?: Maybe<ShowsDocAccessFields_Categories>;
+  coverImage?: Maybe<ShowsDocAccessFields_CoverImage>;
   createdAt?: Maybe<ShowsDocAccessFields_CreatedAt>;
   description?: Maybe<ShowsDocAccessFields_Description>;
   primaryHosts?: Maybe<ShowsDocAccessFields_PrimaryHosts>;
@@ -9517,6 +10411,34 @@ export type ShowsDocAccessFields_Categories_Read = {
 
 export type ShowsDocAccessFields_Categories_Update = {
   __typename?: 'ShowsDocAccessFields_categories_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type ShowsDocAccessFields_CoverImage = {
+  __typename?: 'ShowsDocAccessFields_coverImage';
+  create?: Maybe<ShowsDocAccessFields_CoverImage_Create>;
+  delete?: Maybe<ShowsDocAccessFields_CoverImage_Delete>;
+  read?: Maybe<ShowsDocAccessFields_CoverImage_Read>;
+  update?: Maybe<ShowsDocAccessFields_CoverImage_Update>;
+};
+
+export type ShowsDocAccessFields_CoverImage_Create = {
+  __typename?: 'ShowsDocAccessFields_coverImage_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type ShowsDocAccessFields_CoverImage_Delete = {
+  __typename?: 'ShowsDocAccessFields_coverImage_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type ShowsDocAccessFields_CoverImage_Read = {
+  __typename?: 'ShowsDocAccessFields_coverImage_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type ShowsDocAccessFields_CoverImage_Update = {
+  __typename?: 'ShowsDocAccessFields_coverImage_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -9692,6 +10614,7 @@ export type ShowsFields = {
   __typename?: 'ShowsFields';
   active?: Maybe<ShowsFields_Active>;
   categories?: Maybe<ShowsFields_Categories>;
+  coverImage?: Maybe<ShowsFields_CoverImage>;
   createdAt?: Maybe<ShowsFields_CreatedAt>;
   description?: Maybe<ShowsFields_Description>;
   primaryHosts?: Maybe<ShowsFields_PrimaryHosts>;
@@ -9753,6 +10676,34 @@ export type ShowsFields_Categories_Read = {
 
 export type ShowsFields_Categories_Update = {
   __typename?: 'ShowsFields_categories_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type ShowsFields_CoverImage = {
+  __typename?: 'ShowsFields_coverImage';
+  create?: Maybe<ShowsFields_CoverImage_Create>;
+  delete?: Maybe<ShowsFields_CoverImage_Delete>;
+  read?: Maybe<ShowsFields_CoverImage_Read>;
+  update?: Maybe<ShowsFields_CoverImage_Update>;
+};
+
+export type ShowsFields_CoverImage_Create = {
+  __typename?: 'ShowsFields_coverImage_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type ShowsFields_CoverImage_Delete = {
+  __typename?: 'ShowsFields_coverImage_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type ShowsFields_CoverImage_Read = {
+  __typename?: 'ShowsFields_coverImage_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type ShowsFields_CoverImage_Update = {
+  __typename?: 'ShowsFields_coverImage_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -11062,6 +12013,21 @@ export type AboutPageDocAccess = {
   update?: Maybe<AboutPageUpdateDocAccess>;
 };
 
+export type AllMedia = {
+  __typename?: 'allMedia';
+  docs?: Maybe<Array<Maybe<Media>>>;
+  hasNextPage?: Maybe<Scalars['Boolean']>;
+  hasPrevPage?: Maybe<Scalars['Boolean']>;
+  limit?: Maybe<Scalars['Int']>;
+  nextPage?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  pagingCounter?: Maybe<Scalars['Int']>;
+  prevPage?: Maybe<Scalars['Int']>;
+  totalDocs?: Maybe<Scalars['Int']>;
+  totalPages?: Maybe<Scalars['Int']>;
+};
+
 export type CategoriesAccess = {
   __typename?: 'categoriesAccess';
   create?: Maybe<CategoriesCreateAccess>;
@@ -11095,11 +12061,6 @@ export type CountMerchPreviews = {
   totalDocs?: Maybe<Scalars['Int']>;
 };
 
-export type CountNewsMedias = {
-  __typename?: 'countNewsMedias';
-  totalDocs?: Maybe<Scalars['Int']>;
-};
-
 export type CountNewsPosts = {
   __typename?: 'countNewsPosts';
   totalDocs?: Maybe<Scalars['Int']>;
@@ -11125,6 +12086,25 @@ export type CountUsers = {
   totalDocs?: Maybe<Scalars['Int']>;
 };
 
+export type CountallMedia = {
+  __typename?: 'countallMedia';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type DonatePageAccess = {
+  __typename?: 'donatePageAccess';
+  fields?: Maybe<DonatePageFields>;
+  read?: Maybe<DonatePageReadAccess>;
+  update?: Maybe<DonatePageUpdateAccess>;
+};
+
+export type DonatePageDocAccess = {
+  __typename?: 'donatePageDocAccess';
+  fields?: Maybe<DonatePageDocAccessFields>;
+  read?: Maybe<DonatePageReadDocAccess>;
+  update?: Maybe<DonatePageUpdateDocAccess>;
+};
+
 export type HostsAccess = {
   __typename?: 'hostsAccess';
   create?: Maybe<HostsCreateAccess>;
@@ -11141,6 +12121,24 @@ export type HostsDocAccess = {
   fields?: Maybe<HostsDocAccessFields>;
   read?: Maybe<HostsReadDocAccess>;
   update?: Maybe<HostsUpdateDocAccess>;
+};
+
+export type MediaAccess = {
+  __typename?: 'mediaAccess';
+  create?: Maybe<MediaCreateAccess>;
+  delete?: Maybe<MediaDeleteAccess>;
+  fields?: Maybe<MediaFields>;
+  read?: Maybe<MediaReadAccess>;
+  update?: Maybe<MediaUpdateAccess>;
+};
+
+export type MediaDocAccess = {
+  __typename?: 'mediaDocAccess';
+  create?: Maybe<MediaCreateDocAccess>;
+  delete?: Maybe<MediaDeleteDocAccess>;
+  fields?: Maybe<MediaDocAccessFields>;
+  read?: Maybe<MediaReadDocAccess>;
+  update?: Maybe<MediaUpdateDocAccess>;
 };
 
 export type MerchPreviewAccess = {
@@ -11179,6 +12177,13 @@ export type MutationCategoryUpdateInput = {
   updatedAt?: InputMaybe<Scalars['String']>;
 };
 
+export type MutationDonatePageInput = {
+  Content?: InputMaybe<Scalars['JSON']>;
+  DonateUrl?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['String']>;
+};
+
 export type MutationHostInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   email?: InputMaybe<Scalars['String']>;
@@ -11193,6 +12198,144 @@ export type MutationHostUpdateInput = {
   name?: InputMaybe<Scalars['String']>;
   type?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
+};
+
+export type MutationMediaInput = {
+  alt?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['String']>;
+  filename?: InputMaybe<Scalars['String']>;
+  filesize?: InputMaybe<Scalars['Float']>;
+  focalX?: InputMaybe<Scalars['Float']>;
+  focalY?: InputMaybe<Scalars['Float']>;
+  height?: InputMaybe<Scalars['Float']>;
+  mimeType?: InputMaybe<Scalars['String']>;
+  prefix?: InputMaybe<Scalars['String']>;
+  sizes?: InputMaybe<MutationMedia_SizesInput>;
+  updatedAt?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Float']>;
+};
+
+export type MutationMediaUpdateInput = {
+  alt?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['String']>;
+  filename?: InputMaybe<Scalars['String']>;
+  filesize?: InputMaybe<Scalars['Float']>;
+  focalX?: InputMaybe<Scalars['Float']>;
+  focalY?: InputMaybe<Scalars['Float']>;
+  height?: InputMaybe<Scalars['Float']>;
+  mimeType?: InputMaybe<Scalars['String']>;
+  prefix?: InputMaybe<Scalars['String']>;
+  sizes?: InputMaybe<MutationMediaUpdate_SizesInput>;
+  updatedAt?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Float']>;
+};
+
+export type MutationMediaUpdate_SizesInput = {
+  lg?: InputMaybe<MutationMediaUpdate_Sizes_LgInput>;
+  opengraph?: InputMaybe<MutationMediaUpdate_Sizes_OpengraphInput>;
+  sm?: InputMaybe<MutationMediaUpdate_Sizes_SmInput>;
+  xl?: InputMaybe<MutationMediaUpdate_Sizes_XlInput>;
+  xs?: InputMaybe<MutationMediaUpdate_Sizes_XsInput>;
+};
+
+export type MutationMediaUpdate_Sizes_LgInput = {
+  filename?: InputMaybe<Scalars['String']>;
+  filesize?: InputMaybe<Scalars['Float']>;
+  height?: InputMaybe<Scalars['Float']>;
+  mimeType?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Float']>;
+};
+
+export type MutationMediaUpdate_Sizes_OpengraphInput = {
+  filename?: InputMaybe<Scalars['String']>;
+  filesize?: InputMaybe<Scalars['Float']>;
+  height?: InputMaybe<Scalars['Float']>;
+  mimeType?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Float']>;
+};
+
+export type MutationMediaUpdate_Sizes_SmInput = {
+  filename?: InputMaybe<Scalars['String']>;
+  filesize?: InputMaybe<Scalars['Float']>;
+  height?: InputMaybe<Scalars['Float']>;
+  mimeType?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Float']>;
+};
+
+export type MutationMediaUpdate_Sizes_XlInput = {
+  filename?: InputMaybe<Scalars['String']>;
+  filesize?: InputMaybe<Scalars['Float']>;
+  height?: InputMaybe<Scalars['Float']>;
+  mimeType?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Float']>;
+};
+
+export type MutationMediaUpdate_Sizes_XsInput = {
+  filename?: InputMaybe<Scalars['String']>;
+  filesize?: InputMaybe<Scalars['Float']>;
+  height?: InputMaybe<Scalars['Float']>;
+  mimeType?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Float']>;
+};
+
+export type MutationMedia_SizesInput = {
+  lg?: InputMaybe<MutationMedia_Sizes_LgInput>;
+  opengraph?: InputMaybe<MutationMedia_Sizes_OpengraphInput>;
+  sm?: InputMaybe<MutationMedia_Sizes_SmInput>;
+  xl?: InputMaybe<MutationMedia_Sizes_XlInput>;
+  xs?: InputMaybe<MutationMedia_Sizes_XsInput>;
+};
+
+export type MutationMedia_Sizes_LgInput = {
+  filename?: InputMaybe<Scalars['String']>;
+  filesize?: InputMaybe<Scalars['Float']>;
+  height?: InputMaybe<Scalars['Float']>;
+  mimeType?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Float']>;
+};
+
+export type MutationMedia_Sizes_OpengraphInput = {
+  filename?: InputMaybe<Scalars['String']>;
+  filesize?: InputMaybe<Scalars['Float']>;
+  height?: InputMaybe<Scalars['Float']>;
+  mimeType?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Float']>;
+};
+
+export type MutationMedia_Sizes_SmInput = {
+  filename?: InputMaybe<Scalars['String']>;
+  filesize?: InputMaybe<Scalars['Float']>;
+  height?: InputMaybe<Scalars['Float']>;
+  mimeType?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Float']>;
+};
+
+export type MutationMedia_Sizes_XlInput = {
+  filename?: InputMaybe<Scalars['String']>;
+  filesize?: InputMaybe<Scalars['Float']>;
+  height?: InputMaybe<Scalars['Float']>;
+  mimeType?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Float']>;
+};
+
+export type MutationMedia_Sizes_XsInput = {
+  filename?: InputMaybe<Scalars['String']>;
+  filesize?: InputMaybe<Scalars['Float']>;
+  height?: InputMaybe<Scalars['Float']>;
+  mimeType?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
+  width?: InputMaybe<Scalars['Float']>;
 };
 
 export type MutationMerchPreviewInput = {
@@ -11211,144 +12354,6 @@ export type MutationMerchPreviewUpdateInput = {
   title?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
   url?: InputMaybe<Scalars['String']>;
-};
-
-export type MutationNewsMediaInput = {
-  alt?: InputMaybe<Scalars['String']>;
-  createdAt?: InputMaybe<Scalars['String']>;
-  filename?: InputMaybe<Scalars['String']>;
-  filesize?: InputMaybe<Scalars['Float']>;
-  focalX?: InputMaybe<Scalars['Float']>;
-  focalY?: InputMaybe<Scalars['Float']>;
-  height?: InputMaybe<Scalars['Float']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  prefix?: InputMaybe<Scalars['String']>;
-  sizes?: InputMaybe<MutationNewsMedia_SizesInput>;
-  updatedAt?: InputMaybe<Scalars['String']>;
-  url?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['Float']>;
-};
-
-export type MutationNewsMediaUpdateInput = {
-  alt?: InputMaybe<Scalars['String']>;
-  createdAt?: InputMaybe<Scalars['String']>;
-  filename?: InputMaybe<Scalars['String']>;
-  filesize?: InputMaybe<Scalars['Float']>;
-  focalX?: InputMaybe<Scalars['Float']>;
-  focalY?: InputMaybe<Scalars['Float']>;
-  height?: InputMaybe<Scalars['Float']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  prefix?: InputMaybe<Scalars['String']>;
-  sizes?: InputMaybe<MutationNewsMediaUpdate_SizesInput>;
-  updatedAt?: InputMaybe<Scalars['String']>;
-  url?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['Float']>;
-};
-
-export type MutationNewsMediaUpdate_SizesInput = {
-  lg?: InputMaybe<MutationNewsMediaUpdate_Sizes_LgInput>;
-  opengraph?: InputMaybe<MutationNewsMediaUpdate_Sizes_OpengraphInput>;
-  sm?: InputMaybe<MutationNewsMediaUpdate_Sizes_SmInput>;
-  xl?: InputMaybe<MutationNewsMediaUpdate_Sizes_XlInput>;
-  xs?: InputMaybe<MutationNewsMediaUpdate_Sizes_XsInput>;
-};
-
-export type MutationNewsMediaUpdate_Sizes_LgInput = {
-  filename?: InputMaybe<Scalars['String']>;
-  filesize?: InputMaybe<Scalars['Float']>;
-  height?: InputMaybe<Scalars['Float']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  url?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['Float']>;
-};
-
-export type MutationNewsMediaUpdate_Sizes_OpengraphInput = {
-  filename?: InputMaybe<Scalars['String']>;
-  filesize?: InputMaybe<Scalars['Float']>;
-  height?: InputMaybe<Scalars['Float']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  url?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['Float']>;
-};
-
-export type MutationNewsMediaUpdate_Sizes_SmInput = {
-  filename?: InputMaybe<Scalars['String']>;
-  filesize?: InputMaybe<Scalars['Float']>;
-  height?: InputMaybe<Scalars['Float']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  url?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['Float']>;
-};
-
-export type MutationNewsMediaUpdate_Sizes_XlInput = {
-  filename?: InputMaybe<Scalars['String']>;
-  filesize?: InputMaybe<Scalars['Float']>;
-  height?: InputMaybe<Scalars['Float']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  url?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['Float']>;
-};
-
-export type MutationNewsMediaUpdate_Sizes_XsInput = {
-  filename?: InputMaybe<Scalars['String']>;
-  filesize?: InputMaybe<Scalars['Float']>;
-  height?: InputMaybe<Scalars['Float']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  url?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['Float']>;
-};
-
-export type MutationNewsMedia_SizesInput = {
-  lg?: InputMaybe<MutationNewsMedia_Sizes_LgInput>;
-  opengraph?: InputMaybe<MutationNewsMedia_Sizes_OpengraphInput>;
-  sm?: InputMaybe<MutationNewsMedia_Sizes_SmInput>;
-  xl?: InputMaybe<MutationNewsMedia_Sizes_XlInput>;
-  xs?: InputMaybe<MutationNewsMedia_Sizes_XsInput>;
-};
-
-export type MutationNewsMedia_Sizes_LgInput = {
-  filename?: InputMaybe<Scalars['String']>;
-  filesize?: InputMaybe<Scalars['Float']>;
-  height?: InputMaybe<Scalars['Float']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  url?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['Float']>;
-};
-
-export type MutationNewsMedia_Sizes_OpengraphInput = {
-  filename?: InputMaybe<Scalars['String']>;
-  filesize?: InputMaybe<Scalars['Float']>;
-  height?: InputMaybe<Scalars['Float']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  url?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['Float']>;
-};
-
-export type MutationNewsMedia_Sizes_SmInput = {
-  filename?: InputMaybe<Scalars['String']>;
-  filesize?: InputMaybe<Scalars['Float']>;
-  height?: InputMaybe<Scalars['Float']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  url?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['Float']>;
-};
-
-export type MutationNewsMedia_Sizes_XlInput = {
-  filename?: InputMaybe<Scalars['String']>;
-  filesize?: InputMaybe<Scalars['Float']>;
-  height?: InputMaybe<Scalars['Float']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  url?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['Float']>;
-};
-
-export type MutationNewsMedia_Sizes_XsInput = {
-  filename?: InputMaybe<Scalars['String']>;
-  filesize?: InputMaybe<Scalars['Float']>;
-  height?: InputMaybe<Scalars['Float']>;
-  mimeType?: InputMaybe<Scalars['String']>;
-  url?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['Float']>;
 };
 
 export type MutationNewsPostInput = {
@@ -11402,6 +12407,7 @@ export type MutationPayloadPreferenceUpdateInput = {
 export type MutationShowInput = {
   active?: InputMaybe<Scalars['Boolean']>;
   categories?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  coverImage: Scalars['String'];
   createdAt?: InputMaybe<Scalars['String']>;
   description: Scalars['JSON'];
   primaryHosts?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
@@ -11413,6 +12419,7 @@ export type MutationShowInput = {
 export type MutationShowUpdateInput = {
   active?: InputMaybe<Scalars['Boolean']>;
   categories?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  coverImage?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['JSON']>;
   primaryHosts?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
@@ -11469,24 +12476,6 @@ export type MutationUserUpdateInput = {
   roles?: InputMaybe<Array<InputMaybe<UserUpdate_Roles_MutationInput>>>;
   salt?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
-};
-
-export type NewsMediaAccess = {
-  __typename?: 'newsMediaAccess';
-  create?: Maybe<NewsMediaCreateAccess>;
-  delete?: Maybe<NewsMediaDeleteAccess>;
-  fields?: Maybe<NewsMediaFields>;
-  read?: Maybe<NewsMediaReadAccess>;
-  update?: Maybe<NewsMediaUpdateAccess>;
-};
-
-export type NewsMediaDocAccess = {
-  __typename?: 'newsMediaDocAccess';
-  create?: Maybe<NewsMediaCreateDocAccess>;
-  delete?: Maybe<NewsMediaDeleteDocAccess>;
-  fields?: Maybe<NewsMediaDocAccessFields>;
-  read?: Maybe<NewsMediaReadDocAccess>;
-  update?: Maybe<NewsMediaUpdateDocAccess>;
 };
 
 export type NewsPostsAccess = {
@@ -11945,7 +12934,7 @@ export type NewsPostsQueryVariables = Exact<{
 }>;
 
 
-export type NewsPostsQuery = { __typename?: 'Query', NewsPosts?: { __typename?: 'NewsPosts', docs?: Array<{ __typename?: 'NewsPost', id?: string | null, blurb?: string | null, slug?: string | null, publishDate?: any | null, title?: string | null, updatedAt?: any | null, authorName?: string | null, authorId?: string | null, previewBanner?: { __typename?: 'NewsMedia', url?: string | null } | null } | null> | null } | null };
+export type NewsPostsQuery = { __typename?: 'Query', NewsPosts?: { __typename?: 'NewsPosts', docs?: Array<{ __typename?: 'NewsPost', id?: string | null, blurb?: string | null, slug?: string | null, publishDate?: any | null, title?: string | null, updatedAt?: any | null, authorName?: string | null, authorId?: string | null, previewBanner?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
 
 export type NewsPostQueryVariables = Exact<{
   newsPostId: Scalars['String'];
@@ -11953,7 +12942,7 @@ export type NewsPostQueryVariables = Exact<{
 }>;
 
 
-export type NewsPostQuery = { __typename?: 'Query', NewsPost?: { __typename?: 'NewsPost', authorId?: string | null, authorName?: string | null, blurb?: string | null, content?: any | null, createdAt?: any | null, id?: string | null, publishDate?: any | null, slug?: string | null, title?: string | null, previewBanner?: { __typename?: 'NewsMedia', url?: string | null } | null, tags?: Array<{ __typename?: 'Tag', name: string, id?: string | null }> | null } | null };
+export type NewsPostQuery = { __typename?: 'Query', NewsPost?: { __typename?: 'NewsPost', authorId?: string | null, authorName?: string | null, blurb?: string | null, content?: any | null, createdAt?: any | null, id?: string | null, publishDate?: any | null, slug?: string | null, title?: string | null, previewBanner?: { __typename?: 'Media', url?: string | null } | null, tags?: Array<{ __typename?: 'Tag', name: string, id?: string | null }> | null } | null };
 
 export type NewsPostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -11982,7 +12971,7 @@ export type MerchPreviewsQueryVariables = Exact<{
 }>;
 
 
-export type MerchPreviewsQuery = { __typename?: 'Query', MerchPreviews?: { __typename?: 'MerchPreviews', docs?: Array<{ __typename?: 'MerchPreview', id?: string | null, blurb: string, title: string, url: string, image?: { __typename?: 'NewsMedia', url?: string | null } | null } | null> | null } | null };
+export type MerchPreviewsQuery = { __typename?: 'Query', MerchPreviews?: { __typename?: 'MerchPreviews', docs?: Array<{ __typename?: 'MerchPreview', id?: string | null, blurb: string, title: string, url: string, image?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
 
 
 export const ShowByFieldsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ShowByFields"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Show_where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Shows"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<ShowByFieldsQuery, ShowByFieldsQueryVariables>;

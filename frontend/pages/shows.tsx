@@ -21,7 +21,7 @@ export async function getStaticProps() {
 
 const ShowsPageHeader = () => (
   <Head>
-    <title>Shows - PARTICLE.FM</title>
+    <title>Shows - Rádio Quântica</title>
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@quanticaonline" />
     <meta name="twitter:title" content="Rádio Quântica | Shows" />

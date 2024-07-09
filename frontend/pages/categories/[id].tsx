@@ -32,7 +32,7 @@ export default function CategoryPage({
   category: string;
 }) {
   const categoryUppercase = toUpper(category);
-  const title = `${categoryUppercase} - PARTICLE.FM`;
+  const title = `${categoryUppercase} - Rádio Quântica`;
   return (
     <div className="ml-8 w-10/12 sm:w-2/4 mb-8">
       <Head>
