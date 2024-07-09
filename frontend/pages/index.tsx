@@ -39,29 +39,29 @@ export async function getStaticProps() {
 const HomePageHeader = () => {
   return (
     <Head>
-      <title>San Diego Internet Radio - PARTICLE.FM</title>
+      <title>Rádio Quântica</title>
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@particlefm" />
-      <meta name="twitter:title" content="PARTICLE.FM" />
+      <meta name="twitter:site" content="@quanticaonline" />
+      <meta name="twitter:title" content="Radio Quantica" />
       <meta
         name="twitter:description"
-        content="Community Internet Radio San Diego"
+        content="Online community radio station based in Lisbon, Portugal."
       />
       <meta
         name="twitter:image"
         content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
       />
 
-      <meta property="og:site_name" content="PARTICLE.FM"></meta>
+      <meta property="og:site_name" content="Rádio Quântica"></meta>
       <meta
         property="og:title"
-        content="Community Internet Radio based in San Diego"
+        content="Online community radio station based in Lisbon, Portugal."
       ></meta>
       <meta property="og:type" content="website"></meta>
       <meta property="og:url" content="https://particle.fm/"></meta>
       <meta
         property="og:description"
-        content="DIY Community Internet Radio based in San Diego for underrepresented artists"
+        content="Online community radio station based in Lisbon, Portugal."
       ></meta>
       <meta
         property="og:image"
@@ -73,10 +73,7 @@ const HomePageHeader = () => {
       ></meta>
       <meta property="og:image:width" content="1200"></meta>
       <meta property="og:image:height" content="630"></meta>
-      <meta
-        property="og:image:alt"
-        content="Particle FM Social Media Banner"
-      ></meta>
+      <meta property="og:image:alt" content="Radio Quantica Banner"></meta>
       <meta property="og:image:type" content="image/jpg"></meta>
     </Head>
   );

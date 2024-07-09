@@ -36,23 +36,26 @@ export default function CalendarPage(props: { allShowIDs: ShowIDMapping[] }) {
   return (
     <div className="mb-8">
       <Head>
-        <title>Show Calendar - PARTICLE.FM</title>
+        <title>Show Calendar - Rádio Quântica</title>
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@particlefm" />
-        <meta name="twitter:title" content="PARTICLE.FM | Calendar" />
-        <meta name="twitter:description" content="Particle FM Show Calendar" />
+        <meta name="twitter:site" content="@quanticaonline" />
+        <meta name="twitter:title" content="Rádio Quântica | Calendar" />
+        <meta
+          name="twitter:description"
+          content="Rádio Quântica Show Calendar"
+        />
         <meta
           name="twitter:image"
           content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
         />
 
-        <meta property="og:site_name" content="PARTICLE.FM"></meta>
-        <meta property="og:title" content="Particle FM Show Calendar"></meta>
+        <meta property="og:site_name" content="Rádio Quântica"></meta>
+        <meta property="og:title" content="Rádio Quântica Show Calendar"></meta>
         <meta property="og:type" content="website"></meta>
         <meta property="og:url" content="https://particle.fm/calendar"></meta>
         <meta
           property="og:description"
-          content="Particle FM Upcoming Shows Calendar"
+          content="Rádio Quântica Upcoming Shows Calendar"
         />
         <meta
           property="og:image"
@@ -66,7 +69,7 @@ export default function CalendarPage(props: { allShowIDs: ShowIDMapping[] }) {
         <meta property="og:image:height" content="630"></meta>
         <meta
           property="og:image:alt"
-          content="Particle FM Social Media Banner"
+          content="Rádio Quântica Social Media Banner"
         ></meta>
         <meta property="og:image:type" content="image/jpg"></meta>
       </Head>

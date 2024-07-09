@@ -22,8 +22,227 @@ export type Scalars = {
   JSONObject: any;
 };
 
+export type AboutPage = {
+  __typename?: 'AboutPage';
+  Content?: Maybe<Scalars['JSON']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+
+export type AboutPageContentArgs = {
+  depth?: InputMaybe<Scalars['Int']>;
+};
+
+export type AboutPageDocAccessFields = {
+  __typename?: 'AboutPageDocAccessFields';
+  Content?: Maybe<AboutPageDocAccessFields_Content>;
+  createdAt?: Maybe<AboutPageDocAccessFields_CreatedAt>;
+  updatedAt?: Maybe<AboutPageDocAccessFields_UpdatedAt>;
+};
+
+export type AboutPageDocAccessFields_Content = {
+  __typename?: 'AboutPageDocAccessFields_Content';
+  create?: Maybe<AboutPageDocAccessFields_Content_Create>;
+  delete?: Maybe<AboutPageDocAccessFields_Content_Delete>;
+  read?: Maybe<AboutPageDocAccessFields_Content_Read>;
+  update?: Maybe<AboutPageDocAccessFields_Content_Update>;
+};
+
+export type AboutPageDocAccessFields_Content_Create = {
+  __typename?: 'AboutPageDocAccessFields_Content_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageDocAccessFields_Content_Delete = {
+  __typename?: 'AboutPageDocAccessFields_Content_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageDocAccessFields_Content_Read = {
+  __typename?: 'AboutPageDocAccessFields_Content_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageDocAccessFields_Content_Update = {
+  __typename?: 'AboutPageDocAccessFields_Content_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageDocAccessFields_CreatedAt = {
+  __typename?: 'AboutPageDocAccessFields_createdAt';
+  create?: Maybe<AboutPageDocAccessFields_CreatedAt_Create>;
+  delete?: Maybe<AboutPageDocAccessFields_CreatedAt_Delete>;
+  read?: Maybe<AboutPageDocAccessFields_CreatedAt_Read>;
+  update?: Maybe<AboutPageDocAccessFields_CreatedAt_Update>;
+};
+
+export type AboutPageDocAccessFields_CreatedAt_Create = {
+  __typename?: 'AboutPageDocAccessFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageDocAccessFields_CreatedAt_Delete = {
+  __typename?: 'AboutPageDocAccessFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageDocAccessFields_CreatedAt_Read = {
+  __typename?: 'AboutPageDocAccessFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageDocAccessFields_CreatedAt_Update = {
+  __typename?: 'AboutPageDocAccessFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageDocAccessFields_UpdatedAt = {
+  __typename?: 'AboutPageDocAccessFields_updatedAt';
+  create?: Maybe<AboutPageDocAccessFields_UpdatedAt_Create>;
+  delete?: Maybe<AboutPageDocAccessFields_UpdatedAt_Delete>;
+  read?: Maybe<AboutPageDocAccessFields_UpdatedAt_Read>;
+  update?: Maybe<AboutPageDocAccessFields_UpdatedAt_Update>;
+};
+
+export type AboutPageDocAccessFields_UpdatedAt_Create = {
+  __typename?: 'AboutPageDocAccessFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageDocAccessFields_UpdatedAt_Delete = {
+  __typename?: 'AboutPageDocAccessFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageDocAccessFields_UpdatedAt_Read = {
+  __typename?: 'AboutPageDocAccessFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageDocAccessFields_UpdatedAt_Update = {
+  __typename?: 'AboutPageDocAccessFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageFields = {
+  __typename?: 'AboutPageFields';
+  Content?: Maybe<AboutPageFields_Content>;
+  createdAt?: Maybe<AboutPageFields_CreatedAt>;
+  updatedAt?: Maybe<AboutPageFields_UpdatedAt>;
+};
+
+export type AboutPageFields_Content = {
+  __typename?: 'AboutPageFields_Content';
+  create?: Maybe<AboutPageFields_Content_Create>;
+  delete?: Maybe<AboutPageFields_Content_Delete>;
+  read?: Maybe<AboutPageFields_Content_Read>;
+  update?: Maybe<AboutPageFields_Content_Update>;
+};
+
+export type AboutPageFields_Content_Create = {
+  __typename?: 'AboutPageFields_Content_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageFields_Content_Delete = {
+  __typename?: 'AboutPageFields_Content_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageFields_Content_Read = {
+  __typename?: 'AboutPageFields_Content_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageFields_Content_Update = {
+  __typename?: 'AboutPageFields_Content_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageFields_CreatedAt = {
+  __typename?: 'AboutPageFields_createdAt';
+  create?: Maybe<AboutPageFields_CreatedAt_Create>;
+  delete?: Maybe<AboutPageFields_CreatedAt_Delete>;
+  read?: Maybe<AboutPageFields_CreatedAt_Read>;
+  update?: Maybe<AboutPageFields_CreatedAt_Update>;
+};
+
+export type AboutPageFields_CreatedAt_Create = {
+  __typename?: 'AboutPageFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageFields_CreatedAt_Delete = {
+  __typename?: 'AboutPageFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageFields_CreatedAt_Read = {
+  __typename?: 'AboutPageFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageFields_CreatedAt_Update = {
+  __typename?: 'AboutPageFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageFields_UpdatedAt = {
+  __typename?: 'AboutPageFields_updatedAt';
+  create?: Maybe<AboutPageFields_UpdatedAt_Create>;
+  delete?: Maybe<AboutPageFields_UpdatedAt_Delete>;
+  read?: Maybe<AboutPageFields_UpdatedAt_Read>;
+  update?: Maybe<AboutPageFields_UpdatedAt_Update>;
+};
+
+export type AboutPageFields_UpdatedAt_Create = {
+  __typename?: 'AboutPageFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageFields_UpdatedAt_Delete = {
+  __typename?: 'AboutPageFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageFields_UpdatedAt_Read = {
+  __typename?: 'AboutPageFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageFields_UpdatedAt_Update = {
+  __typename?: 'AboutPageFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type AboutPageReadAccess = {
+  __typename?: 'AboutPageReadAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type AboutPageReadDocAccess = {
+  __typename?: 'AboutPageReadDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type AboutPageUpdateAccess = {
+  __typename?: 'AboutPageUpdateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type AboutPageUpdateDocAccess = {
+  __typename?: 'AboutPageUpdateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
 export type Access = {
   __typename?: 'Access';
+  aboutPage?: Maybe<AboutPageAccess>;
   canAccessAdmin: Scalars['Boolean'];
   categories?: Maybe<CategoriesAccess>;
   hosts?: Maybe<HostsAccess>;
@@ -358,6 +577,12 @@ export type Category_Where_Or = {
   name?: InputMaybe<Category_Name_Operator>;
   updatedAt?: InputMaybe<Category_UpdatedAt_Operator>;
 };
+
+export enum FallbackLocaleInputType {
+  En = 'en',
+  None = 'none',
+  Pt = 'pt'
+}
 
 export type Host = {
   __typename?: 'Host';
@@ -834,6 +1059,11 @@ export type HostsUpdateDocAccess = {
   where?: Maybe<Scalars['JSONObject']>;
 };
 
+export enum LocaleInputType {
+  En = 'en',
+  Pt = 'pt'
+}
+
 export type MerchPreview = {
   __typename?: 'MerchPreview';
   blurb: Scalars['String'];
@@ -847,6 +1077,8 @@ export type MerchPreview = {
 
 
 export type MerchPreviewImageArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<MerchPreview_Image_Where>;
 };
 
@@ -1297,6 +1529,26 @@ export type MerchPreview_Image_Filesize_Operator = {
   not_equals?: InputMaybe<Scalars['Float']>;
 };
 
+export type MerchPreview_Image_FocalX_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type MerchPreview_Image_FocalY_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
 export type MerchPreview_Image_Height_Operator = {
   equals?: InputMaybe<Scalars['Float']>;
   exists?: InputMaybe<Scalars['Boolean']>;
@@ -1684,6 +1936,8 @@ export type MerchPreview_Image_Where = {
   createdAt?: InputMaybe<MerchPreview_Image_CreatedAt_Operator>;
   filename?: InputMaybe<MerchPreview_Image_Filename_Operator>;
   filesize?: InputMaybe<MerchPreview_Image_Filesize_Operator>;
+  focalX?: InputMaybe<MerchPreview_Image_FocalX_Operator>;
+  focalY?: InputMaybe<MerchPreview_Image_FocalY_Operator>;
   height?: InputMaybe<MerchPreview_Image_Height_Operator>;
   id?: InputMaybe<MerchPreview_Image_Id_Operator>;
   mimeType?: InputMaybe<MerchPreview_Image_MimeType_Operator>;
@@ -1730,6 +1984,8 @@ export type MerchPreview_Image_Where_And = {
   createdAt?: InputMaybe<MerchPreview_Image_CreatedAt_Operator>;
   filename?: InputMaybe<MerchPreview_Image_Filename_Operator>;
   filesize?: InputMaybe<MerchPreview_Image_Filesize_Operator>;
+  focalX?: InputMaybe<MerchPreview_Image_FocalX_Operator>;
+  focalY?: InputMaybe<MerchPreview_Image_FocalY_Operator>;
   height?: InputMaybe<MerchPreview_Image_Height_Operator>;
   id?: InputMaybe<MerchPreview_Image_Id_Operator>;
   mimeType?: InputMaybe<MerchPreview_Image_MimeType_Operator>;
@@ -1776,6 +2032,8 @@ export type MerchPreview_Image_Where_Or = {
   createdAt?: InputMaybe<MerchPreview_Image_CreatedAt_Operator>;
   filename?: InputMaybe<MerchPreview_Image_Filename_Operator>;
   filesize?: InputMaybe<MerchPreview_Image_Filesize_Operator>;
+  focalX?: InputMaybe<MerchPreview_Image_FocalX_Operator>;
+  focalY?: InputMaybe<MerchPreview_Image_FocalY_Operator>;
   height?: InputMaybe<MerchPreview_Image_Height_Operator>;
   id?: InputMaybe<MerchPreview_Image_Id_Operator>;
   mimeType?: InputMaybe<MerchPreview_Image_MimeType_Operator>;
@@ -1972,6 +2230,7 @@ export type Mutation = {
   resetPasswordUser?: Maybe<UsersResetPassword>;
   restoreVersionNewsPost?: Maybe<NewsPost>;
   unlockUser: Scalars['Boolean'];
+  updateAboutPage?: Maybe<AboutPage>;
   updateCategory?: Maybe<Category>;
   updateHost?: Maybe<Host>;
   updateMerchPreview?: Maybe<MerchPreview>;
@@ -1987,47 +2246,56 @@ export type Mutation = {
 
 export type MutationCreateCategoryArgs = {
   data: MutationCategoryInput;
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateHostArgs = {
   data: MutationHostInput;
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateMerchPreviewArgs = {
   data: MutationMerchPreviewInput;
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateNewsMediaArgs = {
   data: MutationNewsMediaInput;
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateNewsPostArgs = {
   data: MutationNewsPostInput;
   draft?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreatePayloadPreferenceArgs = {
   data: MutationPayloadPreferenceInput;
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateShowArgs = {
   data: MutationShowInput;
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateTagArgs = {
   data: MutationTagInput;
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateUserArgs = {
   data: MutationUserInput;
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
@@ -2089,11 +2357,6 @@ export type MutationLoginUserArgs = {
 };
 
 
-export type MutationRefreshTokenUserArgs = {
-  token?: InputMaybe<Scalars['String']>;
-};
-
-
 export type MutationResetPasswordUserArgs = {
   password?: InputMaybe<Scalars['String']>;
   token?: InputMaybe<Scalars['String']>;
@@ -2110,10 +2373,18 @@ export type MutationUnlockUserArgs = {
 };
 
 
+export type MutationUpdateAboutPageArgs = {
+  data: MutationAboutPageInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
 export type MutationUpdateCategoryArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationCategoryUpdateInput;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
@@ -2121,6 +2392,7 @@ export type MutationUpdateHostArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationHostUpdateInput;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
@@ -2128,6 +2400,7 @@ export type MutationUpdateMerchPreviewArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationMerchPreviewUpdateInput;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
@@ -2135,6 +2408,7 @@ export type MutationUpdateNewsMediaArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationNewsMediaUpdateInput;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
@@ -2143,6 +2417,7 @@ export type MutationUpdateNewsPostArgs = {
   data: MutationNewsPostUpdateInput;
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
@@ -2150,6 +2425,7 @@ export type MutationUpdatePayloadPreferenceArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationPayloadPreferenceUpdateInput;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
@@ -2157,6 +2433,7 @@ export type MutationUpdateShowArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationShowUpdateInput;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
@@ -2164,6 +2441,7 @@ export type MutationUpdateTagArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationTagUpdateInput;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
@@ -2171,6 +2449,7 @@ export type MutationUpdateUserArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationUserUpdateInput;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
@@ -2184,6 +2463,8 @@ export type NewsMedia = {
   createdAt?: Maybe<Scalars['DateTime']>;
   filename?: Maybe<Scalars['String']>;
   filesize?: Maybe<Scalars['Float']>;
+  focalX?: Maybe<Scalars['Float']>;
+  focalY?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['String']>;
   mimeType?: Maybe<Scalars['String']>;
@@ -2224,6 +2505,8 @@ export type NewsMediaDocAccessFields = {
   createdAt?: Maybe<NewsMediaDocAccessFields_CreatedAt>;
   filename?: Maybe<NewsMediaDocAccessFields_Filename>;
   filesize?: Maybe<NewsMediaDocAccessFields_Filesize>;
+  focalX?: Maybe<NewsMediaDocAccessFields_FocalX>;
+  focalY?: Maybe<NewsMediaDocAccessFields_FocalY>;
   height?: Maybe<NewsMediaDocAccessFields_Height>;
   mimeType?: Maybe<NewsMediaDocAccessFields_MimeType>;
   prefix?: Maybe<NewsMediaDocAccessFields_Prefix>;
@@ -2342,6 +2625,62 @@ export type NewsMediaDocAccessFields_Filesize_Read = {
 
 export type NewsMediaDocAccessFields_Filesize_Update = {
   __typename?: 'NewsMediaDocAccessFields_filesize_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaDocAccessFields_FocalX = {
+  __typename?: 'NewsMediaDocAccessFields_focalX';
+  create?: Maybe<NewsMediaDocAccessFields_FocalX_Create>;
+  delete?: Maybe<NewsMediaDocAccessFields_FocalX_Delete>;
+  read?: Maybe<NewsMediaDocAccessFields_FocalX_Read>;
+  update?: Maybe<NewsMediaDocAccessFields_FocalX_Update>;
+};
+
+export type NewsMediaDocAccessFields_FocalX_Create = {
+  __typename?: 'NewsMediaDocAccessFields_focalX_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaDocAccessFields_FocalX_Delete = {
+  __typename?: 'NewsMediaDocAccessFields_focalX_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaDocAccessFields_FocalX_Read = {
+  __typename?: 'NewsMediaDocAccessFields_focalX_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaDocAccessFields_FocalX_Update = {
+  __typename?: 'NewsMediaDocAccessFields_focalX_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaDocAccessFields_FocalY = {
+  __typename?: 'NewsMediaDocAccessFields_focalY';
+  create?: Maybe<NewsMediaDocAccessFields_FocalY_Create>;
+  delete?: Maybe<NewsMediaDocAccessFields_FocalY_Delete>;
+  read?: Maybe<NewsMediaDocAccessFields_FocalY_Read>;
+  update?: Maybe<NewsMediaDocAccessFields_FocalY_Update>;
+};
+
+export type NewsMediaDocAccessFields_FocalY_Create = {
+  __typename?: 'NewsMediaDocAccessFields_focalY_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaDocAccessFields_FocalY_Delete = {
+  __typename?: 'NewsMediaDocAccessFields_focalY_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaDocAccessFields_FocalY_Read = {
+  __typename?: 'NewsMediaDocAccessFields_focalY_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaDocAccessFields_FocalY_Update = {
+  __typename?: 'NewsMediaDocAccessFields_focalY_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -3592,6 +3931,8 @@ export type NewsMediaFields = {
   createdAt?: Maybe<NewsMediaFields_CreatedAt>;
   filename?: Maybe<NewsMediaFields_Filename>;
   filesize?: Maybe<NewsMediaFields_Filesize>;
+  focalX?: Maybe<NewsMediaFields_FocalX>;
+  focalY?: Maybe<NewsMediaFields_FocalY>;
   height?: Maybe<NewsMediaFields_Height>;
   mimeType?: Maybe<NewsMediaFields_MimeType>;
   prefix?: Maybe<NewsMediaFields_Prefix>;
@@ -3710,6 +4051,62 @@ export type NewsMediaFields_Filesize_Read = {
 
 export type NewsMediaFields_Filesize_Update = {
   __typename?: 'NewsMediaFields_filesize_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaFields_FocalX = {
+  __typename?: 'NewsMediaFields_focalX';
+  create?: Maybe<NewsMediaFields_FocalX_Create>;
+  delete?: Maybe<NewsMediaFields_FocalX_Delete>;
+  read?: Maybe<NewsMediaFields_FocalX_Read>;
+  update?: Maybe<NewsMediaFields_FocalX_Update>;
+};
+
+export type NewsMediaFields_FocalX_Create = {
+  __typename?: 'NewsMediaFields_focalX_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaFields_FocalX_Delete = {
+  __typename?: 'NewsMediaFields_focalX_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaFields_FocalX_Read = {
+  __typename?: 'NewsMediaFields_focalX_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaFields_FocalX_Update = {
+  __typename?: 'NewsMediaFields_focalX_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaFields_FocalY = {
+  __typename?: 'NewsMediaFields_focalY';
+  create?: Maybe<NewsMediaFields_FocalY_Create>;
+  delete?: Maybe<NewsMediaFields_FocalY_Delete>;
+  read?: Maybe<NewsMediaFields_FocalY_Read>;
+  update?: Maybe<NewsMediaFields_FocalY_Update>;
+};
+
+export type NewsMediaFields_FocalY_Create = {
+  __typename?: 'NewsMediaFields_focalY_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaFields_FocalY_Delete = {
+  __typename?: 'NewsMediaFields_focalY_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaFields_FocalY_Read = {
+  __typename?: 'NewsMediaFields_focalY_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsMediaFields_FocalY_Update = {
+  __typename?: 'NewsMediaFields_focalY_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -5080,6 +5477,26 @@ export type NewsMedia_Filesize_Operator = {
   not_equals?: InputMaybe<Scalars['Float']>;
 };
 
+export type NewsMedia_FocalX_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type NewsMedia_FocalY_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
 export type NewsMedia_Height_Operator = {
   equals?: InputMaybe<Scalars['Float']>;
   exists?: InputMaybe<Scalars['Boolean']>;
@@ -5467,6 +5884,8 @@ export type NewsMedia_Where = {
   createdAt?: InputMaybe<NewsMedia_CreatedAt_Operator>;
   filename?: InputMaybe<NewsMedia_Filename_Operator>;
   filesize?: InputMaybe<NewsMedia_Filesize_Operator>;
+  focalX?: InputMaybe<NewsMedia_FocalX_Operator>;
+  focalY?: InputMaybe<NewsMedia_FocalY_Operator>;
   height?: InputMaybe<NewsMedia_Height_Operator>;
   id?: InputMaybe<NewsMedia_Id_Operator>;
   mimeType?: InputMaybe<NewsMedia_MimeType_Operator>;
@@ -5513,6 +5932,8 @@ export type NewsMedia_Where_And = {
   createdAt?: InputMaybe<NewsMedia_CreatedAt_Operator>;
   filename?: InputMaybe<NewsMedia_Filename_Operator>;
   filesize?: InputMaybe<NewsMedia_Filesize_Operator>;
+  focalX?: InputMaybe<NewsMedia_FocalX_Operator>;
+  focalY?: InputMaybe<NewsMedia_FocalY_Operator>;
   height?: InputMaybe<NewsMedia_Height_Operator>;
   id?: InputMaybe<NewsMedia_Id_Operator>;
   mimeType?: InputMaybe<NewsMedia_MimeType_Operator>;
@@ -5559,6 +5980,8 @@ export type NewsMedia_Where_Or = {
   createdAt?: InputMaybe<NewsMedia_CreatedAt_Operator>;
   filename?: InputMaybe<NewsMedia_Filename_Operator>;
   filesize?: InputMaybe<NewsMedia_Filesize_Operator>;
+  focalX?: InputMaybe<NewsMedia_FocalX_Operator>;
+  focalY?: InputMaybe<NewsMedia_FocalY_Operator>;
   height?: InputMaybe<NewsMedia_Height_Operator>;
   id?: InputMaybe<NewsMedia_Id_Operator>;
   mimeType?: InputMaybe<NewsMedia_MimeType_Operator>;
@@ -5642,13 +6065,27 @@ export type NewsPost = {
 };
 
 
+export type NewsPostAuthorArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
 export type NewsPostContentArgs = {
   depth?: InputMaybe<Scalars['Int']>;
 };
 
 
 export type NewsPostPreviewBannerArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<NewsPost_PreviewBanner_Where>;
+};
+
+
+export type NewsPostTagsArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 export enum NewsPostUpdate__Status_MutationInput {
@@ -5669,6 +6106,8 @@ export type NewsPostVersion = {
 
 export type NewsPostVersionParentArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 export type NewsPostVersion_Version = {
@@ -5689,13 +6128,27 @@ export type NewsPostVersion_Version = {
 };
 
 
+export type NewsPostVersion_VersionAuthorArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
 export type NewsPostVersion_VersionContentArgs = {
   depth?: InputMaybe<Scalars['Int']>;
 };
 
 
 export type NewsPostVersion_VersionPreviewBannerArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Where>;
+};
+
+
+export type NewsPostVersion_VersionTagsArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 export type NewsPostVersion_Version_PreviewBanner_Alt_Operator = {
@@ -5732,6 +6185,26 @@ export type NewsPostVersion_Version_PreviewBanner_Filename_Operator = {
 };
 
 export type NewsPostVersion_Version_PreviewBanner_Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type NewsPostVersion_Version_PreviewBanner_FocalX_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type NewsPostVersion_Version_PreviewBanner_FocalY_Operator = {
   equals?: InputMaybe<Scalars['Float']>;
   exists?: InputMaybe<Scalars['Boolean']>;
   greater_than?: InputMaybe<Scalars['Float']>;
@@ -6128,6 +6601,8 @@ export type NewsPostVersion_Version_PreviewBanner_Where = {
   createdAt?: InputMaybe<NewsPostVersion_Version_PreviewBanner_CreatedAt_Operator>;
   filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Filename_Operator>;
   filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Filesize_Operator>;
+  focalX?: InputMaybe<NewsPostVersion_Version_PreviewBanner_FocalX_Operator>;
+  focalY?: InputMaybe<NewsPostVersion_Version_PreviewBanner_FocalY_Operator>;
   height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Height_Operator>;
   id?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Id_Operator>;
   mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_MimeType_Operator>;
@@ -6174,6 +6649,8 @@ export type NewsPostVersion_Version_PreviewBanner_Where_And = {
   createdAt?: InputMaybe<NewsPostVersion_Version_PreviewBanner_CreatedAt_Operator>;
   filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Filename_Operator>;
   filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Filesize_Operator>;
+  focalX?: InputMaybe<NewsPostVersion_Version_PreviewBanner_FocalX_Operator>;
+  focalY?: InputMaybe<NewsPostVersion_Version_PreviewBanner_FocalY_Operator>;
   height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Height_Operator>;
   id?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Id_Operator>;
   mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_MimeType_Operator>;
@@ -6220,6 +6697,8 @@ export type NewsPostVersion_Version_PreviewBanner_Where_Or = {
   createdAt?: InputMaybe<NewsPostVersion_Version_PreviewBanner_CreatedAt_Operator>;
   filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Filename_Operator>;
   filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Filesize_Operator>;
+  focalX?: InputMaybe<NewsPostVersion_Version_PreviewBanner_FocalX_Operator>;
+  focalY?: InputMaybe<NewsPostVersion_Version_PreviewBanner_FocalY_Operator>;
   height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Height_Operator>;
   id?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Id_Operator>;
   mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_MimeType_Operator>;
@@ -6308,6 +6787,26 @@ export type NewsPost_PreviewBanner_Filename_Operator = {
 };
 
 export type NewsPost_PreviewBanner_Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type NewsPost_PreviewBanner_FocalX_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type NewsPost_PreviewBanner_FocalY_Operator = {
   equals?: InputMaybe<Scalars['Float']>;
   exists?: InputMaybe<Scalars['Boolean']>;
   greater_than?: InputMaybe<Scalars['Float']>;
@@ -6704,6 +7203,8 @@ export type NewsPost_PreviewBanner_Where = {
   createdAt?: InputMaybe<NewsPost_PreviewBanner_CreatedAt_Operator>;
   filename?: InputMaybe<NewsPost_PreviewBanner_Filename_Operator>;
   filesize?: InputMaybe<NewsPost_PreviewBanner_Filesize_Operator>;
+  focalX?: InputMaybe<NewsPost_PreviewBanner_FocalX_Operator>;
+  focalY?: InputMaybe<NewsPost_PreviewBanner_FocalY_Operator>;
   height?: InputMaybe<NewsPost_PreviewBanner_Height_Operator>;
   id?: InputMaybe<NewsPost_PreviewBanner_Id_Operator>;
   mimeType?: InputMaybe<NewsPost_PreviewBanner_MimeType_Operator>;
@@ -6750,6 +7251,8 @@ export type NewsPost_PreviewBanner_Where_And = {
   createdAt?: InputMaybe<NewsPost_PreviewBanner_CreatedAt_Operator>;
   filename?: InputMaybe<NewsPost_PreviewBanner_Filename_Operator>;
   filesize?: InputMaybe<NewsPost_PreviewBanner_Filesize_Operator>;
+  focalX?: InputMaybe<NewsPost_PreviewBanner_FocalX_Operator>;
+  focalY?: InputMaybe<NewsPost_PreviewBanner_FocalY_Operator>;
   height?: InputMaybe<NewsPost_PreviewBanner_Height_Operator>;
   id?: InputMaybe<NewsPost_PreviewBanner_Id_Operator>;
   mimeType?: InputMaybe<NewsPost_PreviewBanner_MimeType_Operator>;
@@ -6796,6 +7299,8 @@ export type NewsPost_PreviewBanner_Where_Or = {
   createdAt?: InputMaybe<NewsPost_PreviewBanner_CreatedAt_Operator>;
   filename?: InputMaybe<NewsPost_PreviewBanner_Filename_Operator>;
   filesize?: InputMaybe<NewsPost_PreviewBanner_Filesize_Operator>;
+  focalX?: InputMaybe<NewsPost_PreviewBanner_FocalX_Operator>;
+  focalY?: InputMaybe<NewsPost_PreviewBanner_FocalY_Operator>;
   height?: InputMaybe<NewsPost_PreviewBanner_Height_Operator>;
   id?: InputMaybe<NewsPost_PreviewBanner_Id_Operator>;
   mimeType?: InputMaybe<NewsPost_PreviewBanner_MimeType_Operator>;
@@ -7901,6 +8406,12 @@ export type PayloadPreference = {
   value?: Maybe<Scalars['JSON']>;
 };
 
+
+export type PayloadPreferenceUserArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
 export type PayloadPreferenceUpdate_UserRelationshipInput = {
   relationTo?: InputMaybe<PayloadPreferenceUpdate_UserRelationshipInputRelationTo>;
   value?: InputMaybe<Scalars['JSON']>;
@@ -8390,6 +8901,7 @@ export type PayloadPreferencesUpdateDocAccess = {
 
 export type Query = {
   __typename?: 'Query';
+  AboutPage?: Maybe<AboutPage>;
   Access?: Maybe<Access>;
   Categories?: Maybe<Categories>;
   Category?: Maybe<Category>;
@@ -8421,6 +8933,7 @@ export type Query = {
   countShows?: Maybe<CountShows>;
   countTags?: Maybe<CountTags>;
   countUsers?: Maybe<CountUsers>;
+  docAccessAboutPage?: Maybe<AboutPageDocAccess>;
   docAccessCategory?: Maybe<CategoriesDocAccess>;
   docAccessHost?: Maybe<HostsDocAccess>;
   docAccessMerchPreview?: Maybe<MerchPreviewDocAccess>;
@@ -8437,8 +8950,17 @@ export type Query = {
 };
 
 
+export type QueryAboutPageArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
 export type QueryCategoriesArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<Category_Where>;
@@ -8446,17 +8968,23 @@ export type QueryCategoriesArgs = {
 
 
 export type QueryCategoryArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type QueryHostArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type QueryHostsArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<Host_Where>;
@@ -8464,12 +8992,16 @@ export type QueryHostsArgs = {
 
 
 export type QueryMerchPreviewArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type QueryMerchPreviewsArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<MerchPreview_Where>;
@@ -8477,12 +9009,16 @@ export type QueryMerchPreviewsArgs = {
 
 
 export type QueryNewsMediaArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type QueryNewsMediasArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<NewsMedia_Where>;
@@ -8491,7 +9027,9 @@ export type QueryNewsMediasArgs = {
 
 export type QueryNewsPostArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
@@ -8502,7 +9040,9 @@ export type QueryNewsPostBySlugArgs = {
 
 export type QueryNewsPostsArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<NewsPost_Where>;
@@ -8510,12 +9050,16 @@ export type QueryNewsPostsArgs = {
 
 
 export type QueryPayloadPreferenceArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type QueryPayloadPreferencesArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<PayloadPreference_Where>;
@@ -8523,7 +9067,9 @@ export type QueryPayloadPreferencesArgs = {
 
 
 export type QueryShowArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
@@ -8533,7 +9079,9 @@ export type QueryShowBySlugArgs = {
 
 
 export type QueryShowsArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<Show_Where>;
@@ -8546,12 +9094,16 @@ export type QueryShowsByCategoryArgs = {
 
 
 export type QueryTagArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type QueryTagsArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<Tag_Where>;
@@ -8559,12 +9111,16 @@ export type QueryTagsArgs = {
 
 
 export type QueryUserArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type QueryUsersArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<User_Where>;
@@ -8572,47 +9128,56 @@ export type QueryUsersArgs = {
 
 
 export type QueryCountCategoriesArgs = {
+  locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<Category_Where>;
 };
 
 
 export type QueryCountHostsArgs = {
+  locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<Host_Where>;
 };
 
 
 export type QueryCountMerchPreviewsArgs = {
+  locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<MerchPreview_Where>;
 };
 
 
 export type QueryCountNewsMediasArgs = {
+  locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<NewsMedia_Where>;
 };
 
 
 export type QueryCountNewsPostsArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<NewsPost_Where>;
 };
 
 
 export type QueryCountPayloadPreferencesArgs = {
+  locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<PayloadPreference_Where>;
 };
 
 
 export type QueryCountShowsArgs = {
+  locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<Show_Where>;
 };
 
 
 export type QueryCountTagsArgs = {
+  locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<Tag_Where>;
 };
 
 
 export type QueryCountUsersArgs = {
+  locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<User_Where>;
 };
 
@@ -8663,12 +9228,16 @@ export type QueryDocAccessUserArgs = {
 
 
 export type QueryVersionNewsPostArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type QueryVersionsNewsPostsArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<VersionsNewsPost_Where>;
@@ -8688,8 +9257,20 @@ export type Show = {
 };
 
 
+export type ShowCategoriesArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
 export type ShowDescriptionArgs = {
   depth?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type ShowPrimaryHostsArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
 };
 
 export type Show_Active_Operator = {
@@ -10467,6 +11048,20 @@ export type UsersUpdateDocAccess = {
   where?: Maybe<Scalars['JSONObject']>;
 };
 
+export type AboutPageAccess = {
+  __typename?: 'aboutPageAccess';
+  fields?: Maybe<AboutPageFields>;
+  read?: Maybe<AboutPageReadAccess>;
+  update?: Maybe<AboutPageUpdateAccess>;
+};
+
+export type AboutPageDocAccess = {
+  __typename?: 'aboutPageDocAccess';
+  fields?: Maybe<AboutPageDocAccessFields>;
+  read?: Maybe<AboutPageReadDocAccess>;
+  update?: Maybe<AboutPageUpdateDocAccess>;
+};
+
 export type CategoriesAccess = {
   __typename?: 'categoriesAccess';
   create?: Maybe<CategoriesCreateAccess>;
@@ -10566,6 +11161,12 @@ export type MerchPreviewDocAccess = {
   update?: Maybe<MerchPreviewUpdateDocAccess>;
 };
 
+export type MutationAboutPageInput = {
+  Content?: InputMaybe<Scalars['JSON']>;
+  createdAt?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['String']>;
+};
+
 export type MutationCategoryInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   name: Scalars['String'];
@@ -10617,6 +11218,8 @@ export type MutationNewsMediaInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   filename?: InputMaybe<Scalars['String']>;
   filesize?: InputMaybe<Scalars['Float']>;
+  focalX?: InputMaybe<Scalars['Float']>;
+  focalY?: InputMaybe<Scalars['Float']>;
   height?: InputMaybe<Scalars['Float']>;
   mimeType?: InputMaybe<Scalars['String']>;
   prefix?: InputMaybe<Scalars['String']>;
@@ -10631,6 +11234,8 @@ export type MutationNewsMediaUpdateInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   filename?: InputMaybe<Scalars['String']>;
   filesize?: InputMaybe<Scalars['Float']>;
+  focalX?: InputMaybe<Scalars['Float']>;
+  focalY?: InputMaybe<Scalars['Float']>;
   height?: InputMaybe<Scalars['Float']>;
   mimeType?: InputMaybe<Scalars['String']>;
   prefix?: InputMaybe<Scalars['String']>;
@@ -11001,6 +11606,7 @@ export type UsersMe = {
   __typename?: 'usersMe';
   collection?: Maybe<Scalars['String']>;
   exp?: Maybe<Scalars['Int']>;
+  strategy?: Maybe<Scalars['String']>;
   token?: Maybe<Scalars['String']>;
   user?: Maybe<User>;
 };
@@ -11009,6 +11615,7 @@ export type UsersRefreshedUser = {
   __typename?: 'usersRefreshedUser';
   exp?: Maybe<Scalars['Int']>;
   refreshedToken?: Maybe<Scalars['String']>;
+  strategy?: Maybe<Scalars['String']>;
   user?: Maybe<UsersJwt>;
 };
 

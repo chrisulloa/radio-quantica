@@ -72,24 +72,24 @@ const NewsTagHeader = (props: { tagName: string }) => {
     <Head>
       <title>{`${capitalizedName} News - PARTICLE.FM`}</title>
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@particlefm" />
+      <meta name="twitter:site" content="@quanticaonline" />
       <meta
         name="twitter:title"
-        content={`PARTICLE.FM | ${capitalizedName} News`}
+        content={`Rádio Quântica | ${capitalizedName} News`}
       />
       <meta
         name="twitter:description"
-        content={`Particle FM ${capitalizedName} News`}
+        content={`Rádio Quântica ${capitalizedName} News`}
       />
       <meta
         name="twitter:image"
         content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
       />
 
-      <meta property="og:site_name" content="PARTICLE.FM"></meta>
+      <meta property="og:site_name" content="Rádio Quântica"></meta>
       <meta
         property="og:title"
-        content={`Particle FM ${capitalizedName} News`}
+        content={`Rádio Quântica ${capitalizedName} News`}
       ></meta>
       <meta property="og:type" content="website"></meta>
       <meta
@@ -98,7 +98,7 @@ const NewsTagHeader = (props: { tagName: string }) => {
       ></meta>
       <meta
         property="og:description"
-        content={`Particle FM ${capitalizedName} News`}
+        content={`Rádio Quântica ${capitalizedName} News`}
       />
       <meta
         property="og:image"
@@ -112,7 +112,7 @@ const NewsTagHeader = (props: { tagName: string }) => {
       <meta property="og:image:height" content="630"></meta>
       <meta
         property="og:image:alt"
-        content="Particle FM Social Media Banner"
+        content="Rádio Quântica Social Media Banner"
       ></meta>
       <meta property="og:image:type" content="image/jpg"></meta>
     </Head>

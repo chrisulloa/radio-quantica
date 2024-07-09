@@ -38,24 +38,24 @@ const NewsPageHeader = () => (
   <Head>
     <title>Latest News - PARTICLE.FM</title>
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@particlefm" />
-    <meta name="twitter:title" content="PARTICLE.FM | Latest News" />
+    <meta name="twitter:site" content="@quanticaonline" />
+    <meta name="twitter:title" content="Rádio Quântica | Latest News" />
     <meta
       name="twitter:description"
-      content="Particle FM's upcoming events, latest news, articles & more."
+      content="Rádio Quântica's upcoming events, latest news, articles & more."
     />
     <meta
       name="twitter:image"
       content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
     />
 
-    <meta property="og:site_name" content="PARTICLE.FM"></meta>
-    <meta property="og:title" content="Particle FM Latest News"></meta>
+    <meta property="og:site_name" content="Rádio Quântica"></meta>
+    <meta property="og:title" content="Rádio Quântica Latest News"></meta>
     <meta property="og:type" content="website"></meta>
     <meta property="og:url" content="https://particle.fm/news"></meta>
     <meta
       property="og:description"
-      content="Particle FM's upcoming events, latest news, articles & more."
+      content="Rádio Quântica's upcoming events, latest news, articles & more."
     />
     <meta
       property="og:image"
@@ -69,7 +69,7 @@ const NewsPageHeader = () => (
     <meta property="og:image:height" content="630"></meta>
     <meta
       property="og:image:alt"
-      content="Particle FM Social Media Banner"
+      content="Rádio Quântica Social Media Banner"
     ></meta>
     <meta property="og:image:type" content="image/jpg"></meta>
   </Head>

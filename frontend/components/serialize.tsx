@@ -70,7 +70,7 @@ const Serialize = (children: RichTextNode[]) =>
       case "upload":
         const image = node.value?.sizes.sm;
         const imageUrl = image?.url || "";
-        const alt = node.value?.alt || "Particle FM Image";
+        const alt = node.value?.alt || "Rádio Quântica Image";
         const width = image?.width;
         const height = image?.height;
 

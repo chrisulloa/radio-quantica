@@ -4,7 +4,7 @@ import Image from "next/image";
 import GoBackLink from "../components/goBack";
 
 const descriptionOne =
-  "Established in 2021 by a diverse group of artists, DJs, and music nerds, Particle FM is a DIY community internet radio station based in San Diego.";
+  "Established in 2021 by a diverse group of artists, DJs, and music nerds, Rádio Quântica is a DIY community internet radio station based in San Diego.";
 
 const descriptionTwo =
   "We represent an intersection of cultures, identities, and musical styles. Our focus is on building a platform for women, LBGTQ, black, latino, asian, indigenous, immigrant, and underrepresented artists to showcase their work.";
@@ -16,21 +16,21 @@ function AboutUsLargeImages() {
   return (
     <div className="flex-wrap justify-center overflow-hidden sm:pb-5 hidden sm:flex">
       <Image
-        alt="Particle FM DJ picture"
+        alt="Rádio Quântica DJ picture"
         src="https://cdn.particle.fm/socials/about_us_1.jpg"
         className="shrink sm:w-1/3 h-auto p-2"
         width={800}
         height={800}
       ></Image>
       <Image
-        alt="Particle FM DJ picture"
+        alt="Rádio Quântica DJ picture"
         src="https://cdn.particle.fm/socials/about_us_5.jpg"
         className="shrink sm:w-1/3 h-auto p-2"
         width={800}
         height={800}
       ></Image>
       <Image
-        alt="Particle FM DJ picture"
+        alt="Rádio Quântica DJ picture"
         src="https://cdn.particle.fm/socials/about_us_2.jpg"
         className="shrink sm:w-1/3 h-auto p-2"
         width={800}
@@ -44,7 +44,7 @@ function AboutUsSmallImage(props: { url: string; priority: boolean }) {
   return (
     <div className="flex justify-center sm:p-0">
       <Image
-        alt="Particle FM DJ picture"
+        alt="Rádio Quântica DJ picture"
         src={props.url}
         className="grow w-[200px] h-auto sm:hidden sm:p-0"
         width={400}
@@ -61,24 +61,24 @@ export default function About() {
       <Head>
         <title>Our project and mission - PARTICLE.FM</title>
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@particlefm" />
-        <meta name="twitter:title" content="PARTICLE.FM | About Us" />
+        <meta name="twitter:site" content="@quanticaonline" />
+        <meta name="twitter:title" content="Rádio Quântica | About Us" />
         <meta
           name="twitter:description"
-          content="Particle FM's project and mission"
+          content="Rádio Quântica's project and mission"
         />
         <meta
           name="twitter:image"
           content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
         />
 
-        <meta property="og:site_name" content="PARTICLE.FM"></meta>
-        <meta property="og:title" content="Particle FM | About Us"></meta>
+        <meta property="og:site_name" content="Rádio Quântica"></meta>
+        <meta property="og:title" content="Rádio Quântica | About Us"></meta>
         <meta property="og:type" content="website"></meta>
         <meta property="og:url" content="https://particle.fm/about"></meta>
         <meta
           property="og:description"
-          content="Particle FM's project and mission"
+          content="Rádio Quântica's project and mission"
         />
         <meta
           property="og:image"
@@ -92,7 +92,7 @@ export default function About() {
         <meta property="og:image:height" content="630"></meta>
         <meta
           property="og:image:alt"
-          content="Particle FM Social Media Banner"
+          content="Rádio Quântica Social Media Banner"
         ></meta>
         <meta property="og:image:type" content="image/jpg"></meta>
       </Head>

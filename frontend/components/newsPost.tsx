@@ -27,20 +27,23 @@ const NewsHeader = ({
     <Head>
       <title>{post?.title}</title>
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@particlefm" />
-      <meta name="twitter:title" content={`PARTICLE.FM | ${post?.title}`} />
+      <meta name="twitter:site" content="@quanticaonline" />
+      <meta name="twitter:title" content={`Rádio Quântica | ${post?.title}`} />
       <meta
         name="twitter:description"
         content={post?.blurb || "DIY Community Radio"}
       />
       <meta name="twitter:image" content={ogImage || defaultOgImage} />
 
-      <meta property="og:site_name" content="PARTICLE.FM"></meta>
-      <meta property="og:title" content={`Particle FM | ${post.title}`}></meta>
+      <meta property="og:site_name" content="Rádio Quântica"></meta>
+      <meta
+        property="og:title"
+        content={`Rádio Quântica | ${post.title}`}
+      ></meta>
       <meta property="og:type" content="website"></meta>
       <meta
         property="og:description"
-        content={post.blurb || "Particle FM News"}
+        content={post.blurb || "Rádio Quântica News"}
       />
       <meta
         property="og:url"

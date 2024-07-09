@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <meta
           name="description"
-          content="Particle FM is a non-commercial, community internet radio station based in San Diego serving underrepresented and marginalized artists."
+          content="Rádio Quântica is a non-commercial, community internet radio station based in San Diego serving underrepresented and marginalized artists."
         />
         <meta name="author" content="PARTICLE.FM"></meta>
 

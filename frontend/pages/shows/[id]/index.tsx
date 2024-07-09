@@ -52,7 +52,7 @@ export default function Show({
       <Head>
         <title>{title}</title>
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@particlefm" />
+        <meta name="twitter:site" content="@quanticaonline" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={title} />
         <meta
@@ -60,7 +60,7 @@ export default function Show({
           content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
         />
 
-        <meta property="og:site_name" content="PARTICLE.FM"></meta>
+        <meta property="og:site_name" content="Rádio Quântica"></meta>
         <meta property="og:title" content={title}></meta>
         <meta property="og:type" content="website"></meta>
         <meta
@@ -80,7 +80,7 @@ export default function Show({
         <meta property="og:image:height" content="630"></meta>
         <meta
           property="og:image:alt"
-          content="Particle FM Social Media Banner"
+          content="Rádio Quântica Social Media Banner"
         ></meta>
         <meta property="og:image:type" content="image/jpg"></meta>
       </Head>

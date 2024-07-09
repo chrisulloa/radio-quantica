@@ -1,8 +1,8 @@
-# Particle FM: Next.js React App
+# Radio Quantica: Next.js React App
 
-This is the front end code for the Particle FM website written in Next.js and styled with Tailwind CSS. The service is deployed on Vercel.
+This is the front end code for the Rádio Quântica website written in Next.js and styled with Tailwind CSS. The service is deployed on Vercel.
 
-This app reaches out the Particle FM Azuracast API and an Apollo GraphQL API to form data during build time and run time. The pages for the app are statically generated using Markdown files in the shows folder.
+This app reaches out the Rádio Quântica Azuracast API and an Apollo GraphQL API to form data during build time and run time. The pages for the app are statically generated using Markdown files in the shows folder.
 
 ## Getting Started
 
