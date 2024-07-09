@@ -1,5 +1,6 @@
 import AboutPage from './aboutPage';
+import DonatePage from './donate';
 
-const Globals = [AboutPage];
+const Globals = [AboutPage, DonatePage];
 
 export default Globals;
