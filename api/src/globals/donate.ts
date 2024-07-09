@@ -11,7 +11,7 @@ const DonatePage: GlobalConfig = {
       localized: true,
     },
     {
-      name: 'Donate URL',
+      name: 'DonateUrl',
       type: 'text',
     },
   ],
