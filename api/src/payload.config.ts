@@ -17,9 +17,11 @@ import {
   spacesURL,
   spacesBucket,
   validCORSURLs,
-  // serverURL,
+  serverURL,
   CDNBaseURL,
 } from './utils/config';
+import Globals from './globals';
+import Users from './collections/users';
 
 const adapter = s3Adapter({
   config: {
@@ -37,6 +39,7 @@ const adapter = s3Adapter({
 
 export default buildConfig({
   admin: {
+    user: Users.slug,
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     bundler: webpackBundler(),
   },
@@ -48,8 +51,17 @@ export default buildConfig({
     window: 18000,
     max: 5000,
   },
-  // serverURL,
+  serverURL,
   collections: Collections,
+  globals: Globals,
+  localization: {
+    locales: [
+      { label: 'English', code: 'en' },
+      { label: 'Portuguese', code: 'pt' },
+    ],
+    defaultLocale: 'en',
+    fallback: true,
+  },
   plugins: [
     cloudStorage({
       collections: {

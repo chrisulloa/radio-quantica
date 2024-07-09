@@ -8,10 +8,10 @@ export const validCORSURLs =
     ? ['https://studio.apollographql.com', 'https://*.vercel.app']
     : ['http://localhost:3001', 'https://studio.apollographql.com'];
 
-// export const serverURL =
-//   process.env.NODE_ENV === 'development'
-//     ? 'http://localhost:3000'
-//     : 'https://api.particle.fm';
+export const serverURL =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://squid-app-svk3v.ondigitalocean.app';
 
 export const CDNBaseURL = 'https://radio-quantica.ams3.cdn.digitaloceanspaces.com';
 
