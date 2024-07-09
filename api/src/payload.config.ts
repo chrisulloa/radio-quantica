@@ -65,8 +65,8 @@ export default buildConfig({
   plugins: [
     cloudStorage({
       collections: {
-        newsMedia: {
-          prefix: 'news-media',
+        media: {
+          prefix: 'media',
           adapter,
           generateFileURL: (args) =>
             `${CDNBaseURL}/${args.prefix}/${args.filename}`,

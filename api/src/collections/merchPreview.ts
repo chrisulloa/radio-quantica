@@ -29,7 +29,7 @@ const MerchPreviews: CollectionConfig = {
     {
       name: 'image',
       type: 'upload',
-      relationTo: 'newsMedia',
+      relationTo: 'media',
     },
   ],
 };
