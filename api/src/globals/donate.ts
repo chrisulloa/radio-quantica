@@ -6,12 +6,12 @@ const DonatePage: GlobalConfig = {
   },
   fields: [
     {
-      name: 'Content',
+      name: 'content',
       type: 'richText',
       localized: true,
     },
     {
-      name: 'DonateUrl',
+      name: 'donateUrl',
       type: 'text',
     },
   ],

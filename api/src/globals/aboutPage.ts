@@ -6,7 +6,7 @@ const AboutPage: GlobalConfig = {
   },
   fields: [
     {
-      name: 'Content',
+      name: 'content',
       type: 'richText',
       localized: true,
     },

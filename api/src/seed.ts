@@ -1,6 +1,12 @@
 import type { Payload } from 'payload';
 
 const seed = async (payload: Payload) => {
+  await payload.updateGlobal({
+    slug: 'aboutPage',
+    data: {
+      content: 'foo',
+    },
+  });
   const { id: authorId } = await payload.create({
     collection: 'users',
     data: {
