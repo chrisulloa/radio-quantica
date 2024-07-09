@@ -177,7 +177,7 @@ const NewsPosts: CollectionConfig = {
     {
       name: 'previewBanner',
       type: 'upload',
-      relationTo: 'newsMedia',
+      relationTo: 'media',
     },
     {
       name: 'tags',

@@ -1,14 +1,14 @@
 import { CollectionConfig } from 'payload/types';
 import { CDNBaseURL } from '../utils/config';
 
-const NewsMedia: CollectionConfig = {
-  slug: 'newsMedia',
+const Media: CollectionConfig = {
+  slug: 'media',
   access: {
     read: () => true,
   },
   upload: {
-    staticURL: '/news-media',
-    staticDir: 'news-media',
+    staticURL: '/media',
+    staticDir: 'media',
     imageSizes: [
       {
         name: 'xs',
@@ -43,7 +43,7 @@ const NewsMedia: CollectionConfig = {
     ],
     mimeTypes: ['image/*'],
     adminThumbnail: ({ doc }: { doc: { filename: string } }) =>
-      `${CDNBaseURL}/news-media/${doc.filename}`,
+      `${CDNBaseURL}/media/${doc.filename}`,
   },
   fields: [
     {
@@ -53,4 +53,4 @@ const NewsMedia: CollectionConfig = {
   ],
 };
 
-export default NewsMedia;
+export default Media;

@@ -2,6 +2,7 @@ import { CollectionAfterChangeHook, CollectionConfig } from 'payload/types';
 import { Show } from 'payload/generated-types';
 import isEqual from 'lodash/isEqual';
 import { revalidateResource } from '../utils/revalidate';
+import { CDNBaseURL } from '../utils/config';
 
 const afterChangeHook: CollectionAfterChangeHook<Show> = async ({
   doc,
@@ -66,6 +67,12 @@ const Shows: CollectionConfig = {
       name: 'active',
       type: 'checkbox',
       defaultValue: true,
+    },
+    {
+      name: 'coverImage',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
     },
   ],
 };

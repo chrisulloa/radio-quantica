@@ -3,7 +3,7 @@ import Users from './users';
 import Hosts from './hosts';
 import Categories from './categories';
 import NewsPosts from './newsPosts';
-import NewsMedia from './newsMedia';
+import Media from './media';
 import Tags from './tags';
 import MerchPreviews from './merchPreview';
 
@@ -13,7 +13,7 @@ const Collections = [
   Hosts,
   Categories,
   NewsPosts,
-  NewsMedia,
+  Media,
   Tags,
   MerchPreviews,
 ];
