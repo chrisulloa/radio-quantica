@@ -24,7 +24,7 @@ export type Scalars = {
 
 export type AboutPage = {
   __typename?: 'AboutPage';
-  Content?: Maybe<Scalars['JSON']>;
+  content?: Maybe<Scalars['JSON']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
@@ -36,13 +36,13 @@ export type AboutPageContentArgs = {
 
 export type AboutPageDocAccessFields = {
   __typename?: 'AboutPageDocAccessFields';
-  Content?: Maybe<AboutPageDocAccessFields_Content>;
+  content?: Maybe<AboutPageDocAccessFields_Content>;
   createdAt?: Maybe<AboutPageDocAccessFields_CreatedAt>;
   updatedAt?: Maybe<AboutPageDocAccessFields_UpdatedAt>;
 };
 
 export type AboutPageDocAccessFields_Content = {
-  __typename?: 'AboutPageDocAccessFields_Content';
+  __typename?: 'AboutPageDocAccessFields_content';
   create?: Maybe<AboutPageDocAccessFields_Content_Create>;
   delete?: Maybe<AboutPageDocAccessFields_Content_Delete>;
   read?: Maybe<AboutPageDocAccessFields_Content_Read>;
@@ -50,22 +50,22 @@ export type AboutPageDocAccessFields_Content = {
 };
 
 export type AboutPageDocAccessFields_Content_Create = {
-  __typename?: 'AboutPageDocAccessFields_Content_Create';
+  __typename?: 'AboutPageDocAccessFields_content_Create';
   permission: Scalars['Boolean'];
 };
 
 export type AboutPageDocAccessFields_Content_Delete = {
-  __typename?: 'AboutPageDocAccessFields_Content_Delete';
+  __typename?: 'AboutPageDocAccessFields_content_Delete';
   permission: Scalars['Boolean'];
 };
 
 export type AboutPageDocAccessFields_Content_Read = {
-  __typename?: 'AboutPageDocAccessFields_Content_Read';
+  __typename?: 'AboutPageDocAccessFields_content_Read';
   permission: Scalars['Boolean'];
 };
 
 export type AboutPageDocAccessFields_Content_Update = {
-  __typename?: 'AboutPageDocAccessFields_Content_Update';
+  __typename?: 'AboutPageDocAccessFields_content_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -127,13 +127,13 @@ export type AboutPageDocAccessFields_UpdatedAt_Update = {
 
 export type AboutPageFields = {
   __typename?: 'AboutPageFields';
-  Content?: Maybe<AboutPageFields_Content>;
+  content?: Maybe<AboutPageFields_Content>;
   createdAt?: Maybe<AboutPageFields_CreatedAt>;
   updatedAt?: Maybe<AboutPageFields_UpdatedAt>;
 };
 
 export type AboutPageFields_Content = {
-  __typename?: 'AboutPageFields_Content';
+  __typename?: 'AboutPageFields_content';
   create?: Maybe<AboutPageFields_Content_Create>;
   delete?: Maybe<AboutPageFields_Content_Delete>;
   read?: Maybe<AboutPageFields_Content_Read>;
@@ -141,22 +141,22 @@ export type AboutPageFields_Content = {
 };
 
 export type AboutPageFields_Content_Create = {
-  __typename?: 'AboutPageFields_Content_Create';
+  __typename?: 'AboutPageFields_content_Create';
   permission: Scalars['Boolean'];
 };
 
 export type AboutPageFields_Content_Delete = {
-  __typename?: 'AboutPageFields_Content_Delete';
+  __typename?: 'AboutPageFields_content_Delete';
   permission: Scalars['Boolean'];
 };
 
 export type AboutPageFields_Content_Read = {
-  __typename?: 'AboutPageFields_Content_Read';
+  __typename?: 'AboutPageFields_content_Read';
   permission: Scalars['Boolean'];
 };
 
 export type AboutPageFields_Content_Update = {
-  __typename?: 'AboutPageFields_Content_Update';
+  __typename?: 'AboutPageFields_content_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -581,9 +581,9 @@ export type Category_Where_Or = {
 
 export type DonatePage = {
   __typename?: 'DonatePage';
-  Content?: Maybe<Scalars['JSON']>;
-  DonateUrl?: Maybe<Scalars['String']>;
+  content?: Maybe<Scalars['JSON']>;
   createdAt?: Maybe<Scalars['DateTime']>;
+  donateUrl?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -594,14 +594,14 @@ export type DonatePageContentArgs = {
 
 export type DonatePageDocAccessFields = {
   __typename?: 'DonatePageDocAccessFields';
-  Content?: Maybe<DonatePageDocAccessFields_Content>;
-  DonateUrl?: Maybe<DonatePageDocAccessFields_DonateUrl>;
+  content?: Maybe<DonatePageDocAccessFields_Content>;
   createdAt?: Maybe<DonatePageDocAccessFields_CreatedAt>;
+  donateUrl?: Maybe<DonatePageDocAccessFields_DonateUrl>;
   updatedAt?: Maybe<DonatePageDocAccessFields_UpdatedAt>;
 };
 
 export type DonatePageDocAccessFields_Content = {
-  __typename?: 'DonatePageDocAccessFields_Content';
+  __typename?: 'DonatePageDocAccessFields_content';
   create?: Maybe<DonatePageDocAccessFields_Content_Create>;
   delete?: Maybe<DonatePageDocAccessFields_Content_Delete>;
   read?: Maybe<DonatePageDocAccessFields_Content_Read>;
@@ -609,50 +609,22 @@ export type DonatePageDocAccessFields_Content = {
 };
 
 export type DonatePageDocAccessFields_Content_Create = {
-  __typename?: 'DonatePageDocAccessFields_Content_Create';
+  __typename?: 'DonatePageDocAccessFields_content_Create';
   permission: Scalars['Boolean'];
 };
 
 export type DonatePageDocAccessFields_Content_Delete = {
-  __typename?: 'DonatePageDocAccessFields_Content_Delete';
+  __typename?: 'DonatePageDocAccessFields_content_Delete';
   permission: Scalars['Boolean'];
 };
 
 export type DonatePageDocAccessFields_Content_Read = {
-  __typename?: 'DonatePageDocAccessFields_Content_Read';
+  __typename?: 'DonatePageDocAccessFields_content_Read';
   permission: Scalars['Boolean'];
 };
 
 export type DonatePageDocAccessFields_Content_Update = {
-  __typename?: 'DonatePageDocAccessFields_Content_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageDocAccessFields_DonateUrl = {
-  __typename?: 'DonatePageDocAccessFields_DonateUrl';
-  create?: Maybe<DonatePageDocAccessFields_DonateUrl_Create>;
-  delete?: Maybe<DonatePageDocAccessFields_DonateUrl_Delete>;
-  read?: Maybe<DonatePageDocAccessFields_DonateUrl_Read>;
-  update?: Maybe<DonatePageDocAccessFields_DonateUrl_Update>;
-};
-
-export type DonatePageDocAccessFields_DonateUrl_Create = {
-  __typename?: 'DonatePageDocAccessFields_DonateUrl_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageDocAccessFields_DonateUrl_Delete = {
-  __typename?: 'DonatePageDocAccessFields_DonateUrl_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageDocAccessFields_DonateUrl_Read = {
-  __typename?: 'DonatePageDocAccessFields_DonateUrl_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageDocAccessFields_DonateUrl_Update = {
-  __typename?: 'DonatePageDocAccessFields_DonateUrl_Update';
+  __typename?: 'DonatePageDocAccessFields_content_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -681,6 +653,34 @@ export type DonatePageDocAccessFields_CreatedAt_Read = {
 
 export type DonatePageDocAccessFields_CreatedAt_Update = {
   __typename?: 'DonatePageDocAccessFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_DonateUrl = {
+  __typename?: 'DonatePageDocAccessFields_donateUrl';
+  create?: Maybe<DonatePageDocAccessFields_DonateUrl_Create>;
+  delete?: Maybe<DonatePageDocAccessFields_DonateUrl_Delete>;
+  read?: Maybe<DonatePageDocAccessFields_DonateUrl_Read>;
+  update?: Maybe<DonatePageDocAccessFields_DonateUrl_Update>;
+};
+
+export type DonatePageDocAccessFields_DonateUrl_Create = {
+  __typename?: 'DonatePageDocAccessFields_donateUrl_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_DonateUrl_Delete = {
+  __typename?: 'DonatePageDocAccessFields_donateUrl_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_DonateUrl_Read = {
+  __typename?: 'DonatePageDocAccessFields_donateUrl_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageDocAccessFields_DonateUrl_Update = {
+  __typename?: 'DonatePageDocAccessFields_donateUrl_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -714,14 +714,14 @@ export type DonatePageDocAccessFields_UpdatedAt_Update = {
 
 export type DonatePageFields = {
   __typename?: 'DonatePageFields';
-  Content?: Maybe<DonatePageFields_Content>;
-  DonateUrl?: Maybe<DonatePageFields_DonateUrl>;
+  content?: Maybe<DonatePageFields_Content>;
   createdAt?: Maybe<DonatePageFields_CreatedAt>;
+  donateUrl?: Maybe<DonatePageFields_DonateUrl>;
   updatedAt?: Maybe<DonatePageFields_UpdatedAt>;
 };
 
 export type DonatePageFields_Content = {
-  __typename?: 'DonatePageFields_Content';
+  __typename?: 'DonatePageFields_content';
   create?: Maybe<DonatePageFields_Content_Create>;
   delete?: Maybe<DonatePageFields_Content_Delete>;
   read?: Maybe<DonatePageFields_Content_Read>;
@@ -729,50 +729,22 @@ export type DonatePageFields_Content = {
 };
 
 export type DonatePageFields_Content_Create = {
-  __typename?: 'DonatePageFields_Content_Create';
+  __typename?: 'DonatePageFields_content_Create';
   permission: Scalars['Boolean'];
 };
 
 export type DonatePageFields_Content_Delete = {
-  __typename?: 'DonatePageFields_Content_Delete';
+  __typename?: 'DonatePageFields_content_Delete';
   permission: Scalars['Boolean'];
 };
 
 export type DonatePageFields_Content_Read = {
-  __typename?: 'DonatePageFields_Content_Read';
+  __typename?: 'DonatePageFields_content_Read';
   permission: Scalars['Boolean'];
 };
 
 export type DonatePageFields_Content_Update = {
-  __typename?: 'DonatePageFields_Content_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageFields_DonateUrl = {
-  __typename?: 'DonatePageFields_DonateUrl';
-  create?: Maybe<DonatePageFields_DonateUrl_Create>;
-  delete?: Maybe<DonatePageFields_DonateUrl_Delete>;
-  read?: Maybe<DonatePageFields_DonateUrl_Read>;
-  update?: Maybe<DonatePageFields_DonateUrl_Update>;
-};
-
-export type DonatePageFields_DonateUrl_Create = {
-  __typename?: 'DonatePageFields_DonateUrl_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageFields_DonateUrl_Delete = {
-  __typename?: 'DonatePageFields_DonateUrl_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageFields_DonateUrl_Read = {
-  __typename?: 'DonatePageFields_DonateUrl_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageFields_DonateUrl_Update = {
-  __typename?: 'DonatePageFields_DonateUrl_Update';
+  __typename?: 'DonatePageFields_content_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -801,6 +773,34 @@ export type DonatePageFields_CreatedAt_Read = {
 
 export type DonatePageFields_CreatedAt_Update = {
   __typename?: 'DonatePageFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_DonateUrl = {
+  __typename?: 'DonatePageFields_donateUrl';
+  create?: Maybe<DonatePageFields_DonateUrl_Create>;
+  delete?: Maybe<DonatePageFields_DonateUrl_Delete>;
+  read?: Maybe<DonatePageFields_DonateUrl_Read>;
+  update?: Maybe<DonatePageFields_DonateUrl_Update>;
+};
+
+export type DonatePageFields_DonateUrl_Create = {
+  __typename?: 'DonatePageFields_donateUrl_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_DonateUrl_Delete = {
+  __typename?: 'DonatePageFields_donateUrl_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_DonateUrl_Read = {
+  __typename?: 'DonatePageFields_donateUrl_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type DonatePageFields_DonateUrl_Update = {
+  __typename?: 'DonatePageFields_donateUrl_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -9527,7 +9527,7 @@ export type Show = {
   __typename?: 'Show';
   active?: Maybe<Scalars['Boolean']>;
   categories?: Maybe<Array<Category>>;
-  coverImage: Media;
+  coverImage?: Maybe<Media>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['JSON'];
   id?: Maybe<Scalars['String']>;
@@ -10175,6 +10175,7 @@ export type Show_Categories_Operator = {
 
 export type Show_CoverImage_Operator = {
   equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
   not_equals?: InputMaybe<Scalars['String']>;
 };
 
@@ -12160,7 +12161,7 @@ export type MerchPreviewDocAccess = {
 };
 
 export type MutationAboutPageInput = {
-  Content?: InputMaybe<Scalars['JSON']>;
+  content?: InputMaybe<Scalars['JSON']>;
   createdAt?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
 };
@@ -12178,9 +12179,9 @@ export type MutationCategoryUpdateInput = {
 };
 
 export type MutationDonatePageInput = {
-  Content?: InputMaybe<Scalars['JSON']>;
-  DonateUrl?: InputMaybe<Scalars['String']>;
+  content?: InputMaybe<Scalars['JSON']>;
   createdAt?: InputMaybe<Scalars['String']>;
+  donateUrl?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
 };
 
@@ -12407,7 +12408,7 @@ export type MutationPayloadPreferenceUpdateInput = {
 export type MutationShowInput = {
   active?: InputMaybe<Scalars['Boolean']>;
   categories?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  coverImage: Scalars['String'];
+  coverImage?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['String']>;
   description: Scalars['JSON'];
   primaryHosts?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
@@ -12973,6 +12974,20 @@ export type MerchPreviewsQueryVariables = Exact<{
 
 export type MerchPreviewsQuery = { __typename?: 'Query', MerchPreviews?: { __typename?: 'MerchPreviews', docs?: Array<{ __typename?: 'MerchPreview', id?: string | null, blurb: string, title: string, url: string, image?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
 
+export type AboutPageQueryQueryVariables = Exact<{
+  locale?: InputMaybe<LocaleInputType>;
+}>;
+
+
+export type AboutPageQueryQuery = { __typename?: 'Query', AboutPage?: { __typename?: 'AboutPage', content?: any | null } | null };
+
+export type DonatePageQueryQueryVariables = Exact<{
+  locale?: InputMaybe<LocaleInputType>;
+}>;
+
+
+export type DonatePageQueryQuery = { __typename?: 'Query', DonatePage?: { __typename?: 'DonatePage', content?: any | null } | null };
+
 
 export const ShowByFieldsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ShowByFields"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Show_where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Shows"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<ShowByFieldsQuery, ShowByFieldsQueryVariables>;
 export const ShowsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Shows"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Show_where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Shows"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}}]}}]}}]} as unknown as DocumentNode<ShowsQuery, ShowsQueryVariables>;
@@ -12987,3 +13002,5 @@ export const NewsPostBySlugDocument = {"kind":"Document","definitions":[{"kind":
 export const TagsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Tags"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Tag_where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Tags"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]}}]} as unknown as DocumentNode<TagsQuery, TagsQueryVariables>;
 export const SearchHostsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"SearchHosts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Host_where"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Hosts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<SearchHostsQuery, SearchHostsQueryVariables>;
 export const MerchPreviewsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"MerchPreviews"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"MerchPreviews"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<MerchPreviewsQuery, MerchPreviewsQueryVariables>;
+export const AboutPageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AboutPageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"LocaleInputType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AboutPage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<AboutPageQueryQuery, AboutPageQueryQueryVariables>;
+export const DonatePageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"DonatePageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"LocaleInputType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"DonatePage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<DonatePageQueryQuery, DonatePageQueryQueryVariables>;

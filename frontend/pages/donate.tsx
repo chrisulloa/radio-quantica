@@ -1,22 +1,22 @@
 import Head from "next/head";
 import Serialize from "../components/serialize";
 import GoBackLink from "../components/goBack";
-import { getAboutPageInfo } from "../lib/pageInfo";
+import { getDonatePageInfo } from "../lib/pageInfo";
 import { LocaleInputType } from "../lib/gql/types/graphql";
 import RichTextNode from "../lib/textNode";
 import { useState } from "react";
 import LanguageSelector from "../components/languageSelector";
 
-interface AboutPageProps {
+interface DonatePageProps {
   content: {
     portuguese: RichTextNode[];
     english: RichTextNode[];
   };
 }
 
-export async function getStaticProps(): Promise<{ props: AboutPageProps }> {
-  const ptContent = await getAboutPageInfo(LocaleInputType.Pt);
-  const enContent = await getAboutPageInfo(LocaleInputType.En);
+export async function getStaticProps(): Promise<{ props: DonatePageProps }> {
+  const ptContent = await getDonatePageInfo(LocaleInputType.Pt);
+  const enContent = await getDonatePageInfo(LocaleInputType.En);
   return {
     props: {
       content: {
@@ -27,31 +27,28 @@ export async function getStaticProps(): Promise<{ props: AboutPageProps }> {
   };
 }
 
-export default function About(props: AboutPageProps) {
+export default function About(props: DonatePageProps) {
   const [language, setLanguage] = useState<"PT" | "EN">("EN");
   return (
     <div className="mx-4 sm:ml-8">
       <Head>
-        <title>Our project and mission - Rádio Quântica</title>
+        <title>Donate - Rádio Quântica</title>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@quanticaonline" />
         <meta name="twitter:title" content="Rádio Quântica | About Us" />
-        <meta
-          name="twitter:description"
-          content="Rádio Quântica's project and mission"
-        />
+        <meta name="twitter:description" content="Donate to Rádio Quântica" />
         <meta
           name="twitter:image"
           content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
         />
 
         <meta property="og:site_name" content="Rádio Quântica"></meta>
-        <meta property="og:title" content="Rádio Quântica | About Us"></meta>
+        <meta property="og:title" content="Rádio Quântica | Donate"></meta>
         <meta property="og:type" content="website"></meta>
-        <meta property="og:url" content="https://particle.fm/about"></meta>
+        <meta property="og:url" content="https://particle.fm/donate"></meta>
         <meta
           property="og:description"
-          content="Rádio Quântica's project and mission"
+          content="How to support and donate to Rádio Quântica"
         />
         <meta
           property="og:image"
@@ -71,7 +68,7 @@ export default function About(props: AboutPageProps) {
       </Head>
       <div className="md:w-5/6 lg:w-3/4 xl:w-2/4 w-full text-[18px] text-[#bfbfbf] px-5">
         <div className="flex justify-between py-1">
-          <h2 className="text-white pt-4 sm:pt-0">ABOUT US</h2>
+          <h2 className="text-white pt-4 sm:pt-0">Donate</h2>
           <LanguageSelector
             selectedLocale={language}
             onClick={(e: any) => {

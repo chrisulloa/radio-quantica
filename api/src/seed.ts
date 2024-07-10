@@ -4,8 +4,30 @@ const seed = async (payload: Payload) => {
   await payload.updateGlobal({
     slug: 'aboutPage',
     data: {
-      content: 'foo',
+      content: [{ children: [{ text: 'foo' }] }],
     },
+    locale: 'en',
+  });
+  await payload.updateGlobal({
+    slug: 'aboutPage',
+    data: {
+      content: [{ children: [{ text: 'bar' }] }],
+    },
+    locale: 'pt',
+  });
+  await payload.updateGlobal({
+    slug: 'donatePage',
+    data: {
+      content: [{ children: [{ text: 'foo' }] }],
+    },
+    locale: 'en',
+  });
+  await payload.updateGlobal({
+    slug: 'donatePage',
+    data: {
+      content: [{ children: [{ text: 'bar' }] }],
+    },
+    locale: 'pt',
   });
   const { id: authorId } = await payload.create({
     collection: 'users',

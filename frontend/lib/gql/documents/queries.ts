@@ -229,3 +229,19 @@ export const merchPreviewsQuery = graphql(`
     }
   }
 `);
+
+export const aboutPageInfoQuery = graphql(`
+  query AboutPageQuery($locale: LocaleInputType) {
+    AboutPage(locale: $locale) {
+      content
+    }
+  }
+`);
+
+export const donatePageInfoQuery = graphql(`
+  query DonatePageQuery($locale: LocaleInputType) {
+    DonatePage(locale: $locale) {
+      content
+    }
+  }
+`);

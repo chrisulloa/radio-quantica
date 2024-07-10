@@ -5,17 +5,6 @@ import useSWR from "swr";
 import axios from "axios";
 import { NowPlayingResponse } from "../lib/services/azuracast";
 import { getViewportWidth } from "../lib/deviceInfo";
-import { PauseButton } from "./pause";
-
-// Function to lookup the URL for the currently playing live show or rerun
-const getCurrentShowName = (currentShow: string) => {
-  const showTitleRegex = new RegExp(".+?(?= w/)");
-  const matches = currentShow.match(showTitleRegex);
-  const currentShowTitle = matches && matches[0];
-  if (currentShowTitle) {
-    return currentShowTitle;
-  }
-};
 
 function VolumeButton({ volume }: { volume: number }) {
   let file;
