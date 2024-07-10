@@ -167,9 +167,6 @@ export default function SchedulePage() {
           })}
         </div>
       </div>
-      <div className="col-span-4">
-        <GoBackLink fallback="/"></GoBackLink>
-      </div>
     </div>
   );
 }
