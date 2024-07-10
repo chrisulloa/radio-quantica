@@ -80,9 +80,11 @@ export default function About(props: AboutPageProps) {
           />
         </div>
         <hr className="my-4"></hr>
-        {language === "EN"
-          ? Serialize(props.content.english)
-          : Serialize(props.content.portuguese)}
+        <div className="font-space-mono">
+          {language === "EN"
+            ? Serialize(props.content.english)
+            : Serialize(props.content.portuguese)}
+        </div>
       </div>
       <div className="my-8">
         <GoBackLink fallback="/"></GoBackLink>

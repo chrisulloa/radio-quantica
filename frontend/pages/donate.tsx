@@ -79,33 +79,33 @@ export default function About(props: DonatePageProps) {
           />
         </div>
         <hr className="my-4"></hr>
-        {language === "EN"
-          ? Serialize(props.content.english)
-          : Serialize(props.content.portuguese)}
+        <div className="font-space-mono">
+          {language === "EN"
+            ? Serialize(props.content.english)
+            : Serialize(props.content.portuguese)}
+        </div>
         <div className="flex justify-center mt-8">
-          {props.donateUrl && (
-            <form
-              action="https://www.paypal.com/donate"
-              method="post"
-              target="_blank"
-            >
-              <input type="hidden" name="cmd" value="_donations"></input>
-              <input
-                type="hidden"
-                name="business"
-                value="hello@radioquantica.com"
-              ></input>
-              <input
-                type="hidden"
-                name="item_name"
-                value="Non-Profit Community Radio"
-              ></input>
-              <input type="hidden" name="currency_code" value="EUR"></input>
-              <button className="text-white border px-5 py-3 rounded-xl hover:bg-white hover:text-black">
-                DONATE
-              </button>
-            </form>
-          )}
+          <form
+            action="https://www.paypal.com/donate"
+            method="post"
+            target="_blank"
+          >
+            <input type="hidden" name="cmd" value="_donations"></input>
+            <input
+              type="hidden"
+              name="business"
+              value="hello@radioquantica.com"
+            ></input>
+            <input
+              type="hidden"
+              name="item_name"
+              value="Non-Profit Community Radio"
+            ></input>
+            <input type="hidden" name="currency_code" value="EUR"></input>
+            <button className="text-white border px-5 py-3 rounded-xl hover:bg-white hover:text-black">
+              DONATE
+            </button>
+          </form>
         </div>
       </div>
 
