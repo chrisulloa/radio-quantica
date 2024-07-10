@@ -1,6 +1,13 @@
-import { CollectionConfig } from 'payload/types';
+import { CollectionAfterChangeHook, CollectionConfig } from 'payload/types';
+import { Merch } from 'payload/generated-types';
+import { revalidateResource } from '../utils/revalidate';
 
-const Merch: CollectionConfig = {
+const afterChangeHook: CollectionAfterChangeHook<Merch> = async ({ doc }) => {
+  await revalidateResource('/');
+  return doc;
+};
+
+const Merches: CollectionConfig = {
   slug: 'merch',
   admin: {
     useAsTitle: 'title',
@@ -8,6 +15,9 @@ const Merch: CollectionConfig = {
   },
   access: {
     read: () => true,
+  },
+  hooks: {
+    afterChange: [afterChangeHook],
   },
   fields: [
     {
@@ -34,4 +44,4 @@ const Merch: CollectionConfig = {
   ],
 };
 
-export default Merch;
+export default Merches;

@@ -15,7 +15,7 @@ export interface Config {
     newsPosts: NewsPost;
     media: Media;
     tags: Tag;
-    merchPreview: MerchPreview;
+    merch: Merch;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -72,8 +72,6 @@ export interface Show {
 export interface Host {
   id: string;
   name: string;
-  email?: string | null;
-  type: 'resident' | 'guest';
   updatedAt: string;
   createdAt: string;
 }
@@ -182,9 +180,9 @@ export interface Tag {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "merchPreview".
+ * via the `definition` "merch".
  */
-export interface MerchPreview {
+export interface Merch {
   id: string;
   title: string;
   blurb: string;
@@ -252,10 +250,10 @@ export interface DonatePage {
         [k: string]: unknown;
       }[]
     | null;
-  donateUrl?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
+
 
 declare module 'payload' {
   export interface GeneratedTypes extends Config {}
