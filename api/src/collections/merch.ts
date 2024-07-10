@@ -1,7 +1,7 @@
 import { CollectionConfig } from 'payload/types';
 
-const MerchPreviews: CollectionConfig = {
-  slug: 'merchPreview',
+const Merch: CollectionConfig = {
+  slug: 'merch',
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title'],
@@ -34,4 +34,4 @@ const MerchPreviews: CollectionConfig = {
   ],
 };
 
-export default MerchPreviews;
+export default Merch;
