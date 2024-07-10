@@ -155,10 +155,10 @@ export default function Home({
             MORE →
           </Link>
         </div>
+        <hr className="mt-4"></hr>
         <div className="grid gap-5 w-full mt-5 mb-5 md:grid-cols-3 grid-cols-1">
           {newsPosts && <NewsCards posts={newsPosts}></NewsCards>}
         </div>
-
         <div className="flex justify-between">
           <h1 className="text-white">MERCH</h1>
           <Link
@@ -169,6 +169,7 @@ export default function Home({
             MORE →
           </Link>
         </div>
+        <hr className="mt-4"></hr>
         <div className="grid gap-5 w-full mt-5 mb-8 md:grid-cols-3 grid-cols-1">
           {merch && <MerchCards merch={merch} isMobile={isMobile}></MerchCards>}
         </div>
