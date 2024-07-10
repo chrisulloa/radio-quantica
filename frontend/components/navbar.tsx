@@ -44,7 +44,7 @@ export function NavBar() {
       <div className="h-full pr-2 items-center md:flex">
         <Link
           href="/"
-          className="w-full px-2 block text-lg text-black hover:opacity-40"
+          className="w-full px-2 block text-lg text-black sm:hover:opacity-40"
         >
           QUÂNTICA
         </Link>

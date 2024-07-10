@@ -16,7 +16,7 @@ export const MerchCard = ({
     <Link
       href={link}
       target={"_blank"}
-      className="px-4 py-3 h-full rounded-xl cursor-pointer text-white group hover:opacity-50"
+      className="px-4 py-3 h-full rounded-xl cursor-pointer text-white group sm:hover:opacity-50"
     >
       {imageUrl && (
         <div className="mt-1 mb-3 overflow-hidden relative h-60 w-full">
