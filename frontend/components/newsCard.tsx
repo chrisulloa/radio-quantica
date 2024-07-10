@@ -21,7 +21,7 @@ export const NewsCard = ({
     <Link
       href={link}
       target={newWindow ? "_blank" : ""}
-      className="py-3 h-full cursor-pointer text-white font-bold group hover:opacity-50 flex flex-col"
+      className="py-3 h-full cursor-pointer text-white group hover:opacity-50 flex flex-col"
     >
       <h1 className="text-md border-b-black border-b w-fit mb-4">{title}</h1>
       {previewBannerUrl && (
