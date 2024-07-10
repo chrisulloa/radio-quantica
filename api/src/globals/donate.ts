@@ -21,10 +21,6 @@ const DonatePage: GlobalConfig = {
       type: 'richText',
       localized: true,
     },
-    {
-      name: 'donateUrl',
-      type: 'text',
-    },
   ],
   slug: 'donatePage',
 };
