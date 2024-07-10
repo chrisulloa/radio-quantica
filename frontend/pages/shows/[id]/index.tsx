@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import Card from "../../../components/card";
 import GoBackLink from "../../../components/goBack";
@@ -23,7 +24,6 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
 
   return {
     props: {
-      showPageId: params.id,
       show,
       content: show.content,
       showNameAndHost,
@@ -33,7 +33,6 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
 }
 
 export default function Show({
-  showPageId,
   show,
   content,
   title,
@@ -100,7 +99,27 @@ export default function Show({
           );
         })}
       </div>
-      <ShowContent content={content} />
+      <div></div>
+      <div className="flex-col w-full col-span-4">
+        <div className="w-full justify-center flex">
+          {show.image &&
+            show.image.sizes?.lg &&
+            show.image.alt &&
+            show.image.sizes.lg.url &&
+            show.image.sizes.lg.width &&
+            show.image.sizes.lg.height && (
+              <Image
+                className="md:w-1/2 sm:w-3/4"
+                alt={show.image.alt}
+                src={show.image.sizes?.lg.url}
+                height={show.image.sizes?.lg?.height}
+                width={show.image.sizes?.lg?.width}
+              ></Image>
+            )}
+        </div>
+        <ShowContent content={content} />
+      </div>
+
       <hr className="mt-8 mb-6 col-span-4"></hr>
       <div className="col-span-4 ">
         <GoBackLink fallback="/"></GoBackLink>

@@ -4,7 +4,12 @@ import debounce from "lodash/debounce";
 import ShowCard from "../components/showCard";
 import CategoriesCard from "../components/categoriesCard";
 import { SearchIcon } from "../components/searchIcon";
-import { ShowData, getAllCategories, getAllShowData } from "../lib/shows";
+import {
+  ShowData,
+  ShowImage,
+  getAllCategories,
+  getAllShowData,
+} from "../lib/shows";
 import Head from "next/head";
 
 export async function getStaticProps() {
@@ -108,8 +113,14 @@ export default function Shows({
           </div>
         </form>
         <div className="grid gap-7 sm:gap-9 grid-cols-1 md:grid-cols-3">
-          {shows.map(({ id, title, host }) => (
-            <ShowCard key={id} id={id} title={title} host={host}></ShowCard>
+          {shows.map(({ id, title, host, image }) => (
+            <ShowCard
+              key={id}
+              id={id}
+              title={title}
+              host={host}
+              image={image as ShowImage}
+            ></ShowCard>
           ))}
         </div>
       </div>

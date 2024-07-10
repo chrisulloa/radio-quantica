@@ -44,8 +44,14 @@ export default function CategoryPage({
           <GoBackLink fallback="/"></GoBackLink>
         </div>
         <div className=" grid gap-9 grid-cols-1 sm:grid-cols-3">
-          {shows.map(({ id, title, host }) => (
-            <ShowCard key={id} id={id} title={title} host={host}></ShowCard>
+          {shows.map(({ id, title, host, image }) => (
+            <ShowCard
+              key={id}
+              id={id}
+              title={title}
+              host={host}
+              image={image}
+            ></ShowCard>
           ))}
         </div>
       </div>

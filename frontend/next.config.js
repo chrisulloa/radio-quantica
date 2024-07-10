@@ -15,6 +15,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: "cdn.particle.fm",
         port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: "radio-quantica.ams3.cdn.digitaloceanspaces.com",
+        port: '',
       }
     ],
   },

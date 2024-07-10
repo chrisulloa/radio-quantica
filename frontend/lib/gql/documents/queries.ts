@@ -57,6 +57,21 @@ export const showsQuery = graphql(`
           updatedAt
           name
         }
+        coverImage {
+          alt
+          sizes {
+            lg {
+              url
+              width
+              height
+            }
+            sm {
+              url
+              width
+              height
+            }
+          }
+        }
       }
       totalDocs
       offset
@@ -99,6 +114,21 @@ export const showsByCategory = graphql(`
         primaryHosts {
           name
         }
+        coverImage {
+          alt
+          sizes {
+            lg {
+              url
+              width
+              height
+            }
+            sm {
+              url
+              width
+              height
+            }
+          }
+        }
       }
       limit
     }
@@ -118,6 +148,16 @@ export const showBySlug = graphql(`
       }
       primaryHosts {
         name
+      }
+      coverImage {
+        alt
+        sizes {
+          lg {
+            url
+            width
+            height
+          }
+        }
       }
     }
   }

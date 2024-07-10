@@ -19,9 +19,30 @@ interface ShowMetadata {
   categories: string[];
 }
 
+export interface ShowImage {
+  __typename?: "Media";
+  alt?: string | null;
+  sizes?: {
+    __typename?: "Media_Sizes";
+    lg?: {
+      __typename?: "Media_Sizes_Lg";
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+    } | null;
+    sm?: {
+      __typename?: "Media_Sizes_Sm";
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+    } | null;
+  } | null;
+}
+
 export interface ShowData extends ShowMetadata {
   id: string;
   content?: RichTextNode[];
+  image?: ShowImage | null;
 }
 
 export interface ShowIDMapping {
@@ -45,6 +66,7 @@ export async function getShowData(slug: string): Promise<ShowData | null> {
   return {
     id: slug,
     content: show.description,
+    image: show.coverImage,
     title: show.showName,
     host: show.primaryHosts.map((host) => host.name).join(" + "),
     date: show.createdAt,
@@ -82,6 +104,7 @@ export async function getAllShowData(
             host: doc.primaryHosts.map((host) => host.name).join(" + "),
             date: doc.createdAt,
             description: "",
+            image: doc.coverImage,
           };
         }
       })
