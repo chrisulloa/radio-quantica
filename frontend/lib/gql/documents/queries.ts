@@ -242,7 +242,6 @@ export const donatePageInfoQuery = graphql(`
   query DonatePageQuery($locale: LocaleInputType) {
     DonatePage(locale: $locale) {
       content
-      donateUrl
     }
   }
 `);

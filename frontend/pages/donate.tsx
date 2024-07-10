@@ -8,7 +8,6 @@ import { useState } from "react";
 import LanguageSelector from "../components/languageSelector";
 
 interface DonatePageProps {
-  donateUrl?: string | null;
   content: {
     portuguese: RichTextNode[];
     english: RichTextNode[];
@@ -20,7 +19,6 @@ export async function getStaticProps(): Promise<{ props: DonatePageProps }> {
   const en = await getDonatePageInfo(LocaleInputType.En);
   return {
     props: {
-      donateUrl: en?.donateUrl,
       content: {
         portuguese: pt?.content,
         english: en?.content,
