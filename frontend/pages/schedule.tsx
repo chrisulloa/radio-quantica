@@ -1,8 +1,8 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { weekInfo } from "../lib/mockData";
 import { DateTime } from "luxon";
 import { useCallback, useState } from "react";
+import GoBackLink from "../components/goBack";
 
 type Day =
   | "sunday"
@@ -74,10 +74,10 @@ const DaySchedule = ({ schedule }: { schedule: DaySchedule[] }) => {
           const end = formatTime(item.end_timestamp);
           return (
             <tr key={i}>
-              <td className="pr-5">
+              <td className="sm:pr-5 w-[160px] sm:w-[200px] py-4 sm:py-0">
                 {start} - {end}
               </td>
-              <td>{item.name}</td>
+              <td>{item.name.replace("&amp;", "&")}</td>
             </tr>
           );
         })}
@@ -87,11 +87,8 @@ const DaySchedule = ({ schedule }: { schedule: DaySchedule[] }) => {
 };
 
 export default function SchedulePage() {
-  const router = useRouter();
-
   const data = weekInfo;
 
-  const monday = weekInfo.monday;
   const today = new Date().getDay();
 
   const [day, setDay] = useState<Day>(days[today]);
@@ -169,6 +166,9 @@ export default function SchedulePage() {
             );
           })}
         </div>
+      </div>
+      <div className="col-span-4">
+        <GoBackLink fallback="/"></GoBackLink>
       </div>
     </div>
   );
