@@ -9093,6 +9093,7 @@ export type QueryNewsPostArgs = {
 
 
 export type QueryNewsPostBySlugArgs = {
+  locale?: InputMaybe<Scalars['String']>;
   slug: Scalars['String'];
 };
 

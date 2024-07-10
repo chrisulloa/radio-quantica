@@ -89,6 +89,7 @@ export default function NewsPage({
       <div className="grid sm:grid-cols-6 w-full gap-5 sm:gap-12 sm:pr-4">
         <div className="w-full sm:col-span-4">
           <div className="text-white mb-4">LATEST NEWS</div>
+          <hr></hr>
           <div className="grid grid-cols-1 gap-6 text-white w-full">
             {newsPosts.map((doc) => {
               if (doc && doc.title && doc.blurb) {
