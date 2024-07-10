@@ -14,15 +14,15 @@ export function changeTimezone(date: Date, ianatz: string) {
 
 export function formatShowDate(date: string) {
   const dt = changeTimezone(new Date(date), "UTC");
-  return format(dt, "MMMM Do YYYY");
+  return format(dt, "Do MMMM YYYY");
 }
 
 export function formatShortShowDate(date: string) {
   const dt = changeTimezone(new Date(date), "UTC");
-  return format(dt, "MMM Do YYYY");
+  return format(dt, "Do MMM YYYY");
 }
 
 export function formatCompactShowDate(date: string) {
   const dt = changeTimezone(new Date(date), "UTC");
-  return format(dt, "MM.DD.YYYY");
+  return format(dt, "DD.MM.YYYY");
 }

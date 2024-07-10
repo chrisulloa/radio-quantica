@@ -8,6 +8,7 @@ import RichTextNode from "../lib/textNode";
 import GoBackLink from "./goBack";
 import NewsContent from "./newsContent";
 import NewsTags from "./newsTags";
+import LanguageSelector from "./languageSelector";
 const NewsHeader = ({
   post,
   currentPath,
@@ -78,8 +79,14 @@ export default function NewsPost({
           <div className="grow text-white pt-1 my-auto mr-8">
             <span>By {post?.authorName}</span>
           </div>
-          <div className="text-black text-xs w-min my-auto rounded bg-white px-2 py-1">
-            {post?.publishDate && formatCompactShowDate(post?.publishDate)}
+          <div className="h-full align-middle flex-col flex">
+            <div className="text-black text-xs w-min my-auto rounded bg-white px-2 py-1 mb-4">
+              {post?.publishDate && formatCompactShowDate(post?.publishDate)}
+            </div>
+            <LanguageSelector
+              selectedLocale="EN"
+              onClick={() => {}}
+            ></LanguageSelector>
           </div>
         </div>
         {post?.content && (

@@ -12147,7 +12147,7 @@ export type MutationNewsPostInput = {
   authorId?: InputMaybe<Scalars['String']>;
   authorName?: InputMaybe<Scalars['String']>;
   blurb: Scalars['String'];
-  content: Scalars['JSON'];
+  content?: InputMaybe<Scalars['JSON']>;
   createdAt?: InputMaybe<Scalars['String']>;
   previewBanner?: InputMaybe<Scalars['String']>;
   publishDate?: InputMaybe<Scalars['String']>;
