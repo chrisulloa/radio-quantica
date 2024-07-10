@@ -9,7 +9,7 @@ const navbarItems = [
   { text: "Donate", link: "/donate" },
   {
     text: "Merch",
-    link: "https://particlefm.bandcamp.com/",
+    link: "https://quanticaonline.bandcamp.com/merch",
     newTab: true,
   },
 ];
