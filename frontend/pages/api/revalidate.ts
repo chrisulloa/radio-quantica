@@ -20,6 +20,8 @@ export default async function handler(
     (path?.includes("/shows/") ||
       path?.includes("/categories/") ||
       path?.includes("/news/") ||
+      path === "/about" ||
+      path === "/donate" ||
       path === "/news" ||
       path === "/")
   ) {
