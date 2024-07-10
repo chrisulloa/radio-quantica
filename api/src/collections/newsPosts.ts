@@ -97,6 +97,7 @@ const NewsPosts: CollectionConfig = {
       name: 'content',
       type: 'richText',
       required: true,
+      localized: true,
     },
     {
       name: 'author',
