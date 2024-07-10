@@ -1,6 +1,6 @@
 import { buildConfig } from 'payload/config';
 import path from 'path';
-import { GraphQLString } from 'graphql';
+import { GraphQLEnumType, GraphQLString } from 'graphql';
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
 import { slateEditor } from '@payloadcms/richtext-slate';
 import { webpackBundler } from '@payloadcms/bundler-webpack';
@@ -81,6 +81,9 @@ export default buildConfig({
         args: {
           slug: {
             type: new GraphQL.GraphQLNonNull(GraphQLString),
+          },
+          locale: {
+            type: GraphQLString,
           },
         },
         resolve: newsPostBySlugResolver,

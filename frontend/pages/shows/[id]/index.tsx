@@ -106,7 +106,7 @@ export default function Show({
         </div>
         <ShowContent content={content} />
       </div>
-      <div className="col-span-4 flex flex-wrap gap-y-5 gap-x-5 mt-5">
+      <div className="col-span-4 flex flex-wrap gap-y-5 gap-x-5 mt-8">
         {show.categories.map((category) => {
           return (
             <Link

@@ -1,6 +1,6 @@
 import RichTextNode from "../lib/textNode";
 import Serialize from "./serialize";
-import styles from "./showContent.module.css";
+import styles from "./content.module.css";
 
 export default function NewsContent({ content }: { content: RichTextNode[] }) {
   return (

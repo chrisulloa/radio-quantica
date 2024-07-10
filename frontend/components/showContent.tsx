@@ -1,5 +1,5 @@
 import Serialize from "./serialize";
-import styles from "./showContent.module.css";
+import styles from "./content.module.css";
 
 export function ShowContent({ content }: { content: any }) {
   return (

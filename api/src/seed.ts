@@ -109,16 +109,12 @@ const seed = async (payload: Payload) => {
     collection: 'hosts',
     data: {
       name: 'Laurie Piña',
-      email: 'laurie@particle.fm',
-      type: 'resident',
     },
   });
   const { id: atrevidoHostId } = await payload.create({
     collection: 'hosts',
     data: {
       name: 'Atrevido',
-      email: 'christian@particle.fm',
-      type: 'resident',
     },
   });
 

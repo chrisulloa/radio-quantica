@@ -49,12 +49,14 @@ export const showBySlugResolver = async (
 
 export const newsPostBySlugResolver = async (
   obj,
-  args: { slug: string },
+  args: { slug: string; locale?: string },
   context: { req: { payload: Payload } }
 ) => {
   const { docs } = await context.req.payload.find({
     collection: 'newsPosts',
     depth: 0,
+    locale: args.locale,
+    fallbackLocale: null,
     where: {
       slug: {
         equals: args.slug,

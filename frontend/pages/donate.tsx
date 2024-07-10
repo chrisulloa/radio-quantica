@@ -6,6 +6,7 @@ import { LocaleInputType } from "../lib/gql/types/graphql";
 import RichTextNode from "../lib/textNode";
 import { useState } from "react";
 import LanguageSelector from "../components/languageSelector";
+import styles from "../components/content.module.css";
 
 interface DonatePageProps {
   content: {
@@ -77,7 +78,7 @@ export default function About(props: DonatePageProps) {
           />
         </div>
         <hr className="my-4"></hr>
-        <div className="font-space-mono">
+        <div className="font-space-mono" id={styles.showContent}>
           {language === "EN"
             ? Serialize(props.content.english)
             : Serialize(props.content.portuguese)}
