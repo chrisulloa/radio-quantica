@@ -23,7 +23,7 @@ const NewsHeader = ({
     (val) => val.type === "upload"
   );
   const defaultOgImage =
-    "https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg";
+    "https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg";
   const ogImage = postImage?.value?.sizes.opengraph.url;
   return (
     <Head>
@@ -49,7 +49,7 @@ const NewsHeader = ({
       />
       <meta
         property="og:url"
-        content={`https://particle.fm${currentPath}`}
+        content={`https://radio-quantica.vercel.app${currentPath}`}
       ></meta>
       <meta property="og:image" content={ogImage || defaultOgImage}></meta>
     </Head>

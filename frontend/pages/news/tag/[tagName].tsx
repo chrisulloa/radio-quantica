@@ -83,7 +83,7 @@ const NewsTagHeader = (props: { tagName: string }) => {
       />
       <meta
         name="twitter:image"
-        content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
+        content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
       />
 
       <meta property="og:site_name" content="Rádio Quântica"></meta>
@@ -94,7 +94,7 @@ const NewsTagHeader = (props: { tagName: string }) => {
       <meta property="og:type" content="website"></meta>
       <meta
         property="og:url"
-        content={`https://particle.fm/news/tag/${props.tagName}`}
+        content={`https://radio-quantica.vercel.app/news/tag/${props.tagName}`}
       ></meta>
       <meta
         property="og:description"
@@ -102,11 +102,11 @@ const NewsTagHeader = (props: { tagName: string }) => {
       />
       <meta
         property="og:image"
-        content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
+        content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
       ></meta>
       <meta
         property="og:image:secure_url"
-        content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
+        content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
       ></meta>
       <meta property="og:image:width" content="1200"></meta>
       <meta property="og:image:height" content="630"></meta>

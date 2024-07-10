@@ -32,21 +32,24 @@ const ShowsPageHeader = () => (
     <meta name="twitter:description" content="Rádio Quântica Shows" />
     <meta
       name="twitter:image"
-      content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
+      content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
     />
 
     <meta property="og:site_name" content="Rádio Quântica"></meta>
     <meta property="og:title" content="Rádio Quântica Shows"></meta>
     <meta property="og:type" content="website"></meta>
-    <meta property="og:url" content="https://particle.fm/shows"></meta>
+    <meta
+      property="og:url"
+      content="https://radio-quantica.vercel.app/shows"
+    ></meta>
     <meta property="og:description" content="Rádio Quântica Shows" />
     <meta
       property="og:image"
-      content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
+      content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
     ></meta>
     <meta
       property="og:image:secure_url"
-      content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
+      content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
     ></meta>
     <meta property="og:image:width" content="1200"></meta>
     <meta property="og:image:height" content="630"></meta>

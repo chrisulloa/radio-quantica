@@ -4,11 +4,11 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <meta name="description" content="Rádio Quântica" />
         <meta
-          name="description"
-          content="Rádio Quântica is a non-commercial, community internet radio station based in San Diego serving underrepresented and marginalized artists."
-        />
-        <meta name="author" content="PARTICLE.FM"></meta>
+          name="author"
+          content="Rádio Quântica is a Lisbon-based community radio station established in 2015."
+        ></meta>
 
         <link
           rel="icon"

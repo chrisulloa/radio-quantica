@@ -19,7 +19,7 @@ type SocialNetwork = SocialNetworkTuple[number];
 const twitterIntentInfo = (text: string, currentUrl: string) => ({
   text,
   url: currentUrl,
-  via: "particlefm",
+  via: "quanticaonline",
   hashtags: "internetradio",
 });
 
@@ -34,7 +34,7 @@ const whatsAppLinkInfo = (text: string, currentUrl: string) => ({
 });
 
 const webShareInfo = (text: string, currentUrl: string) => ({
-  title: `PARTICLE.FM`,
+  title: `Rádio Quântica`,
   text,
   url: currentUrl,
 });
@@ -102,7 +102,7 @@ const SocialLink = (props: {
 
 const ShareButton = (props: { text: string; black?: boolean }) => {
   const router = useRouter();
-  const currentUrl = `https://particle.fm${router.asPath}`;
+  const currentUrl = `https://https://radio-quantica.vercel.app${router.asPath}`;
 
   // Enable web share if available
   const webShare = () => {

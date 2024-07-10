@@ -56,7 +56,7 @@ export default function Show({
         <meta name="twitter:description" content={title} />
         <meta
           name="twitter:image"
-          content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
+          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
         />
 
         <meta property="og:site_name" content="Rádio Quântica"></meta>
@@ -64,16 +64,16 @@ export default function Show({
         <meta property="og:type" content="website"></meta>
         <meta
           property="og:url"
-          content={`https://particle.fm${router.asPath}`}
+          content={`https://radio-quantica.vercel.app/${router.asPath}`}
         ></meta>
         <meta property="og:description" content={title} />
         <meta
           property="og:image"
-          content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
+          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
         ></meta>
         <meta
           property="og:image:secure_url"
-          content="https://cdn.particle.fm/socials/particle-fm-socials-banner.jpg"
+          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
         ></meta>
         <meta property="og:image:width" content="1200"></meta>
         <meta property="og:image:height" content="630"></meta>
