@@ -253,9 +253,9 @@ export const searchHostsQuery = graphql(`
   }
 `);
 
-export const merchPreviewsQuery = graphql(`
-  query MerchPreviews($limit: Int) {
-    MerchPreviews(limit: $limit) {
+export const merchQuery = graphql(`
+  query Merch($limit: Int) {
+    Merches(limit: $limit) {
       docs {
         id
         blurb

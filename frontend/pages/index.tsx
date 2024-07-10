@@ -2,15 +2,12 @@ import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { NewsCard } from "../components/newsCard";
-import {
-  latestNewsQuery,
-  merchPreviewsQuery,
-} from "../lib/gql/documents/queries";
+import { latestNewsQuery, merchQuery } from "../lib/gql/documents/queries";
 import client from "../lib/services/graphql";
-import { MerchPreviewsQuery, NewsPostsQuery } from "../lib/gql/types/graphql";
+import { MerchQuery, NewsPostsQuery } from "../lib/gql/types/graphql";
 import React from "react";
 import { deviceIsMobile } from "../lib/deviceInfo";
-import { MerchPreviewCard } from "../components/merchPreviewCard";
+import { MerchCard } from "../components/merchCard";
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -20,14 +17,14 @@ export async function getStaticProps() {
   });
   const newsPosts = data.NewsPosts;
   const { data: merchPreviewsData } = await client.query({
-    query: merchPreviewsQuery,
+    query: merchQuery,
     variables: {
       limit: 3,
       sort: "-createdAt",
     },
     fetchPolicy: "no-cache",
   });
-  const merchPreviews = merchPreviewsData.MerchPreviews;
+  const merchPreviews = merchPreviewsData.Merches;
   return {
     props: {
       newsPosts,
@@ -80,7 +77,7 @@ const HomePageHeader = () => {
 };
 
 const MerchPreviewCards = (props: {
-  merchPreviews: MerchPreviewsQuery["MerchPreviews"];
+  merchPreviews: MerchQuery["Merches"];
   isMobile: boolean;
 }) => {
   const { merchPreviews } = props;
@@ -92,13 +89,13 @@ const MerchPreviewCards = (props: {
       {merchPreviews.docs.map((doc, i) => {
         if (doc && doc.title) {
           return (
-            <MerchPreviewCard
+            <MerchCard
               key={doc?.id}
               link={doc?.url}
               title={doc.title}
               blurb={doc.blurb}
               imageUrl={doc.image?.url}
-            ></MerchPreviewCard>
+            ></MerchCard>
           );
         }
       })}
@@ -138,7 +135,7 @@ export default function Home({
 }: {
   categories: string[];
   newsPosts: NewsPostsQuery["NewsPosts"];
-  merchPreviews: MerchPreviewsQuery["MerchPreviews"];
+  merchPreviews: MerchQuery["Merches"];
 }) {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
