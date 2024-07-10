@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { weekInfo } from "../lib/testData";
 
 export default function SchedulePage() {
   const router = useRouter();
