@@ -9,8 +9,15 @@ const Serialize = (children: RichTextNode[]) =>
   children.map((node: RichTextNode, i: number) => {
     if (Text.isText(node)) {
       let text = (
-        <span dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }} />
+        <span
+          className="whitespace-pre-line"
+          dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }}
+        />
       );
+
+      if (node.text === "" || node.text === "\n") {
+        text = <br></br>;
+      }
 
       if (node.bold) {
         text = (

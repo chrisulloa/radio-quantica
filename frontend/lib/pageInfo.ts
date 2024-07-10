@@ -24,5 +24,5 @@ export const getDonatePageInfo = async (locale: LocaleInputType) => {
       locale,
     },
   });
-  return data.DonatePage?.content;
+  return data.DonatePage;
 };

@@ -8,6 +8,7 @@ import { useState } from "react";
 import LanguageSelector from "../components/languageSelector";
 
 interface DonatePageProps {
+  donateUrl?: string | null;
   content: {
     portuguese: RichTextNode[];
     english: RichTextNode[];
@@ -15,13 +16,14 @@ interface DonatePageProps {
 }
 
 export async function getStaticProps(): Promise<{ props: DonatePageProps }> {
-  const ptContent = await getDonatePageInfo(LocaleInputType.Pt);
-  const enContent = await getDonatePageInfo(LocaleInputType.En);
+  const pt = await getDonatePageInfo(LocaleInputType.Pt);
+  const en = await getDonatePageInfo(LocaleInputType.En);
   return {
     props: {
+      donateUrl: en?.donateUrl,
       content: {
-        portuguese: ptContent,
-        english: enContent,
+        portuguese: pt?.content,
+        english: en?.content,
       },
     },
   };
@@ -80,7 +82,20 @@ export default function About(props: DonatePageProps) {
         {language === "EN"
           ? Serialize(props.content.english)
           : Serialize(props.content.portuguese)}
+        <div className="flex justify-center mt-8">
+          {props.donateUrl && (
+            <a
+              className="text-white border px-5 py-3 rounded-xl hover:bg-white hover:text-black"
+              href={props.donateUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              DONATE
+            </a>
+          )}
+        </div>
       </div>
+
       <div className="my-8">
         <GoBackLink fallback="/"></GoBackLink>
       </div>
