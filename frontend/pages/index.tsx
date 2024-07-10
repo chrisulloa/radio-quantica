@@ -16,7 +16,7 @@ export async function getStaticProps() {
     fetchPolicy: "no-cache",
   });
   const newsPosts = data.NewsPosts;
-  const { data: merchPreviewsData } = await client.query({
+  const { data: merchData } = await client.query({
     query: merchQuery,
     variables: {
       limit: 3,
@@ -24,11 +24,11 @@ export async function getStaticProps() {
     },
     fetchPolicy: "no-cache",
   });
-  const merchPreviews = merchPreviewsData.Merches;
+  const merch = merchData.Merches;
   return {
     props: {
       newsPosts,
-      merchPreviews,
+      merch,
     },
   };
 }
@@ -76,17 +76,17 @@ const HomePageHeader = () => {
   );
 };
 
-const MerchPreviewCards = (props: {
-  merchPreviews: MerchQuery["Merches"];
+const MerchCards = (props: {
+  merch: MerchQuery["Merches"];
   isMobile: boolean;
 }) => {
-  const { merchPreviews } = props;
-  if (!merchPreviews || !merchPreviews.docs) {
+  const { merch } = props;
+  if (!merch || !merch.docs) {
     return <div></div>;
   }
   return (
     <React.Fragment>
-      {merchPreviews.docs.map((doc, i) => {
+      {merch.docs.map((doc, i) => {
         if (doc && doc.title) {
           return (
             <MerchCard
@@ -131,11 +131,11 @@ const NewsCards = (props: { posts: NewsPostsQuery["NewsPosts"] }) => {
 
 export default function Home({
   newsPosts,
-  merchPreviews,
+  merch,
 }: {
   categories: string[];
   newsPosts: NewsPostsQuery["NewsPosts"];
-  merchPreviews: MerchQuery["Merches"];
+  merch: MerchQuery["Merches"];
 }) {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -145,34 +145,32 @@ export default function Home({
   return (
     <div>
       <HomePageHeader></HomePageHeader>
-      <div className="w-11/12 lg:w-9/12 2xl:w-7/12 md:ml-10 mx-auto">
-        <div className="flex justify-between">
+      <div className="w-11/12 lg:w-9/12 2xl:w-7/12 md:ml-10 mx-auto my-3">
+        <div className="flex justify-between mt-2">
           <h1 className="text-white">NEWS</h1>
           <Link
             href="/news"
-            className="text-white hover:bg-white hover:text-black p-1"
+            className="text-white hover:bg-white hover:text-black"
           >
             MORE →
           </Link>
         </div>
-        <div className="grid gap-5 w-full mb-5 md:grid-cols-3 grid-cols-1">
+        <div className="grid gap-5 w-full mt-5 mb-5 md:grid-cols-3 grid-cols-1">
           {newsPosts && <NewsCards posts={newsPosts}></NewsCards>}
         </div>
+
         <div className="flex justify-between">
           <h1 className="text-white">MERCH</h1>
           <Link
-            href="https://quanticaonline.bandcamp.com/merch"
+            href="https://particlefm.bandcamp.com/"
             target="_blank"
             className="text-white hover:bg-white hover:text-black"
           >
             MORE →
           </Link>
-          {merchPreviews && (
-            <MerchPreviewCards
-              merchPreviews={merchPreviews}
-              isMobile={isMobile}
-            ></MerchPreviewCards>
-          )}
+        </div>
+        <div className="grid gap-5 w-full mt-5 mb-8 md:grid-cols-3 grid-cols-1">
+          {merch && <MerchCards merch={merch} isMobile={isMobile}></MerchCards>}
         </div>
       </div>
     </div>

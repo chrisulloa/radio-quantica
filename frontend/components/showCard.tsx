@@ -14,7 +14,6 @@ export default function ShowCard({
   host: string;
   image: ShowImage | null | undefined;
 }) {
-  console.log(image);
   return (
     <div className={`text-white text-lg h-min pb-2`}>
       <div className="leading-tight tracking-tight text-[18px] break-words">
