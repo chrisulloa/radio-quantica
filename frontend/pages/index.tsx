@@ -39,7 +39,7 @@ const HomePageHeader = () => {
       <title>Rádio Quântica</title>
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@quanticaonline" />
-      <meta name="twitter:title" content="Radio Quantica" />
+      <meta name="twitter:title" content="Rádio Quântica" />
       <meta
         name="twitter:description"
         content="Online community radio station based in Lisbon, Portugal."
@@ -73,7 +73,7 @@ const HomePageHeader = () => {
       ></meta>
       <meta property="og:image:width" content="1200"></meta>
       <meta property="og:image:height" content="630"></meta>
-      <meta property="og:image:alt" content="Radio Quantica Banner"></meta>
+      <meta property="og:image:alt" content="Rádio Quântica Banner"></meta>
       <meta property="og:image:type" content="image/jpg"></meta>
     </Head>
   );
