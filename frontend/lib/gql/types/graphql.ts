@@ -583,7 +583,6 @@ export type DonatePage = {
   __typename?: 'DonatePage';
   content?: Maybe<Scalars['JSON']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  donateUrl?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -596,7 +595,6 @@ export type DonatePageDocAccessFields = {
   __typename?: 'DonatePageDocAccessFields';
   content?: Maybe<DonatePageDocAccessFields_Content>;
   createdAt?: Maybe<DonatePageDocAccessFields_CreatedAt>;
-  donateUrl?: Maybe<DonatePageDocAccessFields_DonateUrl>;
   updatedAt?: Maybe<DonatePageDocAccessFields_UpdatedAt>;
 };
 
@@ -656,34 +654,6 @@ export type DonatePageDocAccessFields_CreatedAt_Update = {
   permission: Scalars['Boolean'];
 };
 
-export type DonatePageDocAccessFields_DonateUrl = {
-  __typename?: 'DonatePageDocAccessFields_donateUrl';
-  create?: Maybe<DonatePageDocAccessFields_DonateUrl_Create>;
-  delete?: Maybe<DonatePageDocAccessFields_DonateUrl_Delete>;
-  read?: Maybe<DonatePageDocAccessFields_DonateUrl_Read>;
-  update?: Maybe<DonatePageDocAccessFields_DonateUrl_Update>;
-};
-
-export type DonatePageDocAccessFields_DonateUrl_Create = {
-  __typename?: 'DonatePageDocAccessFields_donateUrl_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageDocAccessFields_DonateUrl_Delete = {
-  __typename?: 'DonatePageDocAccessFields_donateUrl_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageDocAccessFields_DonateUrl_Read = {
-  __typename?: 'DonatePageDocAccessFields_donateUrl_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageDocAccessFields_DonateUrl_Update = {
-  __typename?: 'DonatePageDocAccessFields_donateUrl_Update';
-  permission: Scalars['Boolean'];
-};
-
 export type DonatePageDocAccessFields_UpdatedAt = {
   __typename?: 'DonatePageDocAccessFields_updatedAt';
   create?: Maybe<DonatePageDocAccessFields_UpdatedAt_Create>;
@@ -716,7 +686,6 @@ export type DonatePageFields = {
   __typename?: 'DonatePageFields';
   content?: Maybe<DonatePageFields_Content>;
   createdAt?: Maybe<DonatePageFields_CreatedAt>;
-  donateUrl?: Maybe<DonatePageFields_DonateUrl>;
   updatedAt?: Maybe<DonatePageFields_UpdatedAt>;
 };
 
@@ -773,34 +742,6 @@ export type DonatePageFields_CreatedAt_Read = {
 
 export type DonatePageFields_CreatedAt_Update = {
   __typename?: 'DonatePageFields_createdAt_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageFields_DonateUrl = {
-  __typename?: 'DonatePageFields_donateUrl';
-  create?: Maybe<DonatePageFields_DonateUrl_Create>;
-  delete?: Maybe<DonatePageFields_DonateUrl_Delete>;
-  read?: Maybe<DonatePageFields_DonateUrl_Read>;
-  update?: Maybe<DonatePageFields_DonateUrl_Update>;
-};
-
-export type DonatePageFields_DonateUrl_Create = {
-  __typename?: 'DonatePageFields_donateUrl_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageFields_DonateUrl_Delete = {
-  __typename?: 'DonatePageFields_donateUrl_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageFields_DonateUrl_Read = {
-  __typename?: 'DonatePageFields_donateUrl_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type DonatePageFields_DonateUrl_Update = {
-  __typename?: 'DonatePageFields_donateUrl_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -12181,7 +12122,6 @@ export type MutationCategoryUpdateInput = {
 export type MutationDonatePageInput = {
   content?: InputMaybe<Scalars['JSON']>;
   createdAt?: InputMaybe<Scalars['String']>;
-  donateUrl?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
 };
 

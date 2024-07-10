@@ -69,7 +69,7 @@ const Serialize = (children: RichTextNode[]) =>
             target={node.newTab === true ? "_blank" : ""}
             key={i}
             rel="noreferrer"
-            className="hover:cursor-pointer"
+            className="hover:cursor-pointer underline hover:text-white"
           >
             {Serialize(node.children)}
           </Link>
