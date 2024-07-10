@@ -12,7 +12,7 @@ export default function ShowCard({
   id: string;
   title: string;
   host: string;
-  image: ShowImage | null;
+  image: ShowImage | null | undefined;
 }) {
   console.log(image);
   return (

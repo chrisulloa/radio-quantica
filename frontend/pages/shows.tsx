@@ -119,7 +119,7 @@ export default function Shows({
               id={id}
               title={title}
               host={host}
-              image={image as ShowImage}
+              image={image}
             ></ShowCard>
           ))}
         </div>
