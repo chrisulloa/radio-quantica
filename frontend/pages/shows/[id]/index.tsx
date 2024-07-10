@@ -86,21 +86,8 @@ export default function Show({
       <div className="col-span-4">
         <Card>{showNameAndHost}</Card>
       </div>
-      <div className="col-span-4 flex flex-wrap gap-y-5 gap-x-5 mt-5">
-        {show.categories.map((category) => {
-          return (
-            <Link
-              href={`/categories/${category}`}
-              key={category}
-              className="text-center leading-tight w-fit h-fit px-5 py-1 border text-white border-white hover:bg-white hover:text-black text-sm"
-            >
-              {category}
-            </Link>
-          );
-        })}
-      </div>
-      <div></div>
-      <div className="flex-col w-full col-span-4">
+
+      <div className="flex-col w-full col-span-4 mt-4">
         <div className="w-full justify-center flex">
           {show.image &&
             show.image.sizes?.lg &&
@@ -119,7 +106,19 @@ export default function Show({
         </div>
         <ShowContent content={content} />
       </div>
-
+      <div className="col-span-4 flex flex-wrap gap-y-5 gap-x-5 mt-5">
+        {show.categories.map((category) => {
+          return (
+            <Link
+              href={`/categories/${category}`}
+              key={category}
+              className="text-center leading-tight w-fit h-fit px-5 py-1 border text-white border-white hover:bg-white hover:text-black text-sm"
+            >
+              {category}
+            </Link>
+          );
+        })}
+      </div>
       <hr className="mt-8 mb-6 col-span-4"></hr>
       <div className="col-span-4 ">
         <GoBackLink fallback="/"></GoBackLink>

@@ -175,6 +175,7 @@ export async function getShowsByCategory(
         date: doc.createdAt,
         description: doc.description.toString(),
         categories: doc.categories?.map((category) => category.name) || [],
+        image: doc.coverImage,
       };
     });
 }

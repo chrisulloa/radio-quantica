@@ -39,10 +39,11 @@ export default function CategoryPage({
         <title>{title}</title>
       </Head>
       <div>
-        <div className="flex justify-between mb-4">
+        <div className="flex justify-between">
           <h2 className="text-white">{categoryUppercase}</h2>
           <GoBackLink fallback="/"></GoBackLink>
         </div>
+        <hr className="my-6"></hr>
         <div className=" grid gap-9 grid-cols-1 sm:grid-cols-3">
           {shows.map(({ id, title, host, image }) => (
             <ShowCard
