@@ -3,21 +3,10 @@ import { Show } from 'payload/generated-types';
 import isEqual from 'lodash/isEqual';
 import { revalidateResource } from '../utils/revalidate';
 
-const afterChangeHook: CollectionAfterChangeHook<Show> = async ({
-  doc,
-  previousDoc,
-}) => {
-  if (previousDoc && previousDoc.slug === doc.slug) {
-    const path = `/show/${doc.slug}`;
-    await revalidateResource(path);
-  }
-  // If show name or hosts change update the home page
-  if (
-    previousDoc.showName !== doc.showName ||
-    !isEqual(previousDoc.primaryHosts, doc.primaryHosts)
-  ) {
-    await revalidateResource('/shows');
-  }
+const afterChangeHook: CollectionAfterChangeHook<Show> = async ({ doc }) => {
+  const path = `/show/${doc.slug}`;
+  await revalidateResource(path);
+  await revalidateResource('/shows');
   return doc;
 };
 
