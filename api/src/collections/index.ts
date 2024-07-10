@@ -5,7 +5,7 @@ import Categories from './categories';
 import NewsPosts from './newsPosts';
 import Media from './media';
 import Tags from './tags';
-import MerchPreviews from './merchPreview';
+import Merch from './merch';
 
 const Collections = [
   Users,
@@ -15,7 +15,7 @@ const Collections = [
   NewsPosts,
   Media,
   Tags,
-  MerchPreviews,
+  Merch,
 ];
 
 export default Collections;
