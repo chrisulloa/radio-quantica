@@ -84,14 +84,27 @@ export default function About(props: DonatePageProps) {
           : Serialize(props.content.portuguese)}
         <div className="flex justify-center mt-8">
           {props.donateUrl && (
-            <a
-              className="text-white border px-5 py-3 rounded-xl hover:bg-white hover:text-black"
-              href={props.donateUrl}
+            <form
+              action="https://www.paypal.com/donate"
+              method="post"
               target="_blank"
-              rel="noreferrer"
             >
-              DONATE
-            </a>
+              <input type="hidden" name="cmd" value="_donations"></input>
+              <input
+                type="hidden"
+                name="business"
+                value="hello@radioquantica.com"
+              ></input>
+              <input
+                type="hidden"
+                name="item_name"
+                value="Non-Profit Community Radio"
+              ></input>
+              <input type="hidden" name="currency_code" value="EUR"></input>
+              <button className="text-white border px-5 py-3 rounded-xl hover:bg-white hover:text-black">
+                DONATE
+              </button>
+            </form>
           )}
         </div>
       </div>

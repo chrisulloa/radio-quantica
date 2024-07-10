@@ -1,37 +1,9 @@
-import type { EventClickArg, EventHoveringArg } from "@fullcalendar/core";
-import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useCallback } from "react";
-import { getAllShowIDs, ShowIDMapping } from "../lib/shows";
-
-export async function getStaticProps() {
-  const allShowIDs = await getAllShowIDs();
-  return {
-    props: {
-      allShowIDs,
-    },
-  };
-}
-
-const DynamicCalendar = dynamic(() => import("../components/calendar"), {
-  loading: () => <div></div>,
-});
+import { ShowIDMapping } from "../lib/shows";
 
 export default function CalendarPage(props: { allShowIDs: ShowIDMapping[] }) {
   const router = useRouter();
-  const click = useCallback(
-    (showIDs: ShowIDMapping[]) => (info: EventClickArg) => {
-      const titleRegex = /(.+?(?= w\/))/g;
-      const eventTitle = info.event.title;
-      const show = showIDs.find((show) => {
-        const showTitleMatch = eventTitle.match(titleRegex);
-        return showTitleMatch && show.title === showTitleMatch[0];
-      });
-      show && router.push(`/show/${show?.id}`);
-    },
-    [router]
-  );
 
   return (
     <div className="mb-8">
@@ -73,7 +45,6 @@ export default function CalendarPage(props: { allShowIDs: ShowIDMapping[] }) {
         ></meta>
         <meta property="og:image:type" content="image/jpg"></meta>
       </Head>
-      <DynamicCalendar eventClick={click(props.allShowIDs)}></DynamicCalendar>
     </div>
   );
 }
