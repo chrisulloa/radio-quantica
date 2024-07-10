@@ -2,7 +2,6 @@ import { CollectionAfterChangeHook, CollectionConfig } from 'payload/types';
 import { Show } from 'payload/generated-types';
 import isEqual from 'lodash/isEqual';
 import { revalidateResource } from '../utils/revalidate';
-import { CDNBaseURL } from '../utils/config';
 
 const afterChangeHook: CollectionAfterChangeHook<Show> = async ({
   doc,
