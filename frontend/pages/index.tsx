@@ -153,7 +153,7 @@ export default function Home({
           <h1 className="text-white">NEWS</h1>
           <Link
             href="/news"
-            className="text-white hover:bg-white hover:text-black"
+            className="text-white hover:bg-white hover:text-black font-space-mono"
           >
             MORE →
           </Link>
@@ -167,7 +167,7 @@ export default function Home({
           <Link
             href="https://quanticaonline.bandcamp.com/"
             target="_blank"
-            className="text-white hover:bg-white hover:text-black"
+            className="text-white hover:bg-white hover:text-black font-space-mono"
           >
             MORE →
           </Link>

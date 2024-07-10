@@ -8,7 +8,7 @@ export default function CategoriesCard({
 }) {
   return (
     <Card>
-      <ul className="text-[18px]">
+      <ul className="text-[18px] font-space-mono lowercase">
         {categories.map((category, index) => {
           return (
             <li className="leading-tight" key={index}>

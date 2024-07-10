@@ -21,9 +21,13 @@ export const NewsCard = ({
     <Link
       href={link}
       target={newWindow ? "_blank" : ""}
-      className="py-3 h-full cursor-pointer text-white group sm:hover:opacity-50 flex flex-col"
+      className="pb-3 h-full cursor-pointer text-white group sm:hover:opacity-50 flex flex-col"
     >
-      <h1 className="text-md border-b-black border-b w-fit mb-4">{title}</h1>
+      <div className="flex items-end w-full font-space-mono justify-end">
+        <div className="text-white text-xs w-min">
+          {formatCompactShowDate(date || "")}
+        </div>
+      </div>
       {previewBannerUrl && (
         <div className="mt-1 mb-3 overflow-hidden relative h-60 w-full">
           <Image
@@ -35,12 +39,8 @@ export const NewsCard = ({
           ></Image>
         </div>
       )}
-
-      <div className="text-white text-xs w-min mt-3 py-1 mb-1 flex grow items-end">
-        {formatCompactShowDate(date || "")}
-      </div>
-
-      <div className="text-[0.985rem] col-span-3 text-sm text-dos-grey font-space-mono">
+      <h1 className="text-md border-b-black border-b w-fit">{title}</h1>
+      <div className="text-[0.985rem] col-span-3 text-sm text-dos-grey font-space-mono flex grow items-start">
         {description}
       </div>
     </Link>

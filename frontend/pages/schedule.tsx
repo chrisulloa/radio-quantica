@@ -45,7 +45,7 @@ const DaysSelector = ({
   onClick: (e: any) => void;
 }) => {
   return (
-    <div className="flex gap-x-2 sm:gap-x-4">
+    <div className="flex gap-x-2 sm:gap-x-4 font-space-mono">
       {days.map((day) => {
         return (
           <button
@@ -66,7 +66,7 @@ const DaysSelector = ({
 
 const DaySchedule = ({ schedule }: { schedule: DaySchedule[] }) => {
   return (
-    <table className="flex text-white w-full">
+    <table className="flex text-white w-full font-space-mono">
       <thead></thead>
       <tbody>
         {schedule.map((item, i) => {

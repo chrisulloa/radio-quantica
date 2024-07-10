@@ -93,7 +93,7 @@ export default function NewsPage({
         <div className="w-full sm:col-span-4">
           <div className="text-white mb-4">LATEST NEWS</div>
           <hr></hr>
-          <div className="grid grid-cols-1 gap-6 text-white w-full">
+          <div className="grid grid-cols-1 gap-6 text-white w-full mt-4">
             {newsPosts.map((doc) => {
               if (doc && doc.title && doc.blurb) {
                 return (

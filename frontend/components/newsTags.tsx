@@ -1,5 +1,4 @@
 import React from "react";
-import capitalize from "lodash/capitalize";
 import Link from "next/link";
 
 export default function NewsTags({
@@ -16,7 +15,7 @@ export default function NewsTags({
             key={tag.id}
             className="mb-2 text-white tracking-wide text-sm col-span-1 ml-5 my-auto rounded bg-black border border-white px-2 py-1 w-min hover:bg-white hover:text-black"
           >
-            {`${capitalize(tag.name || "")}`}
+            {tag.name}
           </Link>
         );
       })}

@@ -131,7 +131,7 @@ export default function NewsTagPage({
     <div className="px-5 sm:px-10 w-full md:w-10/12 xl:w-6/12 mb-5">
       <NewsTagHeader tagName={tagName} />
       <div className="mb-4 flex w-full justify-between">
-        <div className="text-white">{`${tagName.toUpperCase()} NEWS`}</div>
+        <div className="text-white uppercase">{tagName}</div>
       </div>
       <div className="grid grid-cols-1 gap-6 text-white w-full sm:w-1/2 md:w-4/5">
         {newsPosts &&
