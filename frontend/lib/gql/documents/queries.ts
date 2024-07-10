@@ -50,7 +50,6 @@ export const showsQuery = graphql(`
           createdAt
           updatedAt
           name
-          email
         }
         categories {
           id

@@ -806,10 +806,8 @@ export enum FallbackLocaleInputType {
 export type Host = {
   __typename?: 'Host';
   createdAt?: Maybe<Scalars['DateTime']>;
-  email?: Maybe<Scalars['EmailAddress']>;
   id?: Maybe<Scalars['String']>;
   name: Scalars['String'];
-  type: Host_Type;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -822,17 +820,6 @@ export type Host_CreatedAt_Operator = {
   less_than_equal?: InputMaybe<Scalars['DateTime']>;
   like?: InputMaybe<Scalars['DateTime']>;
   not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type Host_Email_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['EmailAddress']>>>;
-  contains?: InputMaybe<Scalars['EmailAddress']>;
-  equals?: InputMaybe<Scalars['EmailAddress']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['EmailAddress']>>>;
-  like?: InputMaybe<Scalars['EmailAddress']>;
-  not_equals?: InputMaybe<Scalars['EmailAddress']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['EmailAddress']>>>;
 };
 
 export type Host_Id_Operator = {
@@ -856,23 +843,6 @@ export type Host_Name_Operator = {
   not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
-export enum Host_Type {
-  Guest = 'guest',
-  Resident = 'resident'
-}
-
-export enum Host_Type_Input {
-  Guest = 'guest',
-  Resident = 'resident'
-}
-
-export type Host_Type_Operator = {
-  contains?: InputMaybe<Host_Type_Input>;
-  equals?: InputMaybe<Host_Type_Input>;
-  like?: InputMaybe<Host_Type_Input>;
-  not_equals?: InputMaybe<Host_Type_Input>;
-};
-
 export type Host_UpdatedAt_Operator = {
   equals?: InputMaybe<Scalars['DateTime']>;
   exists?: InputMaybe<Scalars['Boolean']>;
@@ -888,10 +858,8 @@ export type Host_Where = {
   AND?: InputMaybe<Array<InputMaybe<Host_Where_And>>>;
   OR?: InputMaybe<Array<InputMaybe<Host_Where_Or>>>;
   createdAt?: InputMaybe<Host_CreatedAt_Operator>;
-  email?: InputMaybe<Host_Email_Operator>;
   id?: InputMaybe<Host_Id_Operator>;
   name?: InputMaybe<Host_Name_Operator>;
-  type?: InputMaybe<Host_Type_Operator>;
   updatedAt?: InputMaybe<Host_UpdatedAt_Operator>;
 };
 
@@ -899,10 +867,8 @@ export type Host_Where_And = {
   AND?: InputMaybe<Array<InputMaybe<Host_Where_And>>>;
   OR?: InputMaybe<Array<InputMaybe<Host_Where_Or>>>;
   createdAt?: InputMaybe<Host_CreatedAt_Operator>;
-  email?: InputMaybe<Host_Email_Operator>;
   id?: InputMaybe<Host_Id_Operator>;
   name?: InputMaybe<Host_Name_Operator>;
-  type?: InputMaybe<Host_Type_Operator>;
   updatedAt?: InputMaybe<Host_UpdatedAt_Operator>;
 };
 
@@ -910,10 +876,8 @@ export type Host_Where_Or = {
   AND?: InputMaybe<Array<InputMaybe<Host_Where_And>>>;
   OR?: InputMaybe<Array<InputMaybe<Host_Where_Or>>>;
   createdAt?: InputMaybe<Host_CreatedAt_Operator>;
-  email?: InputMaybe<Host_Email_Operator>;
   id?: InputMaybe<Host_Id_Operator>;
   name?: InputMaybe<Host_Name_Operator>;
-  type?: InputMaybe<Host_Type_Operator>;
   updatedAt?: InputMaybe<Host_UpdatedAt_Operator>;
 };
 
@@ -959,9 +923,7 @@ export type HostsDeleteDocAccess = {
 export type HostsDocAccessFields = {
   __typename?: 'HostsDocAccessFields';
   createdAt?: Maybe<HostsDocAccessFields_CreatedAt>;
-  email?: Maybe<HostsDocAccessFields_Email>;
   name?: Maybe<HostsDocAccessFields_Name>;
-  type?: Maybe<HostsDocAccessFields_Type>;
   updatedAt?: Maybe<HostsDocAccessFields_UpdatedAt>;
 };
 
@@ -993,34 +955,6 @@ export type HostsDocAccessFields_CreatedAt_Update = {
   permission: Scalars['Boolean'];
 };
 
-export type HostsDocAccessFields_Email = {
-  __typename?: 'HostsDocAccessFields_email';
-  create?: Maybe<HostsDocAccessFields_Email_Create>;
-  delete?: Maybe<HostsDocAccessFields_Email_Delete>;
-  read?: Maybe<HostsDocAccessFields_Email_Read>;
-  update?: Maybe<HostsDocAccessFields_Email_Update>;
-};
-
-export type HostsDocAccessFields_Email_Create = {
-  __typename?: 'HostsDocAccessFields_email_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type HostsDocAccessFields_Email_Delete = {
-  __typename?: 'HostsDocAccessFields_email_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type HostsDocAccessFields_Email_Read = {
-  __typename?: 'HostsDocAccessFields_email_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type HostsDocAccessFields_Email_Update = {
-  __typename?: 'HostsDocAccessFields_email_Update';
-  permission: Scalars['Boolean'];
-};
-
 export type HostsDocAccessFields_Name = {
   __typename?: 'HostsDocAccessFields_name';
   create?: Maybe<HostsDocAccessFields_Name_Create>;
@@ -1046,34 +980,6 @@ export type HostsDocAccessFields_Name_Read = {
 
 export type HostsDocAccessFields_Name_Update = {
   __typename?: 'HostsDocAccessFields_name_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type HostsDocAccessFields_Type = {
-  __typename?: 'HostsDocAccessFields_type';
-  create?: Maybe<HostsDocAccessFields_Type_Create>;
-  delete?: Maybe<HostsDocAccessFields_Type_Delete>;
-  read?: Maybe<HostsDocAccessFields_Type_Read>;
-  update?: Maybe<HostsDocAccessFields_Type_Update>;
-};
-
-export type HostsDocAccessFields_Type_Create = {
-  __typename?: 'HostsDocAccessFields_type_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type HostsDocAccessFields_Type_Delete = {
-  __typename?: 'HostsDocAccessFields_type_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type HostsDocAccessFields_Type_Read = {
-  __typename?: 'HostsDocAccessFields_type_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type HostsDocAccessFields_Type_Update = {
-  __typename?: 'HostsDocAccessFields_type_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -1108,9 +1014,7 @@ export type HostsDocAccessFields_UpdatedAt_Update = {
 export type HostsFields = {
   __typename?: 'HostsFields';
   createdAt?: Maybe<HostsFields_CreatedAt>;
-  email?: Maybe<HostsFields_Email>;
   name?: Maybe<HostsFields_Name>;
-  type?: Maybe<HostsFields_Type>;
   updatedAt?: Maybe<HostsFields_UpdatedAt>;
 };
 
@@ -1142,34 +1046,6 @@ export type HostsFields_CreatedAt_Update = {
   permission: Scalars['Boolean'];
 };
 
-export type HostsFields_Email = {
-  __typename?: 'HostsFields_email';
-  create?: Maybe<HostsFields_Email_Create>;
-  delete?: Maybe<HostsFields_Email_Delete>;
-  read?: Maybe<HostsFields_Email_Read>;
-  update?: Maybe<HostsFields_Email_Update>;
-};
-
-export type HostsFields_Email_Create = {
-  __typename?: 'HostsFields_email_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type HostsFields_Email_Delete = {
-  __typename?: 'HostsFields_email_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type HostsFields_Email_Read = {
-  __typename?: 'HostsFields_email_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type HostsFields_Email_Update = {
-  __typename?: 'HostsFields_email_Update';
-  permission: Scalars['Boolean'];
-};
-
 export type HostsFields_Name = {
   __typename?: 'HostsFields_name';
   create?: Maybe<HostsFields_Name_Create>;
@@ -1195,34 +1071,6 @@ export type HostsFields_Name_Read = {
 
 export type HostsFields_Name_Update = {
   __typename?: 'HostsFields_name_Update';
-  permission: Scalars['Boolean'];
-};
-
-export type HostsFields_Type = {
-  __typename?: 'HostsFields_type';
-  create?: Maybe<HostsFields_Type_Create>;
-  delete?: Maybe<HostsFields_Type_Delete>;
-  read?: Maybe<HostsFields_Type_Read>;
-  update?: Maybe<HostsFields_Type_Update>;
-};
-
-export type HostsFields_Type_Create = {
-  __typename?: 'HostsFields_type_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type HostsFields_Type_Delete = {
-  __typename?: 'HostsFields_type_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type HostsFields_Type_Read = {
-  __typename?: 'HostsFields_type_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type HostsFields_Type_Update = {
-  __typename?: 'HostsFields_type_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -12127,17 +11975,13 @@ export type MutationDonatePageInput = {
 
 export type MutationHostInput = {
   createdAt?: InputMaybe<Scalars['String']>;
-  email?: InputMaybe<Scalars['String']>;
   name: Scalars['String'];
-  type: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['String']>;
 };
 
 export type MutationHostUpdateInput = {
   createdAt?: InputMaybe<Scalars['String']>;
-  email?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
-  type?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
 };
 
@@ -12844,7 +12688,7 @@ export type ShowsQueryQueryVariables = Exact<{
 }>;
 
 
-export type ShowsQueryQuery = { __typename?: 'Query', Shows?: { __typename?: 'Shows', totalDocs?: number | null, offset?: number | null, limit?: number | null, totalPages?: number | null, page?: number | null, pagingCounter?: number | null, hasPrevPage?: boolean | null, hasNextPage?: boolean | null, prevPage?: number | null, nextPage?: number | null, docs?: Array<{ __typename?: 'Show', id?: string | null, active?: boolean | null, slug: string, createdAt?: any | null, showName: string, description: any, primaryHosts: Array<{ __typename?: 'Host', id?: string | null, createdAt?: any | null, updatedAt?: any | null, name: string, email?: any | null }>, categories?: Array<{ __typename?: 'Category', id?: string | null, createdAt?: any | null, updatedAt?: any | null, name: string }> | null } | null> | null } | null };
+export type ShowsQueryQuery = { __typename?: 'Query', Shows?: { __typename?: 'Shows', totalDocs?: number | null, offset?: number | null, limit?: number | null, totalPages?: number | null, page?: number | null, pagingCounter?: number | null, hasPrevPage?: boolean | null, hasNextPage?: boolean | null, prevPage?: number | null, nextPage?: number | null, docs?: Array<{ __typename?: 'Show', id?: string | null, active?: boolean | null, slug: string, createdAt?: any | null, showName: string, description: any, primaryHosts: Array<{ __typename?: 'Host', id?: string | null, createdAt?: any | null, updatedAt?: any | null, name: string }>, categories?: Array<{ __typename?: 'Category', id?: string | null, createdAt?: any | null, updatedAt?: any | null, name: string }> | null } | null> | null } | null };
 
 export type CategoriesQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
@@ -12932,7 +12776,7 @@ export type DonatePageQueryQuery = { __typename?: 'Query', DonatePage?: { __type
 export const ShowByFieldsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ShowByFields"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Show_where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Shows"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<ShowByFieldsQuery, ShowByFieldsQueryVariables>;
 export const ShowsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Shows"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Show_where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Shows"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}}]}}]}}]} as unknown as DocumentNode<ShowsQuery, ShowsQueryVariables>;
 export const AllShowIDsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AllShowIDs"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Shows"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"showName"}},{"kind":"Field","name":{"kind":"Name","value":"primaryHosts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]}}]}}]} as unknown as DocumentNode<AllShowIDsQuery, AllShowIDsQueryVariables>;
-export const ShowsQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ShowsQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Shows"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"active"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"showName"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"primaryHosts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"email"}}]}},{"kind":"Field","name":{"kind":"Name","value":"categories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"totalDocs"}},{"kind":"Field","name":{"kind":"Name","value":"offset"}},{"kind":"Field","name":{"kind":"Name","value":"limit"}},{"kind":"Field","name":{"kind":"Name","value":"totalPages"}},{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"pagingCounter"}},{"kind":"Field","name":{"kind":"Name","value":"hasPrevPage"}},{"kind":"Field","name":{"kind":"Name","value":"hasNextPage"}},{"kind":"Field","name":{"kind":"Name","value":"prevPage"}},{"kind":"Field","name":{"kind":"Name","value":"nextPage"}}]}}]}}]} as unknown as DocumentNode<ShowsQueryQuery, ShowsQueryQueryVariables>;
+export const ShowsQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ShowsQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Shows"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"active"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"showName"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"primaryHosts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"categories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"totalDocs"}},{"kind":"Field","name":{"kind":"Name","value":"offset"}},{"kind":"Field","name":{"kind":"Name","value":"limit"}},{"kind":"Field","name":{"kind":"Name","value":"totalPages"}},{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"pagingCounter"}},{"kind":"Field","name":{"kind":"Name","value":"hasPrevPage"}},{"kind":"Field","name":{"kind":"Name","value":"hasNextPage"}},{"kind":"Field","name":{"kind":"Name","value":"prevPage"}},{"kind":"Field","name":{"kind":"Name","value":"nextPage"}}]}}]}}]} as unknown as DocumentNode<ShowsQueryQuery, ShowsQueryQueryVariables>;
 export const CategoriesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Categories"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Categories"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]}}]} as unknown as DocumentNode<CategoriesQuery, CategoriesQueryVariables>;
 export const ShowsByCategoryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ShowsByCategory"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"categoryName"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"ShowsByCategory"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"categoryName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"categoryName"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"showName"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"categories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"primaryHosts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"limit"}}]}}]}}]} as unknown as DocumentNode<ShowsByCategoryQuery, ShowsByCategoryQueryVariables>;
 export const ShowBySlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ShowBySlug"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"ShowBySlug"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"showName"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"categories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"primaryHosts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]}}]} as unknown as DocumentNode<ShowBySlugQuery, ShowBySlugQueryVariables>;
