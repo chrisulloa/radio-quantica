@@ -12,21 +12,9 @@ const Hosts: CollectionConfig = {
     {
       name: 'name',
       type: 'text',
-      label: 'Host Name',
+      label: 'Artist Name',
       required: true,
       index: true,
-    },
-    {
-      name: 'email',
-      type: 'email',
-      required: false,
-    },
-    {
-      name: 'type',
-      type: 'radio',
-      options: ['resident', 'guest'],
-      required: true,
-      defaultValue: 'guest',
     },
   ],
 };

@@ -42,10 +42,7 @@ export function NavBar() {
       `}
     >
       <div className="h-full pr-2 items-center md:flex">
-        <Link
-          href="/"
-          className="w-full px-2 block text-lg text-black hover:bg-black hover:text-white"
-        >
+        <Link href="/" className="w-full px-2 block text-lg text-black ">
           QUÂNTICA
         </Link>
       </div>

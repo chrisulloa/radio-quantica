@@ -7,8 +7,6 @@ import { NewsCard } from "../../components/newsCard";
 import TagsCard from "../../components/tagsCard";
 import client from "../../lib/services/graphql";
 import { NewsPost } from "../../lib/gql/types/graphql";
-import MailingListForm, { FormStatus } from "../../components/mailingListForm";
-import { useState } from "react";
 
 const PAGE_SIZE = 20;
 
@@ -82,30 +80,6 @@ export default function NewsPage({
   newsPosts: NewsPost[];
   tags: string[];
 }) {
-  const [formStatus, setFormStatus] = useState<FormStatus>("NotSubmitted");
-  const onSubmit = async (event: any) => {
-    setFormStatus("Submitted");
-    event.preventDefault();
-    const email = event.target.email.value;
-    const response = await fetch("/api/submitMailingList", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    });
-    if (response.status === 200) {
-      setFormStatus("Success");
-      return true;
-    } else if (response.status === 400) {
-      setFormStatus("AlreadyExists");
-      return false;
-    } else {
-      setFormStatus("Failed");
-      return false;
-    }
-  };
   if (!newsPosts) {
     return <div className="text-white">Unable to load news...</div>;
   }
@@ -134,10 +108,6 @@ export default function NewsPage({
           </div>
         </div>
         <div className="mb-4 sm:mb-0 sm:col-span-2 pr-2 sm:pr-0">
-          {/* <MailingListForm
-            onSubmit={onSubmit}
-            formStatus={formStatus}
-          ></MailingListForm> */}
           <div className="text-white mb-4">TAGS</div>
           <TagsCard tags={tags}></TagsCard>
         </div>
