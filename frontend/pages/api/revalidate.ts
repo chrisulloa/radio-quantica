@@ -23,6 +23,7 @@ export default async function handler(
       path === "/about" ||
       path === "/donate" ||
       path === "/news" ||
+      path === "/shows" ||
       path === "/")
   ) {
     try {

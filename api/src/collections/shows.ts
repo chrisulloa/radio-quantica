@@ -16,7 +16,7 @@ const afterChangeHook: CollectionAfterChangeHook<Show> = async ({
     previousDoc.showName !== doc.showName ||
     !isEqual(previousDoc.primaryHosts, doc.primaryHosts)
   ) {
-    await revalidateResource('/');
+    await revalidateResource('/shows');
   }
   return doc;
 };
