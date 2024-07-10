@@ -1,14 +1,13 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { ShowIDMapping } from "../lib/shows";
 
-export default function CalendarPage(props: { allShowIDs: ShowIDMapping[] }) {
+export default function SchedulePage() {
   const router = useRouter();
 
   return (
     <div className="mb-8">
       <Head>
-        <title>Show Calendar - Rádio Quântica</title>
+        <title>Schedule - Rádio Quântica</title>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@quanticaonline" />
         <meta name="twitter:title" content="Rádio Quântica | Calendar" />
