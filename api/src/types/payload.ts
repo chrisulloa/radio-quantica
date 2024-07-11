@@ -16,6 +16,7 @@ export interface Config {
     media: Media;
     tags: Tag;
     merch: Merch;
+    labelReleases: LabelRelease;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -183,6 +184,20 @@ export interface Tag {
  * via the `definition` "merch".
  */
 export interface Merch {
+  id: string;
+  title: string;
+  blurb: string;
+  url: string;
+  image?: string | Media | null;
+  soldOut?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "labelReleases".
+ */
+export interface LabelRelease {
   id: string;
   title: string;
   blurb: string;

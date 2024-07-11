@@ -1,14 +1,16 @@
 import { CollectionAfterChangeHook, CollectionConfig } from 'payload/types';
-import { Merch } from 'payload/generated-types';
+import { LabelRelease } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
 
-const afterChangeHook: CollectionAfterChangeHook<Merch> = async ({ doc }) => {
+const afterChangeHook: CollectionAfterChangeHook<LabelRelease> = async ({
+  doc,
+}) => {
   await revalidateResource('/');
   return doc;
 };
 
-const Merches: CollectionConfig = {
-  slug: 'merch',
+const LabelReleases: CollectionConfig = {
+  slug: 'labelReleases',
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title'],
@@ -41,12 +43,7 @@ const Merches: CollectionConfig = {
       type: 'upload',
       relationTo: 'media',
     },
-    {
-      name: 'soldOut',
-      type: 'checkbox',
-      defaultValue: false,
-    },
   ],
 };
 
-export default Merches;
+export default LabelReleases;

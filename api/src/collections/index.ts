@@ -6,6 +6,7 @@ import NewsPosts from './newsPosts';
 import Media from './media';
 import Tags from './tags';
 import Merch from './merch';
+import LabelReleases from './labelReleases';
 
 const Collections = [
   Users,
@@ -16,6 +17,7 @@ const Collections = [
   Media,
   Tags,
   Merch,
+  LabelReleases,
 ];
 
 export default Collections;
