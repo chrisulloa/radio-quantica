@@ -106,7 +106,7 @@ export default function Show({
         </div>
         <ShowContent content={content} />
       </div>
-      <div className="col-span-4 flex flex-wrap gap-y-5 gap-x-5 mt-8">
+      <div className="col-span-4 flex flex-wrap gap-y-5 gap-x-5 mt-8 mb-4">
         {show.categories.map((category) => {
           return (
             <Link
@@ -119,8 +119,8 @@ export default function Show({
           );
         })}
       </div>
-      <hr className="mt-8 mb-6 col-span-4"></hr>
-      <div className="col-span-4 ">
+      <hr className="col-span-4"></hr>
+      <div className="col-span-4 mt-4">
         <GoBackLink fallback="/"></GoBackLink>
       </div>
     </div>

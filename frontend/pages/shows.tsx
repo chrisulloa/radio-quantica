@@ -95,14 +95,14 @@ export default function Shows({
     return debounce(handleSearch, 200);
   }, [handleSearch]);
   return (
-    <div className="grid gap-y-5 md:gap-36 lg:gap-42 w-11/12 md:w-9/12 2xl:w-7/12 md:ml-10 mx-auto grid-cols-1 md:grid-cols-6 mb-8">
+    <div className="grid gap-y-5 md:gap-36 lg:gap-42 w-11/12 md:w-9/12 2xl:w-7/12 md:ml-8 mx-auto grid-cols-1 md:grid-cols-6 mb-8">
       <ShowsPageHeader></ShowsPageHeader>
       <div className="col-span-1 md:my-0 sm:col-span-4">
         <h1 className="text-white">RADIO SHOWS</h1>
         <form
           autoComplete={"off"}
           id="chatInput"
-          className="flex flex-row mb-8 divide-white borderborder-white justify-end"
+          className="flex flex-row mt-2 mb-8 divide-white borderborder-white justify-end"
           onChange={debouncedResults}
         >
           <input

@@ -148,8 +148,8 @@ export default function Home({
   return (
     <div>
       <HomePageHeader></HomePageHeader>
-      <div className="w-11/12 lg:w-9/12 2xl:w-7/12 md:ml-10 mx-auto my-3">
-        <div className="flex justify-between mt-2">
+      <div className="w-11/12 lg:w-9/12 2xl:w-7/12 md:ml-8 mx-auto">
+        <div className="flex justify-between">
           <h1 className="text-white">NEWS</h1>
           <Link
             href="/news"

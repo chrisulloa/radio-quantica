@@ -102,7 +102,7 @@ export default function SchedulePage() {
   );
 
   return (
-    <div className="mb-8 text-white">
+    <div className="mx-4 sm:ml-8 text-white">
       <Head>
         <title>Schedule - Rádio Quântica</title>
         <meta name="twitter:card" content="summary_large_image" />
@@ -144,10 +144,10 @@ export default function SchedulePage() {
         ></meta>
         <meta property="og:image:type" content="image/jpg"></meta>
       </Head>
-      <div className="sm:flex sm:flex-col sm:items-start sm:mx-8 sm:w-min hidden">
-        <h1 className="pb-2 text-xl">Schedule</h1>
+      <div className="sm:flex sm:flex-col sm:items-start sm:w-min hidden">
+        <h1 className="text-xl mb-4">Schedule</h1>
         <hr className="w-full"></hr>
-        <div className=" w-fit">
+        <div className="mt-4 w-fit">
           <div className="py-4 text-lg w-full">
             <DaysSelector currentDay={day} onClick={onClick}></DaysSelector>
           </div>

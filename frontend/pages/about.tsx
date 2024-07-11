@@ -73,7 +73,7 @@ export default function About(props: AboutPageProps) {
         ></meta>
         <meta property="og:image:type" content="image/jpg"></meta>
       </Head>
-      <div className="md:w-5/6 lg:w-3/4 xl:w-2/4 w-full text-[18px] text-[#bfbfbf] px-5">
+      <div className="md:w-5/6 lg:w-3/4 xl:w-2/4 w-full text-[18px] text-[#bfbfbf]">
         <div className="flex justify-between py-1">
           <h2 className="text-white pt-4 sm:pt-0">ABOUT US</h2>
           <LanguageSelector

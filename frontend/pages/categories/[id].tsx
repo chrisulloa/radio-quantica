@@ -34,17 +34,17 @@ export default function CategoryPage({
   const categoryUppercase = toUpper(category);
   const title = `${categoryUppercase} - Rádio Quântica`;
   return (
-    <div className="ml-8 w-10/12 sm:w-2/4 mb-8">
+    <div className="w-full px-4 md:px-0 md:ml-8 md:w-10/12 sm:w-2/4 mb-8">
       <Head>
         <title>{title}</title>
       </Head>
       <div>
-        <div className="flex justify-between">
+        <div className="flex justify-between mb-4">
           <h2 className="text-white">{categoryUppercase}</h2>
           <GoBackLink fallback="/"></GoBackLink>
         </div>
-        <hr className="my-6"></hr>
-        <div className=" grid gap-9 grid-cols-1 sm:grid-cols-3">
+        <hr></hr>
+        <div className=" grid gap-9 grid-cols-1 sm:grid-cols-3 mt-4">
           {shows.map(({ id, title, host, image }) => (
             <ShowCard
               key={id}

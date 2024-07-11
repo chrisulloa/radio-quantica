@@ -10,7 +10,7 @@ import capitalize from "lodash/capitalize";
 import GoBackLink from "../../../components/goBack";
 import Link from "next/link";
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 100;
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };

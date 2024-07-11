@@ -24,7 +24,7 @@ export const NewsCard = ({
       className="pb-3 h-full cursor-pointer text-white group sm:hover:opacity-50 flex flex-col"
     >
       <div className="flex items-end w-full font-space-mono justify-end">
-        <div className="text-white text-xs w-min">
+        <div className="text-white text-sm w-min">
           {formatCompactShowDate(date || "")}
         </div>
       </div>

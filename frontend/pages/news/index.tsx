@@ -87,7 +87,7 @@ export default function NewsPage({
     return <div className="text-white">Unable to load news...</div>;
   }
   return (
-    <div className="px-5 sm:px-10 w-full md:w-10/12 xl:w-8/12 2xl:w-7/12 mb-5">
+    <div className="md:ml-8 px-4 md:px-0 w-full md:w-10/12 xl:w-8/12 2xl:w-7/12 mb-5">
       <NewsPageHeader></NewsPageHeader>
       <div className="grid sm:grid-cols-6 w-full gap-5 sm:gap-12 sm:pr-4">
         <div className="w-full sm:col-span-4">
