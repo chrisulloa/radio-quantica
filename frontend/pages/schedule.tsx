@@ -157,7 +157,7 @@ export default function SchedulePage() {
         </div>
       </div>
       <div className="flex flex-col sm:hidden text-xs mx-4">
-        <h1 className="pb-2 text-xl">Schedule</h1>
+        <h1 className="pb-2 text-xl">SCHEDULE</h1>
         <hr className="w-full"></hr>
         <div className="pt-4">
           {days.map((d) => {
