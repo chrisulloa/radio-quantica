@@ -148,7 +148,7 @@ export default function SchedulePage() {
         <h1 className="text-xl mb-4">Schedule</h1>
         <hr className="w-full"></hr>
         <div className="mt-4 w-fit">
-          <div className="py-4 text-lg w-full">
+          <div className="py-4 text-lg w-full mb-4">
             <DaysSelector currentDay={day} onClick={onClick}></DaysSelector>
           </div>
           <div className="w-full flex">
