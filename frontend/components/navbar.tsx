@@ -1,5 +1,7 @@
 import Link from "next/link";
 import React, { useCallback, useState } from "react";
+import { QuanticaLogo } from "./quanticaLogo";
+import styles from "./navbar.module.css";
 
 const navbarItems = [
   { text: "Shows", link: "/shows" },
@@ -41,7 +43,7 @@ export function NavBar() {
       } items-center justify-between w-full md:py-0 p-4 text-lg bg-white transition-all ease-in-out duration-200 
       `}
     >
-      <div className="h-full pr-2 items-center md:flex">
+      <div className="h-full pr-2 items-center sm:flex hidden">
         <Link
           href="/"
           className="w-full px-2 block text-lg text-black sm:hover:opacity-40"
@@ -50,6 +52,9 @@ export function NavBar() {
         </Link>
       </div>
 
+      <Link href="/" className="text-black sm:hidden">
+        QUÂNTICA
+      </Link>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-6 w-6 cursor-pointer md:hidden block"
@@ -85,6 +90,12 @@ export function NavBar() {
             </li>
           ))}
         </ul>
+      </div>
+      <div
+        className="container w-[33px] h-[33px] hidden lg:block"
+        id={styles.quanticaLogo}
+      >
+        <QuanticaLogo></QuanticaLogo>
       </div>
     </nav>
   );
