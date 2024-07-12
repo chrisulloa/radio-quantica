@@ -53,7 +53,7 @@ export default function Chat() {
           style={{
             border: "none",
             width: "100%",
-            height: 600,
+            height: "65vh",
           }}
           allowTransparency={true}
         ></iframe>
