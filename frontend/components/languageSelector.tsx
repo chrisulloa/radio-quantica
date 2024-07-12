@@ -11,7 +11,7 @@ function LanguageButton({
     <button
       onClick={onClick}
       value={lang}
-      className={`rounded-2xl border text-xs p-2 border-white text-white ${
+      className={`rounded-2xl border text-xs h-min p-2 border-white text-white ${
         isActive ? "text-black bg-white" : "text-white"
       }`}
     >

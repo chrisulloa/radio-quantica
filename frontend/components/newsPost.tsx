@@ -9,6 +9,7 @@ import GoBackLink from "./goBack";
 import NewsContent from "./newsContent";
 import NewsTags from "./newsTags";
 import LanguageSelector from "./languageSelector";
+import { useState } from "react";
 
 const NewsHeader = ({
   post,
@@ -36,7 +37,6 @@ const NewsHeader = ({
         content={post?.blurb || "DIY Community Radio"}
       />
       <meta name="twitter:image" content={ogImage || defaultOgImage} />
-
       <meta property="og:site_name" content="Rádio Quântica"></meta>
       <meta
         property="og:title"
@@ -58,10 +58,15 @@ const NewsHeader = ({
 
 export default function NewsPost({
   post,
+  enContent,
+  ptContent,
 }: {
   post: NewsPostBySlugQuery["NewsPostBySlug"];
+  enContent: any;
+  ptContent: any;
 }) {
   const router = useRouter();
+  const [language, setLanguage] = useState<"PT" | "EN">("EN");
   if (!post) {
     return <div></div>;
   }
@@ -77,16 +82,23 @@ export default function NewsPost({
         </div>
         <hr className="border-dos-grey mb-4 mt-1 mx-5"></hr>
         <div className="flex px-5 justify-between">
-          <LanguageSelector
-            selectedLocale="EN"
-            onClick={() => {}}
-          ></LanguageSelector>
-          <div className="text-black my-auto rounded bg-white p-1 text-sm">
+          {enContent && ptContent && (
+            <LanguageSelector
+              selectedLocale={language}
+              onClick={(e: any) => {
+                setLanguage(e.target.value);
+              }}
+            ></LanguageSelector>
+          )}
+          <div className="text-black my-auto rounded bg-white px-2 py-1 text-sm font-space-mono">
             {post?.publishDate && formatCompactShowDate(post?.publishDate)}
           </div>
         </div>
-        {post?.content && (
-          <NewsContent content={post.content as RichTextNode[]}></NewsContent>
+        {(language === "EN" || !ptContent) && (
+          <NewsContent content={enContent} />
+        )}
+        {(language === "PT" || !enContent) && (
+          <NewsContent content={ptContent} />
         )}
         {post?.tags && (
           <div className="flex flex-wrap mb-4">

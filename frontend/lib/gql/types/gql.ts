@@ -23,6 +23,7 @@ const documents = {
     "\n  query NewsPosts(\n    $limit: Int\n    $page: Int\n    $where: NewsPost_where\n    $sort: String\n  ) {\n    NewsPosts(limit: $limit, page: $page, where: $where, sort: $sort) {\n      docs {\n        id\n        blurb\n        slug\n        publishDate\n        title\n        updatedAt\n        authorName\n        authorId\n        previewBanner {\n          url\n        }\n      }\n    }\n  }\n": types.NewsPostsDocument,
     "\n  query NewsPost($newsPostId: String!, $draft: Boolean) {\n    NewsPost(id: $newsPostId, draft: $draft) {\n      authorId\n      authorName\n      blurb\n      content\n      createdAt\n      id\n      publishDate\n      slug\n      title\n      previewBanner {\n        url\n      }\n      tags {\n        name\n        id\n      }\n    }\n  }\n": types.NewsPostDocument,
     "\n  query NewsPostBySlug($slug: String!) {\n    NewsPostBySlug(slug: $slug) {\n      authorId\n      authorName\n      blurb\n      content\n      createdAt\n      id\n      publishDate\n      slug\n      title\n      tags {\n        name\n        id\n      }\n    }\n  }\n": types.NewsPostBySlugDocument,
+    "\n  query NewsPostContentBySlugAndLocale($slug: String!, $locale: String!) {\n    NewsPostBySlug(slug: $slug, locale: $locale) {\n      content\n    }\n  }\n": types.NewsPostContentBySlugAndLocaleDocument,
     "\n  query Tags($where: Tag_where) {\n    Tags(where: $where) {\n      docs {\n        id\n        name\n      }\n    }\n  }\n": types.TagsDocument,
     "\n  query SearchHosts($where: Host_where, $limit: Int) {\n    Hosts(where: $where, limit: $limit) {\n      docs {\n        name\n        id\n      }\n    }\n  }\n": types.SearchHostsDocument,
     "\n  query Merch($limit: Int) {\n    Merches(limit: $limit) {\n      docs {\n        id\n        blurb\n        soldOut\n        image {\n          url\n        }\n        title\n        url\n      }\n    }\n  }\n": types.MerchDocument,
@@ -85,6 +86,10 @@ export function graphql(source: "\n  query NewsPost($newsPostId: String!, $draft
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query NewsPostBySlug($slug: String!) {\n    NewsPostBySlug(slug: $slug) {\n      authorId\n      authorName\n      blurb\n      content\n      createdAt\n      id\n      publishDate\n      slug\n      title\n      tags {\n        name\n        id\n      }\n    }\n  }\n"): (typeof documents)["\n  query NewsPostBySlug($slug: String!) {\n    NewsPostBySlug(slug: $slug) {\n      authorId\n      authorName\n      blurb\n      content\n      createdAt\n      id\n      publishDate\n      slug\n      title\n      tags {\n        name\n        id\n      }\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query NewsPostContentBySlugAndLocale($slug: String!, $locale: String!) {\n    NewsPostBySlug(slug: $slug, locale: $locale) {\n      content\n    }\n  }\n"): (typeof documents)["\n  query NewsPostContentBySlugAndLocale($slug: String!, $locale: String!) {\n    NewsPostBySlug(slug: $slug, locale: $locale) {\n      content\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

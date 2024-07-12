@@ -3,6 +3,9 @@ import Serialize from "./serialize";
 import styles from "./content.module.css";
 
 export default function NewsContent({ content }: { content: RichTextNode[] }) {
+  if (!content) {
+    return <></>;
+  }
   return (
     <div
       id={styles.showContent}

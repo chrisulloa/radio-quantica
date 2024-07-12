@@ -231,6 +231,14 @@ export const newsPostBySlugQuery = graphql(`
   }
 `);
 
+export const newsPostContentBySlugAndLocaleQuery = graphql(`
+  query NewsPostContentBySlugAndLocale($slug: String!, $locale: String!) {
+    NewsPostBySlug(slug: $slug, locale: $locale) {
+      content
+    }
+  }
+`);
+
 export const tagLookupQuery = graphql(`
   query Tags($where: Tag_where) {
     Tags(where: $where) {

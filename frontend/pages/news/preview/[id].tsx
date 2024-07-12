@@ -1,9 +1,6 @@
 import NewsPost from "../../../components/newsPost";
 import isAdminOrEditor from "../../../lib/auth";
-import {
-  draftNewsPostQuery,
-  newsPostBySlugQuery,
-} from "../../../lib/gql/documents/queries";
+import { draftNewsPostQuery } from "../../../lib/gql/documents/queries";
 import { NewsPostBySlugQuery } from "../../../lib/gql/types/graphql";
 import client from "../../../lib/services/graphql";
 
@@ -61,5 +58,7 @@ export default function NewsPostPage({
   if (!post) {
     return <div></div>;
   }
-  return <NewsPost post={post}></NewsPost>;
+  return (
+    <NewsPost post={post} enContent={post.content} ptContent={null}></NewsPost>
+  );
 }
