@@ -59,7 +59,7 @@ export default function Chat() {
         ></iframe>
         <br />
       </div>
-      <div className="my-8 mx-4">
+      <div className="my-2">
         <GoBackLink fallback="/"></GoBackLink>
       </div>
     </div>
