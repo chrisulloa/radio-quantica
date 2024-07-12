@@ -36,7 +36,7 @@ export default function About(props: DonatePageProps) {
         <title>Donate - Rádio Quântica</title>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@quanticaonline" />
-        <meta name="twitter:title" content="Rádio Quântica | About Us" />
+        <meta name="twitter:title" content="Rádio Quântica | Donate" />
         <meta name="twitter:description" content="Donate to Rádio Quântica" />
         <meta
           name="twitter:image"

@@ -6,9 +6,10 @@ import styles from "./navbar.module.css";
 const navbarItems = [
   { text: "Shows", link: "/shows" },
   { text: "News", link: "/news" },
-  { text: "About", link: "/about" },
   { text: "Schedule", link: "schedule" },
+  { text: "About", link: "/about" },
   { text: "Donate", link: "/donate" },
+  { text: "Chat", link: "/chat" },
   {
     text: "Merch",
     link: "https://quanticaonline.bandcamp.com/merch",
