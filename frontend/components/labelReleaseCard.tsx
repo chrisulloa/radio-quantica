@@ -1,40 +1,32 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export const MerchCard = ({
+export const LabelReleaseCard = ({
   link,
   title,
   blurb,
-  soldOut,
   imageUrl,
 }: {
   link: string;
   title: string;
   blurb: string;
-  soldOut: boolean;
   imageUrl?: string | null;
 }) => {
   return (
     <Link
       href={link}
       target={"_blank"}
-      className="px-4 py-3 h-full rounded-xl cursor-pointer text-white group sm:hover:opacity-50 box-content"
+      className="flex flex-col px-4 py-3 h-full rounded-xl cursor-pointer text-white group sm:hover:opacity-50"
     >
       {imageUrl && (
-        <div className="mt-1 mb-3 overflow-hidden relative h-60 w-full">
+        <div className="mt-1 mb-3">
           <Image
-            className="object-cover"
+            className="w-full"
             src={imageUrl}
             alt={title}
-            fill={true}
+            width={300}
+            height={300}
           ></Image>
-          {soldOut && (
-            <div className="text-red font-space-mono w-full h-full text-sm absolute top-0 bottom-0 flex justify-end">
-              <div className="bg-red-500 text-white w-fit px-2 h-fit">
-                Sold Out
-              </div>
-            </div>
-          )}
         </div>
       )}
       <h1 className="text-md mb-1 border-black border-b w-fit">{title}</h1>

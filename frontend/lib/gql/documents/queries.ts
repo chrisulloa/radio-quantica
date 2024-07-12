@@ -259,6 +259,23 @@ export const merchQuery = graphql(`
       docs {
         id
         blurb
+        soldOut
+        image {
+          url
+        }
+        title
+        url
+      }
+    }
+  }
+`);
+
+export const labelReleasesQuery = graphql(`
+  query LabelReleases($limit: Int) {
+    LabelReleases(limit: $limit) {
+      docs {
+        id
+        blurb
         image {
           url
         }

@@ -247,6 +247,7 @@ export type Access = {
   categories?: Maybe<CategoriesAccess>;
   donatePage?: Maybe<DonatePageAccess>;
   hosts?: Maybe<HostsAccess>;
+  labelReleases?: Maybe<LabelReleasesAccess>;
   media?: Maybe<MediaAccess>;
   merch?: Maybe<MerchAccess>;
   newsPosts?: Maybe<NewsPostsAccess>;
@@ -1122,6 +1123,1145 @@ export type HostsUpdateAccess = {
 
 export type HostsUpdateDocAccess = {
   __typename?: 'HostsUpdateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LabelRelease = {
+  __typename?: 'LabelRelease';
+  blurb: Scalars['String'];
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+  image?: Maybe<Media>;
+  title: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  url: Scalars['String'];
+};
+
+
+export type LabelReleaseImageArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
+  where?: InputMaybe<LabelRelease_Image_Where>;
+};
+
+export type LabelRelease_Image_Alt_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type LabelRelease_Image_Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_FocalX_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_FocalY_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Prefix_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Lg__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Lg__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Sizes__Lg__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Sizes__Lg__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Lg__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Lg__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Sizes__Opengraph__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Opengraph__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Sizes__Opengraph__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Sizes__Opengraph__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Opengraph__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Opengraph__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Sizes__Sm__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Sm__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Sizes__Sm__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Sizes__Sm__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Sm__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Sm__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Sizes__Xl__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Xl__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Sizes__Xl__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Sizes__Xl__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Xl__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Xl__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Sizes__Xs__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Xs__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Sizes__Xs__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_Sizes__Xs__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Xs__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Sizes__Xs__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Image_UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type LabelRelease_Image_Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Where = {
+  AND?: InputMaybe<Array<InputMaybe<LabelRelease_Image_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<LabelRelease_Image_Where_Or>>>;
+  alt?: InputMaybe<LabelRelease_Image_Alt_Operator>;
+  createdAt?: InputMaybe<LabelRelease_Image_CreatedAt_Operator>;
+  filename?: InputMaybe<LabelRelease_Image_Filename_Operator>;
+  filesize?: InputMaybe<LabelRelease_Image_Filesize_Operator>;
+  focalX?: InputMaybe<LabelRelease_Image_FocalX_Operator>;
+  focalY?: InputMaybe<LabelRelease_Image_FocalY_Operator>;
+  height?: InputMaybe<LabelRelease_Image_Height_Operator>;
+  id?: InputMaybe<LabelRelease_Image_Id_Operator>;
+  mimeType?: InputMaybe<LabelRelease_Image_MimeType_Operator>;
+  prefix?: InputMaybe<LabelRelease_Image_Prefix_Operator>;
+  sizes__lg__filename?: InputMaybe<LabelRelease_Image_Sizes__Lg__Filename_Operator>;
+  sizes__lg__filesize?: InputMaybe<LabelRelease_Image_Sizes__Lg__Filesize_Operator>;
+  sizes__lg__height?: InputMaybe<LabelRelease_Image_Sizes__Lg__Height_Operator>;
+  sizes__lg__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Lg__MimeType_Operator>;
+  sizes__lg__url?: InputMaybe<LabelRelease_Image_Sizes__Lg__Url_Operator>;
+  sizes__lg__width?: InputMaybe<LabelRelease_Image_Sizes__Lg__Width_Operator>;
+  sizes__opengraph__filename?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Filename_Operator>;
+  sizes__opengraph__filesize?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Filesize_Operator>;
+  sizes__opengraph__height?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Height_Operator>;
+  sizes__opengraph__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__MimeType_Operator>;
+  sizes__opengraph__url?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Url_Operator>;
+  sizes__opengraph__width?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Width_Operator>;
+  sizes__sm__filename?: InputMaybe<LabelRelease_Image_Sizes__Sm__Filename_Operator>;
+  sizes__sm__filesize?: InputMaybe<LabelRelease_Image_Sizes__Sm__Filesize_Operator>;
+  sizes__sm__height?: InputMaybe<LabelRelease_Image_Sizes__Sm__Height_Operator>;
+  sizes__sm__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Sm__MimeType_Operator>;
+  sizes__sm__url?: InputMaybe<LabelRelease_Image_Sizes__Sm__Url_Operator>;
+  sizes__sm__width?: InputMaybe<LabelRelease_Image_Sizes__Sm__Width_Operator>;
+  sizes__xl__filename?: InputMaybe<LabelRelease_Image_Sizes__Xl__Filename_Operator>;
+  sizes__xl__filesize?: InputMaybe<LabelRelease_Image_Sizes__Xl__Filesize_Operator>;
+  sizes__xl__height?: InputMaybe<LabelRelease_Image_Sizes__Xl__Height_Operator>;
+  sizes__xl__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Xl__MimeType_Operator>;
+  sizes__xl__url?: InputMaybe<LabelRelease_Image_Sizes__Xl__Url_Operator>;
+  sizes__xl__width?: InputMaybe<LabelRelease_Image_Sizes__Xl__Width_Operator>;
+  sizes__xs__filename?: InputMaybe<LabelRelease_Image_Sizes__Xs__Filename_Operator>;
+  sizes__xs__filesize?: InputMaybe<LabelRelease_Image_Sizes__Xs__Filesize_Operator>;
+  sizes__xs__height?: InputMaybe<LabelRelease_Image_Sizes__Xs__Height_Operator>;
+  sizes__xs__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Xs__MimeType_Operator>;
+  sizes__xs__url?: InputMaybe<LabelRelease_Image_Sizes__Xs__Url_Operator>;
+  sizes__xs__width?: InputMaybe<LabelRelease_Image_Sizes__Xs__Width_Operator>;
+  updatedAt?: InputMaybe<LabelRelease_Image_UpdatedAt_Operator>;
+  url?: InputMaybe<LabelRelease_Image_Url_Operator>;
+  width?: InputMaybe<LabelRelease_Image_Width_Operator>;
+};
+
+export type LabelRelease_Image_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<LabelRelease_Image_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<LabelRelease_Image_Where_Or>>>;
+  alt?: InputMaybe<LabelRelease_Image_Alt_Operator>;
+  createdAt?: InputMaybe<LabelRelease_Image_CreatedAt_Operator>;
+  filename?: InputMaybe<LabelRelease_Image_Filename_Operator>;
+  filesize?: InputMaybe<LabelRelease_Image_Filesize_Operator>;
+  focalX?: InputMaybe<LabelRelease_Image_FocalX_Operator>;
+  focalY?: InputMaybe<LabelRelease_Image_FocalY_Operator>;
+  height?: InputMaybe<LabelRelease_Image_Height_Operator>;
+  id?: InputMaybe<LabelRelease_Image_Id_Operator>;
+  mimeType?: InputMaybe<LabelRelease_Image_MimeType_Operator>;
+  prefix?: InputMaybe<LabelRelease_Image_Prefix_Operator>;
+  sizes__lg__filename?: InputMaybe<LabelRelease_Image_Sizes__Lg__Filename_Operator>;
+  sizes__lg__filesize?: InputMaybe<LabelRelease_Image_Sizes__Lg__Filesize_Operator>;
+  sizes__lg__height?: InputMaybe<LabelRelease_Image_Sizes__Lg__Height_Operator>;
+  sizes__lg__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Lg__MimeType_Operator>;
+  sizes__lg__url?: InputMaybe<LabelRelease_Image_Sizes__Lg__Url_Operator>;
+  sizes__lg__width?: InputMaybe<LabelRelease_Image_Sizes__Lg__Width_Operator>;
+  sizes__opengraph__filename?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Filename_Operator>;
+  sizes__opengraph__filesize?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Filesize_Operator>;
+  sizes__opengraph__height?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Height_Operator>;
+  sizes__opengraph__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__MimeType_Operator>;
+  sizes__opengraph__url?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Url_Operator>;
+  sizes__opengraph__width?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Width_Operator>;
+  sizes__sm__filename?: InputMaybe<LabelRelease_Image_Sizes__Sm__Filename_Operator>;
+  sizes__sm__filesize?: InputMaybe<LabelRelease_Image_Sizes__Sm__Filesize_Operator>;
+  sizes__sm__height?: InputMaybe<LabelRelease_Image_Sizes__Sm__Height_Operator>;
+  sizes__sm__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Sm__MimeType_Operator>;
+  sizes__sm__url?: InputMaybe<LabelRelease_Image_Sizes__Sm__Url_Operator>;
+  sizes__sm__width?: InputMaybe<LabelRelease_Image_Sizes__Sm__Width_Operator>;
+  sizes__xl__filename?: InputMaybe<LabelRelease_Image_Sizes__Xl__Filename_Operator>;
+  sizes__xl__filesize?: InputMaybe<LabelRelease_Image_Sizes__Xl__Filesize_Operator>;
+  sizes__xl__height?: InputMaybe<LabelRelease_Image_Sizes__Xl__Height_Operator>;
+  sizes__xl__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Xl__MimeType_Operator>;
+  sizes__xl__url?: InputMaybe<LabelRelease_Image_Sizes__Xl__Url_Operator>;
+  sizes__xl__width?: InputMaybe<LabelRelease_Image_Sizes__Xl__Width_Operator>;
+  sizes__xs__filename?: InputMaybe<LabelRelease_Image_Sizes__Xs__Filename_Operator>;
+  sizes__xs__filesize?: InputMaybe<LabelRelease_Image_Sizes__Xs__Filesize_Operator>;
+  sizes__xs__height?: InputMaybe<LabelRelease_Image_Sizes__Xs__Height_Operator>;
+  sizes__xs__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Xs__MimeType_Operator>;
+  sizes__xs__url?: InputMaybe<LabelRelease_Image_Sizes__Xs__Url_Operator>;
+  sizes__xs__width?: InputMaybe<LabelRelease_Image_Sizes__Xs__Width_Operator>;
+  updatedAt?: InputMaybe<LabelRelease_Image_UpdatedAt_Operator>;
+  url?: InputMaybe<LabelRelease_Image_Url_Operator>;
+  width?: InputMaybe<LabelRelease_Image_Width_Operator>;
+};
+
+export type LabelRelease_Image_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<LabelRelease_Image_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<LabelRelease_Image_Where_Or>>>;
+  alt?: InputMaybe<LabelRelease_Image_Alt_Operator>;
+  createdAt?: InputMaybe<LabelRelease_Image_CreatedAt_Operator>;
+  filename?: InputMaybe<LabelRelease_Image_Filename_Operator>;
+  filesize?: InputMaybe<LabelRelease_Image_Filesize_Operator>;
+  focalX?: InputMaybe<LabelRelease_Image_FocalX_Operator>;
+  focalY?: InputMaybe<LabelRelease_Image_FocalY_Operator>;
+  height?: InputMaybe<LabelRelease_Image_Height_Operator>;
+  id?: InputMaybe<LabelRelease_Image_Id_Operator>;
+  mimeType?: InputMaybe<LabelRelease_Image_MimeType_Operator>;
+  prefix?: InputMaybe<LabelRelease_Image_Prefix_Operator>;
+  sizes__lg__filename?: InputMaybe<LabelRelease_Image_Sizes__Lg__Filename_Operator>;
+  sizes__lg__filesize?: InputMaybe<LabelRelease_Image_Sizes__Lg__Filesize_Operator>;
+  sizes__lg__height?: InputMaybe<LabelRelease_Image_Sizes__Lg__Height_Operator>;
+  sizes__lg__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Lg__MimeType_Operator>;
+  sizes__lg__url?: InputMaybe<LabelRelease_Image_Sizes__Lg__Url_Operator>;
+  sizes__lg__width?: InputMaybe<LabelRelease_Image_Sizes__Lg__Width_Operator>;
+  sizes__opengraph__filename?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Filename_Operator>;
+  sizes__opengraph__filesize?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Filesize_Operator>;
+  sizes__opengraph__height?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Height_Operator>;
+  sizes__opengraph__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__MimeType_Operator>;
+  sizes__opengraph__url?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Url_Operator>;
+  sizes__opengraph__width?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Width_Operator>;
+  sizes__sm__filename?: InputMaybe<LabelRelease_Image_Sizes__Sm__Filename_Operator>;
+  sizes__sm__filesize?: InputMaybe<LabelRelease_Image_Sizes__Sm__Filesize_Operator>;
+  sizes__sm__height?: InputMaybe<LabelRelease_Image_Sizes__Sm__Height_Operator>;
+  sizes__sm__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Sm__MimeType_Operator>;
+  sizes__sm__url?: InputMaybe<LabelRelease_Image_Sizes__Sm__Url_Operator>;
+  sizes__sm__width?: InputMaybe<LabelRelease_Image_Sizes__Sm__Width_Operator>;
+  sizes__xl__filename?: InputMaybe<LabelRelease_Image_Sizes__Xl__Filename_Operator>;
+  sizes__xl__filesize?: InputMaybe<LabelRelease_Image_Sizes__Xl__Filesize_Operator>;
+  sizes__xl__height?: InputMaybe<LabelRelease_Image_Sizes__Xl__Height_Operator>;
+  sizes__xl__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Xl__MimeType_Operator>;
+  sizes__xl__url?: InputMaybe<LabelRelease_Image_Sizes__Xl__Url_Operator>;
+  sizes__xl__width?: InputMaybe<LabelRelease_Image_Sizes__Xl__Width_Operator>;
+  sizes__xs__filename?: InputMaybe<LabelRelease_Image_Sizes__Xs__Filename_Operator>;
+  sizes__xs__filesize?: InputMaybe<LabelRelease_Image_Sizes__Xs__Filesize_Operator>;
+  sizes__xs__height?: InputMaybe<LabelRelease_Image_Sizes__Xs__Height_Operator>;
+  sizes__xs__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Xs__MimeType_Operator>;
+  sizes__xs__url?: InputMaybe<LabelRelease_Image_Sizes__Xs__Url_Operator>;
+  sizes__xs__width?: InputMaybe<LabelRelease_Image_Sizes__Xs__Width_Operator>;
+  updatedAt?: InputMaybe<LabelRelease_Image_UpdatedAt_Operator>;
+  url?: InputMaybe<LabelRelease_Image_Url_Operator>;
+  width?: InputMaybe<LabelRelease_Image_Width_Operator>;
+};
+
+export type LabelRelease_Image_Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LabelRelease_Blurb_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type LabelRelease_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Image_Operator = {
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+};
+
+export type LabelRelease_Title_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type LabelRelease_Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LabelRelease_Where = {
+  AND?: InputMaybe<Array<InputMaybe<LabelRelease_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<LabelRelease_Where_Or>>>;
+  blurb?: InputMaybe<LabelRelease_Blurb_Operator>;
+  createdAt?: InputMaybe<LabelRelease_CreatedAt_Operator>;
+  id?: InputMaybe<LabelRelease_Id_Operator>;
+  image?: InputMaybe<LabelRelease_Image_Operator>;
+  title?: InputMaybe<LabelRelease_Title_Operator>;
+  updatedAt?: InputMaybe<LabelRelease_UpdatedAt_Operator>;
+  url?: InputMaybe<LabelRelease_Url_Operator>;
+};
+
+export type LabelRelease_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<LabelRelease_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<LabelRelease_Where_Or>>>;
+  blurb?: InputMaybe<LabelRelease_Blurb_Operator>;
+  createdAt?: InputMaybe<LabelRelease_CreatedAt_Operator>;
+  id?: InputMaybe<LabelRelease_Id_Operator>;
+  image?: InputMaybe<LabelRelease_Image_Operator>;
+  title?: InputMaybe<LabelRelease_Title_Operator>;
+  updatedAt?: InputMaybe<LabelRelease_UpdatedAt_Operator>;
+  url?: InputMaybe<LabelRelease_Url_Operator>;
+};
+
+export type LabelRelease_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<LabelRelease_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<LabelRelease_Where_Or>>>;
+  blurb?: InputMaybe<LabelRelease_Blurb_Operator>;
+  createdAt?: InputMaybe<LabelRelease_CreatedAt_Operator>;
+  id?: InputMaybe<LabelRelease_Id_Operator>;
+  image?: InputMaybe<LabelRelease_Image_Operator>;
+  title?: InputMaybe<LabelRelease_Title_Operator>;
+  updatedAt?: InputMaybe<LabelRelease_UpdatedAt_Operator>;
+  url?: InputMaybe<LabelRelease_Url_Operator>;
+};
+
+export type LabelReleases = {
+  __typename?: 'LabelReleases';
+  docs?: Maybe<Array<Maybe<LabelRelease>>>;
+  hasNextPage?: Maybe<Scalars['Boolean']>;
+  hasPrevPage?: Maybe<Scalars['Boolean']>;
+  limit?: Maybe<Scalars['Int']>;
+  nextPage?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  pagingCounter?: Maybe<Scalars['Int']>;
+  prevPage?: Maybe<Scalars['Int']>;
+  totalDocs?: Maybe<Scalars['Int']>;
+  totalPages?: Maybe<Scalars['Int']>;
+};
+
+export type LabelReleasesCreateAccess = {
+  __typename?: 'LabelReleasesCreateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LabelReleasesCreateDocAccess = {
+  __typename?: 'LabelReleasesCreateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LabelReleasesDeleteAccess = {
+  __typename?: 'LabelReleasesDeleteAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LabelReleasesDeleteDocAccess = {
+  __typename?: 'LabelReleasesDeleteDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LabelReleasesDocAccessFields = {
+  __typename?: 'LabelReleasesDocAccessFields';
+  blurb?: Maybe<LabelReleasesDocAccessFields_Blurb>;
+  createdAt?: Maybe<LabelReleasesDocAccessFields_CreatedAt>;
+  image?: Maybe<LabelReleasesDocAccessFields_Image>;
+  title?: Maybe<LabelReleasesDocAccessFields_Title>;
+  updatedAt?: Maybe<LabelReleasesDocAccessFields_UpdatedAt>;
+  url?: Maybe<LabelReleasesDocAccessFields_Url>;
+};
+
+export type LabelReleasesDocAccessFields_Blurb = {
+  __typename?: 'LabelReleasesDocAccessFields_blurb';
+  create?: Maybe<LabelReleasesDocAccessFields_Blurb_Create>;
+  delete?: Maybe<LabelReleasesDocAccessFields_Blurb_Delete>;
+  read?: Maybe<LabelReleasesDocAccessFields_Blurb_Read>;
+  update?: Maybe<LabelReleasesDocAccessFields_Blurb_Update>;
+};
+
+export type LabelReleasesDocAccessFields_Blurb_Create = {
+  __typename?: 'LabelReleasesDocAccessFields_blurb_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Blurb_Delete = {
+  __typename?: 'LabelReleasesDocAccessFields_blurb_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Blurb_Read = {
+  __typename?: 'LabelReleasesDocAccessFields_blurb_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Blurb_Update = {
+  __typename?: 'LabelReleasesDocAccessFields_blurb_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_CreatedAt = {
+  __typename?: 'LabelReleasesDocAccessFields_createdAt';
+  create?: Maybe<LabelReleasesDocAccessFields_CreatedAt_Create>;
+  delete?: Maybe<LabelReleasesDocAccessFields_CreatedAt_Delete>;
+  read?: Maybe<LabelReleasesDocAccessFields_CreatedAt_Read>;
+  update?: Maybe<LabelReleasesDocAccessFields_CreatedAt_Update>;
+};
+
+export type LabelReleasesDocAccessFields_CreatedAt_Create = {
+  __typename?: 'LabelReleasesDocAccessFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_CreatedAt_Delete = {
+  __typename?: 'LabelReleasesDocAccessFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_CreatedAt_Read = {
+  __typename?: 'LabelReleasesDocAccessFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_CreatedAt_Update = {
+  __typename?: 'LabelReleasesDocAccessFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Image = {
+  __typename?: 'LabelReleasesDocAccessFields_image';
+  create?: Maybe<LabelReleasesDocAccessFields_Image_Create>;
+  delete?: Maybe<LabelReleasesDocAccessFields_Image_Delete>;
+  read?: Maybe<LabelReleasesDocAccessFields_Image_Read>;
+  update?: Maybe<LabelReleasesDocAccessFields_Image_Update>;
+};
+
+export type LabelReleasesDocAccessFields_Image_Create = {
+  __typename?: 'LabelReleasesDocAccessFields_image_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Image_Delete = {
+  __typename?: 'LabelReleasesDocAccessFields_image_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Image_Read = {
+  __typename?: 'LabelReleasesDocAccessFields_image_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Image_Update = {
+  __typename?: 'LabelReleasesDocAccessFields_image_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Title = {
+  __typename?: 'LabelReleasesDocAccessFields_title';
+  create?: Maybe<LabelReleasesDocAccessFields_Title_Create>;
+  delete?: Maybe<LabelReleasesDocAccessFields_Title_Delete>;
+  read?: Maybe<LabelReleasesDocAccessFields_Title_Read>;
+  update?: Maybe<LabelReleasesDocAccessFields_Title_Update>;
+};
+
+export type LabelReleasesDocAccessFields_Title_Create = {
+  __typename?: 'LabelReleasesDocAccessFields_title_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Title_Delete = {
+  __typename?: 'LabelReleasesDocAccessFields_title_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Title_Read = {
+  __typename?: 'LabelReleasesDocAccessFields_title_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Title_Update = {
+  __typename?: 'LabelReleasesDocAccessFields_title_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_UpdatedAt = {
+  __typename?: 'LabelReleasesDocAccessFields_updatedAt';
+  create?: Maybe<LabelReleasesDocAccessFields_UpdatedAt_Create>;
+  delete?: Maybe<LabelReleasesDocAccessFields_UpdatedAt_Delete>;
+  read?: Maybe<LabelReleasesDocAccessFields_UpdatedAt_Read>;
+  update?: Maybe<LabelReleasesDocAccessFields_UpdatedAt_Update>;
+};
+
+export type LabelReleasesDocAccessFields_UpdatedAt_Create = {
+  __typename?: 'LabelReleasesDocAccessFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_UpdatedAt_Delete = {
+  __typename?: 'LabelReleasesDocAccessFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_UpdatedAt_Read = {
+  __typename?: 'LabelReleasesDocAccessFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_UpdatedAt_Update = {
+  __typename?: 'LabelReleasesDocAccessFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Url = {
+  __typename?: 'LabelReleasesDocAccessFields_url';
+  create?: Maybe<LabelReleasesDocAccessFields_Url_Create>;
+  delete?: Maybe<LabelReleasesDocAccessFields_Url_Delete>;
+  read?: Maybe<LabelReleasesDocAccessFields_Url_Read>;
+  update?: Maybe<LabelReleasesDocAccessFields_Url_Update>;
+};
+
+export type LabelReleasesDocAccessFields_Url_Create = {
+  __typename?: 'LabelReleasesDocAccessFields_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Url_Delete = {
+  __typename?: 'LabelReleasesDocAccessFields_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Url_Read = {
+  __typename?: 'LabelReleasesDocAccessFields_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesDocAccessFields_Url_Update = {
+  __typename?: 'LabelReleasesDocAccessFields_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields = {
+  __typename?: 'LabelReleasesFields';
+  blurb?: Maybe<LabelReleasesFields_Blurb>;
+  createdAt?: Maybe<LabelReleasesFields_CreatedAt>;
+  image?: Maybe<LabelReleasesFields_Image>;
+  title?: Maybe<LabelReleasesFields_Title>;
+  updatedAt?: Maybe<LabelReleasesFields_UpdatedAt>;
+  url?: Maybe<LabelReleasesFields_Url>;
+};
+
+export type LabelReleasesFields_Blurb = {
+  __typename?: 'LabelReleasesFields_blurb';
+  create?: Maybe<LabelReleasesFields_Blurb_Create>;
+  delete?: Maybe<LabelReleasesFields_Blurb_Delete>;
+  read?: Maybe<LabelReleasesFields_Blurb_Read>;
+  update?: Maybe<LabelReleasesFields_Blurb_Update>;
+};
+
+export type LabelReleasesFields_Blurb_Create = {
+  __typename?: 'LabelReleasesFields_blurb_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Blurb_Delete = {
+  __typename?: 'LabelReleasesFields_blurb_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Blurb_Read = {
+  __typename?: 'LabelReleasesFields_blurb_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Blurb_Update = {
+  __typename?: 'LabelReleasesFields_blurb_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_CreatedAt = {
+  __typename?: 'LabelReleasesFields_createdAt';
+  create?: Maybe<LabelReleasesFields_CreatedAt_Create>;
+  delete?: Maybe<LabelReleasesFields_CreatedAt_Delete>;
+  read?: Maybe<LabelReleasesFields_CreatedAt_Read>;
+  update?: Maybe<LabelReleasesFields_CreatedAt_Update>;
+};
+
+export type LabelReleasesFields_CreatedAt_Create = {
+  __typename?: 'LabelReleasesFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_CreatedAt_Delete = {
+  __typename?: 'LabelReleasesFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_CreatedAt_Read = {
+  __typename?: 'LabelReleasesFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_CreatedAt_Update = {
+  __typename?: 'LabelReleasesFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Image = {
+  __typename?: 'LabelReleasesFields_image';
+  create?: Maybe<LabelReleasesFields_Image_Create>;
+  delete?: Maybe<LabelReleasesFields_Image_Delete>;
+  read?: Maybe<LabelReleasesFields_Image_Read>;
+  update?: Maybe<LabelReleasesFields_Image_Update>;
+};
+
+export type LabelReleasesFields_Image_Create = {
+  __typename?: 'LabelReleasesFields_image_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Image_Delete = {
+  __typename?: 'LabelReleasesFields_image_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Image_Read = {
+  __typename?: 'LabelReleasesFields_image_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Image_Update = {
+  __typename?: 'LabelReleasesFields_image_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Title = {
+  __typename?: 'LabelReleasesFields_title';
+  create?: Maybe<LabelReleasesFields_Title_Create>;
+  delete?: Maybe<LabelReleasesFields_Title_Delete>;
+  read?: Maybe<LabelReleasesFields_Title_Read>;
+  update?: Maybe<LabelReleasesFields_Title_Update>;
+};
+
+export type LabelReleasesFields_Title_Create = {
+  __typename?: 'LabelReleasesFields_title_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Title_Delete = {
+  __typename?: 'LabelReleasesFields_title_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Title_Read = {
+  __typename?: 'LabelReleasesFields_title_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Title_Update = {
+  __typename?: 'LabelReleasesFields_title_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_UpdatedAt = {
+  __typename?: 'LabelReleasesFields_updatedAt';
+  create?: Maybe<LabelReleasesFields_UpdatedAt_Create>;
+  delete?: Maybe<LabelReleasesFields_UpdatedAt_Delete>;
+  read?: Maybe<LabelReleasesFields_UpdatedAt_Read>;
+  update?: Maybe<LabelReleasesFields_UpdatedAt_Update>;
+};
+
+export type LabelReleasesFields_UpdatedAt_Create = {
+  __typename?: 'LabelReleasesFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_UpdatedAt_Delete = {
+  __typename?: 'LabelReleasesFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_UpdatedAt_Read = {
+  __typename?: 'LabelReleasesFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_UpdatedAt_Update = {
+  __typename?: 'LabelReleasesFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Url = {
+  __typename?: 'LabelReleasesFields_url';
+  create?: Maybe<LabelReleasesFields_Url_Create>;
+  delete?: Maybe<LabelReleasesFields_Url_Delete>;
+  read?: Maybe<LabelReleasesFields_Url_Read>;
+  update?: Maybe<LabelReleasesFields_Url_Update>;
+};
+
+export type LabelReleasesFields_Url_Create = {
+  __typename?: 'LabelReleasesFields_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Url_Delete = {
+  __typename?: 'LabelReleasesFields_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Url_Read = {
+  __typename?: 'LabelReleasesFields_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesFields_Url_Update = {
+  __typename?: 'LabelReleasesFields_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LabelReleasesReadAccess = {
+  __typename?: 'LabelReleasesReadAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LabelReleasesReadDocAccess = {
+  __typename?: 'LabelReleasesReadDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LabelReleasesUpdateAccess = {
+  __typename?: 'LabelReleasesUpdateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LabelReleasesUpdateDocAccess = {
+  __typename?: 'LabelReleasesUpdateDocAccess';
   permission: Scalars['Boolean'];
   where?: Maybe<Scalars['JSONObject']>;
 };
@@ -4711,6 +5851,7 @@ export type Merch = {
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['String']>;
   image?: Maybe<Media>;
+  soldOut?: Maybe<Scalars['Boolean']>;
   title: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
   url: Scalars['String'];
@@ -4752,6 +5893,7 @@ export type MerchDocAccessFields = {
   blurb?: Maybe<MerchDocAccessFields_Blurb>;
   createdAt?: Maybe<MerchDocAccessFields_CreatedAt>;
   image?: Maybe<MerchDocAccessFields_Image>;
+  soldOut?: Maybe<MerchDocAccessFields_SoldOut>;
   title?: Maybe<MerchDocAccessFields_Title>;
   updatedAt?: Maybe<MerchDocAccessFields_UpdatedAt>;
   url?: Maybe<MerchDocAccessFields_Url>;
@@ -4838,6 +5980,34 @@ export type MerchDocAccessFields_Image_Read = {
 
 export type MerchDocAccessFields_Image_Update = {
   __typename?: 'MerchDocAccessFields_image_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MerchDocAccessFields_SoldOut = {
+  __typename?: 'MerchDocAccessFields_soldOut';
+  create?: Maybe<MerchDocAccessFields_SoldOut_Create>;
+  delete?: Maybe<MerchDocAccessFields_SoldOut_Delete>;
+  read?: Maybe<MerchDocAccessFields_SoldOut_Read>;
+  update?: Maybe<MerchDocAccessFields_SoldOut_Update>;
+};
+
+export type MerchDocAccessFields_SoldOut_Create = {
+  __typename?: 'MerchDocAccessFields_soldOut_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MerchDocAccessFields_SoldOut_Delete = {
+  __typename?: 'MerchDocAccessFields_soldOut_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MerchDocAccessFields_SoldOut_Read = {
+  __typename?: 'MerchDocAccessFields_soldOut_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MerchDocAccessFields_SoldOut_Update = {
+  __typename?: 'MerchDocAccessFields_soldOut_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -4930,6 +6100,7 @@ export type MerchFields = {
   blurb?: Maybe<MerchFields_Blurb>;
   createdAt?: Maybe<MerchFields_CreatedAt>;
   image?: Maybe<MerchFields_Image>;
+  soldOut?: Maybe<MerchFields_SoldOut>;
   title?: Maybe<MerchFields_Title>;
   updatedAt?: Maybe<MerchFields_UpdatedAt>;
   url?: Maybe<MerchFields_Url>;
@@ -5016,6 +6187,34 @@ export type MerchFields_Image_Read = {
 
 export type MerchFields_Image_Update = {
   __typename?: 'MerchFields_image_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type MerchFields_SoldOut = {
+  __typename?: 'MerchFields_soldOut';
+  create?: Maybe<MerchFields_SoldOut_Create>;
+  delete?: Maybe<MerchFields_SoldOut_Delete>;
+  read?: Maybe<MerchFields_SoldOut_Read>;
+  update?: Maybe<MerchFields_SoldOut_Update>;
+};
+
+export type MerchFields_SoldOut_Create = {
+  __typename?: 'MerchFields_soldOut_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MerchFields_SoldOut_Delete = {
+  __typename?: 'MerchFields_soldOut_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MerchFields_SoldOut_Read = {
+  __typename?: 'MerchFields_soldOut_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MerchFields_SoldOut_Update = {
+  __typename?: 'MerchFields_soldOut_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -5762,6 +6961,12 @@ export type Merch_Image_Operator = {
   not_equals?: InputMaybe<Scalars['String']>;
 };
 
+export type Merch_SoldOut_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  not_equals?: InputMaybe<Scalars['Boolean']>;
+};
+
 export type Merch_Title_Operator = {
   all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   contains?: InputMaybe<Scalars['String']>;
@@ -5800,6 +7005,7 @@ export type Merch_Where = {
   createdAt?: InputMaybe<Merch_CreatedAt_Operator>;
   id?: InputMaybe<Merch_Id_Operator>;
   image?: InputMaybe<Merch_Image_Operator>;
+  soldOut?: InputMaybe<Merch_SoldOut_Operator>;
   title?: InputMaybe<Merch_Title_Operator>;
   updatedAt?: InputMaybe<Merch_UpdatedAt_Operator>;
   url?: InputMaybe<Merch_Url_Operator>;
@@ -5812,6 +7018,7 @@ export type Merch_Where_And = {
   createdAt?: InputMaybe<Merch_CreatedAt_Operator>;
   id?: InputMaybe<Merch_Id_Operator>;
   image?: InputMaybe<Merch_Image_Operator>;
+  soldOut?: InputMaybe<Merch_SoldOut_Operator>;
   title?: InputMaybe<Merch_Title_Operator>;
   updatedAt?: InputMaybe<Merch_UpdatedAt_Operator>;
   url?: InputMaybe<Merch_Url_Operator>;
@@ -5824,6 +7031,7 @@ export type Merch_Where_Or = {
   createdAt?: InputMaybe<Merch_CreatedAt_Operator>;
   id?: InputMaybe<Merch_Id_Operator>;
   image?: InputMaybe<Merch_Image_Operator>;
+  soldOut?: InputMaybe<Merch_SoldOut_Operator>;
   title?: InputMaybe<Merch_Title_Operator>;
   updatedAt?: InputMaybe<Merch_UpdatedAt_Operator>;
   url?: InputMaybe<Merch_Url_Operator>;
@@ -5848,6 +7056,7 @@ export type Mutation = {
   __typename?: 'Mutation';
   createCategory?: Maybe<Category>;
   createHost?: Maybe<Host>;
+  createLabelRelease?: Maybe<LabelRelease>;
   createMedia?: Maybe<Media>;
   createMerch?: Maybe<Merch>;
   createNewsPost?: Maybe<NewsPost>;
@@ -5857,6 +7066,7 @@ export type Mutation = {
   createUser?: Maybe<User>;
   deleteCategory?: Maybe<Category>;
   deleteHost?: Maybe<Host>;
+  deleteLabelRelease?: Maybe<LabelRelease>;
   deleteMedia?: Maybe<Media>;
   deleteMerch?: Maybe<Merch>;
   deleteNewsPost?: Maybe<NewsPost>;
@@ -5875,6 +7085,7 @@ export type Mutation = {
   updateCategory?: Maybe<Category>;
   updateDonatePage?: Maybe<DonatePage>;
   updateHost?: Maybe<Host>;
+  updateLabelRelease?: Maybe<LabelRelease>;
   updateMedia?: Maybe<Media>;
   updateMerch?: Maybe<Merch>;
   updateNewsPost?: Maybe<NewsPost>;
@@ -5894,6 +7105,12 @@ export type MutationCreateCategoryArgs = {
 
 export type MutationCreateHostArgs = {
   data: MutationHostInput;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
+export type MutationCreateLabelReleaseArgs = {
+  data: MutationLabelReleaseInput;
   locale?: InputMaybe<LocaleInputType>;
 };
 
@@ -5947,6 +7164,11 @@ export type MutationDeleteCategoryArgs = {
 
 
 export type MutationDeleteHostArgs = {
+  id: Scalars['String'];
+};
+
+
+export type MutationDeleteLabelReleaseArgs = {
   id: Scalars['String'];
 };
 
@@ -6040,6 +7262,14 @@ export type MutationUpdateDonatePageArgs = {
 export type MutationUpdateHostArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationHostUpdateInput;
+  id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
+export type MutationUpdateLabelReleaseArgs = {
+  autosave?: InputMaybe<Scalars['Boolean']>;
+  data: MutationLabelReleaseUpdateInput;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
 };
@@ -8968,6 +10198,8 @@ export type Query = {
   DonatePage?: Maybe<DonatePage>;
   Host?: Maybe<Host>;
   Hosts?: Maybe<Hosts>;
+  LabelRelease?: Maybe<LabelRelease>;
+  LabelReleases?: Maybe<LabelReleases>;
   Media?: Maybe<Media>;
   Merch?: Maybe<Merch>;
   Merches?: Maybe<Merches>;
@@ -8987,6 +10219,7 @@ export type Query = {
   allMedia?: Maybe<AllMedia>;
   countCategories?: Maybe<CountCategories>;
   countHosts?: Maybe<CountHosts>;
+  countLabelReleases?: Maybe<CountLabelReleases>;
   countMerches?: Maybe<CountMerches>;
   countNewsPosts?: Maybe<CountNewsPosts>;
   countPayloadPreferences?: Maybe<CountPayloadPreferences>;
@@ -8998,6 +10231,7 @@ export type Query = {
   docAccessCategory?: Maybe<CategoriesDocAccess>;
   docAccessDonatePage?: Maybe<DonatePageDocAccess>;
   docAccessHost?: Maybe<HostsDocAccess>;
+  docAccessLabelRelease?: Maybe<LabelReleasesDocAccess>;
   docAccessMedia?: Maybe<MediaDocAccess>;
   docAccessMerch?: Maybe<MerchDocAccess>;
   docAccessNewsPost?: Maybe<NewsPostsDocAccess>;
@@ -9057,6 +10291,23 @@ export type QueryHostsArgs = {
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<Host_Where>;
+};
+
+
+export type QueryLabelReleaseArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
+export type QueryLabelReleasesArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
+  page?: InputMaybe<Scalars['Int']>;
+  sort?: InputMaybe<Scalars['String']>;
+  where?: InputMaybe<LabelRelease_Where>;
 };
 
 
@@ -9209,6 +10460,12 @@ export type QueryCountHostsArgs = {
 };
 
 
+export type QueryCountLabelReleasesArgs = {
+  locale?: InputMaybe<LocaleInputType>;
+  where?: InputMaybe<LabelRelease_Where>;
+};
+
+
 export type QueryCountMerchesArgs = {
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<Merch_Where>;
@@ -9258,6 +10515,11 @@ export type QueryDocAccessCategoryArgs = {
 
 
 export type QueryDocAccessHostArgs = {
+  id: Scalars['String'];
+};
+
+
+export type QueryDocAccessLabelReleaseArgs = {
   id: Scalars['String'];
 };
 
@@ -11847,6 +13109,11 @@ export type CountHosts = {
   totalDocs?: Maybe<Scalars['Int']>;
 };
 
+export type CountLabelReleases = {
+  __typename?: 'countLabelReleases';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
 export type CountMerches = {
   __typename?: 'countMerches';
   totalDocs?: Maybe<Scalars['Int']>;
@@ -11912,6 +13179,24 @@ export type HostsDocAccess = {
   fields?: Maybe<HostsDocAccessFields>;
   read?: Maybe<HostsReadDocAccess>;
   update?: Maybe<HostsUpdateDocAccess>;
+};
+
+export type LabelReleasesAccess = {
+  __typename?: 'labelReleasesAccess';
+  create?: Maybe<LabelReleasesCreateAccess>;
+  delete?: Maybe<LabelReleasesDeleteAccess>;
+  fields?: Maybe<LabelReleasesFields>;
+  read?: Maybe<LabelReleasesReadAccess>;
+  update?: Maybe<LabelReleasesUpdateAccess>;
+};
+
+export type LabelReleasesDocAccess = {
+  __typename?: 'labelReleasesDocAccess';
+  create?: Maybe<LabelReleasesCreateDocAccess>;
+  delete?: Maybe<LabelReleasesDeleteDocAccess>;
+  fields?: Maybe<LabelReleasesDocAccessFields>;
+  read?: Maybe<LabelReleasesReadDocAccess>;
+  update?: Maybe<LabelReleasesUpdateDocAccess>;
 };
 
 export type MediaAccess = {
@@ -11984,6 +13269,24 @@ export type MutationHostUpdateInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
+};
+
+export type MutationLabelReleaseInput = {
+  blurb: Scalars['String'];
+  createdAt?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+  title: Scalars['String'];
+  updatedAt?: InputMaybe<Scalars['String']>;
+  url: Scalars['String'];
+};
+
+export type MutationLabelReleaseUpdateInput = {
+  blurb?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
 };
 
 export type MutationMediaInput = {
@@ -12128,6 +13431,7 @@ export type MutationMerchInput = {
   blurb: Scalars['String'];
   createdAt?: InputMaybe<Scalars['String']>;
   image?: InputMaybe<Scalars['String']>;
+  soldOut?: InputMaybe<Scalars['Boolean']>;
   title: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['String']>;
   url: Scalars['String'];
@@ -12137,6 +13441,7 @@ export type MutationMerchUpdateInput = {
   blurb?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['String']>;
   image?: InputMaybe<Scalars['String']>;
+  soldOut?: InputMaybe<Scalars['Boolean']>;
   title?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
   url?: InputMaybe<Scalars['String']>;
@@ -12757,7 +14062,14 @@ export type MerchQueryVariables = Exact<{
 }>;
 
 
-export type MerchQuery = { __typename?: 'Query', Merches?: { __typename?: 'Merches', docs?: Array<{ __typename?: 'Merch', id?: string | null, blurb: string, title: string, url: string, image?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
+export type MerchQuery = { __typename?: 'Query', Merches?: { __typename?: 'Merches', docs?: Array<{ __typename?: 'Merch', id?: string | null, blurb: string, soldOut?: boolean | null, title: string, url: string, image?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
+
+export type LabelReleasesQueryVariables = Exact<{
+  limit?: InputMaybe<Scalars['Int']>;
+}>;
+
+
+export type LabelReleasesQuery = { __typename?: 'Query', LabelReleases?: { __typename?: 'LabelReleases', docs?: Array<{ __typename?: 'LabelRelease', id?: string | null, blurb: string, title: string, url: string, image?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
 
 export type AboutPageQueryQueryVariables = Exact<{
   locale?: InputMaybe<LocaleInputType>;
@@ -12786,6 +14098,7 @@ export const NewsPostDocument = {"kind":"Document","definitions":[{"kind":"Opera
 export const NewsPostBySlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"NewsPostBySlug"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"NewsPostBySlug"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"authorId"}},{"kind":"Field","name":{"kind":"Name","value":"authorName"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"publishDate"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"tags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<NewsPostBySlugQuery, NewsPostBySlugQueryVariables>;
 export const TagsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Tags"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Tag_where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Tags"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]}}]} as unknown as DocumentNode<TagsQuery, TagsQueryVariables>;
 export const SearchHostsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"SearchHosts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Host_where"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Hosts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<SearchHostsQuery, SearchHostsQueryVariables>;
-export const MerchDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Merch"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Merches"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<MerchQuery, MerchQueryVariables>;
+export const MerchDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Merch"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Merches"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"soldOut"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<MerchQuery, MerchQueryVariables>;
+export const LabelReleasesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"LabelReleases"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"LabelReleases"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<LabelReleasesQuery, LabelReleasesQueryVariables>;
 export const AboutPageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AboutPageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"LocaleInputType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AboutPage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<AboutPageQueryQuery, AboutPageQueryQueryVariables>;
 export const DonatePageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"DonatePageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"LocaleInputType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"DonatePage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<DonatePageQueryQuery, DonatePageQueryQueryVariables>;
