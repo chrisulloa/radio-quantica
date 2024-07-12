@@ -71,8 +71,8 @@ export default function About(props: DonatePageProps) {
         <meta property="og:image:type" content="image/jpg"></meta>
       </Head>
       <div className="md:w-5/6 lg:w-3/4 xl:w-2/4 w-full text-[18px] text-[#bfbfbf]">
-        <div className="flex justify-between py-1">
-          <h2 className="text-white pt-4 sm:pt-0">DONATE</h2>
+        <div className="flex justify-between h-min align-middle">
+          <h2 className="text-white sm:pt-0 h-min my-auto">DONATE</h2>
           <LanguageSelector
             selectedLocale={language}
             onClick={(e: any) => {
