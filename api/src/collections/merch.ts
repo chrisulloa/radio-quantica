@@ -30,6 +30,12 @@ const Merches: CollectionConfig = {
       type: 'text',
       maxLength: 150,
       required: true,
+      admin: {
+        description: ({ path, value }) =>
+          `${
+            typeof value === 'string' ? 150 - value.length : '150'
+          } characters left`,
+      },
     },
     {
       name: 'url',

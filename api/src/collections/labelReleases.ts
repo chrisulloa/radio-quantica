@@ -31,6 +31,12 @@ const LabelReleases: CollectionConfig = {
       name: 'blurb',
       type: 'text',
       maxLength: 150,
+      admin: {
+        description: ({ path, value }) =>
+          `${
+            typeof value === 'string' ? 150 - value.length : '150'
+          } characters left`,
+      },
       required: true,
     },
     {
@@ -42,6 +48,9 @@ const LabelReleases: CollectionConfig = {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
+      admin: {
+        description: () => 'Square image preferred.',
+      },
     },
   ],
 };

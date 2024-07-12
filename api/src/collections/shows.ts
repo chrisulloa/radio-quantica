@@ -31,6 +31,9 @@ const Shows: CollectionConfig = {
       name: 'slug',
       type: 'text',
       required: true,
+      admin: {
+        description: () => "Hyphenated values like 'this-show-is-awesome'",
+      },
     },
     {
       name: 'description',

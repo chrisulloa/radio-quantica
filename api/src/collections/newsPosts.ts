@@ -159,6 +159,12 @@ const NewsPosts: CollectionConfig = {
       name: 'blurb',
       type: 'text',
       maxLength: 150,
+      admin: {
+        description: ({ path, value }) =>
+          `${
+            typeof value === 'string' ? 150 - value.length : '150'
+          } characters left`,
+      },
       required: true,
     },
     {
