@@ -1,7 +1,13 @@
 import Link from "next/link";
 import React, { useCallback, useState } from "react";
-import { QuanticaLogo } from "./quanticaLogo";
+import { QuanticaLogo } from "./icons/quanticaLogo";
 import styles from "./navbar.module.css";
+import { FacebookIcon } from "./icons/facebookIcon";
+import { InstagramIcon } from "./icons/instagramIcon";
+import { TwitterIcon } from "./icons/twitterIcon";
+import { YoutubeIcon } from "./icons/youtubeIcon";
+import IconButton from "./icons/iconButton";
+import MixcloudIcon from "./icons/mixcloudIcon";
 
 const navbarItems = [
   { text: "Shows", link: "/shows" },
@@ -40,22 +46,27 @@ export function NavBar() {
   return (
     <nav
       className={`flex ${
-        isCollapsed ? "h-12" : "flex-wrap"
-      } items-center justify-between w-full md:py-0 p-4 text-lg bg-white transition-all ease-in-out duration-200 
+        isCollapsed ? "h-12" : "flex-wrap pt-3"
+      } items-center justify-between w-full md:py-0 px-4 md:p-4 text-lg bg-white
       `}
     >
-      <div className="h-full pr-2 items-center sm:flex hidden">
-        <Link
-          href="/"
-          className="w-full px-2 block text-lg text-black sm:hover:opacity-40"
+      <div className="flex h-full gap-x-4 align-middle">
+        <div
+          className="container w-[16px] h-[16px] my-auto md:hidden"
+          id={styles.quanticaLogoSmall}
         >
-          QUÂNTICA
-        </Link>
+          <QuanticaLogo></QuanticaLogo>
+        </div>
+        <div className="flex align-middle my-auto pr-3 pt-1 md:pt-0">
+          <Link
+            href="/"
+            className="w-full h-full flex text-lg text-black md:hover:opacity-40"
+          >
+            QUÂNTICA
+          </Link>
+        </div>
       </div>
 
-      <Link href="/" className="text-black sm:hidden">
-        QUÂNTICA
-      </Link>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-6 w-6 cursor-pointer md:hidden block"
@@ -74,7 +85,7 @@ export function NavBar() {
 
       <div
         className={`w-full ${
-          isCollapsed ? "hidden h-full" : "py-0"
+          isCollapsed ? "hidden h-full" : ""
         } md:flex md:flex-grow md:w-auto`}
       >
         <ul className="text-lg h-full md:flex md:justify-between md:pt-0 items-center">
@@ -84,14 +95,34 @@ export function NavBar() {
                 href={item.link}
                 target={item.newTab ? "_blank" : ""}
                 onClick={collapseAfterClickHandler}
-                className="px-2 block h-full hover:bg-black hover:text-white"
+                className="block h-full hover:bg-black hover:text-white md:px-2"
               >
                 {item.text}
               </Link>
             </li>
           ))}
+          <li>
+            <div className="align-middle flex justify-start my-auto gap-x-4 md:hidden mt-2">
+              <IconButton url="https://www.youtube.com/channel/UCrJUlunwq20no8FY9oczb_A">
+                <YoutubeIcon></YoutubeIcon>
+              </IconButton>
+              <IconButton url="https://www.instagram.com/quanticaonline">
+                <InstagramIcon></InstagramIcon>
+              </IconButton>
+              <IconButton url="https://x.com/quanticaonline">
+                <TwitterIcon></TwitterIcon>
+              </IconButton>
+              <IconButton url="https://www.facebook.com/quanticaonline">
+                <FacebookIcon></FacebookIcon>
+              </IconButton>
+              <IconButton url="https://www.mixcloud.com/quanticaonline/">
+                <MixcloudIcon></MixcloudIcon>
+              </IconButton>
+            </div>
+          </li>
         </ul>
       </div>
+
       <div
         className="container w-[33px] h-[33px] hidden lg:block"
         id={styles.quanticaLogo}

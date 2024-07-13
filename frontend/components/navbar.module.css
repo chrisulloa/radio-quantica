@@ -3,6 +3,11 @@
   height: 33px;
   animation: spin 5s ease infinite;
 }
+#quanticaLogoSmall {
+  width: 26px;
+  height: 26px;
+  animation: spin 5s ease infinite;
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);

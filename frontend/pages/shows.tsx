@@ -3,7 +3,7 @@ import fuzzysort from "fuzzysort";
 import debounce from "lodash/debounce";
 import ShowCard from "../components/showCard";
 import CategoriesCard from "../components/categoriesCard";
-import { SearchIcon } from "../components/searchIcon";
+import { SearchIcon } from "../components/icons/searchIcon";
 import {
   ShowData,
   ShowImage,
