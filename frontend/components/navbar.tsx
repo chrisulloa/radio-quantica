@@ -128,21 +128,21 @@ export function NavBar() {
             </div>
           </li>
         </ul>
-        <div className="align-middle lg:flex justify-start gap-x-4 my-2 hidden">
+        <div className="align-middle lg:flex justify-start gap-x-3 my-2 hidden">
           <IconButton url="https://www.youtube.com/channel/UCrJUlunwq20no8FY9oczb_A">
             <YoutubeIcon></YoutubeIcon>
           </IconButton>
           <IconButton url="https://www.instagram.com/quanticaonline">
             <InstagramIcon></InstagramIcon>
           </IconButton>
+          <IconButton url="https://www.mixcloud.com/quanticaonline/">
+            <MixcloudIcon></MixcloudIcon>
+          </IconButton>
           <IconButton url="https://x.com/quanticaonline">
             <TwitterIcon></TwitterIcon>
           </IconButton>
           <IconButton url="https://www.facebook.com/quanticaonline">
             <FacebookIcon></FacebookIcon>
-          </IconButton>
-          <IconButton url="https://www.mixcloud.com/quanticaonline/">
-            <MixcloudIcon></MixcloudIcon>
           </IconButton>
         </div>
       </div>
