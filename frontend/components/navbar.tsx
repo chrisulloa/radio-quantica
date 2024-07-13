@@ -50,29 +50,26 @@ export function NavBar() {
       } items-center justify-between w-full md:py-0 px-4 md:p-4 text-lg bg-white
       `}
     >
-      <div
-        className="container w-[33px] h-[33px] hidden lg:block mb-1 mr-3"
-        id={styles.quanticaLogo}
-      >
-        <QuanticaLogo></QuanticaLogo>
-      </div>
-      <div className="flex h-full gap-x-4 align-middle">
+      <Link href="/" className="flex items-center w-fit md:hover:opacity-50">
         <div
-          className="container w-[16px] h-[16px] my-auto md:hidden"
-          id={styles.quanticaLogoSmall}
+          className="container w-[33px] h-[33px] hidden lg:block mb-1 mr-3"
+          id={styles.quanticaLogo}
         >
           <QuanticaLogo></QuanticaLogo>
         </div>
-
-        <div className="flex align-middle my-auto pr-3 pt-1 md:pt-0">
-          <Link
-            href="/"
-            className="w-full h-full flex text-black md:hover:opacity-40"
+        <div className="flex h-full gap-x-3 align-middle">
+          <div
+            className="container w-[16px] h-[16px] my-auto md:hidden"
+            id={styles.quanticaLogoSmall}
           >
-            QUÂNTICA
-          </Link>
+            <QuanticaLogo></QuanticaLogo>
+          </div>
+
+          <div className="flex align-middle my-auto pr-3 pt-1 md:pt-0">
+            <div className="w-full h-full flex text-black">QUÂNTICA</div>
+          </div>
         </div>
-      </div>
+      </Link>
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
