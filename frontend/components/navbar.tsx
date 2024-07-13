@@ -50,6 +50,12 @@ export function NavBar() {
       } items-center justify-between w-full md:py-0 px-4 md:p-4 text-lg bg-white
       `}
     >
+      <div
+        className="container w-[33px] h-[33px] hidden lg:block mb-1 mr-4"
+        id={styles.quanticaLogo}
+      >
+        <QuanticaLogo></QuanticaLogo>
+      </div>
       <div className="flex h-full gap-x-4 align-middle">
         <div
           className="container w-[16px] h-[16px] my-auto md:hidden"
@@ -57,10 +63,11 @@ export function NavBar() {
         >
           <QuanticaLogo></QuanticaLogo>
         </div>
+
         <div className="flex align-middle my-auto pr-3 pt-1 md:pt-0">
           <Link
             href="/"
-            className="w-full h-full flex text-lg text-black md:hover:opacity-40"
+            className="w-full h-full flex text-black md:hover:opacity-40"
           >
             QUÂNTICA
           </Link>
@@ -86,9 +93,9 @@ export function NavBar() {
       <div
         className={`w-full ${
           isCollapsed ? "hidden h-full" : ""
-        } md:flex md:flex-grow md:w-auto`}
+        } md:flex md:flex-grow md:w-auto justify-between`}
       >
-        <ul className="text-lg h-full md:flex md:justify-between md:pt-0 items-center">
+        <ul className="text-lg h-full md:flex md:pt-0 items-center">
           {navbarItems.map((item) => (
             <li key={item.text}>
               <Link
@@ -102,7 +109,7 @@ export function NavBar() {
             </li>
           ))}
           <li>
-            <div className="align-middle flex justify-start gap-x-4 md:hidden my-2">
+            <div className="align-middle flex justify-start gap-x-4 my-2 md:hidden">
               <IconButton url="https://www.youtube.com/channel/UCrJUlunwq20no8FY9oczb_A">
                 <YoutubeIcon></YoutubeIcon>
               </IconButton>
@@ -121,13 +128,23 @@ export function NavBar() {
             </div>
           </li>
         </ul>
-      </div>
-
-      <div
-        className="container w-[33px] h-[33px] hidden lg:block"
-        id={styles.quanticaLogo}
-      >
-        <QuanticaLogo></QuanticaLogo>
+        <div className="align-middle lg:flex justify-start gap-x-4 my-2 hidden">
+          <IconButton url="https://www.youtube.com/channel/UCrJUlunwq20no8FY9oczb_A">
+            <YoutubeIcon></YoutubeIcon>
+          </IconButton>
+          <IconButton url="https://www.instagram.com/quanticaonline">
+            <InstagramIcon></InstagramIcon>
+          </IconButton>
+          <IconButton url="https://x.com/quanticaonline">
+            <TwitterIcon></TwitterIcon>
+          </IconButton>
+          <IconButton url="https://www.facebook.com/quanticaonline">
+            <FacebookIcon></FacebookIcon>
+          </IconButton>
+          <IconButton url="https://www.mixcloud.com/quanticaonline/">
+            <MixcloudIcon></MixcloudIcon>
+          </IconButton>
+        </div>
       </div>
     </nav>
   );
