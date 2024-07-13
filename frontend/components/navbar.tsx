@@ -51,7 +51,7 @@ export function NavBar() {
       `}
     >
       <div
-        className="container w-[33px] h-[33px] hidden lg:block mb-1 mr-4"
+        className="container w-[33px] h-[33px] hidden lg:block mb-1 mr-3"
         id={styles.quanticaLogo}
       >
         <QuanticaLogo></QuanticaLogo>
