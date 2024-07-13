@@ -4,6 +4,7 @@ export const QuanticaLogo = () => {
       version="1.1"
       id="svg1"
       viewBox="0 0 800 800"
+      className="stroke-black stroke-[6px]"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs id="defs1" />

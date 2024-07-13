@@ -6,7 +6,7 @@ const MixcloudIcon = () => {
       width="29"
       height="29"
       viewBox="0 0 24 24"
-      stroke-width="2"
+      stroke-width="2.5"
       stroke="#2c3e50"
       fill="none"
     >
