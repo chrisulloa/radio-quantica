@@ -145,7 +145,7 @@ export default function SchedulePage() {
         <meta property="og:image:type" content="image/jpg"></meta>
       </Head>
       <div className="sm:flex sm:flex-col sm:items-start sm:w-min hidden">
-        <h1 className="text-xl mb-4">Schedule</h1>
+        <h1 className="text-xl mb-4">SCHEDULE</h1>
         <hr className="w-full"></hr>
         <div className="mt-4 w-fit">
           <div className="py-4 text-lg w-full mb-4">
