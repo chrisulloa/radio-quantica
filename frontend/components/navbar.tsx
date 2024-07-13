@@ -102,7 +102,7 @@ export function NavBar() {
             </li>
           ))}
           <li>
-            <div className="align-middle flex justify-start my-auto gap-x-4 md:hidden mt-2">
+            <div className="align-middle flex justify-start gap-x-4 md:hidden my-2">
               <IconButton url="https://www.youtube.com/channel/UCrJUlunwq20no8FY9oczb_A">
                 <YoutubeIcon></YoutubeIcon>
               </IconButton>

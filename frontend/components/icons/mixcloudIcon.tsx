@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const MixcloudIcon = () => {
   return (
     <svg
@@ -9,7 +7,7 @@ const MixcloudIcon = () => {
       x="0px"
       y="0px"
       viewBox="0 0 800 800"
-      className="fill-white w-8 hover:opacity-75"
+      className="fill-black w-8 "
     >
       <path
         className="st0"
