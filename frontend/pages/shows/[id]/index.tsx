@@ -88,7 +88,7 @@ export default function Show({
       </div>
 
       <div className="grid grid-cols-6 w-full col-span-4 mt-4 gap-4">
-        <div className="w-full col-span-6 md:col-span-3 flex justify-center">
+        <div className="w-full col-span-6 md:col-span-3 flex justify-center align-top h-full">
           {show.image &&
             show.image.sizes?.lg &&
             show.image.alt &&
@@ -96,7 +96,7 @@ export default function Show({
             show.image.sizes.lg.width &&
             show.image.sizes.lg.height && (
               <Image
-                className="w-min h-auto max-h-[60vh]"
+                className="max-h-[60vh] h-min object-scale-down"
                 alt={show.image.alt}
                 src={show.image.sizes?.lg.url}
                 height={show.image.sizes?.lg?.height}
