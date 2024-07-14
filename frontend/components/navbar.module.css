@@ -3,6 +3,11 @@
   height: 28px;
   animation: spin 5s ease infinite;
 }
+
+#logoLink:hover #quanticaLogo {
+  animation-play-state: paused;
+}
+
 #quanticaLogoSmall {
   width: 26px;
   height: 26px;

@@ -50,7 +50,11 @@ export function NavBar() {
       } items-center justify-between w-full md:py-0 px-4 md:p-4 text-lg bg-white
       `}
     >
-      <Link href="/" className="flex items-center w-fit md:hover:opacity-50">
+      <Link
+        href="/"
+        className="flex items-center w-fit md:hover:opacity-50"
+        id={styles.logoLink}
+      >
         <div
           className="container w-[33px] h-[33px] hidden lg:block mb-1 mr-3"
           id={styles.quanticaLogo}
