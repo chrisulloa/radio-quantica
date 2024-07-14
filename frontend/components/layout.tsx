@@ -1,4 +1,3 @@
-import { Footer } from "./footer";
 import { NavBar } from "./navbar";
 import dynamic from "next/dynamic";
 
