@@ -17,7 +17,6 @@ import React from "react";
 import { deviceIsMobile } from "../lib/deviceInfo";
 import { MerchCard } from "../components/merchCard";
 import { LabelReleaseCard } from "../components/labelReleaseCard";
-import { InstagramIcon } from "../components/icons/instagramIcon";
 
 export async function getStaticProps() {
   const { data } = await client.query({

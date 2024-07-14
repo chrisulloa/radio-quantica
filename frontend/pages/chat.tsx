@@ -5,30 +5,24 @@ export default function Chat() {
   return (
     <div className="mx-4 sm:ml-8">
       <Head>
-        <title>Our project and mission - Rádio Quântica</title>
+        <title>Chat - Rádio Quântica</title>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@quanticaonline" />
         <meta name="twitter:title" content="Rádio Quântica | About Us" />
-        <meta
-          name="twitter:description"
-          content="Rádio Quântica's project and mission"
-        />
+        <meta name="twitter:description" content="Rádio Quântica Chat" />
         <meta
           name="twitter:image"
           content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
         />
 
         <meta property="og:site_name" content="Rádio Quântica"></meta>
-        <meta property="og:title" content="Rádio Quântica | About Us"></meta>
+        <meta property="og:title" content="Rádio Quântica | Chat"></meta>
         <meta property="og:type" content="website"></meta>
         <meta
           property="og:url"
-          content="https://radio-quantica.vercel.app/about"
+          content="https://radio-quantica.vercel.app/chat"
         ></meta>
-        <meta
-          property="og:description"
-          content="Rádio Quântica's project and mission"
-        />
+        <meta property="og:description" content="Rádio Quântica Chat" />
         <meta
           property="og:image"
           content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"

@@ -107,11 +107,8 @@ export default function SchedulePage() {
         <title>Schedule - Rádio Quântica</title>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@quanticaonline" />
-        <meta name="twitter:title" content="Rádio Quântica | Calendar" />
-        <meta
-          name="twitter:description"
-          content="Rádio Quântica Show Calendar"
-        />
+        <meta name="twitter:title" content="Rádio Quântica | Schedule" />
+        <meta name="twitter:description" content="Rádio Quântica Schedule" />
         <meta
           name="twitter:image"
           content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
@@ -122,11 +119,11 @@ export default function SchedulePage() {
         <meta property="og:type" content="website"></meta>
         <meta
           property="og:url"
-          content="https://radio-quantica.vercel.app/calendar"
+          content="https://radio-quantica.vercel.app/schedule"
         ></meta>
         <meta
           property="og:description"
-          content="Rádio Quântica Upcoming Shows Calendar"
+          content="Rádio Quântica Upcoming Shows"
         />
         <meta
           property="og:image"
