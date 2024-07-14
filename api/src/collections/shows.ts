@@ -15,7 +15,6 @@ const Shows: CollectionConfig = {
     read: () => true,
   },
   admin: {
-    listSearchableFields: ['primaryHosts'],
     useAsTitle: 'showName',
   },
   hooks: { afterChange: [afterChangeHook] },
