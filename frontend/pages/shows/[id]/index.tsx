@@ -47,7 +47,7 @@ export default function Show({
   const router = useRouter();
 
   return (
-    <div className="mx-5 sm:ml-10 grid grid-cols-4 md:w-5/6 lg:w-3/6">
+    <div className="mx-5 sm:ml-10 grid grid-cols-4 md:w-5/6 lg:w-4/6 xl:2/6">
       <Head>
         <title>{title}</title>
         <meta name="twitter:card" content="summary_large_image" />
@@ -87,8 +87,8 @@ export default function Show({
         <Card>{showNameAndHost}</Card>
       </div>
 
-      <div className="flex-col w-full col-span-4 mt-4">
-        <div className="w-full justify-center flex">
+      <div className="grid grid-cols-6 w-full col-span-4 mt-4 gap-4">
+        <div className="w-full col-span-6 md:col-span-3 flex justify-center">
           {show.image &&
             show.image.sizes?.lg &&
             show.image.alt &&
@@ -96,7 +96,7 @@ export default function Show({
             show.image.sizes.lg.width &&
             show.image.sizes.lg.height && (
               <Image
-                className="md:w-1/2 sm:w-3/4"
+                className="w-min h-auto max-h-[60vh]"
                 alt={show.image.alt}
                 src={show.image.sizes?.lg.url}
                 height={show.image.sizes?.lg?.height}
@@ -104,9 +104,11 @@ export default function Show({
               ></Image>
             )}
         </div>
-        <ShowContent content={content} />
+        <div className="col-span-6 md:col-span-3">
+          <ShowContent content={content} />
+        </div>
       </div>
-      <div className="col-span-4 flex flex-wrap gap-y-5 gap-x-5 mt-8 mb-4">
+      <div className="col-span-4 flex flex-wrap gap-y-5 gap-x-5 mt-4 mb-4">
         {show.categories.map((category) => {
           return (
             <Link
