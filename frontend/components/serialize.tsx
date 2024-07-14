@@ -4,7 +4,6 @@ import { Text } from "slate";
 import RichTextNode from "../lib/textNode";
 import Image from "next/image";
 import Link from "next/link";
-import { slateToHtml } from "@slate-serializers/html";
 
 const Serialize = (children: RichTextNode[]) =>
   children.map((node: RichTextNode, i: number) => {
