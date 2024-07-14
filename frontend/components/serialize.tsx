@@ -12,7 +12,7 @@ const Serialize = (children: RichTextNode[]) =>
         <span
           className="whitespace-pre-line"
           dangerouslySetInnerHTML={{
-            __html: escapeHTML(node.text.replace("\n", "")),
+            __html: escapeHTML(node.text),
           }}
         />
       );
