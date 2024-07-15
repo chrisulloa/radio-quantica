@@ -111,39 +111,63 @@ export function NavBar() {
           ))}
           <li>
             <div className="align-middle flex justify-start gap-x-4 my-2 md:hidden">
-              <IconButton url="https://www.youtube.com/channel/UCrJUlunwq20no8FY9oczb_A">
+              <IconButton
+                label={"YouTube"}
+                url="https://www.youtube.com/channel/UCrJUlunwq20no8FY9oczb_A"
+              >
                 <YoutubeIcon></YoutubeIcon>
               </IconButton>
-              <IconButton url="https://www.instagram.com/quanticaonline">
+              <IconButton
+                label={"Instagram"}
+                url="https://www.instagram.com/quanticaonline"
+              >
                 <InstagramIcon></InstagramIcon>
               </IconButton>
-              <IconButton url="https://x.com/quanticaonline">
+              <IconButton label={"Twitter"} url="https://x.com/quanticaonline">
                 <TwitterIcon></TwitterIcon>
               </IconButton>
-              <IconButton url="https://www.facebook.com/quanticaonline">
+              <IconButton
+                label={"Facebook"}
+                url="https://www.facebook.com/quanticaonline"
+              >
                 <FacebookIcon></FacebookIcon>
               </IconButton>
-              <IconButton url="https://www.mixcloud.com/quanticaonline/">
+              <IconButton
+                label={"Mixcloud"}
+                url="https://www.mixcloud.com/quanticaonline/"
+              >
                 <MixcloudIcon></MixcloudIcon>
               </IconButton>
             </div>
           </li>
         </ul>
         <div className="align-middle lg:flex justify-start gap-x-3 my-2 hidden">
-          <IconButton url="https://www.youtube.com/channel/UCrJUlunwq20no8FY9oczb_A">
+          <IconButton
+            label={"YouTube"}
+            url="https://www.youtube.com/channel/UCrJUlunwq20no8FY9oczb_A"
+          >
             <YoutubeIcon></YoutubeIcon>
           </IconButton>
-          <IconButton url="https://www.instagram.com/quanticaonline">
+          <IconButton
+            label={"Instagram"}
+            url="https://www.instagram.com/quanticaonline"
+          >
             <InstagramIcon></InstagramIcon>
           </IconButton>
-          <IconButton url="https://www.mixcloud.com/quanticaonline/">
-            <MixcloudIcon></MixcloudIcon>
-          </IconButton>
-          <IconButton url="https://x.com/quanticaonline">
+          <IconButton label={"Twitter"} url="https://x.com/quanticaonline">
             <TwitterIcon></TwitterIcon>
           </IconButton>
-          <IconButton url="https://www.facebook.com/quanticaonline">
+          <IconButton
+            label={"Facebook"}
+            url="https://www.facebook.com/quanticaonline"
+          >
             <FacebookIcon></FacebookIcon>
+          </IconButton>
+          <IconButton
+            label={"Mixcloud"}
+            url="https://www.mixcloud.com/quanticaonline/"
+          >
+            <MixcloudIcon></MixcloudIcon>
           </IconButton>
         </div>
       </div>
