@@ -124,6 +124,9 @@ function Player({
             <VolumeButton volume={volume}></VolumeButton>
           </button>
           <div className="p-5 bottom-6 justify-center absolute scale-0 transition-all group-hover:scale-100">
+            <label htmlFor={styles.slider} className="invisible">
+              Volume Slider
+            </label>
             <input
               id={styles.slider}
               onChange={volumeSliderHandler}
