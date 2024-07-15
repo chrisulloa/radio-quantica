@@ -30,7 +30,7 @@ export const MerchCard = ({
           ></Image>
           {soldOut && (
             <div className="text-red font-space-mono w-full h-full text-sm absolute top-0 bottom-0 flex justify-end">
-              <div className="bg-red-500 text-white w-fit px-2 h-fit">
+              <div className="bg-[#eb0000] text-white w-fit px-2 h-fit">
                 Sold Out
               </div>
             </div>
