@@ -11,7 +11,7 @@ export const validCORSURLs =
 export const serverURL =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000'
-    : 'https://squid-app-svk3v.ondigitalocean.app';
+    : 'https://api.radioquantica.com';
 
 export const CDNBaseURL = 'https://radio-quantica.ams3.cdn.digitaloceanspaces.com';
 
