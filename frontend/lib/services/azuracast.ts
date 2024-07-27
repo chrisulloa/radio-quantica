@@ -1,5 +1,5 @@
 export type NowPlayingResponse = {
-  current: {
-    name: "";
+  currentShow: {
+    name: string;
   };
 };

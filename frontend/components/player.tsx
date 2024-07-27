@@ -183,7 +183,7 @@ const PlayerView = () => {
   let currentShow = "";
 
   if (data) {
-    currentShow = data.current?.name || "Offline";
+    currentShow = data.currentShow?.name || "Offline";
   }
   if (error) currentShow = "Offline";
 
