@@ -64,7 +64,7 @@ export default function Show({
         <meta property="og:type" content="website"></meta>
         <meta
           property="og:url"
-          content={`https://radio-quantica.vercel.app/${router.asPath}`}
+          content={`https://radioquantica.com/${router.asPath}`}
         ></meta>
         <meta property="og:description" content={title} />
         <meta

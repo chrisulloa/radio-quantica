@@ -18,7 +18,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: "radio-quantica.ams3.cdn.digitaloceanspaces.com",
+        hostname: "radioquantica.com",
         port: '',
       }
     ],

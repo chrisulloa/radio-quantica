@@ -74,10 +74,7 @@ const HomePageHeader = () => {
         content="Online community radio station based in Lisbon, Portugal."
       ></meta>
       <meta property="og:type" content="website"></meta>
-      <meta
-        property="og:url"
-        content="https://radio-quantica.vercel.app/"
-      ></meta>
+      <meta property="og:url" content="https://radioquantica.com/"></meta>
       <meta
         property="og:description"
         content="Online community radio station based in Lisbon, Portugal."

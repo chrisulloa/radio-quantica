@@ -102,7 +102,7 @@ const SocialLink = (props: {
 
 const ShareButton = (props: { text: string; black?: boolean }) => {
   const router = useRouter();
-  const currentUrl = `https://radio-quantica.vercel.app${router.asPath}`;
+  const currentUrl = `https://radioquantica.com${router.asPath}`;
 
   // Enable web share if available
   const webShare = () => {

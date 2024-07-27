@@ -51,7 +51,7 @@ export default function About(props: AboutPageProps) {
         <meta property="og:type" content="website"></meta>
         <meta
           property="og:url"
-          content="https://radio-quantica.vercel.app/about"
+          content="https://radioquantica.com/about"
         ></meta>
         <meta
           property="og:description"

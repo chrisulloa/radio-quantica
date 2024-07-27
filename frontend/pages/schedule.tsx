@@ -119,7 +119,7 @@ export default function SchedulePage() {
         <meta property="og:type" content="website"></meta>
         <meta
           property="og:url"
-          content="https://radio-quantica.vercel.app/schedule"
+          content="https://radioquantica.com/schedule"
         ></meta>
         <meta
           property="og:description"

@@ -48,7 +48,7 @@ export default function About(props: DonatePageProps) {
         <meta property="og:type" content="website"></meta>
         <meta
           property="og:url"
-          content="https://radio-quantica.vercel.app/donate"
+          content="https://radioquantica.com/donate"
         ></meta>
         <meta
           property="og:description"
