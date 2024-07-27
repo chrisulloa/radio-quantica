@@ -111,7 +111,7 @@ export default function About(props: DonatePageProps) {
         </div>
       </div>
 
-      <div className="my-8 mx-4">
+      <div className="my-8">
         <GoBackLink fallback="/"></GoBackLink>
       </div>
     </div>
