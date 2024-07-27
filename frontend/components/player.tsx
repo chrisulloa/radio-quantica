@@ -171,11 +171,9 @@ const PlayerView = () => {
   const [isPaused, setPause] = useState<boolean>(true);
   const [volume, setVolume] = useState<number>(1);
 
-  const { data, error, isLoading } = useSWR(
-    "https://airtime.radioquantica.com/api/live-info",
-    fetcher,
-    { refreshInterval: 5000 }
-  );
+  const { data, error, isLoading } = useSWR("/api/liveInfo", fetcher, {
+    refreshInterval: 10000,
+  });
 
   let currentShow = "";
 
