@@ -1,10 +1,18 @@
-import { CollectionAfterChangeHook, CollectionConfig } from 'payload/types';
+import { CollectionAfterOperationHook, CollectionConfig } from 'payload/types';
 import { Merch } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
 
-const afterChangeHook: CollectionAfterChangeHook<Merch> = async ({ doc }) => {
-  await revalidateResource('/');
-  return doc;
+const afterOperationHook: CollectionAfterOperationHook<Merch> = async ({
+  args, // arguments passed into the operation
+  operation, // name of the operation
+  req, // full express request
+  result, // the result of the operation, before modifications
+}) => {
+  if (operation === 'create' || operation === 'update' || operation === 'delete') {
+    await revalidateResource('/');
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+  return result; // return modified result as necessary
 };
 
 const Merches: CollectionConfig = {
@@ -17,7 +25,7 @@ const Merches: CollectionConfig = {
     read: () => true,
   },
   hooks: {
-    afterChange: [afterChangeHook],
+    afterOperation: [afterOperationHook],
   },
   fields: [
     {

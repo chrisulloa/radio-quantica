@@ -1,6 +1,7 @@
 import { NewsPost } from 'payload/generated-types';
 import {
   CollectionAfterChangeHook,
+  CollectionAfterOperationHook,
   CollectionBeforeChangeHook,
   CollectionConfig,
 } from 'payload/types';
@@ -38,6 +39,19 @@ const afterChangeHook: CollectionAfterChangeHook<NewsPost> = async ({
   return doc;
 };
 
+const afterCreateHook: CollectionAfterOperationHook<NewsPost> = async ({
+  args, // arguments passed into the operation
+  operation, // name of the operation
+  req, // full express request
+  result, // the result of the operation, before modifications
+}) => {
+  if (operation === 'create') {
+    await Promise.all([revalidateResource('/'), revalidateResource('/news')]);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+  return result; // return modified result as necessary
+};
+
 const NewsPosts: CollectionConfig = {
   slug: 'newsPosts',
   admin: {
@@ -63,6 +77,7 @@ const NewsPosts: CollectionConfig = {
   hooks: {
     beforeChange: [beforeChangeHook],
     afterChange: [afterChangeHook],
+    afterOperation: [afterCreateHook],
   },
   access: {
     read: ({ req: { user } }) => {

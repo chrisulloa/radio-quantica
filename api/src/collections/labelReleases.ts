@@ -1,12 +1,18 @@
-import { CollectionAfterChangeHook, CollectionConfig } from 'payload/types';
+import { CollectionAfterOperationHook, CollectionConfig } from 'payload/types';
 import { LabelRelease } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
 
-const afterChangeHook: CollectionAfterChangeHook<LabelRelease> = async ({
-  doc,
+const afterOperationHook: CollectionAfterOperationHook<LabelRelease> = async ({
+  args, // arguments passed into the operation
+  operation, // name of the operation
+  req, // full express request
+  result, // the result of the operation, before modifications
 }) => {
-  await revalidateResource('/');
-  return doc;
+  if (operation === 'create' || operation === 'update' || operation === 'delete') {
+    await revalidateResource('/');
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+  return result; // return modified result as necessary
 };
 
 const LabelReleases: CollectionConfig = {
@@ -19,7 +25,7 @@ const LabelReleases: CollectionConfig = {
     read: () => true,
   },
   hooks: {
-    afterChange: [afterChangeHook],
+    afterOperation: [afterOperationHook],
   },
   fields: [
     {

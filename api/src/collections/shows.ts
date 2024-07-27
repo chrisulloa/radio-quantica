@@ -1,12 +1,34 @@
-import { CollectionAfterChangeHook, CollectionConfig } from 'payload/types';
+import {
+  CollectionAfterChangeHook,
+  CollectionAfterOperationHook,
+  CollectionConfig,
+} from 'payload/types';
 import { Show } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
 
 const afterChangeHook: CollectionAfterChangeHook<Show> = async ({ doc }) => {
-  const path = `/show/${doc.slug}`;
-  await revalidateResource(path);
-  await revalidateResource('/shows');
+  await Promise.all([
+    revalidateResource(`/show/${doc.slug}`),
+    revalidateResource('/shows'),
+  ]);
   return doc;
+};
+
+const afterCreateHook: CollectionAfterOperationHook<Show> = async ({
+  args, // arguments passed into the operation
+  operation, // name of the operation
+  req, // full express request
+  result, // the result of the operation, before modifications
+}) => {
+  const doc = result as Show;
+  if (operation === 'create') {
+    await Promise.all([
+      revalidateResource(`/show/${doc.slug}`),
+      revalidateResource('/shows'),
+    ]);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+  return result; // return modified result as necessary
 };
 
 const Shows: CollectionConfig = {
@@ -17,7 +39,7 @@ const Shows: CollectionConfig = {
   admin: {
     useAsTitle: 'showName',
   },
-  hooks: { afterChange: [afterChangeHook] },
+  hooks: { afterChange: [afterChangeHook], afterOperation: [afterCreateHook] },
   fields: [
     {
       name: 'showName',
