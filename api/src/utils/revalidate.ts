@@ -11,9 +11,14 @@ const revalidateOptions = (path: string) => ({
   },
 });
 
-export const revalidateResource = async (path: string) => {
+export const revalidateResource = async (path: string, shouldWait = false) => {
   try {
     if (process.env.NODE_ENV !== 'development') {
+      if (shouldWait) {
+        setTimeout(() => {
+          console.log('Waiting before revalidating');
+        }, 5000);
+      }
       await axios.request(revalidateOptions(path));
     }
   } catch {

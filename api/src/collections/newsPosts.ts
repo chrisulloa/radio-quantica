@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { NewsPost } from 'payload/generated-types';
 import {
   CollectionAfterChangeHook,
@@ -39,14 +40,15 @@ const afterChangeHook: CollectionAfterChangeHook<NewsPost> = async ({
   return doc;
 };
 
-const afterCreateHook: CollectionAfterOperationHook<NewsPost> = async ({
+const afterCreateHook: CollectionAfterOperationHook<NewsPost> = ({
   args, // arguments passed into the operation
   operation, // name of the operation
   req, // full express request
   result, // the result of the operation, before modifications
 }) => {
   if (operation === 'create' || operation === 'delete' || operation === 'update') {
-    await Promise.all([revalidateResource('/'), revalidateResource('/news')]);
+    revalidateResource('/', true);
+    revalidateResource('/news', true);
   }
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return result; // return modified result as necessary
