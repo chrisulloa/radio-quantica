@@ -133,6 +133,7 @@ export async function getAllShowIDs(): Promise<ShowIDMapping[]> {
   const { data } = await client.query({
     query: allShowIDs,
     variables: { limit: 100 },
+    fetchPolicy: "no-cache",
   });
   if (!data.Shows?.docs) return [];
   return data.Shows.docs
@@ -159,6 +160,7 @@ export async function getShowsByCategory(
     variables: {
       categoryName: category,
     },
+    fetchPolicy: "no-cache",
   });
 
   if (data.ShowsByCategory == null || data.ShowsByCategory.docs == null)
@@ -184,6 +186,7 @@ export async function getAllCategories() {
   const { data } = await client.query({
     query: allCategories,
     variables: { limit: 100 },
+    fetchPolicy: "no-cache",
   });
 
   const categories = data.Categories?.docs?.map((doc) => doc?.name);

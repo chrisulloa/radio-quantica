@@ -19,7 +19,10 @@ export async function getStaticProps() {
 
   const newsPosts = data.NewsPosts?.docs;
 
-  const { data: tagsData } = await client.query({ query: tagLookupQuery });
+  const { data: tagsData } = await client.query({
+    query: tagLookupQuery,
+    fetchPolicy: "no-cache",
+  });
   const tags =
     tagsData?.Tags?.docs
       ?.map((tag) => tag?.name)
