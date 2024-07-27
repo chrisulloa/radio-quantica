@@ -24,6 +24,10 @@ void (async () => {
   }
 })();
 
+app.get('/', (req, res) => {
+  res.redirect('/admin');
+});
+
 const port = 3000;
 logger.info(`🚀 Server ready at http://localhost:${port}`);
 
