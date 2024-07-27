@@ -148,7 +148,7 @@ const initializeAudio = (
   setPause: React.Dispatch<React.SetStateAction<boolean>>,
   setVolume: React.Dispatch<React.SetStateAction<number>>
 ) => {
-  const audio = new Audio("https://azuracast.particle.fm/radio/8000/radio.mp3");
+  const audio = new Audio("https://stream.radioquantica.com:8443/stream");
   audio.addEventListener("play", () => {
     setPause(false);
   });
