@@ -12,7 +12,7 @@ import MixcloudIcon from "./icons/mixcloudIcon";
 const navbarItems = [
   { text: "Shows", link: "/shows" },
   { text: "News", link: "/news" },
-  { text: "Schedule", link: "schedule" },
+  { text: "Schedule", link: "/schedule" },
   { text: "About", link: "/about" },
   { text: "Donate", link: "/donate" },
   { text: "Chat", link: "/chat" },

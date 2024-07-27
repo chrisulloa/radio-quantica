@@ -1,8 +1,9 @@
 import Head from "next/head";
-import { weekInfo } from "../lib/mockData";
 import { DateTime } from "luxon";
 import { useCallback, useState } from "react";
-import GoBackLink from "../components/goBack";
+import axios from "axios";
+import { WeeklySchedule } from "../lib/services/airtime";
+import useSWR from "swr";
 
 type Day =
   | "sunday"
@@ -22,6 +23,16 @@ const days: Day[] = [
   "friday",
   "saturday",
 ];
+
+const emptySchedule: WeeklySchedule = {
+  monday: [],
+  tuesday: [],
+  wednesday: [],
+  thursday: [],
+  friday: [],
+  saturday: [],
+  sunday: [],
+};
 
 interface DaySchedule {
   start_timestamp: string;
@@ -69,78 +80,86 @@ const DaySchedule = ({ schedule }: { schedule: DaySchedule[] }) => {
     <table className="flex text-white w-full font-space-mono">
       <thead></thead>
       <tbody>
-        {schedule.map((item, i) => {
-          const start = formatTime(item.start_timestamp);
-          const end = formatTime(item.end_timestamp);
-          return (
-            <tr key={i}>
-              <td className="sm:pr-5 w-[160px] sm:w-[200px] py-4 sm:py-0">
-                {start} - {end}
-              </td>
-              <td>{item.name.replace("&amp;", "&")}</td>
-            </tr>
-          );
-        })}
+        {schedule &&
+          schedule.map((item, i) => {
+            const start = formatTime(item.start_timestamp);
+            const end = formatTime(item.end_timestamp);
+            return (
+              <tr key={i}>
+                <td className="sm:pr-5 w-[160px] sm:w-[200px] py-4 sm:py-0">
+                  {start} - {end}
+                </td>
+                <td>{item.name.replace("&amp;", "&")}</td>
+              </tr>
+            );
+          })}
       </tbody>
     </table>
   );
 };
 
-export default function SchedulePage() {
-  const data = weekInfo;
+const fetcher = (url: string) =>
+  axios.get<WeeklySchedule>(url).then((res) => res.data);
 
+const ScheduleHead = () => {
+  return (
+    <Head>
+      <title>Schedule - Rádio Quântica</title>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@quanticaonline" />
+      <meta name="twitter:title" content="Rádio Quântica | Schedule" />
+      <meta name="twitter:description" content="Rádio Quântica Schedule" />
+      <meta
+        name="twitter:image"
+        content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
+      />
+
+      <meta property="og:site_name" content="Rádio Quântica"></meta>
+      <meta property="og:title" content="Rádio Quântica Show Calendar"></meta>
+      <meta property="og:type" content="website"></meta>
+      <meta
+        property="og:url"
+        content="https://radioquantica.com/schedule"
+      ></meta>
+      <meta property="og:description" content="Rádio Quântica Upcoming Shows" />
+      <meta
+        property="og:image"
+        content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
+      ></meta>
+      <meta
+        property="og:image:secure_url"
+        content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
+      ></meta>
+      <meta property="og:image:width" content="1200"></meta>
+      <meta property="og:image:height" content="630"></meta>
+      <meta
+        property="og:image:alt"
+        content="Rádio Quântica Social Media Banner"
+      ></meta>
+      <meta property="og:image:type" content="image/jpg"></meta>
+    </Head>
+  );
+};
+export default function SchedulePage() {
   const today = new Date().getDay();
 
   const [day, setDay] = useState<Day>(days[today]);
-  const [schedule, setSchedule] = useState<DaySchedule[]>(data[day]);
-  const onClick = useCallback(
-    (e: any) => {
-      setDay(e.target.value as Day);
-      setSchedule(data[e.target.value as Day]);
-    },
-    [data]
+
+  const onClick = useCallback((e: any) => {
+    setDay(e.target.value as Day);
+  }, []);
+
+  const { data, error, isLoading } = useSWR(
+    "https://azuracast.particle.fm/api/nowplaying/1",
+    fetcher,
+    { refreshInterval: 20000 }
   );
+
+  const schedule = data ? data[day] : [];
 
   return (
     <div className="mx-4 sm:ml-8 text-white">
-      <Head>
-        <title>Schedule - Rádio Quântica</title>
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@quanticaonline" />
-        <meta name="twitter:title" content="Rádio Quântica | Schedule" />
-        <meta name="twitter:description" content="Rádio Quântica Schedule" />
-        <meta
-          name="twitter:image"
-          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-        />
-
-        <meta property="og:site_name" content="Rádio Quântica"></meta>
-        <meta property="og:title" content="Rádio Quântica Show Calendar"></meta>
-        <meta property="og:type" content="website"></meta>
-        <meta
-          property="og:url"
-          content="https://radioquantica.com/schedule"
-        ></meta>
-        <meta
-          property="og:description"
-          content="Rádio Quântica Upcoming Shows"
-        />
-        <meta
-          property="og:image"
-          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-        ></meta>
-        <meta
-          property="og:image:secure_url"
-          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-        ></meta>
-        <meta property="og:image:width" content="1200"></meta>
-        <meta property="og:image:height" content="630"></meta>
-        <meta
-          property="og:image:alt"
-          content="Rádio Quântica Social Media Banner"
-        ></meta>
-        <meta property="og:image:type" content="image/jpg"></meta>
-      </Head>
+      <ScheduleHead></ScheduleHead>
       <div className="sm:flex sm:flex-col sm:items-start sm:w-min hidden">
         <h1 className="text-xl mb-4">SCHEDULE</h1>
         <hr className="w-full"></hr>
@@ -161,7 +180,9 @@ export default function SchedulePage() {
             return (
               <div className="pb-2" key={d}>
                 <p className="underline pb-1 pt-4">{d.toUpperCase()}</p>
-                <DaySchedule schedule={data[d]}></DaySchedule>
+                <DaySchedule
+                  schedule={data ? data[d] : emptySchedule[d]}
+                ></DaySchedule>
               </div>
             );
           })}
