@@ -150,7 +150,7 @@ export default function SchedulePage() {
   }, []);
 
   const { data, error, isLoading } = useSWR(
-    "https://azuracast.particle.fm/api/nowplaying/1",
+    "https://airtime.radioquantica.com/api/week-info",
     fetcher,
     { refreshInterval: 20000 }
   );
