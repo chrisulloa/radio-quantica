@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import axios from "axios";
 import { WeeklySchedule } from "../lib/services/airtime";
 import useSWR from "swr";
+import serverBaseURL from "../lib/utils";
 
 type Day =
   | "sunday"
@@ -149,7 +150,10 @@ export default function SchedulePage() {
     setDay(e.target.value as Day);
   }, []);
 
-  const { data, error, isLoading } = useSWR("/api/weeklySchedule", fetcher);
+  const { data, error, isLoading } = useSWR(
+    `${serverBaseURL}/api/week-info`,
+    fetcher
+  );
 
   const schedule = data ? data[day] : [];
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { buildConfig } from 'payload/config';
 import path from 'path';
 import { GraphQLString } from 'graphql';
@@ -73,6 +74,44 @@ export default buildConfig({
         },
       },
     }),
+  ],
+  endpoints: [
+    {
+      path: '/week-info',
+      method: 'get',
+      handler: async (_req, res) => {
+        const result = await fetch(
+          'https://airtime.radioquantica.com/api/week-info',
+          {
+            headers: {
+              method: 'GET',
+              'Content-Type': 'application/json',
+            },
+          }
+        );
+        const data = (await result.json()) as unknown;
+
+        res.status(200).send(data);
+      },
+    },
+    {
+      path: '/live-info',
+      method: 'get',
+      handler: async (_req, res) => {
+        const result = await fetch(
+          'https://airtime.radioquantica.com/api/live-info',
+          {
+            headers: {
+              method: 'GET',
+              'Content-Type': 'application/json',
+            },
+          }
+        );
+        const data = (await result.json()) as unknown;
+
+        res.status(200).send(data);
+      },
+    },
   ],
   graphQL: {
     queries: (GraphQL, payload) => ({

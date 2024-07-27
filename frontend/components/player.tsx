@@ -5,6 +5,7 @@ import useSWR from "swr";
 import axios from "axios";
 import { NowPlayingResponse } from "../lib/services/azuracast";
 import { getViewportWidth } from "../lib/deviceInfo";
+import serverBaseURL from "../lib/utils";
 
 function VolumeButton({ volume }: { volume: number }) {
   let file;
@@ -171,9 +172,13 @@ const PlayerView = () => {
   const [isPaused, setPause] = useState<boolean>(true);
   const [volume, setVolume] = useState<number>(1);
 
-  const { data, error, isLoading } = useSWR("/api/liveInfo", fetcher, {
-    refreshInterval: 10000,
-  });
+  const { data, error, isLoading } = useSWR(
+    `${serverBaseURL}/api/week-info`,
+    fetcher,
+    {
+      refreshInterval: 10000,
+    }
+  );
 
   let currentShow = "";
 
