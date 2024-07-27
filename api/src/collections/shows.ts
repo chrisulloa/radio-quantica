@@ -20,7 +20,7 @@ const afterCreateHook: CollectionAfterOperationHook<Show> = ({
   result, // the result of the operation, before modifications
 }) => {
   const doc = result as Show;
-  if (operation === 'create') {
+  if (operation === 'create' || operation === 'update') {
     revalidateResource(`/show/${doc.slug}`, true);
     revalidateResource('/shows', true);
   }
