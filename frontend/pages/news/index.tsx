@@ -14,6 +14,7 @@ export async function getStaticProps() {
   const { data } = await client.query({
     query: latestNewsQuery,
     variables: { page: 1, limit: PAGE_SIZE, sort: "-publishDate" },
+    fetchPolicy: "no-cache",
   });
 
   const newsPosts = data.NewsPosts?.docs;
