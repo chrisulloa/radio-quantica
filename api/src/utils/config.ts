@@ -1,6 +1,6 @@
 export const websiteUrl =
   process.env.NODE_ENV !== 'development'
-    ? 'https://radio-quantica.vercel.app/'
+    ? 'https://www.radioquantica.com'
     : 'http://localhost:3001';
 
 export const validCORSURLs =

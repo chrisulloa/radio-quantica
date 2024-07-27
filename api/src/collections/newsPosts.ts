@@ -45,7 +45,7 @@ const afterCreateHook: CollectionAfterOperationHook<NewsPost> = async ({
   req, // full express request
   result, // the result of the operation, before modifications
 }) => {
-  if (operation === 'create') {
+  if (operation === 'create' || operation === 'delete' || operation === 'update') {
     await Promise.all([revalidateResource('/'), revalidateResource('/news')]);
   }
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
