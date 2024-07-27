@@ -7,7 +7,7 @@ import { Show } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
 
 const afterChangeHook: CollectionAfterChangeHook<Show> = ({ doc }) => {
-  revalidateResource(`/show/${doc.slug}`, true);
+  revalidateResource(`/shows/${doc.slug}`, true);
   revalidateResource('/shows', true);
 
   return doc;
@@ -21,7 +21,7 @@ const afterCreateHook: CollectionAfterOperationHook<Show> = ({
 }) => {
   const doc = result as Show;
   if (operation === 'create' || operation === 'update') {
-    revalidateResource(`/show/${doc.slug}`, true);
+    revalidateResource(`/shows/${doc.slug}`, true);
     revalidateResource('/shows', true);
   }
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
