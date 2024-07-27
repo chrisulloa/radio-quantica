@@ -172,7 +172,7 @@ const PlayerView = () => {
   const [volume, setVolume] = useState<number>(1);
 
   const { data, error, isLoading } = useSWR(
-    "https://azuracast.particle.fm/api/nowplaying/1",
+    "https://airtime.radioquantica.com/api/live-info",
     fetcher,
     { refreshInterval: 5000 }
   );
@@ -180,8 +180,7 @@ const PlayerView = () => {
   let currentShow = "";
 
   if (data) {
-    currentShow =
-      data?.live?.streamer_name || data?.now_playing.song.title || "Offline";
+    currentShow = data.current?.name || "Offline";
   }
   if (error) currentShow = "Offline";
 
@@ -237,7 +236,7 @@ const PlayerView = () => {
 
   const player = (
     <Player
-      isLive={!!data?.live.is_live}
+      isLive={false}
       nowPlaying={currentShow}
       isPaused={isPaused}
       volume={volume}
