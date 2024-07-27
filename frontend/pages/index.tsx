@@ -5,11 +5,13 @@ import { NewsCard } from "../components/newsCard";
 import {
   labelReleasesQuery,
   latestNewsQuery,
+  liveVideosQuery,
   merchQuery,
 } from "../lib/gql/documents/queries";
 import client from "../lib/services/graphql";
 import {
   LabelReleasesQuery,
+  LiveVideosQuery,
   MerchQuery,
   NewsPostsQuery,
 } from "../lib/gql/types/graphql";
@@ -43,11 +45,21 @@ export async function getStaticProps() {
     fetchPolicy: "no-cache",
   });
   const labelReleases = labelReleasesData.LabelReleases;
+  const { data: liveVideosData } = await client.query({
+    query: liveVideosQuery,
+    variables: {
+      limit: 2,
+      sort: "-date",
+    },
+    fetchPolicy: "no-cache",
+  });
+  const liveVideos = liveVideosData.LiveVideos;
   return {
     props: {
       newsPosts,
       merch,
       labelReleases,
+      liveVideos,
     },
   };
 }
@@ -175,16 +187,44 @@ const NewsCards = (props: { posts: NewsPostsQuery["NewsPosts"] }) => {
     </React.Fragment>
   );
 };
+const LiveVideos = (props: { liveVideos: LiveVideosQuery["LiveVideos"] }) => {
+  const liveVideos = props.liveVideos;
+  if (!liveVideos || !liveVideos.docs) {
+    return <div></div>;
+  }
+  return (
+    <React.Fragment>
+      {liveVideos.docs.map((doc) => {
+        if (doc && doc.id && doc.url) {
+          return (
+            <iframe
+              key={doc.id}
+              width="100%"
+              className="aspect-video"
+              src={doc.url}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+          );
+        }
+      })}
+    </React.Fragment>
+  );
+};
 
 export default function Home({
   newsPosts,
   merch,
   labelReleases,
+  liveVideos,
 }: {
   categories: string[];
   newsPosts: NewsPostsQuery["NewsPosts"];
   merch: MerchQuery["Merches"];
   labelReleases: LabelReleasesQuery["LabelReleases"];
+  liveVideos: LiveVideosQuery["LiveVideos"];
 }) {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -196,12 +236,28 @@ export default function Home({
       <HomePageHeader></HomePageHeader>
       <div className="w-11/12 lg:w-9/12 2xl:w-7/12 md:ml-8 mx-auto">
         <div className="flex justify-between">
+          <h1 className="text-white">LATEST</h1>
+          <Link
+            href="https://www.youtube.com/channel/UCrJUlunwq20no8FY9oczb_A"
+            target="_blank"
+            className="text-white hover:bg-white hover:text-black font-space-mono"
+          >
+            VIDS ↗
+          </Link>
+        </div>
+        <hr className="mt-4"></hr>
+        <div className="mb-8 justify-center flex mt-5">
+          <div className="gap-5 grid grid-cols-1 xl:grid-cols-2 w-full">
+            <LiveVideos liveVideos={liveVideos}></LiveVideos>
+          </div>
+        </div>
+        <div className="flex justify-between">
           <h1 className="text-white">NEWS</h1>
           <Link
             href="/news"
             className="text-white hover:bg-white hover:text-black font-space-mono"
           >
-            MORE →
+            MORE ↗
           </Link>
         </div>
         <hr className="mt-4"></hr>
@@ -215,11 +271,11 @@ export default function Home({
             target="_blank"
             className="text-white hover:bg-white hover:text-black font-space-mono"
           >
-            MORE →
+            MORE ↗
           </Link>
         </div>
         <hr className="mt-4"></hr>
-        <div className="grid gap-5 w-full mt-5 mb-8 md:grid-cols-3 grid-cols-1">
+        <div className="grid gap-5 w-full mt-5 mb-5 md:grid-cols-3 grid-cols-1">
           {merch && <MerchCards merch={merch} isMobile={isMobile}></MerchCards>}
         </div>
         <div className="flex justify-between">
@@ -229,7 +285,7 @@ export default function Home({
             target="_blank"
             className="text-white hover:bg-white hover:text-black font-space-mono"
           >
-            MORE →
+            MORE ↗
           </Link>
         </div>
         <hr className="mt-4"></hr>

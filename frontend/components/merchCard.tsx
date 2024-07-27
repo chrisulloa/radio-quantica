@@ -27,6 +27,7 @@ export const MerchCard = ({
             src={imageUrl}
             alt={title}
             fill={true}
+            sizes="(max-width: 768px) 60vw, 34vw"
           ></Image>
           {soldOut && (
             <div className="text-red font-space-mono w-full h-full text-sm absolute top-0 bottom-0 flex justify-end">

@@ -248,6 +248,7 @@ export type Access = {
   donatePage?: Maybe<DonatePageAccess>;
   hosts?: Maybe<HostsAccess>;
   labelReleases?: Maybe<LabelReleasesAccess>;
+  liveVideos?: Maybe<LiveVideosAccess>;
   media?: Maybe<MediaAccess>;
   merch?: Maybe<MerchAccess>;
   newsPosts?: Maybe<NewsPostsAccess>;
@@ -2262,6 +2263,474 @@ export type LabelReleasesUpdateAccess = {
 
 export type LabelReleasesUpdateDocAccess = {
   __typename?: 'LabelReleasesUpdateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LiveVideo = {
+  __typename?: 'LiveVideo';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  date?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+  title: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  url: Scalars['String'];
+};
+
+export type LiveVideo_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type LiveVideo_Date_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type LiveVideo_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Title_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type LiveVideo_Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Where = {
+  AND?: InputMaybe<Array<InputMaybe<LiveVideo_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<LiveVideo_Where_Or>>>;
+  createdAt?: InputMaybe<LiveVideo_CreatedAt_Operator>;
+  date?: InputMaybe<LiveVideo_Date_Operator>;
+  id?: InputMaybe<LiveVideo_Id_Operator>;
+  title?: InputMaybe<LiveVideo_Title_Operator>;
+  updatedAt?: InputMaybe<LiveVideo_UpdatedAt_Operator>;
+  url?: InputMaybe<LiveVideo_Url_Operator>;
+};
+
+export type LiveVideo_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<LiveVideo_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<LiveVideo_Where_Or>>>;
+  createdAt?: InputMaybe<LiveVideo_CreatedAt_Operator>;
+  date?: InputMaybe<LiveVideo_Date_Operator>;
+  id?: InputMaybe<LiveVideo_Id_Operator>;
+  title?: InputMaybe<LiveVideo_Title_Operator>;
+  updatedAt?: InputMaybe<LiveVideo_UpdatedAt_Operator>;
+  url?: InputMaybe<LiveVideo_Url_Operator>;
+};
+
+export type LiveVideo_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<LiveVideo_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<LiveVideo_Where_Or>>>;
+  createdAt?: InputMaybe<LiveVideo_CreatedAt_Operator>;
+  date?: InputMaybe<LiveVideo_Date_Operator>;
+  id?: InputMaybe<LiveVideo_Id_Operator>;
+  title?: InputMaybe<LiveVideo_Title_Operator>;
+  updatedAt?: InputMaybe<LiveVideo_UpdatedAt_Operator>;
+  url?: InputMaybe<LiveVideo_Url_Operator>;
+};
+
+export type LiveVideos = {
+  __typename?: 'LiveVideos';
+  docs?: Maybe<Array<Maybe<LiveVideo>>>;
+  hasNextPage?: Maybe<Scalars['Boolean']>;
+  hasPrevPage?: Maybe<Scalars['Boolean']>;
+  limit?: Maybe<Scalars['Int']>;
+  nextPage?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+  pagingCounter?: Maybe<Scalars['Int']>;
+  prevPage?: Maybe<Scalars['Int']>;
+  totalDocs?: Maybe<Scalars['Int']>;
+  totalPages?: Maybe<Scalars['Int']>;
+};
+
+export type LiveVideosCreateAccess = {
+  __typename?: 'LiveVideosCreateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LiveVideosCreateDocAccess = {
+  __typename?: 'LiveVideosCreateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LiveVideosDeleteAccess = {
+  __typename?: 'LiveVideosDeleteAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LiveVideosDeleteDocAccess = {
+  __typename?: 'LiveVideosDeleteDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LiveVideosDocAccessFields = {
+  __typename?: 'LiveVideosDocAccessFields';
+  createdAt?: Maybe<LiveVideosDocAccessFields_CreatedAt>;
+  date?: Maybe<LiveVideosDocAccessFields_Date>;
+  title?: Maybe<LiveVideosDocAccessFields_Title>;
+  updatedAt?: Maybe<LiveVideosDocAccessFields_UpdatedAt>;
+  url?: Maybe<LiveVideosDocAccessFields_Url>;
+};
+
+export type LiveVideosDocAccessFields_CreatedAt = {
+  __typename?: 'LiveVideosDocAccessFields_createdAt';
+  create?: Maybe<LiveVideosDocAccessFields_CreatedAt_Create>;
+  delete?: Maybe<LiveVideosDocAccessFields_CreatedAt_Delete>;
+  read?: Maybe<LiveVideosDocAccessFields_CreatedAt_Read>;
+  update?: Maybe<LiveVideosDocAccessFields_CreatedAt_Update>;
+};
+
+export type LiveVideosDocAccessFields_CreatedAt_Create = {
+  __typename?: 'LiveVideosDocAccessFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_CreatedAt_Delete = {
+  __typename?: 'LiveVideosDocAccessFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_CreatedAt_Read = {
+  __typename?: 'LiveVideosDocAccessFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_CreatedAt_Update = {
+  __typename?: 'LiveVideosDocAccessFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Date = {
+  __typename?: 'LiveVideosDocAccessFields_date';
+  create?: Maybe<LiveVideosDocAccessFields_Date_Create>;
+  delete?: Maybe<LiveVideosDocAccessFields_Date_Delete>;
+  read?: Maybe<LiveVideosDocAccessFields_Date_Read>;
+  update?: Maybe<LiveVideosDocAccessFields_Date_Update>;
+};
+
+export type LiveVideosDocAccessFields_Date_Create = {
+  __typename?: 'LiveVideosDocAccessFields_date_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Date_Delete = {
+  __typename?: 'LiveVideosDocAccessFields_date_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Date_Read = {
+  __typename?: 'LiveVideosDocAccessFields_date_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Date_Update = {
+  __typename?: 'LiveVideosDocAccessFields_date_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Title = {
+  __typename?: 'LiveVideosDocAccessFields_title';
+  create?: Maybe<LiveVideosDocAccessFields_Title_Create>;
+  delete?: Maybe<LiveVideosDocAccessFields_Title_Delete>;
+  read?: Maybe<LiveVideosDocAccessFields_Title_Read>;
+  update?: Maybe<LiveVideosDocAccessFields_Title_Update>;
+};
+
+export type LiveVideosDocAccessFields_Title_Create = {
+  __typename?: 'LiveVideosDocAccessFields_title_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Title_Delete = {
+  __typename?: 'LiveVideosDocAccessFields_title_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Title_Read = {
+  __typename?: 'LiveVideosDocAccessFields_title_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Title_Update = {
+  __typename?: 'LiveVideosDocAccessFields_title_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_UpdatedAt = {
+  __typename?: 'LiveVideosDocAccessFields_updatedAt';
+  create?: Maybe<LiveVideosDocAccessFields_UpdatedAt_Create>;
+  delete?: Maybe<LiveVideosDocAccessFields_UpdatedAt_Delete>;
+  read?: Maybe<LiveVideosDocAccessFields_UpdatedAt_Read>;
+  update?: Maybe<LiveVideosDocAccessFields_UpdatedAt_Update>;
+};
+
+export type LiveVideosDocAccessFields_UpdatedAt_Create = {
+  __typename?: 'LiveVideosDocAccessFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_UpdatedAt_Delete = {
+  __typename?: 'LiveVideosDocAccessFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_UpdatedAt_Read = {
+  __typename?: 'LiveVideosDocAccessFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_UpdatedAt_Update = {
+  __typename?: 'LiveVideosDocAccessFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Url = {
+  __typename?: 'LiveVideosDocAccessFields_url';
+  create?: Maybe<LiveVideosDocAccessFields_Url_Create>;
+  delete?: Maybe<LiveVideosDocAccessFields_Url_Delete>;
+  read?: Maybe<LiveVideosDocAccessFields_Url_Read>;
+  update?: Maybe<LiveVideosDocAccessFields_Url_Update>;
+};
+
+export type LiveVideosDocAccessFields_Url_Create = {
+  __typename?: 'LiveVideosDocAccessFields_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Url_Delete = {
+  __typename?: 'LiveVideosDocAccessFields_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Url_Read = {
+  __typename?: 'LiveVideosDocAccessFields_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Url_Update = {
+  __typename?: 'LiveVideosDocAccessFields_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields = {
+  __typename?: 'LiveVideosFields';
+  createdAt?: Maybe<LiveVideosFields_CreatedAt>;
+  date?: Maybe<LiveVideosFields_Date>;
+  title?: Maybe<LiveVideosFields_Title>;
+  updatedAt?: Maybe<LiveVideosFields_UpdatedAt>;
+  url?: Maybe<LiveVideosFields_Url>;
+};
+
+export type LiveVideosFields_CreatedAt = {
+  __typename?: 'LiveVideosFields_createdAt';
+  create?: Maybe<LiveVideosFields_CreatedAt_Create>;
+  delete?: Maybe<LiveVideosFields_CreatedAt_Delete>;
+  read?: Maybe<LiveVideosFields_CreatedAt_Read>;
+  update?: Maybe<LiveVideosFields_CreatedAt_Update>;
+};
+
+export type LiveVideosFields_CreatedAt_Create = {
+  __typename?: 'LiveVideosFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_CreatedAt_Delete = {
+  __typename?: 'LiveVideosFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_CreatedAt_Read = {
+  __typename?: 'LiveVideosFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_CreatedAt_Update = {
+  __typename?: 'LiveVideosFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Date = {
+  __typename?: 'LiveVideosFields_date';
+  create?: Maybe<LiveVideosFields_Date_Create>;
+  delete?: Maybe<LiveVideosFields_Date_Delete>;
+  read?: Maybe<LiveVideosFields_Date_Read>;
+  update?: Maybe<LiveVideosFields_Date_Update>;
+};
+
+export type LiveVideosFields_Date_Create = {
+  __typename?: 'LiveVideosFields_date_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Date_Delete = {
+  __typename?: 'LiveVideosFields_date_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Date_Read = {
+  __typename?: 'LiveVideosFields_date_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Date_Update = {
+  __typename?: 'LiveVideosFields_date_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Title = {
+  __typename?: 'LiveVideosFields_title';
+  create?: Maybe<LiveVideosFields_Title_Create>;
+  delete?: Maybe<LiveVideosFields_Title_Delete>;
+  read?: Maybe<LiveVideosFields_Title_Read>;
+  update?: Maybe<LiveVideosFields_Title_Update>;
+};
+
+export type LiveVideosFields_Title_Create = {
+  __typename?: 'LiveVideosFields_title_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Title_Delete = {
+  __typename?: 'LiveVideosFields_title_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Title_Read = {
+  __typename?: 'LiveVideosFields_title_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Title_Update = {
+  __typename?: 'LiveVideosFields_title_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_UpdatedAt = {
+  __typename?: 'LiveVideosFields_updatedAt';
+  create?: Maybe<LiveVideosFields_UpdatedAt_Create>;
+  delete?: Maybe<LiveVideosFields_UpdatedAt_Delete>;
+  read?: Maybe<LiveVideosFields_UpdatedAt_Read>;
+  update?: Maybe<LiveVideosFields_UpdatedAt_Update>;
+};
+
+export type LiveVideosFields_UpdatedAt_Create = {
+  __typename?: 'LiveVideosFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_UpdatedAt_Delete = {
+  __typename?: 'LiveVideosFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_UpdatedAt_Read = {
+  __typename?: 'LiveVideosFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_UpdatedAt_Update = {
+  __typename?: 'LiveVideosFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Url = {
+  __typename?: 'LiveVideosFields_url';
+  create?: Maybe<LiveVideosFields_Url_Create>;
+  delete?: Maybe<LiveVideosFields_Url_Delete>;
+  read?: Maybe<LiveVideosFields_Url_Read>;
+  update?: Maybe<LiveVideosFields_Url_Update>;
+};
+
+export type LiveVideosFields_Url_Create = {
+  __typename?: 'LiveVideosFields_url_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Url_Delete = {
+  __typename?: 'LiveVideosFields_url_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Url_Read = {
+  __typename?: 'LiveVideosFields_url_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Url_Update = {
+  __typename?: 'LiveVideosFields_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosReadAccess = {
+  __typename?: 'LiveVideosReadAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LiveVideosReadDocAccess = {
+  __typename?: 'LiveVideosReadDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LiveVideosUpdateAccess = {
+  __typename?: 'LiveVideosUpdateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type LiveVideosUpdateDocAccess = {
+  __typename?: 'LiveVideosUpdateDocAccess';
   permission: Scalars['Boolean'];
   where?: Maybe<Scalars['JSONObject']>;
 };
@@ -7057,6 +7526,7 @@ export type Mutation = {
   createCategory?: Maybe<Category>;
   createHost?: Maybe<Host>;
   createLabelRelease?: Maybe<LabelRelease>;
+  createLiveVideo?: Maybe<LiveVideo>;
   createMedia?: Maybe<Media>;
   createMerch?: Maybe<Merch>;
   createNewsPost?: Maybe<NewsPost>;
@@ -7067,6 +7537,7 @@ export type Mutation = {
   deleteCategory?: Maybe<Category>;
   deleteHost?: Maybe<Host>;
   deleteLabelRelease?: Maybe<LabelRelease>;
+  deleteLiveVideo?: Maybe<LiveVideo>;
   deleteMedia?: Maybe<Media>;
   deleteMerch?: Maybe<Merch>;
   deleteNewsPost?: Maybe<NewsPost>;
@@ -7086,6 +7557,7 @@ export type Mutation = {
   updateDonatePage?: Maybe<DonatePage>;
   updateHost?: Maybe<Host>;
   updateLabelRelease?: Maybe<LabelRelease>;
+  updateLiveVideo?: Maybe<LiveVideo>;
   updateMedia?: Maybe<Media>;
   updateMerch?: Maybe<Merch>;
   updateNewsPost?: Maybe<NewsPost>;
@@ -7111,6 +7583,12 @@ export type MutationCreateHostArgs = {
 
 export type MutationCreateLabelReleaseArgs = {
   data: MutationLabelReleaseInput;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
+export type MutationCreateLiveVideoArgs = {
+  data: MutationLiveVideoInput;
   locale?: InputMaybe<LocaleInputType>;
 };
 
@@ -7169,6 +7647,11 @@ export type MutationDeleteHostArgs = {
 
 
 export type MutationDeleteLabelReleaseArgs = {
+  id: Scalars['String'];
+};
+
+
+export type MutationDeleteLiveVideoArgs = {
   id: Scalars['String'];
 };
 
@@ -7270,6 +7753,14 @@ export type MutationUpdateHostArgs = {
 export type MutationUpdateLabelReleaseArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationLabelReleaseUpdateInput;
+  id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
+export type MutationUpdateLiveVideoArgs = {
+  autosave?: InputMaybe<Scalars['Boolean']>;
+  data: MutationLiveVideoUpdateInput;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
 };
@@ -10200,6 +10691,8 @@ export type Query = {
   Hosts?: Maybe<Hosts>;
   LabelRelease?: Maybe<LabelRelease>;
   LabelReleases?: Maybe<LabelReleases>;
+  LiveVideo?: Maybe<LiveVideo>;
+  LiveVideos?: Maybe<LiveVideos>;
   Media?: Maybe<Media>;
   Merch?: Maybe<Merch>;
   Merches?: Maybe<Merches>;
@@ -10220,6 +10713,7 @@ export type Query = {
   countCategories?: Maybe<CountCategories>;
   countHosts?: Maybe<CountHosts>;
   countLabelReleases?: Maybe<CountLabelReleases>;
+  countLiveVideos?: Maybe<CountLiveVideos>;
   countMerches?: Maybe<CountMerches>;
   countNewsPosts?: Maybe<CountNewsPosts>;
   countPayloadPreferences?: Maybe<CountPayloadPreferences>;
@@ -10232,6 +10726,7 @@ export type Query = {
   docAccessDonatePage?: Maybe<DonatePageDocAccess>;
   docAccessHost?: Maybe<HostsDocAccess>;
   docAccessLabelRelease?: Maybe<LabelReleasesDocAccess>;
+  docAccessLiveVideo?: Maybe<LiveVideosDocAccess>;
   docAccessMedia?: Maybe<MediaDocAccess>;
   docAccessMerch?: Maybe<MerchDocAccess>;
   docAccessNewsPost?: Maybe<NewsPostsDocAccess>;
@@ -10308,6 +10803,23 @@ export type QueryLabelReleasesArgs = {
   page?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<LabelRelease_Where>;
+};
+
+
+export type QueryLiveVideoArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
+export type QueryLiveVideosArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
+  page?: InputMaybe<Scalars['Int']>;
+  sort?: InputMaybe<Scalars['String']>;
+  where?: InputMaybe<LiveVideo_Where>;
 };
 
 
@@ -10466,6 +10978,12 @@ export type QueryCountLabelReleasesArgs = {
 };
 
 
+export type QueryCountLiveVideosArgs = {
+  locale?: InputMaybe<LocaleInputType>;
+  where?: InputMaybe<LiveVideo_Where>;
+};
+
+
 export type QueryCountMerchesArgs = {
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<Merch_Where>;
@@ -10520,6 +11038,11 @@ export type QueryDocAccessHostArgs = {
 
 
 export type QueryDocAccessLabelReleaseArgs = {
+  id: Scalars['String'];
+};
+
+
+export type QueryDocAccessLiveVideoArgs = {
   id: Scalars['String'];
 };
 
@@ -13114,6 +13637,11 @@ export type CountLabelReleases = {
   totalDocs?: Maybe<Scalars['Int']>;
 };
 
+export type CountLiveVideos = {
+  __typename?: 'countLiveVideos';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
 export type CountMerches = {
   __typename?: 'countMerches';
   totalDocs?: Maybe<Scalars['Int']>;
@@ -13197,6 +13725,24 @@ export type LabelReleasesDocAccess = {
   fields?: Maybe<LabelReleasesDocAccessFields>;
   read?: Maybe<LabelReleasesReadDocAccess>;
   update?: Maybe<LabelReleasesUpdateDocAccess>;
+};
+
+export type LiveVideosAccess = {
+  __typename?: 'liveVideosAccess';
+  create?: Maybe<LiveVideosCreateAccess>;
+  delete?: Maybe<LiveVideosDeleteAccess>;
+  fields?: Maybe<LiveVideosFields>;
+  read?: Maybe<LiveVideosReadAccess>;
+  update?: Maybe<LiveVideosUpdateAccess>;
+};
+
+export type LiveVideosDocAccess = {
+  __typename?: 'liveVideosDocAccess';
+  create?: Maybe<LiveVideosCreateDocAccess>;
+  delete?: Maybe<LiveVideosDeleteDocAccess>;
+  fields?: Maybe<LiveVideosDocAccessFields>;
+  read?: Maybe<LiveVideosReadDocAccess>;
+  update?: Maybe<LiveVideosUpdateDocAccess>;
 };
 
 export type MediaAccess = {
@@ -13284,6 +13830,22 @@ export type MutationLabelReleaseUpdateInput = {
   blurb?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['String']>;
   image?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
+};
+
+export type MutationLiveVideoInput = {
+  createdAt?: InputMaybe<Scalars['String']>;
+  date?: InputMaybe<Scalars['String']>;
+  title: Scalars['String'];
+  updatedAt?: InputMaybe<Scalars['String']>;
+  url: Scalars['String'];
+};
+
+export type MutationLiveVideoUpdateInput = {
+  createdAt?: InputMaybe<Scalars['String']>;
+  date?: InputMaybe<Scalars['String']>;
   title?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
   url?: InputMaybe<Scalars['String']>;
@@ -14079,6 +14641,13 @@ export type LabelReleasesQueryVariables = Exact<{
 
 export type LabelReleasesQuery = { __typename?: 'Query', LabelReleases?: { __typename?: 'LabelReleases', docs?: Array<{ __typename?: 'LabelRelease', id?: string | null, blurb: string, title: string, url: string, image?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
 
+export type LiveVideosQueryVariables = Exact<{
+  limit?: InputMaybe<Scalars['Int']>;
+}>;
+
+
+export type LiveVideosQuery = { __typename?: 'Query', LiveVideos?: { __typename?: 'LiveVideos', docs?: Array<{ __typename?: 'LiveVideo', id?: string | null, url: string, date?: any | null } | null> | null } | null };
+
 export type AboutPageQueryQueryVariables = Exact<{
   locale?: InputMaybe<LocaleInputType>;
 }>;
@@ -14109,5 +14678,6 @@ export const TagsDocument = {"kind":"Document","definitions":[{"kind":"Operation
 export const SearchHostsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"SearchHosts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Host_where"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Hosts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<SearchHostsQuery, SearchHostsQueryVariables>;
 export const MerchDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Merch"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Merches"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"soldOut"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<MerchQuery, MerchQueryVariables>;
 export const LabelReleasesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"LabelReleases"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"LabelReleases"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<LabelReleasesQuery, LabelReleasesQueryVariables>;
+export const LiveVideosDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"LiveVideos"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"LiveVideos"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"date"}}]}}]}}]}}]} as unknown as DocumentNode<LiveVideosQuery, LiveVideosQueryVariables>;
 export const AboutPageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AboutPageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"LocaleInputType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AboutPage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<AboutPageQueryQuery, AboutPageQueryQueryVariables>;
 export const DonatePageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"DonatePageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"LocaleInputType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"DonatePage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<DonatePageQueryQuery, DonatePageQueryQueryVariables>;

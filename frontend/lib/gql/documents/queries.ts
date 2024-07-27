@@ -294,6 +294,18 @@ export const labelReleasesQuery = graphql(`
   }
 `);
 
+export const liveVideosQuery = graphql(`
+  query LiveVideos($limit: Int) {
+    LiveVideos(limit: $limit) {
+      docs {
+        id
+        url
+        date
+      }
+    }
+  }
+`);
+
 export const aboutPageInfoQuery = graphql(`
   query AboutPageQuery($locale: LocaleInputType) {
     AboutPage(locale: $locale) {
