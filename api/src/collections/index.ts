@@ -7,6 +7,7 @@ import Media from './media';
 import Tags from './tags';
 import Merch from './merch';
 import LabelReleases from './labelReleases';
+import LiveVideos from './liveVideos';
 
 const Collections = [
   Users,
@@ -18,6 +19,7 @@ const Collections = [
   Tags,
   Merch,
   LabelReleases,
+  LiveVideos,
 ];
 
 export default Collections;

@@ -17,6 +17,7 @@ export interface Config {
     tags: Tag;
     merch: Merch;
     labelReleases: LabelRelease;
+    liveVideos: LiveVideo;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -203,6 +204,18 @@ export interface LabelRelease {
   blurb: string;
   url: string;
   image?: string | Media | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "liveVideos".
+ */
+export interface LiveVideo {
+  id: string;
+  title: string;
+  url: string;
+  date?: string | null;
   updatedAt: string;
   createdAt: string;
 }
