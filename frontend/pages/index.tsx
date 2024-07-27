@@ -247,7 +247,7 @@ export default function Home({
         </div>
         <hr className="mt-4"></hr>
         <div className="mb-8 justify-center flex mt-5">
-          <div className="gap-5 grid grid-cols-1 lg:grid-cols-2 w-full">
+          <div className="gap-5 grid grid-cols-1 lg:grid-cols-2 w-full max-lg:[&>iframe:last-child]:hidden">
             <LiveVideos liveVideos={liveVideos}></LiveVideos>
           </div>
         </div>
