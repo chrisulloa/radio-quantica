@@ -5,7 +5,12 @@ export const websiteUrl =
 
 export const validCORSURLs =
   process.env.NODE_ENV !== 'development'
-    ? ['https://studio.apollographql.com', 'https://*.vercel.app']
+    ? [
+        'https://studio.apollographql.com',
+        'https://*.vercel.app',
+        'https://wwww.radioquantica.com',
+        'https://radioquantica.com',
+      ]
     : ['http://localhost:3001', 'https://studio.apollographql.com'];
 
 export const serverURL =
