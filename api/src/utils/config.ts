@@ -8,7 +8,7 @@ export const validCORSURLs =
     ? [
         'https://studio.apollographql.com',
         'https://*.vercel.app',
-        'https://wwww.radioquantica.com',
+        'https://www.radioquantica.com',
         'https://radioquantica.com',
       ]
     : ['http://localhost:3001', 'https://studio.apollographql.com'];
