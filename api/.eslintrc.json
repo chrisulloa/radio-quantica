@@ -23,6 +23,7 @@
         "no-console": "off",
         "prettier/prettier": "error",
         "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-        "@typescript-eslint/ban-types": ["warn"]
+        "@typescript-eslint/ban-types": "warn",
+        "@typescript-eslint/no-floating-promises": "off"
     }
 }

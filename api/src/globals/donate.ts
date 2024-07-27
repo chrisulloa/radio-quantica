@@ -3,8 +3,8 @@
 import type { GlobalAfterChangeHook, GlobalConfig } from 'payload/types';
 import { revalidateResource } from '../utils/revalidate';
 
-const afterChangeHook: GlobalAfterChangeHook = async ({ doc }) => {
-  await revalidateResource('/donate');
+const afterChangeHook: GlobalAfterChangeHook = ({ doc }) => {
+  revalidateResource('/donate', true);
   return doc;
 };
 

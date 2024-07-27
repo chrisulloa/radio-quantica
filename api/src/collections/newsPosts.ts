@@ -29,14 +29,16 @@ const beforeChangeHook: CollectionBeforeChangeHook<NewsPost> = ({
   return data;
 };
 
-const afterChangeHook: CollectionAfterChangeHook<NewsPost> = async ({
+const afterChangeHook: CollectionAfterChangeHook<NewsPost> = ({
   doc,
   previousDoc,
 }) => {
   if (previousDoc) {
-    await revalidateResource(`/news/${doc.slug}`);
+    revalidateResource(`/news/${doc.slug}`, true);
   }
-  await Promise.all([revalidateResource('/'), revalidateResource('/news')]);
+  revalidateResource('/', true);
+  revalidateResource('/news', true);
+
   return doc;
 };
 

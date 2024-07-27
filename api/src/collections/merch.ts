@@ -2,14 +2,14 @@ import { CollectionAfterOperationHook, CollectionConfig } from 'payload/types';
 import { Merch } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
 
-const afterOperationHook: CollectionAfterOperationHook<Merch> = async ({
+const afterOperationHook: CollectionAfterOperationHook<Merch> = ({
   args, // arguments passed into the operation
   operation, // name of the operation
   req, // full express request
   result, // the result of the operation, before modifications
 }) => {
   if (operation === 'create' || operation === 'update' || operation === 'delete') {
-    await revalidateResource('/');
+    revalidateResource('/', true);
   }
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return result; // return modified result as necessary

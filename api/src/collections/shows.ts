@@ -6,15 +6,14 @@ import {
 import { Show } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
 
-const afterChangeHook: CollectionAfterChangeHook<Show> = async ({ doc }) => {
-  await Promise.all([
-    revalidateResource(`/show/${doc.slug}`),
-    revalidateResource('/shows'),
-  ]);
+const afterChangeHook: CollectionAfterChangeHook<Show> = ({ doc }) => {
+  revalidateResource(`/show/${doc.slug}`, true);
+  revalidateResource('/shows', true);
+
   return doc;
 };
 
-const afterCreateHook: CollectionAfterOperationHook<Show> = async ({
+const afterCreateHook: CollectionAfterOperationHook<Show> = ({
   args, // arguments passed into the operation
   operation, // name of the operation
   req, // full express request
@@ -22,10 +21,8 @@ const afterCreateHook: CollectionAfterOperationHook<Show> = async ({
 }) => {
   const doc = result as Show;
   if (operation === 'create') {
-    await Promise.all([
-      revalidateResource(`/show/${doc.slug}`),
-      revalidateResource('/shows'),
-    ]);
+    revalidateResource(`/show/${doc.slug}`, true);
+    revalidateResource('/shows', true);
   }
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return result; // return modified result as necessary

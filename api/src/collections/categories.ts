@@ -6,18 +6,18 @@ import {
 } from 'payload/types';
 import { revalidateResource } from '../utils/revalidate';
 
-const afterChangeHook: CollectionAfterChangeHook<Category> = async ({
+const afterChangeHook: CollectionAfterChangeHook<Category> = ({
   doc,
   previousDoc,
 }) => {
-  await revalidateResource('/shows');
+  revalidateResource('/shows', true);
   if (!previousDoc) {
-    await revalidateResource(`/categories/${doc.name}`);
+    revalidateResource(`/categories/${doc.name}`, true);
   }
   return doc;
 };
 
-const afterCreateHook: CollectionAfterOperationHook<Category> = async ({
+const afterCreateHook: CollectionAfterOperationHook<Category> = ({
   args, // arguments passed into the operation
   operation, // name of the operation
   req, // full express request
@@ -25,8 +25,8 @@ const afterCreateHook: CollectionAfterOperationHook<Category> = async ({
 }) => {
   const doc = result as Category;
   if (operation === 'create') {
-    await revalidateResource(`/categories/${doc.name}`);
-    await revalidateResource('/shows');
+    revalidateResource(`/categories/${doc.name}`, true);
+    revalidateResource('/shows', true);
   }
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return result; // return modified result as necessary
