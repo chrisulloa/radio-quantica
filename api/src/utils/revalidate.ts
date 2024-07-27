@@ -17,7 +17,7 @@ export const revalidateResource = async (path: string, shouldWait = false) => {
       if (shouldWait) {
         setTimeout(() => {
           console.log('Waiting before revalidating');
-        }, 5000);
+        }, 10000);
       }
       await axios.request(revalidateOptions(path));
     }
