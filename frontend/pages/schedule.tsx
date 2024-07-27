@@ -151,8 +151,7 @@ export default function SchedulePage() {
 
   const { data, error, isLoading } = useSWR(
     "https://airtime.radioquantica.com/api/week-info",
-    fetcher,
-    { refreshInterval: 20000 }
+    fetcher
   );
 
   const schedule = data ? data[day] : [];
