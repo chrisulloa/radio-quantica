@@ -173,7 +173,7 @@ const PlayerView = () => {
   const [volume, setVolume] = useState<number>(1);
 
   const { data, error, isLoading } = useSWR(
-    `${serverBaseURL}/api/week-info`,
+    `${serverBaseURL}/api/live-info`,
     fetcher,
     {
       refreshInterval: 10000,
