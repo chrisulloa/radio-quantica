@@ -1,7 +1,7 @@
 import { CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
-  schema: "https://squid-app-svk3v.ondigitalocean.app/api/graphql",
+  schema: "https://api.radioquantica.com/api/graphql",
   documents: ["lib/**/*.ts", "pages/**/*.tsx", "components/**/*.tsx"],
   generates: {
     "./lib/gql/types/": {
