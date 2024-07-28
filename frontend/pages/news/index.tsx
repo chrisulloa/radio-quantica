@@ -8,7 +8,7 @@ import TagsCard from "../../components/tagsCard";
 import client from "../../lib/services/graphql";
 import { NewsPost } from "../../lib/gql/types/graphql";
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 50;
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -88,13 +88,13 @@ export default function NewsPage({
     return <div className="text-white">Unable to load news...</div>;
   }
   return (
-    <div className="md:ml-8 px-4 md:px-0 w-full md:w-10/12 xl:w-8/12 2xl:w-7/12 mb-5">
+    <div className="md:ml-8 px-4 md:px-0 w-full md:w-10/12 xl:w-8/12 2xl:w-9/12 mb-5">
       <NewsPageHeader></NewsPageHeader>
       <div className="grid sm:grid-cols-6 w-full gap-5 sm:gap-12 sm:pr-4">
         <div className="w-full sm:col-span-4">
           <div className="text-white mb-4">LATEST NEWS</div>
           <hr></hr>
-          <div className="grid grid-cols-1 gap-6 text-white w-full mt-4">
+          <div className="grid xl:grid-cols-2 gap-6 text-white w-full mt-4">
             {newsPosts.map((doc) => {
               if (doc && doc.title && doc.blurb) {
                 return (
