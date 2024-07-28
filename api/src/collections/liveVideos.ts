@@ -92,6 +92,13 @@ const LiveVideos: CollectionConfig = {
           isValidUrl = false;
         }
 
+        if (val.includes('/embed/')) {
+          return 'Please provide a regular YouTube URL, not embed URL. See example in description.';
+        }
+        if (val.includes('/live/')) {
+          return 'Please provide a regular YouTube URL, not live URL. See example in description.';
+        }
+
         return (
           isValidUrl || 'The URL is invalid. Please provide a valid YouTube link.'
         );
