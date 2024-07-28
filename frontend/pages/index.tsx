@@ -20,8 +20,7 @@ import { deviceIsMobile } from "../lib/deviceInfo";
 import { MerchCard } from "../components/merchCard";
 import { LabelReleaseCard } from "../components/labelReleaseCard";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
-import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
-import { formatCompactShowDate, formatShortShowDate } from "../lib/dates";
+import { formatCompactShowDate } from "../lib/dates";
 
 export async function getStaticProps() {
   const { data } = await client.query({

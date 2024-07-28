@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 import { Analytics } from "@vercel/analytics/react";
 import { ApolloProvider } from "@apollo/client";
 import client from "../lib/services/graphql";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { Space_Mono } from "@next/font/google";
 import localFont from "@next/font/local";
