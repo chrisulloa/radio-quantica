@@ -17,7 +17,9 @@ const youtubeImageUrl = (url: string) => {
 const uploadImageHook: CollectionBeforeChangeHook<LiveVideo> = async ({ data }) => {
   try {
     const imageUrl = youtubeImageUrl(data.url);
-    const name = `${data.title}_thumbnail.webp`;
+    const name = `${data.title
+      .replace(/[^a-z0-9]/gi, '_')
+      .toLowerCase()}_thumbnail.webp`;
     const resp = await fetch(imageUrl);
     if (resp.ok && resp.body) {
       const arrayBuffer = await resp.arrayBuffer();
