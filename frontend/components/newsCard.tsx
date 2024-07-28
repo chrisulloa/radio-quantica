@@ -9,7 +9,7 @@ export const NewsCard = ({
   newWindow = false,
   date,
   previewBannerUrl,
-  loading,
+  priority = false,
 }: {
   link: string;
   title: string;
@@ -17,7 +17,7 @@ export const NewsCard = ({
   newWindow?: boolean;
   date?: string;
   previewBannerUrl?: string | null;
-  loading: "eager" | "lazy";
+  priority: boolean;
 }) => {
   return (
     <Link
@@ -37,8 +37,8 @@ export const NewsCard = ({
             src={previewBannerUrl}
             alt={title}
             fill={true}
-            sizes="(max-width: 768px) 95vw, 34vw"
-            loading={loading}
+            sizes="(max-width: 768px) 38vw, 28vw"
+            priority={priority}
           ></Image>
         </div>
       )}

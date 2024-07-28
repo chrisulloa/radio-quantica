@@ -106,7 +106,7 @@ export default function NewsPage({
                     date={doc.publishDate}
                     description={doc.blurb}
                     previewBannerUrl={doc.previewBanner?.url}
-                    loading={index === 0 ? "eager" : "lazy"}
+                    priority={index === 0}
                   ></NewsCard>
                 );
               }

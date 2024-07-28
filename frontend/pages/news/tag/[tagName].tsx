@@ -145,7 +145,7 @@ export default function NewsTagPage({
                   newWindow={false}
                   date={doc.publishDate}
                   description={doc.blurb}
-                  loading={index === 0 ? "eager" : "lazy"}
+                  priority={index === 0}
                 ></NewsCard>
               );
             }

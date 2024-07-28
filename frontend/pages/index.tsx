@@ -182,7 +182,7 @@ const NewsCards = (props: { posts: NewsPostsQuery["NewsPosts"] }) => {
               description={doc.blurb}
               date={doc.publishDate}
               previewBannerUrl={doc.previewBanner?.url}
-              loading={index === 0 ? "eager" : "lazy"}
+              priority={index === 0}
             ></NewsCard>
           );
         }
