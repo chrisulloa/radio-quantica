@@ -19,9 +19,9 @@ import React from "react";
 import { deviceIsMobile } from "../lib/deviceInfo";
 import { MerchCard } from "../components/merchCard";
 import { LabelReleaseCard } from "../components/labelReleaseCard";
-import Image from "next/image";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+import { formatCompactShowDate, formatShortShowDate } from "../lib/dates";
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -197,18 +197,25 @@ const VideoCard = (props: {
     id?: string | null;
     url: string;
     image?: { url?: string | null } | null;
+    date?: string | null;
   };
 }) => {
   const { video } = props;
   const videoId = new URL(video.url).pathname.replace("/embed/", "");
 
   return (
-    <LiteYouTubeEmbed
-      aspectHeight={9}
-      aspectWidth={16}
-      id={videoId}
-      title={video.title}
-    ></LiteYouTubeEmbed>
+    <div>
+      <LiteYouTubeEmbed
+        thumbnail={`${video.image?.url}`}
+        aspectHeight={9}
+        aspectWidth={16}
+        id={videoId}
+        title={video.title}
+      ></LiteYouTubeEmbed>
+      <div className="text-white font-space-mono justify-center w-full flex text-sm mt-2">
+        {formatCompactShowDate(`${video.date}`)} - {video.title}
+      </div>
+    </div>
   );
 };
 
@@ -218,13 +225,13 @@ const LiveVideos = (props: { liveVideos: LiveVideosQuery["LiveVideos"] }) => {
     return <div></div>;
   }
   return (
-    <React.Fragment>
+    <div className="gap-5 grid grid-cols-1 lg:grid-cols-2 w-full max-lg:[&>*:last-child]:hidden">
       {liveVideos.docs.map((doc, index) => {
         if (doc && doc.id && doc.url) {
           return <VideoCard video={doc} key={index}></VideoCard>;
         }
       })}
-    </React.Fragment>
+    </div>
   );
 };
 
@@ -261,9 +268,7 @@ export default function Home({
         </div>
         <hr className="mt-4"></hr>
         <div className="mb-8 justify-center flex mt-5">
-          <div className="gap-5 grid grid-cols-1 lg:grid-cols-2 w-full max-lg:[&>iframe:last-child]:hidden">
-            <LiveVideos liveVideos={liveVideos}></LiveVideos>
-          </div>
+          <LiveVideos liveVideos={liveVideos}></LiveVideos>
         </div>
         <div className="flex justify-between">
           <h1 className="text-white">NEWS</h1>
