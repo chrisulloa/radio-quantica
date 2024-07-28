@@ -171,7 +171,7 @@ const NewsCards = (props: { posts: NewsPostsQuery["NewsPosts"] }) => {
   }
   return (
     <React.Fragment>
-      {posts.docs.map((doc) => {
+      {posts.docs.map((doc, index) => {
         if (doc && doc.title && doc.blurb) {
           return (
             <NewsCard
@@ -182,6 +182,7 @@ const NewsCards = (props: { posts: NewsPostsQuery["NewsPosts"] }) => {
               description={doc.blurb}
               date={doc.publishDate}
               previewBannerUrl={doc.previewBanner?.url}
+              loading={index === 0 ? "eager" : "lazy"}
             ></NewsCard>
           );
         }

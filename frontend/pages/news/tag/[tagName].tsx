@@ -135,7 +135,7 @@ export default function NewsTagPage({
       </div>
       <div className="grid grid-cols-1 gap-6 text-white w-full sm:w-1/2 md:w-4/5">
         {newsPosts &&
-          newsPosts?.map((doc) => {
+          newsPosts?.map((doc, index) => {
             if (doc && doc.title && doc.blurb) {
               return (
                 <NewsCard
@@ -145,6 +145,7 @@ export default function NewsTagPage({
                   newWindow={false}
                   date={doc.publishDate}
                   description={doc.blurb}
+                  loading={index === 0 ? "eager" : "lazy"}
                 ></NewsCard>
               );
             }

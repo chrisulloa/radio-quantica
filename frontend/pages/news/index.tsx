@@ -95,7 +95,7 @@ export default function NewsPage({
           <div className="text-white mb-4">LATEST NEWS</div>
           <hr></hr>
           <div className="grid lg:grid-cols-2 gap-6 text-white w-full mt-4">
-            {newsPosts.map((doc) => {
+            {newsPosts.map((doc, index) => {
               if (doc && doc.title && doc.blurb) {
                 return (
                   <NewsCard
@@ -106,6 +106,7 @@ export default function NewsPage({
                     date={doc.publishDate}
                     description={doc.blurb}
                     previewBannerUrl={doc.previewBanner?.url}
+                    loading={index === 0 ? "eager" : "lazy"}
                   ></NewsCard>
                 );
               }
