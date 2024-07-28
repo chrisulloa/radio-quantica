@@ -295,8 +295,8 @@ export const labelReleasesQuery = graphql(`
 `);
 
 export const liveVideosQuery = graphql(`
-  query LiveVideos($limit: Int) {
-    LiveVideos(limit: $limit) {
+  query LiveVideos($limit: Int, $sort: String) {
+    LiveVideos(limit: $limit, sort: $sort) {
       docs {
         id
         title
