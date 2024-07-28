@@ -20,6 +20,8 @@ import { deviceIsMobile } from "../lib/deviceInfo";
 import { MerchCard } from "../components/merchCard";
 import { LabelReleaseCard } from "../components/labelReleaseCard";
 import Image from "next/image";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -197,42 +199,17 @@ const VideoCard = (props: {
     image?: { url?: string | null } | null;
   };
 }) => {
-  const [showVideo, setShowVideo] = useState(false);
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setShowVideo(true);
-    }, 1000);
-
-    return () => clearTimeout(timeoutId);
-  }, []);
-
   const { video } = props;
-  if (showVideo) {
-    return (
-      <iframe
-        key={video.id}
-        className="w-full h-full aspect-video"
-        src={video.url}
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-        loading={"lazy"}
-      ></iframe>
-    );
-  } else {
-    return (
-      <Image
-        src={`${video.image?.url}`}
-        width={854}
-        height={480}
-        alt={video.title}
-        loading={"eager"}
-        className="aspect-video"
-      ></Image>
-    );
-  }
+  const videoId = new URL(video.url).pathname.replace("/embed/", "");
+
+  return (
+    <LiteYouTubeEmbed
+      aspectHeight={9}
+      aspectWidth={16}
+      id={videoId}
+      title={video.title}
+    ></LiteYouTubeEmbed>
+  );
 };
 
 const LiveVideos = (props: { liveVideos: LiveVideosQuery["LiveVideos"] }) => {
