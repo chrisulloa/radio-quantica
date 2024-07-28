@@ -90,7 +90,7 @@ export default function About(props: AboutPageProps) {
             : Serialize(props.content.portuguese)}
         </div>
       </div>
-      <div className="my-8 mx-4">
+      <div className="my-8">
         <GoBackLink fallback="/"></GoBackLink>
       </div>
     </div>
