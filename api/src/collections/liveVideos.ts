@@ -1,16 +1,59 @@
-import { CollectionAfterOperationHook, CollectionConfig } from 'payload/types';
+import {
+  CollectionAfterOperationHook,
+  CollectionBeforeChangeHook,
+  CollectionConfig,
+} from 'payload/types';
 import { LiveVideo } from 'payload/generated-types';
+import payload from 'payload';
 import { revalidateResource } from '../utils/revalidate';
 
+const youtubeImageUrl = (url: string) => {
+  const val = new URL(url);
+  const { pathname } = val;
+  const videoId = pathname.replace('/embed/', '');
+  return `https://i.ytimg.com/vi_webp/${videoId}/maxresdefault.webp`;
+};
+
+const uploadImageHook: CollectionBeforeChangeHook<LiveVideo> = async ({ data }) => {
+  try {
+    const imageUrl = youtubeImageUrl(data.url);
+    const name = `${data.title}_thumbnail.webp`;
+    const resp = await fetch(imageUrl);
+    if (resp.ok && resp.body) {
+      const arrayBuffer = await resp.arrayBuffer();
+      const uint8Array = new Uint8Array(arrayBuffer);
+      const imageData = Buffer.from(uint8Array);
+      const result = await payload.create({
+        collection: 'media',
+        data: {
+          alt: `${data.title} thumbnail`,
+        },
+        file: {
+          data: imageData,
+          mimetype: 'image/webp',
+          name,
+          size: Buffer.byteLength(arrayBuffer),
+        },
+      });
+      // eslint-disable-next-line no-param-reassign
+      data.image = `${result.id}`;
+      return data;
+    }
+  } catch (e) {
+    console.log('Failed to generate YouTube thumbnail.');
+    console.log(e);
+  }
+  return data;
+};
+
 const afterOperationHook: CollectionAfterOperationHook<LiveVideo> = ({
-  args, // arguments passed into the operation
   operation, // name of the operation
-  req, // full express request
   result, // the result of the operation, before modifications
 }) => {
   if (operation === 'create' || operation === 'update' || operation === 'delete') {
     revalidateResource('/', true);
   }
+
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return result; // return modified result as necessary
 };
@@ -26,6 +69,7 @@ const LiveVideos: CollectionConfig = {
   },
   hooks: {
     afterOperation: [afterOperationHook],
+    beforeChange: [uploadImageHook],
   },
   fields: [
     {
@@ -39,12 +83,33 @@ const LiveVideos: CollectionConfig = {
     {
       name: 'url',
       type: 'text',
+      validate: (val: string) => {
+        let isValidUrl = true;
+        try {
+          const url = new URL(val);
+          isValidUrl = url.pathname.includes('/embed/');
+        } catch (e) {
+          isValidUrl = false;
+        }
+
+        return isValidUrl || 'The URL is invalid.';
+      },
+      admin: {
+        description:
+          'Please provide the embed URL, e.g. https://www.youtube.com/embed/tV1FLGn62jA?si=oY5HkXCgr2nCM5XB',
+      },
       required: true,
     },
     {
       name: 'date',
       type: 'date',
       defaultValue: () => new Date(),
+    },
+    {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+      admin: { readOnly: true },
     },
   ],
 };

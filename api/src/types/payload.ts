@@ -216,6 +216,7 @@ export interface LiveVideo {
   title: string;
   url: string;
   date?: string | null;
+  image?: string | Media | null;
   updatedAt: string;
   createdAt: string;
 }
