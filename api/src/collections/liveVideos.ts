@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import {
   CollectionAfterOperationHook,
   CollectionBeforeChangeHook,
@@ -7,16 +8,16 @@ import { LiveVideo } from 'payload/generated-types';
 import payload from 'payload';
 import { revalidateResource } from '../utils/revalidate';
 
-const youtubeImageUrl = (url: string) => {
-  const val = new URL(url);
-  const { pathname } = val;
-  const videoId = pathname.replace('/embed/', '');
-  return `https://i.ytimg.com/vi_webp/${videoId}/maxresdefault.webp`;
+const youtubeVideoId = (url: string) => {
+  const splitted = url.split('v=');
+  const splittedAgain = splitted[1].split('&');
+  return splittedAgain[0];
 };
 
 const uploadImageHook: CollectionBeforeChangeHook<LiveVideo> = async ({ data }) => {
   try {
-    const imageUrl = youtubeImageUrl(data.url);
+    const videoId = youtubeVideoId(data.url);
+    const imageUrl = `https://i.ytimg.com/vi_webp/${videoId}/maxresdefault.webp`;
     const name = `${data.title
       .replace(/[^a-z0-9]/gi, '_')
       .toLowerCase()}_thumbnail.webp`;
@@ -37,8 +38,8 @@ const uploadImageHook: CollectionBeforeChangeHook<LiveVideo> = async ({ data }) 
           size: Buffer.byteLength(arrayBuffer),
         },
       });
-      // eslint-disable-next-line no-param-reassign
       data.image = `${result.id}`;
+      data.videoId = videoId;
       return data;
     }
   } catch (e) {
@@ -78,9 +79,6 @@ const LiveVideos: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
-      admin: {
-        description: "This isn't displayed currently, just used to display in CMS.",
-      },
     },
     {
       name: 'url',
@@ -89,16 +87,18 @@ const LiveVideos: CollectionConfig = {
         let isValidUrl = true;
         try {
           const url = new URL(val);
-          isValidUrl = url.pathname.includes('/embed/');
+          isValidUrl = url.host.includes('youtube.com');
         } catch (e) {
           isValidUrl = false;
         }
 
-        return isValidUrl || 'The URL is invalid.';
+        return (
+          isValidUrl || 'The URL is invalid. Please provide a valid YouTube link.'
+        );
       },
       admin: {
         description:
-          'Please provide the embed URL, e.g. https://www.youtube.com/embed/tV1FLGn62jA?si=oY5HkXCgr2nCM5XB',
+          'Please provide the full YouTube URL, e.g. https://www.youtube.com/tV1FLGn62jA',
       },
       required: true,
     },
@@ -106,6 +106,11 @@ const LiveVideos: CollectionConfig = {
       name: 'date',
       type: 'date',
       defaultValue: () => new Date(),
+    },
+    {
+      name: 'videoId',
+      type: 'text',
+      admin: { readOnly: true },
     },
     {
       name: 'image',

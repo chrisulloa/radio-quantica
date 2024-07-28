@@ -63,18 +63,18 @@ export default buildConfig({
     defaultLocale: 'en',
     fallback: true,
   },
-  plugins: [
-    cloudStorage({
-      collections: {
-        media: {
-          prefix: 'media',
-          adapter,
-          generateFileURL: (args) =>
-            `${CDNBaseURL}/${args.prefix}/${args.filename}`,
-        },
-      },
-    }),
-  ],
+  // plugins: [
+  //   cloudStorage({
+  //     collections: {
+  //       media: {
+  //         prefix: 'media',
+  //         adapter,
+  //         generateFileURL: (args) =>
+  //           `${CDNBaseURL}/${args.prefix}/${args.filename}`,
+  //       },
+  //     },
+  //   }),
+  // ],
   endpoints: [
     {
       path: '/week-info',
