@@ -302,6 +302,7 @@ export const liveVideosQuery = graphql(`
         title
         url
         date
+        videoId
         image {
           url
         }

@@ -2276,6 +2276,7 @@ export type LiveVideo = {
   title: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
   url: Scalars['String'];
+  videoId?: Maybe<Scalars['String']>;
 };
 
 
@@ -2952,6 +2953,17 @@ export type LiveVideo_Url_Operator = {
   not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
+export type LiveVideo_VideoId_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
 export type LiveVideo_Where = {
   AND?: InputMaybe<Array<InputMaybe<LiveVideo_Where_And>>>;
   OR?: InputMaybe<Array<InputMaybe<LiveVideo_Where_Or>>>;
@@ -2962,6 +2974,7 @@ export type LiveVideo_Where = {
   title?: InputMaybe<LiveVideo_Title_Operator>;
   updatedAt?: InputMaybe<LiveVideo_UpdatedAt_Operator>;
   url?: InputMaybe<LiveVideo_Url_Operator>;
+  videoId?: InputMaybe<LiveVideo_VideoId_Operator>;
 };
 
 export type LiveVideo_Where_And = {
@@ -2974,6 +2987,7 @@ export type LiveVideo_Where_And = {
   title?: InputMaybe<LiveVideo_Title_Operator>;
   updatedAt?: InputMaybe<LiveVideo_UpdatedAt_Operator>;
   url?: InputMaybe<LiveVideo_Url_Operator>;
+  videoId?: InputMaybe<LiveVideo_VideoId_Operator>;
 };
 
 export type LiveVideo_Where_Or = {
@@ -2986,6 +3000,7 @@ export type LiveVideo_Where_Or = {
   title?: InputMaybe<LiveVideo_Title_Operator>;
   updatedAt?: InputMaybe<LiveVideo_UpdatedAt_Operator>;
   url?: InputMaybe<LiveVideo_Url_Operator>;
+  videoId?: InputMaybe<LiveVideo_VideoId_Operator>;
 };
 
 export type LiveVideos = {
@@ -3035,6 +3050,7 @@ export type LiveVideosDocAccessFields = {
   title?: Maybe<LiveVideosDocAccessFields_Title>;
   updatedAt?: Maybe<LiveVideosDocAccessFields_UpdatedAt>;
   url?: Maybe<LiveVideosDocAccessFields_Url>;
+  videoId?: Maybe<LiveVideosDocAccessFields_VideoId>;
 };
 
 export type LiveVideosDocAccessFields_CreatedAt = {
@@ -3205,6 +3221,34 @@ export type LiveVideosDocAccessFields_Url_Update = {
   permission: Scalars['Boolean'];
 };
 
+export type LiveVideosDocAccessFields_VideoId = {
+  __typename?: 'LiveVideosDocAccessFields_videoId';
+  create?: Maybe<LiveVideosDocAccessFields_VideoId_Create>;
+  delete?: Maybe<LiveVideosDocAccessFields_VideoId_Delete>;
+  read?: Maybe<LiveVideosDocAccessFields_VideoId_Read>;
+  update?: Maybe<LiveVideosDocAccessFields_VideoId_Update>;
+};
+
+export type LiveVideosDocAccessFields_VideoId_Create = {
+  __typename?: 'LiveVideosDocAccessFields_videoId_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_VideoId_Delete = {
+  __typename?: 'LiveVideosDocAccessFields_videoId_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_VideoId_Read = {
+  __typename?: 'LiveVideosDocAccessFields_videoId_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_VideoId_Update = {
+  __typename?: 'LiveVideosDocAccessFields_videoId_Update';
+  permission: Scalars['Boolean'];
+};
+
 export type LiveVideosFields = {
   __typename?: 'LiveVideosFields';
   createdAt?: Maybe<LiveVideosFields_CreatedAt>;
@@ -3213,6 +3257,7 @@ export type LiveVideosFields = {
   title?: Maybe<LiveVideosFields_Title>;
   updatedAt?: Maybe<LiveVideosFields_UpdatedAt>;
   url?: Maybe<LiveVideosFields_Url>;
+  videoId?: Maybe<LiveVideosFields_VideoId>;
 };
 
 export type LiveVideosFields_CreatedAt = {
@@ -3380,6 +3425,34 @@ export type LiveVideosFields_Url_Read = {
 
 export type LiveVideosFields_Url_Update = {
   __typename?: 'LiveVideosFields_url_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_VideoId = {
+  __typename?: 'LiveVideosFields_videoId';
+  create?: Maybe<LiveVideosFields_VideoId_Create>;
+  delete?: Maybe<LiveVideosFields_VideoId_Delete>;
+  read?: Maybe<LiveVideosFields_VideoId_Read>;
+  update?: Maybe<LiveVideosFields_VideoId_Update>;
+};
+
+export type LiveVideosFields_VideoId_Create = {
+  __typename?: 'LiveVideosFields_videoId_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_VideoId_Delete = {
+  __typename?: 'LiveVideosFields_videoId_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_VideoId_Read = {
+  __typename?: 'LiveVideosFields_videoId_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_VideoId_Update = {
+  __typename?: 'LiveVideosFields_videoId_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -14514,6 +14587,7 @@ export type MutationLiveVideoInput = {
   title: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['String']>;
   url: Scalars['String'];
+  videoId?: InputMaybe<Scalars['String']>;
 };
 
 export type MutationLiveVideoUpdateInput = {
@@ -14523,6 +14597,7 @@ export type MutationLiveVideoUpdateInput = {
   title?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
   url?: InputMaybe<Scalars['String']>;
+  videoId?: InputMaybe<Scalars['String']>;
 };
 
 export type MutationMediaInput = {
@@ -15321,7 +15396,7 @@ export type LiveVideosQueryVariables = Exact<{
 }>;
 
 
-export type LiveVideosQuery = { __typename?: 'Query', LiveVideos?: { __typename?: 'LiveVideos', docs?: Array<{ __typename?: 'LiveVideo', id?: string | null, title: string, url: string, date?: any | null, image?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
+export type LiveVideosQuery = { __typename?: 'Query', LiveVideos?: { __typename?: 'LiveVideos', docs?: Array<{ __typename?: 'LiveVideo', id?: string | null, title: string, url: string, date?: any | null, videoId?: string | null, image?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
 
 export type AboutPageQueryQueryVariables = Exact<{
   locale?: InputMaybe<LocaleInputType>;
@@ -15353,6 +15428,6 @@ export const TagsDocument = {"kind":"Document","definitions":[{"kind":"Operation
 export const SearchHostsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"SearchHosts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Host_where"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Hosts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<SearchHostsQuery, SearchHostsQueryVariables>;
 export const MerchDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Merch"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Merches"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"soldOut"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<MerchQuery, MerchQueryVariables>;
 export const LabelReleasesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"LabelReleases"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"LabelReleases"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<LabelReleasesQuery, LabelReleasesQueryVariables>;
-export const LiveVideosDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"LiveVideos"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"sort"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"LiveVideos"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}},{"kind":"Argument","name":{"kind":"Name","value":"sort"},"value":{"kind":"Variable","name":{"kind":"Name","value":"sort"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<LiveVideosQuery, LiveVideosQueryVariables>;
+export const LiveVideosDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"LiveVideos"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"sort"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"LiveVideos"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}},{"kind":"Argument","name":{"kind":"Name","value":"sort"},"value":{"kind":"Variable","name":{"kind":"Name","value":"sort"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"videoId"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<LiveVideosQuery, LiveVideosQueryVariables>;
 export const AboutPageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AboutPageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"LocaleInputType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AboutPage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<AboutPageQueryQuery, AboutPageQueryQueryVariables>;
 export const DonatePageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"DonatePageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"LocaleInputType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"DonatePage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<DonatePageQueryQuery, DonatePageQueryQueryVariables>;

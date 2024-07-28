@@ -195,13 +195,12 @@ const VideoCard = (props: {
   video: {
     title: string;
     id?: string | null;
-    url: string;
+    videoId?: string | null;
     image?: { url?: string | null } | null;
     date?: string | null;
   };
 }) => {
   const { video } = props;
-  const videoId = new URL(video.url).pathname.replace("/embed/", "");
 
   return (
     <div>
@@ -209,7 +208,7 @@ const VideoCard = (props: {
         thumbnail={`${video.image?.url}`}
         aspectHeight={9}
         aspectWidth={16}
-        id={videoId}
+        id={`${video.videoId}`}
         title={video.title}
       ></LiteYouTubeEmbed>
       <div className="text-white font-space-mono justify-center w-full flex text-sm mt-2">
