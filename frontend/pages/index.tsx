@@ -19,6 +19,7 @@ import React from "react";
 import { deviceIsMobile } from "../lib/deviceInfo";
 import { MerchCard } from "../components/merchCard";
 import { LabelReleaseCard } from "../components/labelReleaseCard";
+import Image from "next/image";
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -187,6 +188,53 @@ const NewsCards = (props: { posts: NewsPostsQuery["NewsPosts"] }) => {
     </React.Fragment>
   );
 };
+
+const VideoCard = (props: {
+  video: {
+    title: string;
+    id?: string | null;
+    url: string;
+    image?: { url?: string | null } | null;
+  };
+}) => {
+  const [showVideo, setShowVideo] = useState(false);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setShowVideo(true);
+    }, 1000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
+  const { video } = props;
+  if (showVideo) {
+    return (
+      <iframe
+        key={video.id}
+        className="w-full h-full aspect-video"
+        src={video.url}
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        loading={"lazy"}
+      ></iframe>
+    );
+  } else {
+    return (
+      <Image
+        src={`${video.image?.url}`}
+        width={854}
+        height={480}
+        alt={video.title}
+        loading={"eager"}
+        className="aspect-video"
+      ></Image>
+    );
+  }
+};
+
 const LiveVideos = (props: { liveVideos: LiveVideosQuery["LiveVideos"] }) => {
   const liveVideos = props.liveVideos;
   if (!liveVideos || !liveVideos.docs) {
@@ -196,18 +244,7 @@ const LiveVideos = (props: { liveVideos: LiveVideosQuery["LiveVideos"] }) => {
     <React.Fragment>
       {liveVideos.docs.map((doc, index) => {
         if (doc && doc.id && doc.url) {
-          return (
-            <iframe
-              key={doc.id}
-              width="100%"
-              className="aspect-video"
-              src={doc.url}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
-          );
+          return <VideoCard video={doc} key={index}></VideoCard>;
         }
       })}
     </React.Fragment>

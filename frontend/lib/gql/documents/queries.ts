@@ -299,8 +299,12 @@ export const liveVideosQuery = graphql(`
     LiveVideos(limit: $limit) {
       docs {
         id
+        title
         url
         date
+        image {
+          url
+        }
       }
     }
   }

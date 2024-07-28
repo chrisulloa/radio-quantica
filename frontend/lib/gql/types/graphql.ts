@@ -2272,9 +2272,614 @@ export type LiveVideo = {
   createdAt?: Maybe<Scalars['DateTime']>;
   date?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['String']>;
+  image?: Maybe<Media>;
   title: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
   url: Scalars['String'];
+};
+
+
+export type LiveVideoImageArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
+  where?: InputMaybe<LiveVideo_Image_Where>;
+};
+
+export type LiveVideo_Image_Alt_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type LiveVideo_Image_Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_FocalX_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_FocalY_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Prefix_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Lg__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Lg__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Sizes__Lg__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Sizes__Lg__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Lg__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Lg__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Sizes__Opengraph__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Opengraph__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Sizes__Opengraph__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Sizes__Opengraph__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Opengraph__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Opengraph__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Sizes__Sm__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Sm__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Sizes__Sm__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Sizes__Sm__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Sm__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Sm__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Sizes__Xl__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Xl__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Sizes__Xl__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Sizes__Xl__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Xl__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Xl__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Sizes__Xs__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Xs__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Sizes__Xs__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_Sizes__Xs__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Xs__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Sizes__Xs__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type LiveVideo_Image_UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type LiveVideo_Image_Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Where = {
+  AND?: InputMaybe<Array<InputMaybe<LiveVideo_Image_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<LiveVideo_Image_Where_Or>>>;
+  alt?: InputMaybe<LiveVideo_Image_Alt_Operator>;
+  createdAt?: InputMaybe<LiveVideo_Image_CreatedAt_Operator>;
+  filename?: InputMaybe<LiveVideo_Image_Filename_Operator>;
+  filesize?: InputMaybe<LiveVideo_Image_Filesize_Operator>;
+  focalX?: InputMaybe<LiveVideo_Image_FocalX_Operator>;
+  focalY?: InputMaybe<LiveVideo_Image_FocalY_Operator>;
+  height?: InputMaybe<LiveVideo_Image_Height_Operator>;
+  id?: InputMaybe<LiveVideo_Image_Id_Operator>;
+  mimeType?: InputMaybe<LiveVideo_Image_MimeType_Operator>;
+  prefix?: InputMaybe<LiveVideo_Image_Prefix_Operator>;
+  sizes__lg__filename?: InputMaybe<LiveVideo_Image_Sizes__Lg__Filename_Operator>;
+  sizes__lg__filesize?: InputMaybe<LiveVideo_Image_Sizes__Lg__Filesize_Operator>;
+  sizes__lg__height?: InputMaybe<LiveVideo_Image_Sizes__Lg__Height_Operator>;
+  sizes__lg__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Lg__MimeType_Operator>;
+  sizes__lg__url?: InputMaybe<LiveVideo_Image_Sizes__Lg__Url_Operator>;
+  sizes__lg__width?: InputMaybe<LiveVideo_Image_Sizes__Lg__Width_Operator>;
+  sizes__opengraph__filename?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Filename_Operator>;
+  sizes__opengraph__filesize?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Filesize_Operator>;
+  sizes__opengraph__height?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Height_Operator>;
+  sizes__opengraph__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__MimeType_Operator>;
+  sizes__opengraph__url?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Url_Operator>;
+  sizes__opengraph__width?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Width_Operator>;
+  sizes__sm__filename?: InputMaybe<LiveVideo_Image_Sizes__Sm__Filename_Operator>;
+  sizes__sm__filesize?: InputMaybe<LiveVideo_Image_Sizes__Sm__Filesize_Operator>;
+  sizes__sm__height?: InputMaybe<LiveVideo_Image_Sizes__Sm__Height_Operator>;
+  sizes__sm__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Sm__MimeType_Operator>;
+  sizes__sm__url?: InputMaybe<LiveVideo_Image_Sizes__Sm__Url_Operator>;
+  sizes__sm__width?: InputMaybe<LiveVideo_Image_Sizes__Sm__Width_Operator>;
+  sizes__xl__filename?: InputMaybe<LiveVideo_Image_Sizes__Xl__Filename_Operator>;
+  sizes__xl__filesize?: InputMaybe<LiveVideo_Image_Sizes__Xl__Filesize_Operator>;
+  sizes__xl__height?: InputMaybe<LiveVideo_Image_Sizes__Xl__Height_Operator>;
+  sizes__xl__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Xl__MimeType_Operator>;
+  sizes__xl__url?: InputMaybe<LiveVideo_Image_Sizes__Xl__Url_Operator>;
+  sizes__xl__width?: InputMaybe<LiveVideo_Image_Sizes__Xl__Width_Operator>;
+  sizes__xs__filename?: InputMaybe<LiveVideo_Image_Sizes__Xs__Filename_Operator>;
+  sizes__xs__filesize?: InputMaybe<LiveVideo_Image_Sizes__Xs__Filesize_Operator>;
+  sizes__xs__height?: InputMaybe<LiveVideo_Image_Sizes__Xs__Height_Operator>;
+  sizes__xs__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Xs__MimeType_Operator>;
+  sizes__xs__url?: InputMaybe<LiveVideo_Image_Sizes__Xs__Url_Operator>;
+  sizes__xs__width?: InputMaybe<LiveVideo_Image_Sizes__Xs__Width_Operator>;
+  updatedAt?: InputMaybe<LiveVideo_Image_UpdatedAt_Operator>;
+  url?: InputMaybe<LiveVideo_Image_Url_Operator>;
+  width?: InputMaybe<LiveVideo_Image_Width_Operator>;
+};
+
+export type LiveVideo_Image_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<LiveVideo_Image_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<LiveVideo_Image_Where_Or>>>;
+  alt?: InputMaybe<LiveVideo_Image_Alt_Operator>;
+  createdAt?: InputMaybe<LiveVideo_Image_CreatedAt_Operator>;
+  filename?: InputMaybe<LiveVideo_Image_Filename_Operator>;
+  filesize?: InputMaybe<LiveVideo_Image_Filesize_Operator>;
+  focalX?: InputMaybe<LiveVideo_Image_FocalX_Operator>;
+  focalY?: InputMaybe<LiveVideo_Image_FocalY_Operator>;
+  height?: InputMaybe<LiveVideo_Image_Height_Operator>;
+  id?: InputMaybe<LiveVideo_Image_Id_Operator>;
+  mimeType?: InputMaybe<LiveVideo_Image_MimeType_Operator>;
+  prefix?: InputMaybe<LiveVideo_Image_Prefix_Operator>;
+  sizes__lg__filename?: InputMaybe<LiveVideo_Image_Sizes__Lg__Filename_Operator>;
+  sizes__lg__filesize?: InputMaybe<LiveVideo_Image_Sizes__Lg__Filesize_Operator>;
+  sizes__lg__height?: InputMaybe<LiveVideo_Image_Sizes__Lg__Height_Operator>;
+  sizes__lg__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Lg__MimeType_Operator>;
+  sizes__lg__url?: InputMaybe<LiveVideo_Image_Sizes__Lg__Url_Operator>;
+  sizes__lg__width?: InputMaybe<LiveVideo_Image_Sizes__Lg__Width_Operator>;
+  sizes__opengraph__filename?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Filename_Operator>;
+  sizes__opengraph__filesize?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Filesize_Operator>;
+  sizes__opengraph__height?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Height_Operator>;
+  sizes__opengraph__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__MimeType_Operator>;
+  sizes__opengraph__url?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Url_Operator>;
+  sizes__opengraph__width?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Width_Operator>;
+  sizes__sm__filename?: InputMaybe<LiveVideo_Image_Sizes__Sm__Filename_Operator>;
+  sizes__sm__filesize?: InputMaybe<LiveVideo_Image_Sizes__Sm__Filesize_Operator>;
+  sizes__sm__height?: InputMaybe<LiveVideo_Image_Sizes__Sm__Height_Operator>;
+  sizes__sm__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Sm__MimeType_Operator>;
+  sizes__sm__url?: InputMaybe<LiveVideo_Image_Sizes__Sm__Url_Operator>;
+  sizes__sm__width?: InputMaybe<LiveVideo_Image_Sizes__Sm__Width_Operator>;
+  sizes__xl__filename?: InputMaybe<LiveVideo_Image_Sizes__Xl__Filename_Operator>;
+  sizes__xl__filesize?: InputMaybe<LiveVideo_Image_Sizes__Xl__Filesize_Operator>;
+  sizes__xl__height?: InputMaybe<LiveVideo_Image_Sizes__Xl__Height_Operator>;
+  sizes__xl__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Xl__MimeType_Operator>;
+  sizes__xl__url?: InputMaybe<LiveVideo_Image_Sizes__Xl__Url_Operator>;
+  sizes__xl__width?: InputMaybe<LiveVideo_Image_Sizes__Xl__Width_Operator>;
+  sizes__xs__filename?: InputMaybe<LiveVideo_Image_Sizes__Xs__Filename_Operator>;
+  sizes__xs__filesize?: InputMaybe<LiveVideo_Image_Sizes__Xs__Filesize_Operator>;
+  sizes__xs__height?: InputMaybe<LiveVideo_Image_Sizes__Xs__Height_Operator>;
+  sizes__xs__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Xs__MimeType_Operator>;
+  sizes__xs__url?: InputMaybe<LiveVideo_Image_Sizes__Xs__Url_Operator>;
+  sizes__xs__width?: InputMaybe<LiveVideo_Image_Sizes__Xs__Width_Operator>;
+  updatedAt?: InputMaybe<LiveVideo_Image_UpdatedAt_Operator>;
+  url?: InputMaybe<LiveVideo_Image_Url_Operator>;
+  width?: InputMaybe<LiveVideo_Image_Width_Operator>;
+};
+
+export type LiveVideo_Image_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<LiveVideo_Image_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<LiveVideo_Image_Where_Or>>>;
+  alt?: InputMaybe<LiveVideo_Image_Alt_Operator>;
+  createdAt?: InputMaybe<LiveVideo_Image_CreatedAt_Operator>;
+  filename?: InputMaybe<LiveVideo_Image_Filename_Operator>;
+  filesize?: InputMaybe<LiveVideo_Image_Filesize_Operator>;
+  focalX?: InputMaybe<LiveVideo_Image_FocalX_Operator>;
+  focalY?: InputMaybe<LiveVideo_Image_FocalY_Operator>;
+  height?: InputMaybe<LiveVideo_Image_Height_Operator>;
+  id?: InputMaybe<LiveVideo_Image_Id_Operator>;
+  mimeType?: InputMaybe<LiveVideo_Image_MimeType_Operator>;
+  prefix?: InputMaybe<LiveVideo_Image_Prefix_Operator>;
+  sizes__lg__filename?: InputMaybe<LiveVideo_Image_Sizes__Lg__Filename_Operator>;
+  sizes__lg__filesize?: InputMaybe<LiveVideo_Image_Sizes__Lg__Filesize_Operator>;
+  sizes__lg__height?: InputMaybe<LiveVideo_Image_Sizes__Lg__Height_Operator>;
+  sizes__lg__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Lg__MimeType_Operator>;
+  sizes__lg__url?: InputMaybe<LiveVideo_Image_Sizes__Lg__Url_Operator>;
+  sizes__lg__width?: InputMaybe<LiveVideo_Image_Sizes__Lg__Width_Operator>;
+  sizes__opengraph__filename?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Filename_Operator>;
+  sizes__opengraph__filesize?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Filesize_Operator>;
+  sizes__opengraph__height?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Height_Operator>;
+  sizes__opengraph__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__MimeType_Operator>;
+  sizes__opengraph__url?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Url_Operator>;
+  sizes__opengraph__width?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Width_Operator>;
+  sizes__sm__filename?: InputMaybe<LiveVideo_Image_Sizes__Sm__Filename_Operator>;
+  sizes__sm__filesize?: InputMaybe<LiveVideo_Image_Sizes__Sm__Filesize_Operator>;
+  sizes__sm__height?: InputMaybe<LiveVideo_Image_Sizes__Sm__Height_Operator>;
+  sizes__sm__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Sm__MimeType_Operator>;
+  sizes__sm__url?: InputMaybe<LiveVideo_Image_Sizes__Sm__Url_Operator>;
+  sizes__sm__width?: InputMaybe<LiveVideo_Image_Sizes__Sm__Width_Operator>;
+  sizes__xl__filename?: InputMaybe<LiveVideo_Image_Sizes__Xl__Filename_Operator>;
+  sizes__xl__filesize?: InputMaybe<LiveVideo_Image_Sizes__Xl__Filesize_Operator>;
+  sizes__xl__height?: InputMaybe<LiveVideo_Image_Sizes__Xl__Height_Operator>;
+  sizes__xl__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Xl__MimeType_Operator>;
+  sizes__xl__url?: InputMaybe<LiveVideo_Image_Sizes__Xl__Url_Operator>;
+  sizes__xl__width?: InputMaybe<LiveVideo_Image_Sizes__Xl__Width_Operator>;
+  sizes__xs__filename?: InputMaybe<LiveVideo_Image_Sizes__Xs__Filename_Operator>;
+  sizes__xs__filesize?: InputMaybe<LiveVideo_Image_Sizes__Xs__Filesize_Operator>;
+  sizes__xs__height?: InputMaybe<LiveVideo_Image_Sizes__Xs__Height_Operator>;
+  sizes__xs__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Xs__MimeType_Operator>;
+  sizes__xs__url?: InputMaybe<LiveVideo_Image_Sizes__Xs__Url_Operator>;
+  sizes__xs__width?: InputMaybe<LiveVideo_Image_Sizes__Xs__Width_Operator>;
+  updatedAt?: InputMaybe<LiveVideo_Image_UpdatedAt_Operator>;
+  url?: InputMaybe<LiveVideo_Image_Url_Operator>;
+  width?: InputMaybe<LiveVideo_Image_Width_Operator>;
+};
+
+export type LiveVideo_Image_Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
 };
 
 export type LiveVideo_CreatedAt_Operator = {
@@ -2308,6 +2913,12 @@ export type LiveVideo_Id_Operator = {
   like?: InputMaybe<Scalars['String']>;
   not_equals?: InputMaybe<Scalars['String']>;
   not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type LiveVideo_Image_Operator = {
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  not_equals?: InputMaybe<Scalars['String']>;
 };
 
 export type LiveVideo_Title_Operator = {
@@ -2347,6 +2958,7 @@ export type LiveVideo_Where = {
   createdAt?: InputMaybe<LiveVideo_CreatedAt_Operator>;
   date?: InputMaybe<LiveVideo_Date_Operator>;
   id?: InputMaybe<LiveVideo_Id_Operator>;
+  image?: InputMaybe<LiveVideo_Image_Operator>;
   title?: InputMaybe<LiveVideo_Title_Operator>;
   updatedAt?: InputMaybe<LiveVideo_UpdatedAt_Operator>;
   url?: InputMaybe<LiveVideo_Url_Operator>;
@@ -2358,6 +2970,7 @@ export type LiveVideo_Where_And = {
   createdAt?: InputMaybe<LiveVideo_CreatedAt_Operator>;
   date?: InputMaybe<LiveVideo_Date_Operator>;
   id?: InputMaybe<LiveVideo_Id_Operator>;
+  image?: InputMaybe<LiveVideo_Image_Operator>;
   title?: InputMaybe<LiveVideo_Title_Operator>;
   updatedAt?: InputMaybe<LiveVideo_UpdatedAt_Operator>;
   url?: InputMaybe<LiveVideo_Url_Operator>;
@@ -2369,6 +2982,7 @@ export type LiveVideo_Where_Or = {
   createdAt?: InputMaybe<LiveVideo_CreatedAt_Operator>;
   date?: InputMaybe<LiveVideo_Date_Operator>;
   id?: InputMaybe<LiveVideo_Id_Operator>;
+  image?: InputMaybe<LiveVideo_Image_Operator>;
   title?: InputMaybe<LiveVideo_Title_Operator>;
   updatedAt?: InputMaybe<LiveVideo_UpdatedAt_Operator>;
   url?: InputMaybe<LiveVideo_Url_Operator>;
@@ -2417,6 +3031,7 @@ export type LiveVideosDocAccessFields = {
   __typename?: 'LiveVideosDocAccessFields';
   createdAt?: Maybe<LiveVideosDocAccessFields_CreatedAt>;
   date?: Maybe<LiveVideosDocAccessFields_Date>;
+  image?: Maybe<LiveVideosDocAccessFields_Image>;
   title?: Maybe<LiveVideosDocAccessFields_Title>;
   updatedAt?: Maybe<LiveVideosDocAccessFields_UpdatedAt>;
   url?: Maybe<LiveVideosDocAccessFields_Url>;
@@ -2475,6 +3090,34 @@ export type LiveVideosDocAccessFields_Date_Read = {
 
 export type LiveVideosDocAccessFields_Date_Update = {
   __typename?: 'LiveVideosDocAccessFields_date_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Image = {
+  __typename?: 'LiveVideosDocAccessFields_image';
+  create?: Maybe<LiveVideosDocAccessFields_Image_Create>;
+  delete?: Maybe<LiveVideosDocAccessFields_Image_Delete>;
+  read?: Maybe<LiveVideosDocAccessFields_Image_Read>;
+  update?: Maybe<LiveVideosDocAccessFields_Image_Update>;
+};
+
+export type LiveVideosDocAccessFields_Image_Create = {
+  __typename?: 'LiveVideosDocAccessFields_image_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Image_Delete = {
+  __typename?: 'LiveVideosDocAccessFields_image_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Image_Read = {
+  __typename?: 'LiveVideosDocAccessFields_image_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_Image_Update = {
+  __typename?: 'LiveVideosDocAccessFields_image_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -2566,6 +3209,7 @@ export type LiveVideosFields = {
   __typename?: 'LiveVideosFields';
   createdAt?: Maybe<LiveVideosFields_CreatedAt>;
   date?: Maybe<LiveVideosFields_Date>;
+  image?: Maybe<LiveVideosFields_Image>;
   title?: Maybe<LiveVideosFields_Title>;
   updatedAt?: Maybe<LiveVideosFields_UpdatedAt>;
   url?: Maybe<LiveVideosFields_Url>;
@@ -2624,6 +3268,34 @@ export type LiveVideosFields_Date_Read = {
 
 export type LiveVideosFields_Date_Update = {
   __typename?: 'LiveVideosFields_date_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Image = {
+  __typename?: 'LiveVideosFields_image';
+  create?: Maybe<LiveVideosFields_Image_Create>;
+  delete?: Maybe<LiveVideosFields_Image_Delete>;
+  read?: Maybe<LiveVideosFields_Image_Read>;
+  update?: Maybe<LiveVideosFields_Image_Update>;
+};
+
+export type LiveVideosFields_Image_Create = {
+  __typename?: 'LiveVideosFields_image_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Image_Delete = {
+  __typename?: 'LiveVideosFields_image_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Image_Read = {
+  __typename?: 'LiveVideosFields_image_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_Image_Update = {
+  __typename?: 'LiveVideosFields_image_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -13838,6 +14510,7 @@ export type MutationLabelReleaseUpdateInput = {
 export type MutationLiveVideoInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   date?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
   title: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['String']>;
   url: Scalars['String'];
@@ -13846,6 +14519,7 @@ export type MutationLiveVideoInput = {
 export type MutationLiveVideoUpdateInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   date?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
   title?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
   url?: InputMaybe<Scalars['String']>;
@@ -14646,7 +15320,7 @@ export type LiveVideosQueryVariables = Exact<{
 }>;
 
 
-export type LiveVideosQuery = { __typename?: 'Query', LiveVideos?: { __typename?: 'LiveVideos', docs?: Array<{ __typename?: 'LiveVideo', id?: string | null, url: string, date?: any | null } | null> | null } | null };
+export type LiveVideosQuery = { __typename?: 'Query', LiveVideos?: { __typename?: 'LiveVideos', docs?: Array<{ __typename?: 'LiveVideo', id?: string | null, title: string, url: string, date?: any | null, image?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
 
 export type AboutPageQueryQueryVariables = Exact<{
   locale?: InputMaybe<LocaleInputType>;
@@ -14678,6 +15352,6 @@ export const TagsDocument = {"kind":"Document","definitions":[{"kind":"Operation
 export const SearchHostsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"SearchHosts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Host_where"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Hosts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<SearchHostsQuery, SearchHostsQueryVariables>;
 export const MerchDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Merch"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Merches"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"soldOut"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<MerchQuery, MerchQueryVariables>;
 export const LabelReleasesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"LabelReleases"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"LabelReleases"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<LabelReleasesQuery, LabelReleasesQueryVariables>;
-export const LiveVideosDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"LiveVideos"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"LiveVideos"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"date"}}]}}]}}]}}]} as unknown as DocumentNode<LiveVideosQuery, LiveVideosQueryVariables>;
+export const LiveVideosDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"LiveVideos"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"LiveVideos"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<LiveVideosQuery, LiveVideosQueryVariables>;
 export const AboutPageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AboutPageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"LocaleInputType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AboutPage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<AboutPageQueryQuery, AboutPageQueryQueryVariables>;
 export const DonatePageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"DonatePageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"LocaleInputType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"DonatePage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<DonatePageQueryQuery, DonatePageQueryQueryVariables>;

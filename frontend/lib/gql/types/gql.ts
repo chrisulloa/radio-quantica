@@ -28,7 +28,7 @@ const documents = {
     "\n  query SearchHosts($where: Host_where, $limit: Int) {\n    Hosts(where: $where, limit: $limit) {\n      docs {\n        name\n        id\n      }\n    }\n  }\n": types.SearchHostsDocument,
     "\n  query Merch($limit: Int) {\n    Merches(limit: $limit) {\n      docs {\n        id\n        blurb\n        soldOut\n        image {\n          url\n        }\n        title\n        url\n      }\n    }\n  }\n": types.MerchDocument,
     "\n  query LabelReleases($limit: Int) {\n    LabelReleases(limit: $limit) {\n      docs {\n        id\n        blurb\n        image {\n          url\n        }\n        title\n        url\n      }\n    }\n  }\n": types.LabelReleasesDocument,
-    "\n  query LiveVideos($limit: Int) {\n    LiveVideos(limit: $limit) {\n      docs {\n        id\n        url\n        date\n      }\n    }\n  }\n": types.LiveVideosDocument,
+    "\n  query LiveVideos($limit: Int) {\n    LiveVideos(limit: $limit) {\n      docs {\n        id\n        title\n        url\n        date\n        image {\n          url\n        }\n      }\n    }\n  }\n": types.LiveVideosDocument,
     "\n  query AboutPageQuery($locale: LocaleInputType) {\n    AboutPage(locale: $locale) {\n      content\n    }\n  }\n": types.AboutPageQueryDocument,
     "\n  query DonatePageQuery($locale: LocaleInputType) {\n    DonatePage(locale: $locale) {\n      content\n    }\n  }\n": types.DonatePageQueryDocument,
 };
@@ -110,7 +110,7 @@ export function graphql(source: "\n  query LabelReleases($limit: Int) {\n    Lab
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query LiveVideos($limit: Int) {\n    LiveVideos(limit: $limit) {\n      docs {\n        id\n        url\n        date\n      }\n    }\n  }\n"): (typeof documents)["\n  query LiveVideos($limit: Int) {\n    LiveVideos(limit: $limit) {\n      docs {\n        id\n        url\n        date\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  query LiveVideos($limit: Int) {\n    LiveVideos(limit: $limit) {\n      docs {\n        id\n        title\n        url\n        date\n        image {\n          url\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query LiveVideos($limit: Int) {\n    LiveVideos(limit: $limit) {\n      docs {\n        id\n        title\n        url\n        date\n        image {\n          url\n        }\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
