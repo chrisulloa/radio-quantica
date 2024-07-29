@@ -31,7 +31,7 @@ export const NewsCard = ({
         </div>
       </div>
       {previewBannerUrl && (
-        <div className="mt-1 mb-3 overflow-hidden relative h-60 w-full">
+        <div className="mt-1 mb-3 overflow-hidden relative h-60 w-full aspect-[4/3]">
           <Image
             className="object-cover"
             src={previewBannerUrl}
