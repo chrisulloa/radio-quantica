@@ -6,6 +6,7 @@ import axios from "axios";
 import { NowPlayingResponse } from "../lib/services/azuracast";
 import { getViewportWidth } from "../lib/deviceInfo";
 import serverBaseURL from "../lib/utils";
+import { DateTime } from "luxon";
 
 function VolumeButton({ volume }: { volume: number }) {
   let file;
@@ -180,17 +181,26 @@ const PlayerView = () => {
     }
   );
 
-  let currentShow = "";
+  let display = "";
 
   if (data) {
     const show = data.currentShow[0]?.name || data.current?.name;
+    const nextShow = data.nextShow[0];
+    const nextShowName = nextShow.name;
+    const nextShowStartTime = nextShow.start_timestamp;
     if (show) {
-      currentShow = `NOW: ${show}`;
+      display = `NOW: ${show}`;
+    } else if (nextShow && nextShowName && nextShowStartTime) {
+      const nextShowStartTimeFormatted = DateTime.fromFormat(
+        nextShowStartTime,
+        "yyyy-MM-dd HH:mm:ss"
+      ).toFormat("M/d HH:mm");
+      display = `NEXT SHOW: ${nextShowName} ${nextShowStartTimeFormatted}`;
     } else {
-      currentShow = "Offline";
+      display = "Offline";
     }
   }
-  if (error) currentShow = "Offline";
+  if (error) display = "Offline";
 
   const pauseClickHandler = useCallback(
     (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
@@ -239,13 +249,13 @@ const PlayerView = () => {
       setViewportWidth(getViewportWidth())
     );
     const audio = audioRef.current;
-    if (audio) audio.title = `${currentShow} - Rádio Quântica`;
-  }, [audioRef, currentShow]);
+    if (audio) audio.title = `${display} - Rádio Quântica`;
+  }, [audioRef, display]);
 
   const player = (
     <Player
       isLive={false}
-      nowPlaying={currentShow}
+      nowPlaying={display}
       isPaused={isPaused}
       volume={volume}
       viewportWidth={viewportWidth}
