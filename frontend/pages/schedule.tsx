@@ -142,9 +142,7 @@ const ScheduleHead = () => {
   );
 };
 export default function SchedulePage() {
-  const today = new Date().getDay();
-
-  const [day, setDay] = useState<Day>(days[today]);
+  const [day, setDay] = useState<Day>(days[new Date().getDay()]);
 
   const onClick = useCallback((e: any) => {
     setDay(e.target.value as Day);
@@ -155,8 +153,6 @@ export default function SchedulePage() {
     fetcher
   );
 
-  console.log(day);
-  console.log(data);
   const schedule = data ? data[day] : emptySchedule[day];
 
   return (
