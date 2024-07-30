@@ -155,7 +155,9 @@ export default function SchedulePage() {
     fetcher
   );
 
-  const schedule = data ? data[day] : [];
+  console.log(day);
+  console.log(data);
+  const schedule = data ? data[day] : emptySchedule[day];
 
   return (
     <div className="mx-4 sm:ml-8 text-white">
@@ -180,9 +182,7 @@ export default function SchedulePage() {
             return (
               <div className="pb-2" key={d}>
                 <p className="underline pb-1 pt-4">{d.toUpperCase()}</p>
-                <DaySchedule
-                  schedule={data ? data[d] : emptySchedule[d]}
-                ></DaySchedule>
+                <DaySchedule schedule={schedule}></DaySchedule>
               </div>
             );
           })}
