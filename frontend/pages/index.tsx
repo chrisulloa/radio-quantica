@@ -224,7 +224,11 @@ const LiveVideos = (props: { liveVideos: LiveVideosQuery["LiveVideos"] }) => {
     return <div></div>;
   }
   return (
-    <div className="gap-5 grid grid-cols-1 lg:grid-cols-2 w-full max-lg:[&>*:last-child]:hidden">
+    <div
+      className={`gap-5 grid grid-cols-1 lg:grid-cols-2 w-full ${
+        liveVideos.docs?.length > 1 ? "max-lg:[&>*:last-child]:hidden" : ""
+      }`}
+    >
       {liveVideos.docs.map((doc, index) => {
         if (doc && doc.id && doc.url) {
           return <VideoCard video={doc} key={index}></VideoCard>;
