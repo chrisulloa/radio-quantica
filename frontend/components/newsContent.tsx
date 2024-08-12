@@ -9,7 +9,7 @@ export default function NewsContent({ content }: { content: RichTextNode[] }) {
   return (
     <div
       id={styles.showContent}
-      className="text-dos-grey px-5 py-3 whitespace-pre-wrap font-space-mono leading-8"
+      className="text-dos-grey px-5 py-3 whitespace-pre-wrap font-space-mono leading-8 break-words"
     >
       {Serialize(content)}
     </div>
