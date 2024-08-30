@@ -181,26 +181,28 @@ const PlayerView = () => {
     }
   );
 
-  let display = "";
+  const [display, setDisplay] = useState<string>("");
 
-  if (data) {
-    const show = data.currentShow[0]?.name || data.current?.name;
-    const nextShow = data.nextShow[0];
-    const nextShowName = nextShow.name;
-    const nextShowStartTime = nextShow.start_timestamp;
-    if (show) {
-      display = `NOW: ${show}`;
-    } else if (nextShow && nextShowName && nextShowStartTime) {
-      const nextShowStartTimeFormatted = DateTime.fromFormat(
-        nextShowStartTime,
-        "yyyy-MM-dd HH:mm:ss"
-      ).toFormat("M/d HH:mm");
-      display = `NEXT SHOW: ${nextShowName} ${nextShowStartTimeFormatted}`;
-    } else {
-      display = "Offline";
+  useEffect(() => {
+    if (data) {
+      const show = data.currentShow[0]?.name || data.current?.name;
+      const nextShow = data.nextShow[0];
+      const nextShowName = nextShow.name;
+      const nextShowStartTime = nextShow.start_timestamp;
+      if (show) {
+        setDisplay(`NOW: ${show}`);
+      } else if (nextShow && nextShowName && nextShowStartTime) {
+        const nextShowStartTimeFormatted = DateTime.fromFormat(
+          nextShowStartTime,
+          "yyyy-MM-dd HH:mm:ss"
+        ).toFormat("M/d HH:mm");
+        setDisplay(`NEXT SHOW: ${nextShowName} ${nextShowStartTimeFormatted}`);
+      } else {
+        setDisplay("Offline");
+      }
     }
-  }
-  if (error) display = "Offline";
+    if (error) setDisplay("Offline");
+  }, [data, error]);
 
   const pauseClickHandler = useCallback(
     (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
