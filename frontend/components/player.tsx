@@ -62,7 +62,7 @@ function CurrentShow({
 }) {
   const showElement =
     viewportWidth && viewportWidth < 420 ? (
-      <div className="flex justify-between">
+      <div className="flex justify-between overflow-hidden w-fit">
         <div>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</div>
         <div>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</div>
       </div>
