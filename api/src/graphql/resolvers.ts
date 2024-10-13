@@ -82,7 +82,7 @@ export const youtubeChannelResolver = async (_obj, _args, _context) => {
   console.log(response.status);
   const text = response.data as string;
   const html = parse(text);
-  console.log(html);
+  console.log(text);
   const canonicalURLTag = html.querySelector('link[rel=canonical]');
   const canonicalURL = canonicalURLTag.getAttribute('href');
   const referralLink = canonicalURL.includes('/watch?v=');
