@@ -7,6 +7,7 @@ import {
   latestNewsQuery,
   liveVideosQuery,
   merchQuery,
+  youtubeChannelQuery,
 } from "../lib/gql/documents/queries";
 import client from "../lib/services/graphql";
 import {
@@ -21,6 +22,7 @@ import { MerchCard } from "../components/merchCard";
 import { LabelReleaseCard } from "../components/labelReleaseCard";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import { formatCompactShowDate } from "../lib/dates";
+import { useQuery } from "@apollo/client";
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -218,6 +220,27 @@ const VideoCard = (props: {
   );
 };
 
+const youtubeVideoId = (url: string) => {
+  const splitted = url.split("v=");
+  const splittedAgain = splitted[1].split("&");
+  return splittedAgain[0];
+};
+
+const LiveVideoCard = (props: { videoId: string; imageUrl: string }) => {
+  const { videoId, imageUrl } = props;
+  return (
+    <div className="w-full">
+      <LiteYouTubeEmbed
+        thumbnail={`${imageUrl}`}
+        aspectHeight={9}
+        aspectWidth={16}
+        id={`${videoId}`}
+        title={"Live now!"}
+      ></LiteYouTubeEmbed>
+    </div>
+  );
+};
+
 const LiveVideos = (props: { liveVideos: LiveVideosQuery["LiveVideos"] }) => {
   const liveVideos = props.liveVideos;
   if (!liveVideos || !liveVideos.docs) {
@@ -251,16 +274,30 @@ export default function Home({
   liveVideos: LiveVideosQuery["LiveVideos"];
 }) {
   const [isMobile, setIsMobile] = useState(false);
+  const [isLiveVideoStream, setIsLiveVideoStream] = useState(false);
+  const { data, loading } = useQuery(youtubeChannelQuery);
+
   useEffect(() => {
+    if (!loading && data) {
+      setIsLiveVideoStream(true);
+    }
     setIsMobile(deviceIsMobile());
-  }, []);
+  }, [data, loading]);
 
   return (
     <div>
       <HomePageHeader></HomePageHeader>
       <div className="w-11/12 lg:w-9/12 2xl:w-7/12 md:ml-8 mx-auto">
         <div className="flex justify-between">
-          <h1 className="text-white">LATEST</h1>
+          {isLiveVideoStream && (
+            <div className="flex">
+              <svg className="animate-pulse mr-3" height="20" width="20">
+                <circle cx="50%" cy="50%" r="6" fill="red" />
+              </svg>
+              <h1 className="text-white">LIVE NOW</h1>
+            </div>
+          )}
+          {!isLiveVideoStream && <h1 className="text-white">LATEST</h1>}
           <Link
             href="https://www.youtube.com/channel/UCrJUlunwq20no8FY9oczb_A"
             target="_blank"
@@ -271,7 +308,17 @@ export default function Home({
         </div>
         <hr className="mt-4"></hr>
         <div className="mb-8 justify-center flex mt-5">
-          <LiveVideos liveVideos={liveVideos}></LiveVideos>
+          {isLiveVideoStream &&
+            data?.YoutubeChannel?.videoId &&
+            data.YoutubeChannel?.imageUrl && (
+              <LiveVideoCard
+                videoId={data.YoutubeChannel.videoId}
+                imageUrl={data.YoutubeChannel.imageUrl}
+              />
+            )}
+          {!isLiveVideoStream && (
+            <LiveVideos liveVideos={liveVideos}></LiveVideos>
+          )}
         </div>
         <div className="flex justify-between">
           <h1 className="text-white">NEWS</h1>
