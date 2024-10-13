@@ -79,6 +79,7 @@ export const youtubeChannelResolver = async (_obj, _args, _context) => {
     `https://youtube.com/channel/${channelId}/live`,
     { responseType: 'document' }
   );
+  console.log(response.status);
   const text = response.data as string;
   const html = parse(text);
   const canonicalURLTag = html.querySelector('link[rel=canonical]');
@@ -86,6 +87,7 @@ export const youtubeChannelResolver = async (_obj, _args, _context) => {
   const referralLink = canonicalURL.includes('/watch?v=');
   if (referralLink) {
     const livePage = await axios.get(canonicalURL, { responseType: 'document' });
+    console.log(livePage.status);
     const scheduledText = (livePage.data as string).match('Scheduled for');
     if (!scheduledText) {
       isLive = true;
