@@ -7,7 +7,7 @@ import {
   latestNewsQuery,
   liveVideosQuery,
   merchQuery,
-  youtubeChannelQuery,
+  // youtubeChannelQuery,
 } from "../lib/gql/documents/queries";
 import client from "../lib/services/graphql";
 import {
@@ -22,7 +22,7 @@ import { MerchCard } from "../components/merchCard";
 import { LabelReleaseCard } from "../components/labelReleaseCard";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import { formatCompactShowDate } from "../lib/dates";
-import { useQuery } from "@apollo/client";
+// import { useQuery } from "@apollo/client";
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -275,17 +275,17 @@ export default function Home({
 }) {
   const [isMobile, setIsMobile] = useState(false);
   const [isLiveVideoStream, setIsLiveVideoStream] = useState(false);
-  const { data, loading } = useQuery(youtubeChannelQuery, {
-    pollInterval: 5000,
-    fetchPolicy: "no-cache",
-  });
+  // const { data, loading } = useQuery(youtubeChannelQuery, {
+  //   pollInterval: 5000,
+  //   fetchPolicy: "no-cache",
+  // });
 
   useEffect(() => {
-    if (!loading && data && data.YoutubeChannel?.isLive) {
-      setIsLiveVideoStream(data.YoutubeChannel.isLive);
-    }
+    // if (!loading && data && data.YoutubeChannel?.isLive) {
+    //   setIsLiveVideoStream(data.YoutubeChannel.isLive);
+    // }
     setIsMobile(deviceIsMobile());
-  }, [data, loading]);
+  }, []);
 
   return (
     <div>
@@ -311,14 +311,14 @@ export default function Home({
         </div>
         <hr className="mt-4"></hr>
         <div className="mb-8 justify-center flex mt-5">
-          {isLiveVideoStream &&
+          {/* {isLiveVideoStream &&
             data?.YoutubeChannel?.videoId &&
             data.YoutubeChannel?.imageUrl && (
               <LiveVideoCard
                 videoId={data.YoutubeChannel.videoId}
                 imageUrl={data.YoutubeChannel.imageUrl}
               />
-            )}
+            )} */}
           {!isLiveVideoStream && (
             <LiveVideos liveVideos={liveVideos}></LiveVideos>
           )}
