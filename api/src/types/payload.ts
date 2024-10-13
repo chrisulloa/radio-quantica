@@ -94,7 +94,6 @@ export interface Category {
 export interface Media {
   id: string;
   alt?: string | null;
-  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
