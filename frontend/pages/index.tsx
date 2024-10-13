@@ -275,7 +275,9 @@ export default function Home({
 }) {
   const [isMobile, setIsMobile] = useState(false);
   const [isLiveVideoStream, setIsLiveVideoStream] = useState(false);
-  const { data, loading } = useQuery(youtubeChannelQuery);
+  const { data, loading } = useQuery(youtubeChannelQuery, {
+    pollInterval: 5000,
+  });
 
   useEffect(() => {
     if (!loading && data && data.YoutubeChannel?.isLive) {
