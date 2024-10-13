@@ -326,15 +326,3 @@ export const donatePageInfoQuery = graphql(`
     }
   }
 `);
-
-export const youtubeChannelQuery = graphql(`
-  query YoutubeChannelQuery {
-    YoutubeChannel {
-      isLive
-      channelId
-      url
-      videoId
-      imageUrl
-    }
-  }
-`);

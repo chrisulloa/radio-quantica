@@ -31,7 +31,6 @@ const documents = {
     "\n  query LiveVideos($limit: Int, $sort: String) {\n    LiveVideos(limit: $limit, sort: $sort) {\n      docs {\n        id\n        title\n        url\n        date\n        videoId\n        image {\n          url\n        }\n      }\n    }\n  }\n": types.LiveVideosDocument,
     "\n  query AboutPageQuery($locale: LocaleInputType) {\n    AboutPage(locale: $locale) {\n      content\n    }\n  }\n": types.AboutPageQueryDocument,
     "\n  query DonatePageQuery($locale: LocaleInputType) {\n    DonatePage(locale: $locale) {\n      content\n    }\n  }\n": types.DonatePageQueryDocument,
-    "\n  query YoutubeChannelQuery {\n    YoutubeChannel {\n      isLive\n      channelId\n      url\n      videoId\n      imageUrl\n    }\n  }\n": types.YoutubeChannelQueryDocument,
 };
 
 /**
@@ -120,10 +119,6 @@ export function graphql(source: "\n  query AboutPageQuery($locale: LocaleInputTy
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query DonatePageQuery($locale: LocaleInputType) {\n    DonatePage(locale: $locale) {\n      content\n    }\n  }\n"): (typeof documents)["\n  query DonatePageQuery($locale: LocaleInputType) {\n    DonatePage(locale: $locale) {\n      content\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  query YoutubeChannelQuery {\n    YoutubeChannel {\n      isLive\n      channelId\n      url\n      videoId\n      imageUrl\n    }\n  }\n"): (typeof documents)["\n  query YoutubeChannelQuery {\n    YoutubeChannel {\n      isLive\n      channelId\n      url\n      videoId\n      imageUrl\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
