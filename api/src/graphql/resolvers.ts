@@ -1,4 +1,7 @@
+import axios from 'axios';
 import { Payload } from 'payload';
+import { parse } from 'node-html-parser';
+import { youtubeImageUrl, youtubeVideoId } from '../utils/youtube';
 
 export const showsByCategoryResolver = async (
   obj,
@@ -67,4 +70,40 @@ export const newsPostBySlugResolver = async (
   if (!docs || docs.length === 0) return null;
 
   return docs[0];
+};
+
+export const youtubeChannelResolver = async (_obj, _args, _context) => {
+  let isLive = false;
+  const channelId = 'UCrJUlunwq20no8FY9oczb_A';
+  const response = await axios.get(
+    `https://youtube.com/channel/${channelId}/live`,
+    { responseType: 'document' }
+  );
+  const text = response.data as string;
+  const html = parse(text);
+  const canonicalURLTag = html.querySelector('link[rel=canonical]');
+  const canonicalURL = canonicalURLTag.getAttribute('href');
+  const referralLink = canonicalURL.includes('/watch?v=');
+  if (referralLink) {
+    const livePage = await axios.get(canonicalURL, { responseType: 'document' });
+    const scheduledText = (livePage.data as string).match('Scheduled for');
+    if (!scheduledText) {
+      isLive = true;
+    }
+  }
+  if (isLive) {
+    const videoId = youtubeVideoId(canonicalURL);
+    const imageUrl = youtubeImageUrl(videoId);
+    return {
+      isLive: true,
+      channelId,
+      url: canonicalURL,
+      imageUrl,
+      videoId,
+    };
+  }
+  return {
+    isLive,
+    channelId,
+  };
 };
