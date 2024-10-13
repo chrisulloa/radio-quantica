@@ -277,6 +277,7 @@ export default function Home({
   const [isLiveVideoStream, setIsLiveVideoStream] = useState(false);
   const { data, loading } = useQuery(youtubeChannelQuery, {
     pollInterval: 5000,
+    fetchPolicy: "no-cache",
   });
 
   useEffect(() => {
