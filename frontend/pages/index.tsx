@@ -278,8 +278,8 @@ export default function Home({
   const { data, loading } = useQuery(youtubeChannelQuery);
 
   useEffect(() => {
-    if (!loading && data) {
-      setIsLiveVideoStream(true);
+    if (!loading && data && data.YoutubeChannel?.isLive) {
+      setIsLiveVideoStream(data.YoutubeChannel.isLive);
     }
     setIsMobile(deviceIsMobile());
   }, [data, loading]);
