@@ -13,6 +13,7 @@ import {
   showsByCategoryResolver,
   showBySlugResolver,
   newsPostBySlugResolver,
+  youtubeChannelResolver,
 } from './graphql/resolvers';
 import {
   spacesURL,
@@ -135,6 +136,21 @@ export default buildConfig({
           },
         },
         resolve: showBySlugResolver,
+      },
+      YoutubeChannel: {
+        type: new GraphQL.GraphQLObjectType({
+          name: 'YoutubeChannel',
+          fields: {
+            isLive: { type: GraphQL.GraphQLBoolean },
+            channelId: { type: GraphQL.GraphQLString },
+            url: { type: GraphQL.GraphQLString },
+            imageUrl: { type: GraphQL.GraphQLString },
+            videoId: {
+              type: GraphQL.GraphQLString,
+            },
+          },
+        }),
+        resolve: youtubeChannelResolver,
       },
       ShowsByCategory: {
         type: buildPaginatedListType(

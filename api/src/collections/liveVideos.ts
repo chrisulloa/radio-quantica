@@ -7,17 +7,12 @@ import {
 import { LiveVideo } from 'payload/generated-types';
 import payload from 'payload';
 import { revalidateResource } from '../utils/revalidate';
-
-const youtubeVideoId = (url: string) => {
-  const splitted = url.split('v=');
-  const splittedAgain = splitted[1].split('&');
-  return splittedAgain[0];
-};
+import { youtubeImageUrl, youtubeVideoId } from '../utils/youtube';
 
 const uploadImageHook: CollectionBeforeChangeHook<LiveVideo> = async ({ data }) => {
   try {
     const videoId = youtubeVideoId(data.url);
-    const imageUrl = `https://i.ytimg.com/vi_webp/${videoId}/maxresdefault.webp`;
+    const imageUrl = youtubeImageUrl(videoId);
     const name = `${data.title
       .replace(/[^a-z0-9]/gi, '_')
       .toLowerCase()}_thumbnail.webp`;
