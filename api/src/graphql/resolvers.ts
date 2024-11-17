@@ -75,9 +75,9 @@ export const newsPostBySlugResolver = async (
 
 export const youtubeChannelResolver = async (_obj, _args, _context) => {
   let isLive = false;
-  const channelId = 'UCO6K_kkdP-lnSCiO3tPx7WA'; // 'UCrJUlunwq20no8FY9oczb_A';
+  const channelId = 'UCrJUlunwq20no8FY9oczb_A';
   const response = await axios.get(
-    `https://youtube.com/channel/UCO6K_kkdP-lnSCiO3tPx7WA/live`,
+    `https://youtube.com/channel/${channelId}/live`,
     {
       responseType: 'document',
       headers: {
