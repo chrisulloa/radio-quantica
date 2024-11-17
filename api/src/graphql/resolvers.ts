@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Payload } from 'payload';
 import { parse } from 'node-html-parser';
+import { randomInt } from 'crypto';
 import { youtubeImageUrl, youtubeVideoId } from '../utils/youtube';
 
 export const showsByCategoryResolver = async (
@@ -82,6 +83,7 @@ export const youtubeChannelResolver = async (_obj, _args, _context) => {
       headers: {
         'User-Agent':
           'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Mobile Safari/537.36',
+        Cookie: `CONSENT=YES+cb.20210420-15-p1.en-GB+FX+${randomInt(100, 999)}`,
       },
     }
   );
