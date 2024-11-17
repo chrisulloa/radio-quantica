@@ -275,8 +275,12 @@ export default function Home({
   });
 
   useEffect(() => {
-    if (!loading && data && data.YoutubeChannel?.isLive) {
-      setIsLiveVideoStream(data.YoutubeChannel.isLive);
+    if (!loading && data) {
+      if (data.YoutubeChannel?.isLive === true) {
+        setIsLiveVideoStream(true);
+      } else {
+        setIsLiveVideoStream(false);
+      }
     }
     setIsMobile(deviceIsMobile());
   }, [data, loading]);
