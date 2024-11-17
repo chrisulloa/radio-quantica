@@ -7,3 +7,6 @@ export const youtubeVideoId = (url: string) => {
 
 export const youtubeImageUrl = (videoId: string) =>
   `https://i.ytimg.com/vi_webp/${videoId}/maxresdefault.webp`;
+
+export const youtubeLiveImageUrl = (videoId: string) =>
+  `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;

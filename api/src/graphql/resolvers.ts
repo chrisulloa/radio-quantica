@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Payload } from 'payload';
 import { parse } from 'node-html-parser';
 import { randomInt } from 'crypto';
-import { youtubeImageUrl, youtubeVideoId } from '../utils/youtube';
+import { youtubeLiveImageUrl } from '../utils/youtube';
 
 export const showsByCategoryResolver = async (
   obj,
@@ -75,12 +75,15 @@ export const newsPostBySlugResolver = async (
 
 export const youtubeChannelResolver = async (_obj, _args, _context) => {
   let isLive = false;
-  const channelId = 'UCrJUlunwq20no8FY9oczb_A';
+  const channelId = 'UCO6K_kkdP-lnSCiO3tPx7WA'; // 'UCrJUlunwq20no8FY9oczb_A';
   const response = await axios.get(
-    `https://youtube.com/channel/${channelId}/live`,
+    `https://youtube.com/channel/UCO6K_kkdP-lnSCiO3tPx7WA/live`,
     {
       responseType: 'document',
       headers: {
+        accept:
+          'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'cache-control': 'no-cache',
         'User-Agent':
           'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Mobile Safari/537.36',
         Cookie: `CONSENT=YES+cb.20210420-15-p1.en-GB+FX+${randomInt(100, 999)}`,
@@ -91,7 +94,8 @@ export const youtubeChannelResolver = async (_obj, _args, _context) => {
   const html = parse(text);
   const canonicalURLTag = html.querySelector('link[rel=canonical]');
   const canonicalURL = canonicalURLTag.getAttribute('href');
-  const referralLink = canonicalURL.includes('/watch?v=');
+  const referralLink =
+    canonicalURL.includes('/watch?v=') || canonicalURL.includes('/live');
   if (referralLink) {
     const livePage = await axios.get(canonicalURL, { responseType: 'document' });
     const scheduledText = (livePage.data as string).match('Scheduled for');
@@ -100,8 +104,9 @@ export const youtubeChannelResolver = async (_obj, _args, _context) => {
     }
   }
   if (isLive) {
-    const videoId = youtubeVideoId(canonicalURL);
-    const imageUrl = youtubeImageUrl(videoId);
+    const videoIdMatches = text.match(/"watchEndpoint":{"videoId":"(.*)"}/);
+    const videoId = videoIdMatches[1];
+    const imageUrl = youtubeLiveImageUrl(videoId);
     return {
       isLive: true,
       channelId,

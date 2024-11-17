@@ -25,6 +25,10 @@ import {
 import Globals from './globals';
 import Users from './collections/users';
 
+const mockModulePath = path.resolve(__dirname, './utils/mock');
+const resolversPath = path.resolve(__dirname, './utils/files');
+console.log(resolversPath);
+
 const adapter = s3Adapter({
   config: {
     forcePathStyle: false,
@@ -44,6 +48,16 @@ export default buildConfig({
     user: Users.slug,
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     bundler: webpackBundler(),
+    webpack: (config) => ({
+      ...config,
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve.alias,
+          [resolversPath]: mockModulePath,
+        },
+      },
+    }),
   },
   editor: slateEditor({}),
   db: mongooseAdapter({
