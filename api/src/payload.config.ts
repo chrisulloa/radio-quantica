@@ -26,8 +26,8 @@ import Globals from './globals';
 import Users from './collections/users';
 
 const mockModulePath = path.resolve(__dirname, './utils/mock');
-const resolversPath = path.resolve(__dirname, './utils/files');
-console.log(resolversPath);
+const filesPath = path.resolve(__dirname, './utils/files');
+const cachePath = path.resolve(__dirname, './utils/cache');
 
 const adapter = s3Adapter({
   config: {
@@ -54,7 +54,8 @@ export default buildConfig({
         ...config.resolve,
         alias: {
           ...config.resolve.alias,
-          [resolversPath]: mockModulePath,
+          [filesPath]: mockModulePath,
+          [cachePath]: mockModulePath,
         },
       },
     }),

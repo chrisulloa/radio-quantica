@@ -3,6 +3,7 @@ import { Payload } from 'payload';
 import { parse } from 'node-html-parser';
 import { randomInt } from 'crypto';
 import { youtubeLiveImageUrl } from '../utils/youtube';
+import cache from '../utils/cache';
 
 export const showsByCategoryResolver = async (
   obj,
@@ -73,9 +74,15 @@ export const newsPostBySlugResolver = async (
   return docs[0];
 };
 
-export const youtubeChannelResolver = async (_obj, _args, _context) => {
-  let isLive = false;
-  const channelId = 'UCrJUlunwq20no8FY9oczb_A';
+interface YoutubeChannelResolverResult {
+  isLive: boolean;
+  channelId: string;
+  imageUrl?: string;
+  videoId?: string;
+  url?: string;
+}
+
+const fetchYoutubeLivePage = async (channelId: string) => {
   const response = await axios.get(
     `https://youtube.com/channel/${channelId}/live`,
     {
@@ -90,33 +97,53 @@ export const youtubeChannelResolver = async (_obj, _args, _context) => {
       },
     }
   );
-  const text = response.data as string;
-  const html = parse(text);
-  const canonicalURLTag = html.querySelector('link[rel=canonical]');
-  const canonicalURL = canonicalURLTag.getAttribute('href');
-  const referralLink =
-    canonicalURL.includes('/watch?v=') || canonicalURL.includes('/live');
-  if (referralLink) {
-    const livePage = await axios.get(canonicalURL, { responseType: 'document' });
-    const scheduledText = (livePage.data as string).match('Scheduled for');
-    if (!scheduledText) {
-      isLive = true;
+  return response.data as string;
+};
+
+export const youtubeChannelResolver = async (_obj, _args, _context) => {
+  let isLive = false;
+  let result: YoutubeChannelResolverResult | undefined;
+  const channelId = 'UCrJUlunwq20no8FY9oczb_A';
+  const cacheKey = `YoutubeLiveResult`;
+  const cacheValue = cache.getCache(cacheKey) as
+    | YoutubeChannelResolverResult
+    | undefined;
+
+  if (cacheValue) {
+    result = cacheValue;
+  } else {
+    const text = await fetchYoutubeLivePage(channelId);
+    const html = parse(text);
+    const canonicalURLTag = html.querySelector('link[rel=canonical]');
+    const canonicalURL = canonicalURLTag.getAttribute('href');
+    const referralLink =
+      canonicalURL.includes('/watch?v=') || canonicalURL.includes('/live');
+    if (referralLink) {
+      const livePage = await axios.get(canonicalURL, { responseType: 'document' });
+      const scheduledText = (livePage.data as string).match('Scheduled for');
+      if (!scheduledText) {
+        isLive = true;
+      }
     }
+    if (isLive) {
+      const videoIdMatches = text.match(/"watchEndpoint":{"videoId":"(.*)"}/);
+      const videoId = videoIdMatches[1];
+      const imageUrl = youtubeLiveImageUrl(videoId);
+      result = {
+        isLive: true,
+        channelId,
+        url: canonicalURL,
+        imageUrl,
+        videoId,
+      };
+    } else {
+      result = {
+        isLive,
+        channelId,
+      };
+    }
+    cache.setCache(cacheKey, result);
   }
-  if (isLive) {
-    const videoIdMatches = text.match(/"watchEndpoint":{"videoId":"(.*)"}/);
-    const videoId = videoIdMatches[1];
-    const imageUrl = youtubeLiveImageUrl(videoId);
-    return {
-      isLive: true,
-      channelId,
-      url: canonicalURL,
-      imageUrl,
-      videoId,
-    };
-  }
-  return {
-    isLive,
-    channelId,
-  };
+
+  return result;
 };
