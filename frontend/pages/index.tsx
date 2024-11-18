@@ -85,10 +85,7 @@ const HomePageHeader = () => {
       />
 
       <meta property="og:site_name" content="Rádio Quântica"></meta>
-      <meta
-        property="og:title"
-        content="Online community radio station based in Lisbon, Portugal."
-      ></meta>
+      <meta property="og:title" content="Rádio Quântica"></meta>
       <meta property="og:type" content="website"></meta>
       <meta property="og:url" content="https://radioquantica.com/"></meta>
       <meta
