@@ -54,10 +54,100 @@ const seed = async (payload: Payload) => {
   await payload.create({
     collection: 'newsPosts',
     data: {
-      author: authorId,
+      author: `${authorId}`,
       title: 'FUNDRAISER ALERT!',
       blurb:
         'Please help us stay afloat and keep giving u the cutest content on the digi airwaves!',
+      _status: 'published',
+      content: [
+        {
+          children: [
+            {
+              text: "QTCers! we need your support in these trying times. as you know, we are a non-profit organization who doesn't have a business model by nature, so we don't have a way to make money to keep the station running if we don't rely on public funding (which we get very little of and quite late each year, making the first 6 months of the year extra hard) or support from our listeners. That's why we launched this fundraiser, as we start 2023 with very little options, as money is running as low as it gets and all of our equipment needs to either be serviced or replaced for industry standard models that community stations around the world have – like the CDJs2000, proper decks, and a mixer that works, for example. Furthermore, we need financial support to the pay salaries of our studio managers and assistants, given that curation and scheduling has always happened on a volunteer basis.\n\nAny amount you can afford to help us is extremely valued and will go to:\n\n– essential equipment\n\n– salaries in 2023\n\nPlease help us stay afloat and keep giving u the cutest content on the digi airwaves! donate via this gofundme linky https://www.gofundme.com/f/help-community-station-radio-quantica-stay-afloat?utm_source=widget&utm_medium=referral&utm_campaign=p_cp+share-sheet 💘",
+            },
+          ],
+        },
+      ],
+    },
+  });
+  await payload.create({
+    collection: 'newsPosts',
+    data: {
+      author: `${authorId}`,
+      title: 'New Event Coming Up',
+      blurb: 'Join us for a new event',
+      _status: 'published',
+      content: [
+        {
+          children: [
+            {
+              text: "QTCers! we need your support in these trying times. as you know, we are a non-profit organization who doesn't have a business model by nature, so we don't have a way to make money to keep the station running if we don't rely on public funding (which we get very little of and quite late each year, making the first 6 months of the year extra hard) or support from our listeners. That's why we launched this fundraiser, as we start 2023 with very little options, as money is running as low as it gets and all of our equipment needs to either be serviced or replaced for industry standard models that community stations around the world have – like the CDJs2000, proper decks, and a mixer that works, for example. Furthermore, we need financial support to the pay salaries of our studio managers and assistants, given that curation and scheduling has always happened on a volunteer basis.\n\nAny amount you can afford to help us is extremely valued and will go to:\n\n– essential equipment\n\n– salaries in 2023\n\nPlease help us stay afloat and keep giving u the cutest content on the digi airwaves! donate via this gofundme linky https://www.gofundme.com/f/help-community-station-radio-quantica-stay-afloat?utm_source=widget&utm_medium=referral&utm_campaign=p_cp+share-sheet 💘",
+            },
+          ],
+        },
+      ],
+    },
+  });
+  await payload.create({
+    collection: 'newsPosts',
+    data: {
+      author: `${authorId}`,
+      title: 'New Event Coming Up',
+      blurb: 'Join us for a new event',
+      _status: 'published',
+      content: [
+        {
+          children: [
+            {
+              text: "QTCers! we need your support in these trying times. as you know, we are a non-profit organization who doesn't have a business model by nature, so we don't have a way to make money to keep the station running if we don't rely on public funding (which we get very little of and quite late each year, making the first 6 months of the year extra hard) or support from our listeners. That's why we launched this fundraiser, as we start 2023 with very little options, as money is running as low as it gets and all of our equipment needs to either be serviced or replaced for industry standard models that community stations around the world have – like the CDJs2000, proper decks, and a mixer that works, for example. Furthermore, we need financial support to the pay salaries of our studio managers and assistants, given that curation and scheduling has always happened on a volunteer basis.\n\nAny amount you can afford to help us is extremely valued and will go to:\n\n– essential equipment\n\n– salaries in 2023\n\nPlease help us stay afloat and keep giving u the cutest content on the digi airwaves! donate via this gofundme linky https://www.gofundme.com/f/help-community-station-radio-quantica-stay-afloat?utm_source=widget&utm_medium=referral&utm_campaign=p_cp+share-sheet 💘",
+            },
+          ],
+        },
+      ],
+    },
+  });
+  await payload.create({
+    collection: 'newsPosts',
+    data: {
+      author: `${authorId}`,
+      title: 'New Event Coming Up',
+      blurb: 'Join us for a new event',
+      _status: 'published',
+      content: [
+        {
+          children: [
+            {
+              text: "QTCers! we need your support in these trying times. as you know, we are a non-profit organization who doesn't have a business model by nature, so we don't have a way to make money to keep the station running if we don't rely on public funding (which we get very little of and quite late each year, making the first 6 months of the year extra hard) or support from our listeners. That's why we launched this fundraiser, as we start 2023 with very little options, as money is running as low as it gets and all of our equipment needs to either be serviced or replaced for industry standard models that community stations around the world have – like the CDJs2000, proper decks, and a mixer that works, for example. Furthermore, we need financial support to the pay salaries of our studio managers and assistants, given that curation and scheduling has always happened on a volunteer basis.\n\nAny amount you can afford to help us is extremely valued and will go to:\n\n– essential equipment\n\n– salaries in 2023\n\nPlease help us stay afloat and keep giving u the cutest content on the digi airwaves! donate via this gofundme linky https://www.gofundme.com/f/help-community-station-radio-quantica-stay-afloat?utm_source=widget&utm_medium=referral&utm_campaign=p_cp+share-sheet 💘",
+            },
+          ],
+        },
+      ],
+    },
+  });
+  await payload.create({
+    collection: 'newsPosts',
+    data: {
+      author: `${authorId}`,
+      title: 'New Event Coming Up',
+      blurb: 'Join us for a new event',
+      _status: 'published',
+      content: [
+        {
+          children: [
+            {
+              text: "QTCers! we need your support in these trying times. as you know, we are a non-profit organization who doesn't have a business model by nature, so we don't have a way to make money to keep the station running if we don't rely on public funding (which we get very little of and quite late each year, making the first 6 months of the year extra hard) or support from our listeners. That's why we launched this fundraiser, as we start 2023 with very little options, as money is running as low as it gets and all of our equipment needs to either be serviced or replaced for industry standard models that community stations around the world have – like the CDJs2000, proper decks, and a mixer that works, for example. Furthermore, we need financial support to the pay salaries of our studio managers and assistants, given that curation and scheduling has always happened on a volunteer basis.\n\nAny amount you can afford to help us is extremely valued and will go to:\n\n– essential equipment\n\n– salaries in 2023\n\nPlease help us stay afloat and keep giving u the cutest content on the digi airwaves! donate via this gofundme linky https://www.gofundme.com/f/help-community-station-radio-quantica-stay-afloat?utm_source=widget&utm_medium=referral&utm_campaign=p_cp+share-sheet 💘",
+            },
+          ],
+        },
+      ],
+    },
+  });
+  await payload.create({
+    collection: 'newsPosts',
+    data: {
+      author: `${authorId}`,
+      title: 'Another news post!',
+      blurb: 'News news news',
       _status: 'published',
       content: [
         {
@@ -91,7 +181,7 @@ const seed = async (payload: Payload) => {
     },
   });
 
-  const { id: ambientCatgeoryId } = await payload.create({
+  const { id: ambientCategoryId } = await payload.create({
     collection: 'categories',
     data: {
       name: 'ambient',
@@ -123,12 +213,12 @@ const seed = async (payload: Payload) => {
     data: {
       showName: 'Planet V',
       slug: 'atrevido',
-      primaryHosts: [atrevidoHostId],
+      primaryHosts: [`${atrevidoHostId}`],
       categories: [
-        leftfieldCategoryId,
-        ambientCatgeoryId,
-        downtempoCategoryId,
-        electronicCategoryId,
+        `${leftfieldCategoryId}`,
+        `${ambientCategoryId}`,
+        `${downtempoCategoryId}`,
+        `${electronicCategoryId}`,
       ],
       description: [
         {
@@ -146,13 +236,13 @@ const seed = async (payload: Payload) => {
     data: {
       showName: 'Rare Charm',
       slug: 'lauriepina',
-      primaryHosts: [laurieHostId],
+      primaryHosts: [`${laurieHostId}`],
       categories: [
-        popCategoryId,
-        leftfieldCategoryId,
-        ambientCatgeoryId,
-        downtempoCategoryId,
-        electronicCategoryId,
+        `${popCategoryId}`,
+        `${leftfieldCategoryId}`,
+        `${ambientCategoryId}`,
+        `${downtempoCategoryId}`,
+        `${electronicCategoryId}`,
       ],
       description: [
         {

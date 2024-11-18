@@ -184,6 +184,8 @@ export const latestNewsQuery = graphql(`
           url
         }
       }
+      totalDocs
+      totalPages
     }
   }
 `);
