@@ -36,8 +36,14 @@ const afterChangeHook: CollectionAfterChangeHook<NewsPost> = ({
   if (previousDoc) {
     revalidateResource(`/news/${doc.slug}`, true);
   }
-  revalidateResource('/', true);
-  revalidateResource('/news', true);
+
+  revalidateResource('/');
+  revalidateResource('/news');
+  revalidateResource('/news/page/1');
+  revalidateResource('/news/page/2');
+  revalidateResource('/news/page/3');
+  revalidateResource('/news/page/4');
+  revalidateResource('/news/page/5');
 
   return doc;
 };
@@ -49,8 +55,13 @@ const afterCreateHook: CollectionAfterOperationHook<NewsPost> = ({
   result, // the result of the operation, before modifications
 }) => {
   if (operation === 'create' || operation === 'delete' || operation === 'update') {
-    revalidateResource('/', true);
-    revalidateResource('/news', true);
+    revalidateResource('/');
+    revalidateResource('/news');
+    revalidateResource('/news/page/1');
+    revalidateResource('/news/page/2');
+    revalidateResource('/news/page/3');
+    revalidateResource('/news/page/4');
+    revalidateResource('/news/page/5');
   }
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return result; // return modified result as necessary
