@@ -199,6 +199,7 @@ const PlayerView = () => {
       const nextShowStartTime = nextShow.start_timestamp;
       if (show) {
         setDisplay(`NOW: ${show}`);
+        setViewportWidth(getViewportWidth());
       } else if (nextShow && nextShowName && nextShowStartTime) {
         const nextShowStartTimeFormatted = DateTime.fromFormat(
           nextShowStartTime,
