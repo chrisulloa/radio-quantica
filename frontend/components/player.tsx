@@ -4,7 +4,6 @@ import styles from "./player.module.css";
 import useSWR from "swr";
 import axios from "axios";
 import { NowPlayingResponse } from "../lib/services/azuracast";
-import { getViewportWidth } from "../lib/deviceInfo";
 import serverBaseURL from "../lib/utils";
 import { DateTime } from "luxon";
 
@@ -182,11 +181,11 @@ const PlayerView = () => {
   const [display, setDisplay] = useState<string>("");
 
   useEffect(() => {
-    setViewportWidth(getViewportWidth());
+    setViewportWidth(window.innerWidth);
     window.addEventListener("resize", () =>
-      setViewportWidth(getViewportWidth())
+      setViewportWidth(window.innerWidth)
     );
-  }, [isLoading]);
+  }, []);
 
   useEffect(() => {
     if (data) {
