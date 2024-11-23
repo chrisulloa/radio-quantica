@@ -184,6 +184,14 @@ const PlayerView = () => {
   const [display, setDisplay] = useState<string>("");
 
   useEffect(() => {
+    // Handling player marquee only on mobile
+    setViewportWidth(getViewportWidth());
+    window.addEventListener("resize", () =>
+      setViewportWidth(getViewportWidth())
+    );
+  }, []);
+
+  useEffect(() => {
     if (data) {
       const show = data.currentShow[0]?.name || data.current?.name;
       const nextShow = data.nextShow[0];
@@ -245,16 +253,11 @@ const PlayerView = () => {
   );
 
   useEffect(() => {
-    // Handling player marquee only on mobile
-    setViewportWidth(getViewportWidth());
-    window.addEventListener("resize", () =>
-      setViewportWidth(getViewportWidth())
-    );
     const audio = audioRef.current;
     if (audio) audio.title = `${display} - Rádio Quântica`;
   }, [audioRef, display]);
 
-  const player = (
+  return (
     <Player
       isLive={false}
       nowPlaying={display}
@@ -266,8 +269,6 @@ const PlayerView = () => {
       pauseClickHandler={pauseClickHandler}
     ></Player>
   );
-
-  return player;
 };
 
 export default PlayerView;
