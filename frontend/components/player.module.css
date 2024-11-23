@@ -26,7 +26,7 @@
 
 @media (max-width: 419px) {
   .banner-scroll {
-    animation: bannermove 4s 0.1s linear infinite;
+    animation: bannermove 7s 0.1s linear infinite;
   }
 }
 
