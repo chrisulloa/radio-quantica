@@ -166,9 +166,7 @@ const initializeAudio = (
 };
 
 const PlayerView = () => {
-  const [viewportWidth, setViewportWidth] = useState<number | undefined>(
-    undefined
-  );
+  const [viewportWidth, setViewportWidth] = useState<number | undefined>();
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPaused, setPause] = useState<boolean>(true);
   const [volume, setVolume] = useState<number>(1);
@@ -184,12 +182,11 @@ const PlayerView = () => {
   const [display, setDisplay] = useState<string>("");
 
   useEffect(() => {
-    // Handling player marquee only on mobile
     setViewportWidth(getViewportWidth());
     window.addEventListener("resize", () =>
       setViewportWidth(getViewportWidth())
     );
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
     if (data) {
@@ -199,7 +196,6 @@ const PlayerView = () => {
       const nextShowStartTime = nextShow.start_timestamp;
       if (show) {
         setDisplay(`NOW: ${show}`);
-        setViewportWidth(getViewportWidth());
       } else if (nextShow && nextShowName && nextShowStartTime) {
         const nextShowStartTimeFormatted = DateTime.fromFormat(
           nextShowStartTime,
