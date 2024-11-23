@@ -26,6 +26,7 @@
 
 @media (max-width: 419px) {
   .banner-scroll {
+    will-change: transform;
     animation: bannermove 7s 0.1s linear infinite;
   }
 }
@@ -35,10 +36,12 @@
     transform: translateX(0%);
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
+    -moz-transform: translateX(0%);
   }
   to {
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
   }
 }
