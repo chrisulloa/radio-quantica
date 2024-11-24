@@ -4,6 +4,7 @@ import styles from "./player.module.css";
 import useSWR from "swr";
 import axios from "axios";
 import { NowPlayingResponse } from "../lib/services/azuracast";
+import { getViewportWidth } from "../lib/deviceInfo";
 import serverBaseURL from "../lib/utils";
 import { DateTime } from "luxon";
 
@@ -59,14 +60,15 @@ function CurrentShow({
   showName: string;
   viewportWidth: number | undefined;
 }) {
+  console.log(viewportWidth);
   const showElement =
     viewportWidth && viewportWidth < 420 ? (
       <div className="flex justify-between">
-        <div>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</div>
-        <div>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</div>
+        <div>&nbsp;&nbsp;{viewportWidth}&nbsp;&nbsp;</div>
+        <div>&nbsp;&nbsp;{viewportWidth}&nbsp;&nbsp;</div>
       </div>
     ) : (
-      <div>{showName}</div>
+      <div>{viewportWidth}</div>
     );
   return <div className={`${styles["banner-scroll"]}`}>{showElement}</div>;
 }
@@ -181,9 +183,9 @@ const PlayerView = () => {
   const [display, setDisplay] = useState<string>("");
 
   useEffect(() => {
-    setViewportWidth(window.innerWidth);
+    setViewportWidth(getViewportWidth());
     window.addEventListener("resize", () =>
-      setViewportWidth(window.innerWidth)
+      setViewportWidth(getViewportWidth())
     );
   }, []);
 
