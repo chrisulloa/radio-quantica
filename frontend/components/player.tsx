@@ -60,7 +60,6 @@ function CurrentShow({
   showName: string;
   viewportWidth: number | undefined;
 }) {
-  console.log(viewportWidth);
   const showElement =
     viewportWidth && viewportWidth < 420 ? (
       <div className="flex justify-between">
