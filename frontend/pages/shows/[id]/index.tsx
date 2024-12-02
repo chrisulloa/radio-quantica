@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: { params: { id: string } }) {
   const show = await getShowData(params.id);
-  if (!show) return { props: { showPageId: params.id } };
+  if (!show) return { notFound: true, revalidate: false };
   const showNameAndHost = `${show.title} w/ ${show.host}`;
   const title = `${showNameAndHost} - Rádio Quântica`;
 
