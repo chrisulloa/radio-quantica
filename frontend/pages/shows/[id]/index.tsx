@@ -13,7 +13,7 @@ export async function getStaticPaths() {
     params: { id: show.id },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 }
 
 export async function getStaticProps({ params }: { params: { id: string } }) {

@@ -1,5 +1,4 @@
 import { ShowImage } from "../lib/shows";
-import Card from "./card";
 import Link from "next/link";
 import Image from "next/image";
 
