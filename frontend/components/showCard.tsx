@@ -23,13 +23,12 @@ export default function ShowCard({
         >
           {title} w/ {host}
           {image &&
-            image.alt &&
             image.sizes?.sm?.url &&
             image.sizes?.sm?.height &&
             image.sizes?.sm?.width && (
               <Image
                 className="mt-4"
-                alt={image.alt}
+                alt={image.alt || `${title} image`}
                 src={image.sizes?.sm?.url}
                 width={image.sizes.sm.width}
                 height={image.sizes.sm.height}

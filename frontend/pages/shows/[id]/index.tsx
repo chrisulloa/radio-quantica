@@ -91,13 +91,12 @@ export default function Show({
         <div className="w-full col-span-6 md:col-span-3 flex justify-center align-top h-full">
           {show.image &&
             show.image.sizes?.lg &&
-            show.image.alt &&
             show.image.sizes.lg.url &&
             show.image.sizes.lg.width &&
             show.image.sizes.lg.height && (
               <Image
                 className="max-h-[60vh] h-min object-scale-down"
-                alt={show.image.alt}
+                alt={show.image.alt || `${show.title} image`}
                 src={show.image.sizes?.lg.url}
                 height={show.image.sizes?.lg?.height}
                 width={show.image.sizes?.lg?.width}
