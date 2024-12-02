@@ -1,5 +1,6 @@
 import {
   CollectionAfterChangeHook,
+  CollectionAfterDeleteHook,
   CollectionAfterOperationHook,
   CollectionConfig,
 } from 'payload/types';
@@ -28,6 +29,13 @@ const afterCreateHook: CollectionAfterOperationHook<Show> = ({
   return result; // return modified result as necessary
 };
 
+const afterDeleteHook: CollectionAfterDeleteHook<Show> = ({ doc }) => {
+  revalidateResource(`/shows/${doc.slug}`, true);
+  revalidateResource('/shows', true);
+
+  return doc;
+};
+
 const Shows: CollectionConfig = {
   slug: 'shows',
   access: {
@@ -36,7 +44,11 @@ const Shows: CollectionConfig = {
   admin: {
     useAsTitle: 'showName',
   },
-  hooks: { afterChange: [afterChangeHook], afterOperation: [afterCreateHook] },
+  hooks: {
+    afterChange: [afterChangeHook],
+    afterOperation: [afterCreateHook],
+    afterDelete: [afterDeleteHook],
+  },
   fields: [
     {
       name: 'showName',
