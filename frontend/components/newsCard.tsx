@@ -31,12 +31,14 @@ export const NewsCard = ({
         </div>
       </div>
       {previewBannerUrl && (
-        <div className="mt-1 mb-3 overflow-hidden relative h-60 w-full aspect-[4/3]">
+        <div className="mt-1 mb-3 overflow-hidden relative h-80 w-full">
           <Image
-            className="object-cover"
             src={previewBannerUrl}
             alt={title}
             fill={true}
+            style={{
+              objectFit: "contain",
+            }}
             sizes="(max-width: 768px) 38vw, 28vw"
             priority={priority}
           ></Image>
