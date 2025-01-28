@@ -14,11 +14,13 @@ const spaceMono = Space_Mono({
   weight: "400",
   style: "normal",
   variable: "--font-space-mono",
+  display: "swap",
 });
 
 const eurostile = localFont({
   src: "../pages/fonts/EurostileLTStd-Ex2.otf",
   variable: "--font-eurostile",
+  display: "swap",
 });
 
 export default function App({ Component, pageProps }: AppProps) {
