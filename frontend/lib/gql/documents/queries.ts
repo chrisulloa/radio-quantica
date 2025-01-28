@@ -225,6 +225,9 @@ export const newsPostBySlugQuery = graphql(`
       publishDate
       slug
       title
+      previewBanner {
+        url
+      }
       tags {
         name
         id

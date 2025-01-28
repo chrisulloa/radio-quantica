@@ -94,12 +94,13 @@ export default function NewsPost({
             {post?.publishDate && formatCompactShowDate(post?.publishDate)}
           </div>
         </div>
-        {(language === "EN" || !ptContent) && (
-          <NewsContent content={enContent} />
-        )}
-        {(language === "PT" || !enContent) && (
-          <NewsContent content={ptContent} />
-        )}
+        <NewsContent
+          content={language === "EN" ? enContent : ptContent}
+          image={{
+            url: post?.previewBanner?.url,
+            alt: post?.title || "News Post Image",
+          }}
+        />
         {post?.tags && (
           <div className="flex flex-wrap mb-4">
             <NewsTags tags={post.tags}></NewsTags>
