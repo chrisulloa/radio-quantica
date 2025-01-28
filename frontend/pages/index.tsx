@@ -27,7 +27,7 @@ import { useQuery } from "@apollo/client";
 export async function getStaticProps() {
   const { data } = await client.query({
     query: latestNewsQuery,
-    variables: { page: 1, limit: 3, sort: "-publishDate" },
+    variables: { page: 1, limit: 6, sort: "-publishDate" },
     fetchPolicy: "no-cache",
   });
   const newsPosts = data.NewsPosts;
