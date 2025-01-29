@@ -1,8 +1,3 @@
-/** @type {import('next').NextConfig} */
-const withTM = require("next-transpile-modules")([
-  "@babel/preset-react",
-]);
-
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -32,4 +27,4 @@ const nextConfig = {
   experimental: {}
 }
 
-module.exports = withTM(nextConfig)
+module.exports = nextConfig

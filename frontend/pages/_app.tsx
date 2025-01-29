@@ -6,8 +6,8 @@ import { ApolloProvider } from "@apollo/client";
 import client from "../lib/services/graphql";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { Space_Mono } from "@next/font/google";
-import localFont from "@next/font/local";
+import { Space_Mono } from "next/font/google";
+import localFont from "next/font/local";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
