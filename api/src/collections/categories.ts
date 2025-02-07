@@ -5,6 +5,7 @@ import {
   CollectionConfig,
 } from 'payload/types';
 import { revalidateResource } from '../utils/revalidate';
+import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
 const afterChangeHook: CollectionAfterChangeHook<Category> = ({
   doc,
@@ -40,6 +41,9 @@ const Categories: CollectionConfig = {
   hooks: { afterChange: [afterChangeHook], afterOperation: [afterCreateHook] },
   access: {
     read: () => true,
+    create: isAdminOrEditor,
+    update: isAdminOrEditor,
+    delete: isAdminOrEditor,
   },
   fields: [
     {

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-floating-promises */
 import { NewsPost } from 'payload/generated-types';
 import {
   CollectionAfterChangeHook,
@@ -10,6 +9,7 @@ import { Buffer } from 'buffer';
 import slugify from '../utils/slugify';
 import { revalidateResource } from '../utils/revalidate';
 import { websiteUrl } from '../utils/config';
+import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
 const beforeChangeHook: CollectionBeforeChangeHook<NewsPost> = ({
   data,
@@ -23,7 +23,6 @@ const beforeChangeHook: CollectionBeforeChangeHook<NewsPost> = ({
     throw Error('Missing title');
   }
 
-  // eslint-disable-next-line no-param-reassign
   data.slug = slugify(data.title);
 
   return data;
@@ -115,6 +114,9 @@ const NewsPosts: CollectionConfig = {
         ],
       };
     },
+    create: isAdminOrEditor,
+    update: isAdminOrEditor,
+    delete: isAdminOrEditor,
   },
   versions: { drafts: true },
   fields: [
@@ -148,7 +150,6 @@ const NewsPosts: CollectionConfig = {
       hooks: {
         beforeChange: [
           ({ siblingData }) => {
-            // eslint-disable-next-line no-param-reassign
             delete siblingData.text;
           },
         ],
@@ -159,7 +160,7 @@ const NewsPosts: CollectionConfig = {
               // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
               id: data.author,
             });
-            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions, @typescript-eslint/no-unsafe-member-access
+
             return `${author.firstName} ${author.lastName}`;
           },
         ],
@@ -174,13 +175,12 @@ const NewsPosts: CollectionConfig = {
       hooks: {
         beforeChange: [
           ({ siblingData }) => {
-            // eslint-disable-next-line no-param-reassign
             delete siblingData.text;
           },
         ],
         afterRead: [
           ({ data }) =>
-            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-return
             data.author,
         ],
       },

@@ -1,9 +1,13 @@
 import { CollectionConfig } from 'payload/types';
+import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
 const Hosts: CollectionConfig = {
   slug: 'hosts',
   access: {
     read: () => true,
+    create: isAdminOrEditor,
+    update: isAdminOrEditor,
+    delete: isAdminOrEditor,
   },
   admin: {
     useAsTitle: 'name',

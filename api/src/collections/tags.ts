@@ -1,6 +1,7 @@
 import { CollectionAfterOperationHook, CollectionConfig } from 'payload/types';
 import { Tag } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
+import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
 const afterCreateHook: CollectionAfterOperationHook<Tag> = ({
   args, // arguments passed into the operation
@@ -22,6 +23,9 @@ const Tags: CollectionConfig = {
   },
   access: {
     read: () => true,
+    create: isAdminOrEditor,
+    update: isAdminOrEditor,
+    delete: isAdminOrEditor,
   },
   hooks: {
     afterOperation: [afterCreateHook],

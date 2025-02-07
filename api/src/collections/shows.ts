@@ -6,6 +6,7 @@ import {
 } from 'payload/types';
 import { Show } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
+import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
 const afterChangeHook: CollectionAfterChangeHook<Show> = ({ doc }) => {
   revalidateResource(`/shows/${doc.slug}`, true);
@@ -40,6 +41,9 @@ const Shows: CollectionConfig = {
   slug: 'shows',
   access: {
     read: () => true,
+    create: isAdminOrEditor,
+    update: isAdminOrEditor,
+    delete: isAdminOrEditor,
   },
   admin: {
     useAsTitle: 'showName',

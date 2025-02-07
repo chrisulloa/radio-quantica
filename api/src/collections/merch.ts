@@ -5,6 +5,7 @@ import {
 } from 'payload/types';
 import { Merch } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
+import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
 const afterOperationHook: CollectionAfterOperationHook<Merch> = ({
   operation, // name of the operation
@@ -32,6 +33,9 @@ const Merches: CollectionConfig = {
   },
   access: {
     read: () => true,
+    create: isAdminOrEditor,
+    update: isAdminOrEditor,
+    delete: isAdminOrEditor,
   },
   hooks: {
     afterOperation: [afterOperationHook],

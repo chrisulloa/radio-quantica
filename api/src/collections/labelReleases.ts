@@ -1,6 +1,7 @@
 import { CollectionAfterOperationHook, CollectionConfig } from 'payload/types';
 import { LabelRelease } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
+import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
 const afterOperationHook: CollectionAfterOperationHook<LabelRelease> = ({
   args, // arguments passed into the operation
@@ -23,6 +24,9 @@ const LabelReleases: CollectionConfig = {
   },
   access: {
     read: () => true,
+    create: isAdminOrEditor,
+    update: isAdminOrEditor,
+    delete: isAdminOrEditor,
   },
   hooks: {
     afterOperation: [afterOperationHook],

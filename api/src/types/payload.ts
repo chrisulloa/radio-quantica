@@ -34,7 +34,7 @@ export interface User {
   id: string;
   firstName: string;
   lastName: string;
-  roles?: ('admin' | 'editor')[] | null;
+  roles?: ('admin' | 'editor' | 'creator')[] | null;
   updatedAt: string;
   createdAt: string;
   enableAPIKey?: boolean | null;

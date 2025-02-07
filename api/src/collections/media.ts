@@ -1,10 +1,14 @@
 import { CollectionConfig } from 'payload/types';
 import { CDNBaseURL } from '../utils/config';
+import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
 const Media: CollectionConfig = {
   slug: 'media',
   access: {
     read: () => true,
+    create: isAdminOrEditor,
+    update: isAdminOrEditor,
+    delete: isAdminOrEditor,
   },
   upload: {
     staticURL: '/media',
