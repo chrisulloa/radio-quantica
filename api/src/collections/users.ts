@@ -62,6 +62,10 @@ const Users: CollectionConfig = {
           label: 'Editor',
           value: 'editor',
         },
+        {
+          label: 'Creator',
+          value: 'creator',
+        },
       ],
     },
   ],
