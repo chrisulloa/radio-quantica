@@ -23,6 +23,7 @@ import { LabelReleaseCard } from "../components/labelReleaseCard";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import { formatCompactShowDate } from "../lib/dates";
 import { useQuery } from "@apollo/client";
+import { LoadingSpinner } from "../components/loadingSpinner";
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -262,6 +263,8 @@ export default function Home({
 }) {
   const [isMobile, setIsMobile] = useState(false);
   const [isLiveVideoStream, setIsLiveVideoStream] = useState(false);
+  const [showLiveVideoStreamSpinner, setShowLiveVideoStreamSpinner] =
+    useState(false);
   const { data, loading } = useQuery(youtubeChannelQuery, {
     pollInterval: 10000,
     fetchPolicy: "no-cache",
@@ -270,7 +273,11 @@ export default function Home({
   useEffect(() => {
     if (!loading && data) {
       if (data.YoutubeChannel?.isLive === true) {
-        setIsLiveVideoStream(true);
+        setShowLiveVideoStreamSpinner(true);
+        setTimeout(() => {
+          setShowLiveVideoStreamSpinner(false);
+          setIsLiveVideoStream(true);
+        }, 2000);
       } else {
         setIsLiveVideoStream(false);
       }
@@ -302,7 +309,15 @@ export default function Home({
         </div>
         <hr className="mt-4"></hr>
         <div className="mb-8 justify-center flex mt-5">
+          {showLiveVideoStreamSpinner && (
+            <div className="h-[500px] flex">
+              <div className="m-auto">
+                <LoadingSpinner delay={0}></LoadingSpinner>
+              </div>
+            </div>
+          )}
           {isLiveVideoStream &&
+            !showLiveVideoStreamSpinner &&
             data?.YoutubeChannel?.videoId &&
             data.YoutubeChannel?.imageUrl && (
               <LiveVideoCard
@@ -310,7 +325,7 @@ export default function Home({
                 imageUrl={data.YoutubeChannel.imageUrl}
               />
             )}
-          {!isLiveVideoStream && (
+          {!isLiveVideoStream && !showLiveVideoStreamSpinner && (
             <LiveVideos liveVideos={liveVideos}></LiveVideos>
           )}
         </div>
