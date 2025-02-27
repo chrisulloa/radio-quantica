@@ -13567,6 +13567,7 @@ export type User = {
 
 export enum UserUpdate_Roles_MutationInput {
   Admin = 'admin',
+  Creator = 'creator',
   Editor = 'editor'
 }
 
@@ -13641,16 +13642,19 @@ export type User_LastName_Operator = {
 
 export enum User_Roles {
   Admin = 'admin',
+  Creator = 'creator',
   Editor = 'editor'
 }
 
 export enum User_Roles_Input {
   Admin = 'admin',
+  Creator = 'creator',
   Editor = 'editor'
 }
 
 export enum User_Roles_MutationInput {
   Admin = 'admin',
+  Creator = 'creator',
   Editor = 'editor'
 }
 
@@ -14993,6 +14997,7 @@ export type UsersJwt = {
 
 export enum UsersJwt_Roles {
   Admin = 'admin',
+  Creator = 'creator',
   Editor = 'editor'
 }
 

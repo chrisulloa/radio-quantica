@@ -68,7 +68,11 @@ function CurrentShow({
     ) : (
       <div>{showName}</div>
     );
-  return <div className={`${styles["banner-scroll"]}`}>{showElement}</div>;
+  return (
+    <div className="text-2xl sm:grow flex sm:items-center sm:w-full truncate overflow-hidden sm:relative pt-1">
+      <div className={`${styles["banner-scroll"]}`}>{showElement}</div>
+    </div>
+  );
 }
 
 function Player({
@@ -98,9 +102,7 @@ function Player({
         onClick={pauseClickHandler}
       ></PauseOrPlayButton>
 
-      <div className="text-2xl grow flex items-center w-full truncate overflow-hidden relative pt-1">
-        <CurrentShow viewportWidth={viewportWidth} showName={nowPlaying} />
-      </div>
+      <CurrentShow viewportWidth={viewportWidth} showName={nowPlaying} />
 
       {isLive ? (
         <div className="flex grow justify-center items-center ml-4 mr-4 sm:mx-5 md:m-0 h-full">
