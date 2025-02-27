@@ -28,7 +28,7 @@
   .banner-scroll {
     will-change: transform;
     animation-delay: 250ms;
-    animation: bannermove 7s 0.1s linear infinite;
+    animation: bannermove 6s linear infinite;
   }
 
   @keyframes bannermove {
