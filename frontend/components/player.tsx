@@ -98,9 +98,9 @@ function Player({
         onClick={pauseClickHandler}
       ></PauseOrPlayButton>
 
-      <button className="cursor-auto text-2xl grow flex items-center w-full truncate overflow-hidden relative pt-1">
+      <div className="cursor-auto text-2xl grow flex items-center w-full truncate overflow-hidden relative pt-1">
         <CurrentShow viewportWidth={viewportWidth} showName={nowPlaying} />
-      </button>
+      </div>
 
       {isLive ? (
         <div className="flex grow justify-center items-center ml-4 mr-4 sm:mx-5 md:m-0 h-full">
