@@ -59,16 +59,14 @@ function CurrentShow({
   showName: string;
   viewportWidth: number | undefined;
 }) {
-  const showElement =
-    viewportWidth && viewportWidth < 420 ? (
-      <div className="flex justify-between">
-        <div>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</div>
-        <div>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</div>
-      </div>
-    ) : (
-      <div>{showName}</div>
-    );
-  return <div className={`${styles["banner-scroll"]}`}>{showElement}</div>;
+  return viewportWidth && viewportWidth < 420 ? (
+    <div className={`flex justify-between ${styles["banner-scroll"]}`}>
+      <div>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</div>
+      <div>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</div>
+    </div>
+  ) : (
+    <div>{showName}</div>
+  );
 }
 
 function Player({
