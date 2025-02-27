@@ -98,7 +98,7 @@ function Player({
         onClick={pauseClickHandler}
       ></PauseOrPlayButton>
 
-      <div className="text-2xl grow flex items-center w-full truncate overflow-hidden relative font-space-mono uppercase">
+      <div className="text-2xl grow flex items-center w-full truncate overflow-hidden relative">
         <CurrentShow viewportWidth={viewportWidth} showName={nowPlaying} />
       </div>
 
