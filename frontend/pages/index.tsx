@@ -273,7 +273,9 @@ export default function Home({
   useEffect(() => {
     if (!loading && data) {
       if (data.YoutubeChannel?.isLive === true) {
-        setShowLiveVideoStreamSpinner(true);
+        setTimeout(() => {
+          setShowLiveVideoStreamSpinner(true);
+        }, 250);
         setTimeout(() => {
           setShowLiveVideoStreamSpinner(false);
           setIsLiveVideoStream(true);
