@@ -24,6 +24,8 @@ import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import { formatCompactShowDate } from "../lib/dates";
 import { useQuery } from "@apollo/client";
 import { LoadingSpinner } from "../components/loadingSpinner";
+import LiveVideoCard from "../components/liveVideoCard";
+import VideoCard from "../components/videoCard";
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -191,48 +193,6 @@ const NewsCards = (props: { posts: NewsPostsQuery["NewsPosts"] }) => {
   );
 };
 
-const VideoCard = (props: {
-  video: {
-    title: string;
-    id?: string | null;
-    videoId?: string | null;
-    image?: { url?: string | null } | null;
-    date?: string | null;
-  };
-}) => {
-  const { video } = props;
-
-  return (
-    <div>
-      <LiteYouTubeEmbed
-        thumbnail={`${video.image?.url}`}
-        aspectHeight={9}
-        aspectWidth={16}
-        id={`${video.videoId}`}
-        title={video.title}
-      ></LiteYouTubeEmbed>
-      <div className="text-white font-space-mono justify-center w-full flex text-sm mt-2">
-        {formatCompactShowDate(`${video.date}`)} - {video.title}
-      </div>
-    </div>
-  );
-};
-
-const LiveVideoCard = (props: { videoId: string; imageUrl: string }) => {
-  const { videoId, imageUrl } = props;
-  return (
-    <div className="w-full">
-      <LiteYouTubeEmbed
-        thumbnail={`${imageUrl}`}
-        aspectHeight={9}
-        aspectWidth={16}
-        id={`${videoId}`}
-        title={"Live now!"}
-      ></LiteYouTubeEmbed>
-    </div>
-  );
-};
-
 const LiveVideos = (props: { liveVideos: LiveVideosQuery["LiveVideos"] }) => {
   const liveVideos = props.liveVideos;
   if (!liveVideos || !liveVideos.docs) {
@@ -302,8 +262,7 @@ export default function Home({
           )}
           {!isLiveVideoStream && <h1 className="text-white">LATEST</h1>}
           <Link
-            href="https://www.youtube.com/channel/UCrJUlunwq20no8FY9oczb_A"
-            target="_blank"
+            href="/streams"
             className="text-white hover:bg-white hover:text-black font-space-mono"
           >
             VIDS ↗

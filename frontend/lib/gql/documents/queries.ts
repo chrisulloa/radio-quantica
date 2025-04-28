@@ -316,6 +316,25 @@ export const liveVideosQuery = graphql(`
   }
 `);
 
+export const paginatedVidsQuery = graphql(`
+  query PaginatedLiveVideos($limit: Int, $page: Int, $sort: String) {
+    LiveVideos(limit: $limit, page: $page, sort: $sort) {
+      docs {
+        id
+        title
+        url
+        date
+        videoId
+        image {
+          url
+        }
+      }
+      totalDocs
+      totalPages
+    }
+  }
+`);
+
 export const aboutPageInfoQuery = graphql(`
   query AboutPageQuery($locale: LocaleInputType) {
     AboutPage(locale: $locale) {

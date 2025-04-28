@@ -10,9 +10,10 @@ import IconButton from "./icons/iconButton";
 import MixcloudIcon from "./icons/mixcloudIcon";
 
 const navbarItems = [
-  { text: "Shows", link: "/shows" },
+  { text: "Streams", link: "/streams" },
   { text: "News", link: "/news" },
   { text: "Schedule", link: "/schedule" },
+  { text: "Shows", link: "/shows" },
   { text: "About", link: "/about" },
   { text: "Donate", link: "/donate" },
   { text: "Chat", link: "/chat" },
