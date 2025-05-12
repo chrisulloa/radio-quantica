@@ -77,7 +77,7 @@ export default function NewsPost({
         <NewsHeaderBackground
           title={post.title || "Latest News"}
         ></NewsHeaderBackground>
-        <div className="text-xl text-white px-5 py-4">
+        <div className="text-lg md:text-xl text-white px-5 py-4">
           <span>{post?.blurb}</span>
         </div>
         <hr className="border-dos-grey mb-4 mt-1 mx-5"></hr>

@@ -23,12 +23,12 @@ export default function NewsContent({
       className="text-dos-grey px-5 py-3 whitespace-pre-wrap font-space-mono leading-8 break-words"
     >
       {image.url && (
-        <div className="relative h-[650px] w-full text-right my-8">
+        <div className="relative h-[40vh] md:h-[650px] w-full text-right my-8">
           <Image
             src={image.url}
             alt={image.alt}
             fill
-            className="object-contain h-full left-0"
+            className="object-contain h-full w-full left-0"
           ></Image>
         </div>
       )}
