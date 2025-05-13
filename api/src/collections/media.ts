@@ -1,4 +1,4 @@
-import { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from 'payload';
 import { CDNBaseURL } from '../utils/config';
 import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
@@ -11,7 +11,6 @@ const Media: CollectionConfig = {
     delete: isAdminOrEditor,
   },
   upload: {
-    staticURL: '/media',
     staticDir: 'media',
     imageSizes: [
       {

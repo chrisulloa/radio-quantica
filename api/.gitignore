@@ -6,3 +6,4 @@ dist
 *.swp
 creds.json
 build
+.next/

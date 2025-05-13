@@ -3,7 +3,7 @@ import {
   CollectionAfterDeleteHook,
   CollectionAfterOperationHook,
   CollectionConfig,
-} from 'payload/types';
+} from 'payload';
 import { Show } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
 import { isAdminOrEditor } from '../access/isAdminOrEditor';
@@ -15,7 +15,7 @@ const afterChangeHook: CollectionAfterChangeHook<Show> = ({ doc }) => {
   return doc;
 };
 
-const afterCreateHook: CollectionAfterOperationHook<Show> = ({
+const afterCreateHook: CollectionAfterOperationHook = ({
   args, // arguments passed into the operation
   operation, // name of the operation
   req, // full express request

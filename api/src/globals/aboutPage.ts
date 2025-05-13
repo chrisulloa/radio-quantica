@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import type { GlobalAfterChangeHook, GlobalConfig } from 'payload/types';
+import type { GlobalAfterChangeHook, GlobalConfig } from 'payload';
 import { revalidateResource } from '../utils/revalidate';
 
 const afterChangeHook: GlobalAfterChangeHook = ({ doc }) => {

@@ -7,6 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
+import pluginNext from '@next/eslint-plugin-next'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,7 +19,7 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: ['build/*', 'dist/*', 'eslint.config.mjs'],
+    ignores: ['build/*', 'dist/*', 'eslint.config.mjs', '.next/*'],
   },
   ...fixupConfigRules(
     compat.extends(
@@ -34,6 +35,7 @@ export default [
     plugins: {
       '@typescript-eslint': fixupPluginRules(typescriptEslint),
       prettier,
+      '@next/next': pluginNext
     },
     languageOptions: {
       globals: {
@@ -63,6 +65,7 @@ export default [
       },
     },
     rules: {
+      ...pluginNext.configs.recommended.rules,
       'no-console': 'off',
       'prettier/prettier': 'error',
       'import/no-extraneous-dependencies': ['error', { devDependencies: true }],

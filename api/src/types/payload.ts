@@ -6,7 +6,66 @@
  * and re-run `payload generate:types` to regenerate this file.
  */
 
+/**
+ * Supported timezones in IANA format.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "supportedTimezones".
+ */
+export type SupportedTimezones =
+  | 'Pacific/Midway'
+  | 'Pacific/Niue'
+  | 'Pacific/Honolulu'
+  | 'Pacific/Rarotonga'
+  | 'America/Anchorage'
+  | 'Pacific/Gambier'
+  | 'America/Los_Angeles'
+  | 'America/Tijuana'
+  | 'America/Denver'
+  | 'America/Phoenix'
+  | 'America/Chicago'
+  | 'America/Guatemala'
+  | 'America/New_York'
+  | 'America/Bogota'
+  | 'America/Caracas'
+  | 'America/Santiago'
+  | 'America/Buenos_Aires'
+  | 'America/Sao_Paulo'
+  | 'Atlantic/South_Georgia'
+  | 'Atlantic/Azores'
+  | 'Atlantic/Cape_Verde'
+  | 'Europe/London'
+  | 'Europe/Berlin'
+  | 'Africa/Lagos'
+  | 'Europe/Athens'
+  | 'Africa/Cairo'
+  | 'Europe/Moscow'
+  | 'Asia/Riyadh'
+  | 'Asia/Dubai'
+  | 'Asia/Baku'
+  | 'Asia/Karachi'
+  | 'Asia/Tashkent'
+  | 'Asia/Calcutta'
+  | 'Asia/Dhaka'
+  | 'Asia/Almaty'
+  | 'Asia/Jakarta'
+  | 'Asia/Bangkok'
+  | 'Asia/Shanghai'
+  | 'Asia/Singapore'
+  | 'Asia/Tokyo'
+  | 'Asia/Seoul'
+  | 'Australia/Brisbane'
+  | 'Australia/Sydney'
+  | 'Pacific/Guam'
+  | 'Pacific/Noumea'
+  | 'Pacific/Auckland'
+  | 'Pacific/Fiji';
+
 export interface Config {
+  auth: {
+    users: UserAuthOperations;
+  };
+  blocks: {};
   collections: {
     users: User;
     shows: Show;
@@ -18,12 +77,62 @@ export interface Config {
     merch: Merch;
     labelReleases: LabelRelease;
     liveVideos: LiveVideo;
+    'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
+  };
+  collectionsJoins: {};
+  collectionsSelect: {
+    users: UsersSelect<false> | UsersSelect<true>;
+    shows: ShowsSelect<false> | ShowsSelect<true>;
+    hosts: HostsSelect<false> | HostsSelect<true>;
+    categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    newsPosts: NewsPostsSelect<false> | NewsPostsSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
+    tags: TagsSelect<false> | TagsSelect<true>;
+    merch: MerchSelect<false> | MerchSelect<true>;
+    labelReleases: LabelReleasesSelect<false> | LabelReleasesSelect<true>;
+    liveVideos: LiveVideosSelect<false> | LiveVideosSelect<true>;
+    'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
+    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
+    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
+  };
+  db: {
+    defaultIDType: string;
   };
   globals: {
     aboutPage: AboutPage;
     donatePage: DonatePage;
+  };
+  globalsSelect: {
+    aboutPage: AboutPageSelect<false> | AboutPageSelect<true>;
+    donatePage: DonatePageSelect<false> | DonatePageSelect<true>;
+  };
+  locale: 'en' | 'pt';
+  user: User & {
+    collection: 'users';
+  };
+  jobs: {
+    tasks: unknown;
+    workflows: unknown;
+  };
+}
+export interface UserAuthOperations {
+  forgotPassword: {
+    email: string;
+    password: string;
+  };
+  login: {
+    email: string;
+    password: string;
+  };
+  registerFirstUser: {
+    email: string;
+    password: string;
+  };
+  unlock: {
+    email: string;
+    password: string;
   };
 }
 /**
@@ -47,7 +156,7 @@ export interface User {
   hash?: string | null;
   loginAttempts?: number | null;
   lockUntil?: string | null;
-  password: string | null;
+  password?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -63,7 +172,7 @@ export interface Show {
   primaryHosts: (string | Host)[];
   categories?: (string | Category)[] | null;
   active?: boolean | null;
-  coverImage?: string | Media | null;
+  coverImage?: (string | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -98,6 +207,7 @@ export interface Media {
   updatedAt: string;
   createdAt: string;
   url?: string | null;
+  thumbnailURL?: string | null;
   filename?: string | null;
   mimeType?: string | null;
   filesize?: number | null;
@@ -161,10 +271,16 @@ export interface NewsPost {
   author?: (string | null) | User;
   authorName?: string | null;
   authorId?: string | null;
+  /**
+   * Max 150 characters
+   */
   blurb: string;
   slug?: string | null;
+  /**
+   * Posts will not be public until this date
+   */
   publishDate?: string | null;
-  previewBanner?: string | Media | null;
+  previewBanner?: (string | null) | Media;
   tags?: (string | Tag)[] | null;
   updatedAt: string;
   createdAt: string;
@@ -187,9 +303,12 @@ export interface Tag {
 export interface Merch {
   id: string;
   title: string;
+  /**
+   * Max 150 characters
+   */
   blurb: string;
   url: string;
-  image?: string | Media | null;
+  image?: (string | null) | Media;
   soldOut?: boolean | null;
   updatedAt: string;
   createdAt: string;
@@ -201,9 +320,12 @@ export interface Merch {
 export interface LabelRelease {
   id: string;
   title: string;
+  /**
+   * Max 150 characters.
+   */
   blurb: string;
   url: string;
-  image?: string | Media | null;
+  image?: (string | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -214,10 +336,68 @@ export interface LabelRelease {
 export interface LiveVideo {
   id: string;
   title: string;
+  /**
+   * Please provide the full YouTube URL, e.g. https://www.youtube.com/tV1FLGn62jA
+   */
   url: string;
   date?: string | null;
   videoId?: string | null;
-  image?: string | Media | null;
+  image?: (string | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-locked-documents".
+ */
+export interface PayloadLockedDocument {
+  id: string;
+  document?:
+    | ({
+        relationTo: 'users';
+        value: string | User;
+      } | null)
+    | ({
+        relationTo: 'shows';
+        value: string | Show;
+      } | null)
+    | ({
+        relationTo: 'hosts';
+        value: string | Host;
+      } | null)
+    | ({
+        relationTo: 'categories';
+        value: string | Category;
+      } | null)
+    | ({
+        relationTo: 'newsPosts';
+        value: string | NewsPost;
+      } | null)
+    | ({
+        relationTo: 'media';
+        value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'tags';
+        value: string | Tag;
+      } | null)
+    | ({
+        relationTo: 'merch';
+        value: string | Merch;
+      } | null)
+    | ({
+        relationTo: 'labelReleases';
+        value: string | LabelRelease;
+      } | null)
+    | ({
+        relationTo: 'liveVideos';
+        value: string | LiveVideo;
+      } | null);
+  globalSlug?: string | null;
+  user: {
+    relationTo: 'users';
+    value: string | User;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -257,6 +437,231 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users_select".
+ */
+export interface UsersSelect<T extends boolean = true> {
+  firstName?: T;
+  lastName?: T;
+  roles?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  enableAPIKey?: T;
+  apiKey?: T;
+  apiKeyIndex?: T;
+  email?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "shows_select".
+ */
+export interface ShowsSelect<T extends boolean = true> {
+  showName?: T;
+  slug?: T;
+  description?: T;
+  primaryHosts?: T;
+  categories?: T;
+  active?: T;
+  coverImage?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "hosts_select".
+ */
+export interface HostsSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories_select".
+ */
+export interface CategoriesSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "newsPosts_select".
+ */
+export interface NewsPostsSelect<T extends boolean = true> {
+  title?: T;
+  content?: T;
+  author?: T;
+  authorName?: T;
+  authorId?: T;
+  blurb?: T;
+  slug?: T;
+  publishDate?: T;
+  previewBanner?: T;
+  tags?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
+  prefix?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+  sizes?:
+    | T
+    | {
+        xs?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        sm?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        lg?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        xl?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        opengraph?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags_select".
+ */
+export interface TagsSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "merch_select".
+ */
+export interface MerchSelect<T extends boolean = true> {
+  title?: T;
+  blurb?: T;
+  url?: T;
+  image?: T;
+  soldOut?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "labelReleases_select".
+ */
+export interface LabelReleasesSelect<T extends boolean = true> {
+  title?: T;
+  blurb?: T;
+  url?: T;
+  image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "liveVideos_select".
+ */
+export interface LiveVideosSelect<T extends boolean = true> {
+  title?: T;
+  url?: T;
+  date?: T;
+  videoId?: T;
+  image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-locked-documents_select".
+ */
+export interface PayloadLockedDocumentsSelect<T extends boolean = true> {
+  document?: T;
+  globalSlug?: T;
+  user?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-preferences_select".
+ */
+export interface PayloadPreferencesSelect<T extends boolean = true> {
+  user?: T;
+  key?: T;
+  value?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-migrations_select".
+ */
+export interface PayloadMigrationsSelect<T extends boolean = true> {
+  name?: T;
+  batch?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "aboutPage".
  */
 export interface AboutPage {
@@ -282,6 +687,33 @@ export interface DonatePage {
     | null;
   updatedAt?: string | null;
   createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "aboutPage_select".
+ */
+export interface AboutPageSelect<T extends boolean = true> {
+  content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "donatePage_select".
+ */
+export interface DonatePageSelect<T extends boolean = true> {
+  content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "auth".
+ */
+export interface Auth {
+  [k: string]: unknown;
 }
 
 

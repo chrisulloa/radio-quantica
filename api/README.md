@@ -13,8 +13,6 @@ Next install dependencies with `npm install`
 
 Now run `npm run dev` and access the service at `localhost:3000/admin`
 
-The project uses [nodemon](https://github.com/remy/nodemon) for hot reloading.
-
 ## How to Develop
 
 You can edit and add collections in the `src/collections` directory to update

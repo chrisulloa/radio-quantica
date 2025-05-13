@@ -60,7 +60,7 @@ export const newsPostBySlugResolver = async (
   const { docs } = await context.req.payload.find({
     collection: 'newsPosts',
     depth: 0,
-    locale: args.locale,
+    locale: args.locale as 'en' | 'pt' | 'all',
     fallbackLocale: null,
     where: {
       slug: {

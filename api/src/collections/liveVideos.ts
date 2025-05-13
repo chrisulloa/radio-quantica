@@ -3,7 +3,7 @@ import {
   CollectionAfterOperationHook,
   CollectionBeforeChangeHook,
   CollectionConfig,
-} from 'payload/types';
+} from 'payload';
 import { LiveVideo } from 'payload/generated-types';
 import payload from 'payload';
 import { revalidateResource } from '../utils/revalidate';
@@ -44,7 +44,7 @@ const uploadImageHook: CollectionBeforeChangeHook<LiveVideo> = async ({ data }) 
   return data;
 };
 
-const afterOperationHook: CollectionAfterOperationHook<LiveVideo> = ({
+const afterOperationHook: CollectionAfterOperationHook = ({
   operation, // name of the operation
   result, // the result of the operation, before modifications
 }) => {

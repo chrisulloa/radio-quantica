@@ -1,13 +1,11 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import { buildConfig } from 'payload/config';
+import { buildConfig } from 'payload';
 import path from 'path';
 import { GraphQLString } from 'graphql';
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
 import { slateEditor } from '@payloadcms/richtext-slate';
-import { webpackBundler } from '@payloadcms/bundler-webpack';
-import buildPaginatedListType from 'payload/dist/graphql/schema/buildPaginatedListType';
-import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
-import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3';
+import { buildPaginatedListType } from '@payloadcms/graphql/types';
+import { s3Storage } from '@payloadcms/storage-s3';
 import Collections from './collections';
 import {
   showsByCategoryResolver,
@@ -24,51 +22,22 @@ import {
 } from './utils/config';
 import Globals from './globals';
 import Users from './collections/users';
+import sharp from 'sharp';
+import seed from './seed';
 
-const mockModulePath = path.resolve(__dirname, './utils/mock');
-const filesPath = path.resolve(__dirname, './utils/files');
-const cachePath = path.resolve(__dirname, './utils/cache');
-
-const adapter = s3Adapter({
-  config: {
-    forcePathStyle: false,
-    credentials: {
-      accessKeyId: process.env.SPACES_KEY,
-      secretAccessKey: process.env.SPACES_SECRET,
-    },
-    region: 'us-west-1',
-    endpoint: spacesURL,
-  },
-  acl: 'public-read',
-  bucket: spacesBucket,
-});
+const __dirname = path.resolve();
 
 export default buildConfig({
+  secret: process.env.PAYLOAD_SECRET,
   admin: {
     user: Users.slug,
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    bundler: webpackBundler(),
-    webpack: (config) => ({
-      ...config,
-      resolve: {
-        ...config.resolve,
-        alias: {
-          ...config.resolve.alias,
-          [filesPath]: mockModulePath,
-          [cachePath]: mockModulePath,
-        },
-      },
-    }),
   },
   editor: slateEditor({}),
   db: mongooseAdapter({
     url: process.env.MONGO_URL,
   }),
-  rateLimit: {
-    window: 18000,
-    max: 5000,
-  },
   serverURL,
+  sharp,
   collections: Collections,
   globals: Globals,
   localization: {
@@ -79,12 +48,27 @@ export default buildConfig({
     defaultLocale: 'en',
     fallback: true,
   },
+  onInit: async (payload) => {
+    if (process.env.SEED) {
+      await seed(payload);
+    }
+  },
   plugins: [
-    cloudStorage({
+    s3Storage({
+      bucket: spacesBucket,
+      config: {
+        forcePathStyle: false,
+        credentials: {
+          accessKeyId: process.env.SPACES_KEY,
+          secretAccessKey: process.env.SPACES_SECRET,
+        },
+        region: 'us-west-1',
+        endpoint: spacesURL,
+      },
+      acl: 'public-read',
       collections: {
         media: {
           prefix: 'media',
-          adapter,
           generateFileURL: (args) =>
             `${CDNBaseURL}/${args.prefix}/${args.filename}`,
         },
@@ -95,7 +79,7 @@ export default buildConfig({
     {
       path: '/week-info',
       method: 'get',
-      handler: async (_req, res) => {
+      handler: async (_req) => {
         const result = await fetch(
           'https://airtime.radioquantica.com/api/week-info',
           {
@@ -107,13 +91,13 @@ export default buildConfig({
         );
         const data = (await result.json()) as unknown;
 
-        res.status(200).send(data);
+        return Response.json(data);
       },
     },
     {
       path: '/live-info',
       method: 'get',
-      handler: async (_req, res) => {
+      handler: async (_req) => {
         const result = await fetch(
           'https://airtime.radioquantica.com/api/live-info',
           {
@@ -125,7 +109,7 @@ export default buildConfig({
         );
         const data = (await result.json()) as unknown;
 
-        res.status(200).send(data);
+        return Response.json(data);
       },
     },
   ],
@@ -182,7 +166,7 @@ export default buildConfig({
     }),
   },
   typescript: {
-    outputFile: path.resolve(__dirname, 'types', 'payload.ts'),
+    outputFile: path.resolve(__dirname, 'src', 'types', 'payload.ts'),
   },
   cors: validCORSURLs,
   csrf: validCORSURLs,

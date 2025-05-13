@@ -1,9 +1,9 @@
-import { CollectionAfterOperationHook, CollectionConfig } from 'payload/types';
+import { CollectionAfterOperationHook, CollectionConfig } from 'payload';
 import { Tag } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
 import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
-const afterCreateHook: CollectionAfterOperationHook<Tag> = ({
+const afterCreateHook: CollectionAfterOperationHook = ({
   args, // arguments passed into the operation
   operation, // name of the operation
   req, // full express request

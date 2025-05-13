@@ -3,7 +3,7 @@ import {
   CollectionAfterChangeHook,
   CollectionAfterOperationHook,
   CollectionConfig,
-} from 'payload/types';
+} from 'payload';
 import { revalidateResource } from '../utils/revalidate';
 import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
@@ -18,7 +18,7 @@ const afterChangeHook: CollectionAfterChangeHook<Category> = ({
   return doc;
 };
 
-const afterCreateHook: CollectionAfterOperationHook<Category> = ({
+const afterCreateHook: CollectionAfterOperationHook = ({
   args, // arguments passed into the operation
   operation, // name of the operation
   req, // full express request

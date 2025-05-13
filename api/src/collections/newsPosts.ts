@@ -4,7 +4,7 @@ import {
   CollectionAfterOperationHook,
   CollectionBeforeChangeHook,
   CollectionConfig,
-} from 'payload/types';
+} from 'payload';
 import { Buffer } from 'buffer';
 import slugify from '../utils/slugify';
 import { revalidateResource } from '../utils/revalidate';
@@ -47,7 +47,7 @@ const afterChangeHook: CollectionAfterChangeHook<NewsPost> = ({
   return doc;
 };
 
-const afterCreateHook: CollectionAfterOperationHook<NewsPost> = ({
+const afterCreateHook: CollectionAfterOperationHook = ({
   args, // arguments passed into the operation
   operation, // name of the operation
   req, // full express request
@@ -190,10 +190,7 @@ const NewsPosts: CollectionConfig = {
       type: 'text',
       maxLength: 150,
       admin: {
-        description: ({ path, value }) =>
-          `${
-            typeof value === 'string' ? 150 - value.length : '150'
-          } characters left`,
+        description: 'Max 150 characters',
       },
       required: true,
     },

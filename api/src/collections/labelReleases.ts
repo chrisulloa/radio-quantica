@@ -1,9 +1,9 @@
-import { CollectionAfterOperationHook, CollectionConfig } from 'payload/types';
+import { CollectionAfterOperationHook, CollectionConfig } from 'payload';
 import { LabelRelease } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
 import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
-const afterOperationHook: CollectionAfterOperationHook<LabelRelease> = ({
+const afterOperationHook: CollectionAfterOperationHook = ({
   args, // arguments passed into the operation
   operation, // name of the operation
   req, // full express request
@@ -42,10 +42,7 @@ const LabelReleases: CollectionConfig = {
       type: 'text',
       maxLength: 150,
       admin: {
-        description: ({ path, value }) =>
-          `${
-            typeof value === 'string' ? 150 - value.length : '150'
-          } characters left`,
+        description: 'Max 150 characters.',
       },
       required: true,
     },

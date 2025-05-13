@@ -2,12 +2,12 @@ import {
   CollectionAfterChangeHook,
   CollectionAfterOperationHook,
   CollectionConfig,
-} from 'payload/types';
+} from 'payload';
 import { Merch } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
 import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
-const afterOperationHook: CollectionAfterOperationHook<Merch> = ({
+const afterOperationHook: CollectionAfterOperationHook = ({
   operation, // name of the operation
   result, // the result of the operation, before modifications
 }) => {
@@ -53,10 +53,7 @@ const Merches: CollectionConfig = {
       maxLength: 150,
       required: true,
       admin: {
-        description: ({ path, value }) =>
-          `${
-            typeof value === 'string' ? 150 - value.length : '150'
-          } characters left`,
+        description: 'Max 150 characters',
       },
     },
     {
