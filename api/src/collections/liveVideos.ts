@@ -140,6 +140,8 @@ const LiveVideos: CollectionConfig = {
       name: 'sortableId',
       type: 'text',
       admin: { readOnly: true },
+      unique: true,
+      index: true,
     },
   ],
 };
