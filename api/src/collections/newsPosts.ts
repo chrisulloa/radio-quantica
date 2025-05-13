@@ -15,7 +15,7 @@ const beforeChangeHook: CollectionBeforeChangeHook<NewsPost> = ({
   data,
   originalDoc,
 }) => {
-  if (originalDoc) {
+  if (data.slug && originalDoc) {
     return data;
   }
   if (!originalDoc && !data.title) {
