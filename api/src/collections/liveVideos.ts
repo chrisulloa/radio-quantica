@@ -1,4 +1,4 @@
-import payload, {
+import {
   CollectionAfterOperationHook,
   CollectionBeforeChangeHook,
   CollectionConfig,
@@ -8,7 +8,10 @@ import { revalidateResource } from '../utils/revalidate';
 import { youtubeImageUrl, youtubeVideoId } from '../utils/youtube';
 import { UUIDv7 } from 'uuidv7-js';
 
-const uploadImageHook: CollectionBeforeChangeHook<LiveVideo> = async ({ data }) => {
+const uploadImageHook: CollectionBeforeChangeHook<LiveVideo> = async ({
+  data,
+  req,
+}) => {
   try {
     const videoId = youtubeVideoId(data.url);
     const imageUrl = youtubeImageUrl(videoId);
@@ -20,7 +23,7 @@ const uploadImageHook: CollectionBeforeChangeHook<LiveVideo> = async ({ data }) 
       const arrayBuffer = await resp.arrayBuffer();
       const uint8Array = new Uint8Array(arrayBuffer);
       const imageData = Buffer.from(uint8Array);
-      const result = await payload.create({
+      const result = await req.payload.create({
         collection: 'media',
         data: {
           alt: `${data.title} thumbnail`,
