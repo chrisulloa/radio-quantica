@@ -252,6 +252,7 @@ export type Access = {
   media?: Maybe<MediaAccess>;
   merch?: Maybe<MerchAccess>;
   newsPosts?: Maybe<NewsPostsAccess>;
+  payload_locked_documents?: Maybe<Payload_Locked_DocumentsAccess>;
   payload_preferences?: Maybe<Payload_PreferencesAccess>;
   shows?: Maybe<ShowsAccess>;
   tags?: Maybe<TagsAccess>;
@@ -260,17 +261,17 @@ export type Access = {
 
 export type Categories = {
   __typename?: 'Categories';
-  docs?: Maybe<Array<Maybe<Category>>>;
-  hasNextPage?: Maybe<Scalars['Boolean']>;
-  hasPrevPage?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
+  docs: Array<Category>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
   nextPage?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-  pagingCounter?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
   prevPage?: Maybe<Scalars['Int']>;
-  totalDocs?: Maybe<Scalars['Int']>;
-  totalPages?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
 };
 
 export type CategoriesCreateAccess = {
@@ -506,7 +507,7 @@ export type CategoriesUpdateDocAccess = {
 export type Category = {
   __typename?: 'Category';
   createdAt?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
   name: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
@@ -808,7 +809,7 @@ export enum FallbackLocaleInputType {
 export type Host = {
   __typename?: 'Host';
   createdAt?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
   name: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
@@ -885,17 +886,17 @@ export type Host_Where_Or = {
 
 export type Hosts = {
   __typename?: 'Hosts';
-  docs?: Maybe<Array<Maybe<Host>>>;
-  hasNextPage?: Maybe<Scalars['Boolean']>;
-  hasPrevPage?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
+  docs: Array<Host>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
   nextPage?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-  pagingCounter?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
   prevPage?: Maybe<Scalars['Int']>;
-  totalDocs?: Maybe<Scalars['Int']>;
-  totalPages?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
 };
 
 export type HostsCreateAccess = {
@@ -1132,7 +1133,7 @@ export type LabelRelease = {
   __typename?: 'LabelRelease';
   blurb: Scalars['String'];
   createdAt?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
   image?: Maybe<Media>;
   title: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -1143,604 +1144,6 @@ export type LabelRelease = {
 export type LabelReleaseImageArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   locale?: InputMaybe<LocaleInputType>;
-  where?: InputMaybe<LabelRelease_Image_Where>;
-};
-
-export type LabelRelease_Image_Alt_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_CreatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['DateTime']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
-  less_than?: InputMaybe<Scalars['DateTime']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']>;
-  like?: InputMaybe<Scalars['DateTime']>;
-  not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type LabelRelease_Image_Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_FocalX_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_FocalY_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Id_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Prefix_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Lg__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Lg__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Sizes__Lg__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Sizes__Lg__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Lg__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Lg__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Sizes__Opengraph__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Opengraph__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Sizes__Opengraph__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Sizes__Opengraph__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Opengraph__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Opengraph__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Sizes__Sm__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Sm__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Sizes__Sm__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Sizes__Sm__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Sm__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Sm__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Sizes__Xl__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Xl__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Sizes__Xl__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Sizes__Xl__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Xl__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Xl__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Sizes__Xs__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Xs__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Sizes__Xs__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_Sizes__Xs__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Xs__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Sizes__Xs__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LabelRelease_Image_UpdatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['DateTime']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
-  less_than?: InputMaybe<Scalars['DateTime']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']>;
-  like?: InputMaybe<Scalars['DateTime']>;
-  not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type LabelRelease_Image_Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LabelRelease_Image_Where = {
-  AND?: InputMaybe<Array<InputMaybe<LabelRelease_Image_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<LabelRelease_Image_Where_Or>>>;
-  alt?: InputMaybe<LabelRelease_Image_Alt_Operator>;
-  createdAt?: InputMaybe<LabelRelease_Image_CreatedAt_Operator>;
-  filename?: InputMaybe<LabelRelease_Image_Filename_Operator>;
-  filesize?: InputMaybe<LabelRelease_Image_Filesize_Operator>;
-  focalX?: InputMaybe<LabelRelease_Image_FocalX_Operator>;
-  focalY?: InputMaybe<LabelRelease_Image_FocalY_Operator>;
-  height?: InputMaybe<LabelRelease_Image_Height_Operator>;
-  id?: InputMaybe<LabelRelease_Image_Id_Operator>;
-  mimeType?: InputMaybe<LabelRelease_Image_MimeType_Operator>;
-  prefix?: InputMaybe<LabelRelease_Image_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<LabelRelease_Image_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<LabelRelease_Image_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<LabelRelease_Image_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<LabelRelease_Image_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<LabelRelease_Image_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<LabelRelease_Image_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<LabelRelease_Image_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<LabelRelease_Image_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<LabelRelease_Image_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<LabelRelease_Image_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<LabelRelease_Image_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<LabelRelease_Image_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<LabelRelease_Image_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<LabelRelease_Image_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<LabelRelease_Image_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<LabelRelease_Image_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<LabelRelease_Image_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<LabelRelease_Image_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<LabelRelease_Image_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<LabelRelease_Image_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<LabelRelease_Image_UpdatedAt_Operator>;
-  url?: InputMaybe<LabelRelease_Image_Url_Operator>;
-  width?: InputMaybe<LabelRelease_Image_Width_Operator>;
-};
-
-export type LabelRelease_Image_Where_And = {
-  AND?: InputMaybe<Array<InputMaybe<LabelRelease_Image_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<LabelRelease_Image_Where_Or>>>;
-  alt?: InputMaybe<LabelRelease_Image_Alt_Operator>;
-  createdAt?: InputMaybe<LabelRelease_Image_CreatedAt_Operator>;
-  filename?: InputMaybe<LabelRelease_Image_Filename_Operator>;
-  filesize?: InputMaybe<LabelRelease_Image_Filesize_Operator>;
-  focalX?: InputMaybe<LabelRelease_Image_FocalX_Operator>;
-  focalY?: InputMaybe<LabelRelease_Image_FocalY_Operator>;
-  height?: InputMaybe<LabelRelease_Image_Height_Operator>;
-  id?: InputMaybe<LabelRelease_Image_Id_Operator>;
-  mimeType?: InputMaybe<LabelRelease_Image_MimeType_Operator>;
-  prefix?: InputMaybe<LabelRelease_Image_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<LabelRelease_Image_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<LabelRelease_Image_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<LabelRelease_Image_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<LabelRelease_Image_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<LabelRelease_Image_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<LabelRelease_Image_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<LabelRelease_Image_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<LabelRelease_Image_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<LabelRelease_Image_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<LabelRelease_Image_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<LabelRelease_Image_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<LabelRelease_Image_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<LabelRelease_Image_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<LabelRelease_Image_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<LabelRelease_Image_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<LabelRelease_Image_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<LabelRelease_Image_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<LabelRelease_Image_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<LabelRelease_Image_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<LabelRelease_Image_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<LabelRelease_Image_UpdatedAt_Operator>;
-  url?: InputMaybe<LabelRelease_Image_Url_Operator>;
-  width?: InputMaybe<LabelRelease_Image_Width_Operator>;
-};
-
-export type LabelRelease_Image_Where_Or = {
-  AND?: InputMaybe<Array<InputMaybe<LabelRelease_Image_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<LabelRelease_Image_Where_Or>>>;
-  alt?: InputMaybe<LabelRelease_Image_Alt_Operator>;
-  createdAt?: InputMaybe<LabelRelease_Image_CreatedAt_Operator>;
-  filename?: InputMaybe<LabelRelease_Image_Filename_Operator>;
-  filesize?: InputMaybe<LabelRelease_Image_Filesize_Operator>;
-  focalX?: InputMaybe<LabelRelease_Image_FocalX_Operator>;
-  focalY?: InputMaybe<LabelRelease_Image_FocalY_Operator>;
-  height?: InputMaybe<LabelRelease_Image_Height_Operator>;
-  id?: InputMaybe<LabelRelease_Image_Id_Operator>;
-  mimeType?: InputMaybe<LabelRelease_Image_MimeType_Operator>;
-  prefix?: InputMaybe<LabelRelease_Image_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<LabelRelease_Image_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<LabelRelease_Image_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<LabelRelease_Image_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<LabelRelease_Image_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<LabelRelease_Image_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<LabelRelease_Image_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<LabelRelease_Image_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<LabelRelease_Image_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<LabelRelease_Image_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<LabelRelease_Image_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<LabelRelease_Image_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<LabelRelease_Image_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<LabelRelease_Image_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<LabelRelease_Image_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<LabelRelease_Image_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<LabelRelease_Image_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<LabelRelease_Image_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<LabelRelease_Image_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<LabelRelease_Image_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<LabelRelease_Image_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<LabelRelease_Image_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<LabelRelease_Image_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<LabelRelease_Image_UpdatedAt_Operator>;
-  url?: InputMaybe<LabelRelease_Image_Url_Operator>;
-  width?: InputMaybe<LabelRelease_Image_Width_Operator>;
-};
-
-export type LabelRelease_Image_Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
 };
 
 export type LabelRelease_Blurb_Operator = {
@@ -1776,9 +1179,12 @@ export type LabelRelease_Id_Operator = {
 };
 
 export type LabelRelease_Image_Operator = {
-  equals?: InputMaybe<Scalars['String']>;
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+  equals?: InputMaybe<Scalars['JSON']>;
   exists?: InputMaybe<Scalars['Boolean']>;
-  not_equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+  not_equals?: InputMaybe<Scalars['JSON']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
 };
 
 export type LabelRelease_Title_Operator = {
@@ -1850,17 +1256,17 @@ export type LabelRelease_Where_Or = {
 
 export type LabelReleases = {
   __typename?: 'LabelReleases';
-  docs?: Maybe<Array<Maybe<LabelRelease>>>;
-  hasNextPage?: Maybe<Scalars['Boolean']>;
-  hasPrevPage?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
+  docs: Array<LabelRelease>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
   nextPage?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-  pagingCounter?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
   prevPage?: Maybe<Scalars['Int']>;
-  totalDocs?: Maybe<Scalars['Int']>;
-  totalPages?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
 };
 
 export type LabelReleasesCreateAccess = {
@@ -2271,7 +1677,7 @@ export type LiveVideo = {
   __typename?: 'LiveVideo';
   createdAt?: Maybe<Scalars['DateTime']>;
   date?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
   image?: Maybe<Media>;
   title: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -2283,604 +1689,6 @@ export type LiveVideo = {
 export type LiveVideoImageArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   locale?: InputMaybe<LocaleInputType>;
-  where?: InputMaybe<LiveVideo_Image_Where>;
-};
-
-export type LiveVideo_Image_Alt_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_CreatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['DateTime']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
-  less_than?: InputMaybe<Scalars['DateTime']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']>;
-  like?: InputMaybe<Scalars['DateTime']>;
-  not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type LiveVideo_Image_Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_FocalX_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_FocalY_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Id_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Prefix_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Lg__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Lg__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Sizes__Lg__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Sizes__Lg__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Lg__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Lg__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Sizes__Opengraph__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Opengraph__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Sizes__Opengraph__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Sizes__Opengraph__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Opengraph__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Opengraph__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Sizes__Sm__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Sm__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Sizes__Sm__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Sizes__Sm__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Sm__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Sm__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Sizes__Xl__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Xl__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Sizes__Xl__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Sizes__Xl__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Xl__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Xl__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Sizes__Xs__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Xs__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Sizes__Xs__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_Sizes__Xs__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Xs__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Sizes__Xs__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type LiveVideo_Image_UpdatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['DateTime']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
-  less_than?: InputMaybe<Scalars['DateTime']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']>;
-  like?: InputMaybe<Scalars['DateTime']>;
-  not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type LiveVideo_Image_Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type LiveVideo_Image_Where = {
-  AND?: InputMaybe<Array<InputMaybe<LiveVideo_Image_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<LiveVideo_Image_Where_Or>>>;
-  alt?: InputMaybe<LiveVideo_Image_Alt_Operator>;
-  createdAt?: InputMaybe<LiveVideo_Image_CreatedAt_Operator>;
-  filename?: InputMaybe<LiveVideo_Image_Filename_Operator>;
-  filesize?: InputMaybe<LiveVideo_Image_Filesize_Operator>;
-  focalX?: InputMaybe<LiveVideo_Image_FocalX_Operator>;
-  focalY?: InputMaybe<LiveVideo_Image_FocalY_Operator>;
-  height?: InputMaybe<LiveVideo_Image_Height_Operator>;
-  id?: InputMaybe<LiveVideo_Image_Id_Operator>;
-  mimeType?: InputMaybe<LiveVideo_Image_MimeType_Operator>;
-  prefix?: InputMaybe<LiveVideo_Image_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<LiveVideo_Image_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<LiveVideo_Image_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<LiveVideo_Image_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<LiveVideo_Image_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<LiveVideo_Image_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<LiveVideo_Image_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<LiveVideo_Image_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<LiveVideo_Image_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<LiveVideo_Image_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<LiveVideo_Image_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<LiveVideo_Image_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<LiveVideo_Image_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<LiveVideo_Image_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<LiveVideo_Image_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<LiveVideo_Image_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<LiveVideo_Image_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<LiveVideo_Image_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<LiveVideo_Image_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<LiveVideo_Image_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<LiveVideo_Image_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<LiveVideo_Image_UpdatedAt_Operator>;
-  url?: InputMaybe<LiveVideo_Image_Url_Operator>;
-  width?: InputMaybe<LiveVideo_Image_Width_Operator>;
-};
-
-export type LiveVideo_Image_Where_And = {
-  AND?: InputMaybe<Array<InputMaybe<LiveVideo_Image_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<LiveVideo_Image_Where_Or>>>;
-  alt?: InputMaybe<LiveVideo_Image_Alt_Operator>;
-  createdAt?: InputMaybe<LiveVideo_Image_CreatedAt_Operator>;
-  filename?: InputMaybe<LiveVideo_Image_Filename_Operator>;
-  filesize?: InputMaybe<LiveVideo_Image_Filesize_Operator>;
-  focalX?: InputMaybe<LiveVideo_Image_FocalX_Operator>;
-  focalY?: InputMaybe<LiveVideo_Image_FocalY_Operator>;
-  height?: InputMaybe<LiveVideo_Image_Height_Operator>;
-  id?: InputMaybe<LiveVideo_Image_Id_Operator>;
-  mimeType?: InputMaybe<LiveVideo_Image_MimeType_Operator>;
-  prefix?: InputMaybe<LiveVideo_Image_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<LiveVideo_Image_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<LiveVideo_Image_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<LiveVideo_Image_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<LiveVideo_Image_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<LiveVideo_Image_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<LiveVideo_Image_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<LiveVideo_Image_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<LiveVideo_Image_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<LiveVideo_Image_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<LiveVideo_Image_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<LiveVideo_Image_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<LiveVideo_Image_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<LiveVideo_Image_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<LiveVideo_Image_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<LiveVideo_Image_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<LiveVideo_Image_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<LiveVideo_Image_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<LiveVideo_Image_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<LiveVideo_Image_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<LiveVideo_Image_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<LiveVideo_Image_UpdatedAt_Operator>;
-  url?: InputMaybe<LiveVideo_Image_Url_Operator>;
-  width?: InputMaybe<LiveVideo_Image_Width_Operator>;
-};
-
-export type LiveVideo_Image_Where_Or = {
-  AND?: InputMaybe<Array<InputMaybe<LiveVideo_Image_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<LiveVideo_Image_Where_Or>>>;
-  alt?: InputMaybe<LiveVideo_Image_Alt_Operator>;
-  createdAt?: InputMaybe<LiveVideo_Image_CreatedAt_Operator>;
-  filename?: InputMaybe<LiveVideo_Image_Filename_Operator>;
-  filesize?: InputMaybe<LiveVideo_Image_Filesize_Operator>;
-  focalX?: InputMaybe<LiveVideo_Image_FocalX_Operator>;
-  focalY?: InputMaybe<LiveVideo_Image_FocalY_Operator>;
-  height?: InputMaybe<LiveVideo_Image_Height_Operator>;
-  id?: InputMaybe<LiveVideo_Image_Id_Operator>;
-  mimeType?: InputMaybe<LiveVideo_Image_MimeType_Operator>;
-  prefix?: InputMaybe<LiveVideo_Image_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<LiveVideo_Image_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<LiveVideo_Image_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<LiveVideo_Image_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<LiveVideo_Image_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<LiveVideo_Image_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<LiveVideo_Image_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<LiveVideo_Image_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<LiveVideo_Image_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<LiveVideo_Image_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<LiveVideo_Image_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<LiveVideo_Image_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<LiveVideo_Image_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<LiveVideo_Image_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<LiveVideo_Image_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<LiveVideo_Image_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<LiveVideo_Image_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<LiveVideo_Image_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<LiveVideo_Image_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<LiveVideo_Image_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<LiveVideo_Image_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<LiveVideo_Image_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<LiveVideo_Image_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<LiveVideo_Image_UpdatedAt_Operator>;
-  url?: InputMaybe<LiveVideo_Image_Url_Operator>;
-  width?: InputMaybe<LiveVideo_Image_Width_Operator>;
-};
-
-export type LiveVideo_Image_Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
 };
 
 export type LiveVideo_CreatedAt_Operator = {
@@ -2917,9 +1725,12 @@ export type LiveVideo_Id_Operator = {
 };
 
 export type LiveVideo_Image_Operator = {
-  equals?: InputMaybe<Scalars['String']>;
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+  equals?: InputMaybe<Scalars['JSON']>;
   exists?: InputMaybe<Scalars['Boolean']>;
-  not_equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+  not_equals?: InputMaybe<Scalars['JSON']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
 };
 
 export type LiveVideo_Title_Operator = {
@@ -3005,17 +1816,17 @@ export type LiveVideo_Where_Or = {
 
 export type LiveVideos = {
   __typename?: 'LiveVideos';
-  docs?: Maybe<Array<Maybe<LiveVideo>>>;
-  hasNextPage?: Maybe<Scalars['Boolean']>;
-  hasPrevPage?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
+  docs: Array<LiveVideo>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
   nextPage?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-  pagingCounter?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
   prevPage?: Maybe<Scalars['Int']>;
-  totalDocs?: Maybe<Scalars['Int']>;
-  totalPages?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
 };
 
 export type LiveVideosCreateAccess = {
@@ -3494,10 +2305,11 @@ export type Media = {
   focalX?: Maybe<Scalars['Float']>;
   focalY?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
-  id?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
   mimeType?: Maybe<Scalars['String']>;
   prefix?: Maybe<Scalars['String']>;
   sizes?: Maybe<Media_Sizes>;
+  thumbnailURL?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   url?: Maybe<Scalars['String']>;
   width?: Maybe<Scalars['Float']>;
@@ -3539,6 +2351,7 @@ export type MediaDocAccessFields = {
   mimeType?: Maybe<MediaDocAccessFields_MimeType>;
   prefix?: Maybe<MediaDocAccessFields_Prefix>;
   sizes?: Maybe<MediaDocAccessFields_Sizes>;
+  thumbnailURL?: Maybe<MediaDocAccessFields_ThumbnailUrl>;
   updatedAt?: Maybe<MediaDocAccessFields_UpdatedAt>;
   url?: Maybe<MediaDocAccessFields_Url>;
   width?: Maybe<MediaDocAccessFields_Width>;
@@ -4869,6 +3682,34 @@ export type MediaDocAccessFields_Sizes_Xs_Width_Update = {
   permission: Scalars['Boolean'];
 };
 
+export type MediaDocAccessFields_ThumbnailUrl = {
+  __typename?: 'MediaDocAccessFields_thumbnailURL';
+  create?: Maybe<MediaDocAccessFields_ThumbnailUrl_Create>;
+  delete?: Maybe<MediaDocAccessFields_ThumbnailUrl_Delete>;
+  read?: Maybe<MediaDocAccessFields_ThumbnailUrl_Read>;
+  update?: Maybe<MediaDocAccessFields_ThumbnailUrl_Update>;
+};
+
+export type MediaDocAccessFields_ThumbnailUrl_Create = {
+  __typename?: 'MediaDocAccessFields_thumbnailURL_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_ThumbnailUrl_Delete = {
+  __typename?: 'MediaDocAccessFields_thumbnailURL_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_ThumbnailUrl_Read = {
+  __typename?: 'MediaDocAccessFields_thumbnailURL_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaDocAccessFields_ThumbnailUrl_Update = {
+  __typename?: 'MediaDocAccessFields_thumbnailURL_Update';
+  permission: Scalars['Boolean'];
+};
+
 export type MediaDocAccessFields_UpdatedAt = {
   __typename?: 'MediaDocAccessFields_updatedAt';
   create?: Maybe<MediaDocAccessFields_UpdatedAt_Create>;
@@ -4965,6 +3806,7 @@ export type MediaFields = {
   mimeType?: Maybe<MediaFields_MimeType>;
   prefix?: Maybe<MediaFields_Prefix>;
   sizes?: Maybe<MediaFields_Sizes>;
+  thumbnailURL?: Maybe<MediaFields_ThumbnailUrl>;
   updatedAt?: Maybe<MediaFields_UpdatedAt>;
   url?: Maybe<MediaFields_Url>;
   width?: Maybe<MediaFields_Width>;
@@ -6295,6 +5137,34 @@ export type MediaFields_Sizes_Xs_Width_Update = {
   permission: Scalars['Boolean'];
 };
 
+export type MediaFields_ThumbnailUrl = {
+  __typename?: 'MediaFields_thumbnailURL';
+  create?: Maybe<MediaFields_ThumbnailUrl_Create>;
+  delete?: Maybe<MediaFields_ThumbnailUrl_Delete>;
+  read?: Maybe<MediaFields_ThumbnailUrl_Read>;
+  update?: Maybe<MediaFields_ThumbnailUrl_Update>;
+};
+
+export type MediaFields_ThumbnailUrl_Create = {
+  __typename?: 'MediaFields_thumbnailURL_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_ThumbnailUrl_Delete = {
+  __typename?: 'MediaFields_thumbnailURL_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_ThumbnailUrl_Read = {
+  __typename?: 'MediaFields_thumbnailURL_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type MediaFields_ThumbnailUrl_Update = {
+  __typename?: 'MediaFields_thumbnailURL_Update';
+  permission: Scalars['Boolean'];
+};
+
 export type MediaFields_UpdatedAt = {
   __typename?: 'MediaFields_updatedAt';
   create?: Maybe<MediaFields_UpdatedAt_Create>;
@@ -6883,6 +5753,17 @@ export type Media_Sizes__Xs__Width_Operator = {
   not_equals?: InputMaybe<Scalars['Float']>;
 };
 
+export type Media_ThumbnailUrl_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
 export type Media_UpdatedAt_Operator = {
   equals?: InputMaybe<Scalars['DateTime']>;
   exists?: InputMaybe<Scalars['Boolean']>;
@@ -6948,6 +5829,7 @@ export type Media_Where = {
   sizes__xs__mimeType?: InputMaybe<Media_Sizes__Xs__MimeType_Operator>;
   sizes__xs__url?: InputMaybe<Media_Sizes__Xs__Url_Operator>;
   sizes__xs__width?: InputMaybe<Media_Sizes__Xs__Width_Operator>;
+  thumbnailURL?: InputMaybe<Media_ThumbnailUrl_Operator>;
   updatedAt?: InputMaybe<Media_UpdatedAt_Operator>;
   url?: InputMaybe<Media_Url_Operator>;
   width?: InputMaybe<Media_Width_Operator>;
@@ -6996,6 +5878,7 @@ export type Media_Where_And = {
   sizes__xs__mimeType?: InputMaybe<Media_Sizes__Xs__MimeType_Operator>;
   sizes__xs__url?: InputMaybe<Media_Sizes__Xs__Url_Operator>;
   sizes__xs__width?: InputMaybe<Media_Sizes__Xs__Width_Operator>;
+  thumbnailURL?: InputMaybe<Media_ThumbnailUrl_Operator>;
   updatedAt?: InputMaybe<Media_UpdatedAt_Operator>;
   url?: InputMaybe<Media_Url_Operator>;
   width?: InputMaybe<Media_Width_Operator>;
@@ -7044,6 +5927,7 @@ export type Media_Where_Or = {
   sizes__xs__mimeType?: InputMaybe<Media_Sizes__Xs__MimeType_Operator>;
   sizes__xs__url?: InputMaybe<Media_Sizes__Xs__Url_Operator>;
   sizes__xs__width?: InputMaybe<Media_Sizes__Xs__Width_Operator>;
+  thumbnailURL?: InputMaybe<Media_ThumbnailUrl_Operator>;
   updatedAt?: InputMaybe<Media_UpdatedAt_Operator>;
   url?: InputMaybe<Media_Url_Operator>;
   width?: InputMaybe<Media_Width_Operator>;
@@ -7063,7 +5947,7 @@ export type Merch = {
   __typename?: 'Merch';
   blurb: Scalars['String'];
   createdAt?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
   image?: Maybe<Media>;
   soldOut?: Maybe<Scalars['Boolean']>;
   title: Scalars['String'];
@@ -7075,7 +5959,6 @@ export type Merch = {
 export type MerchImageArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   locale?: InputMaybe<LocaleInputType>;
-  where?: InputMaybe<Merch_Image_Where>;
 };
 
 export type MerchCreateAccess = {
@@ -7540,603 +6423,6 @@ export type MerchUpdateDocAccess = {
   where?: Maybe<Scalars['JSONObject']>;
 };
 
-export type Merch_Image_Alt_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_CreatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['DateTime']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
-  less_than?: InputMaybe<Scalars['DateTime']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']>;
-  like?: InputMaybe<Scalars['DateTime']>;
-  not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type Merch_Image_Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_FocalX_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_FocalY_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Id_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Prefix_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Lg__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Lg__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Sizes__Lg__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Sizes__Lg__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Lg__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Lg__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Sizes__Opengraph__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Opengraph__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Sizes__Opengraph__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Sizes__Opengraph__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Opengraph__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Opengraph__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Sizes__Sm__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Sm__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Sizes__Sm__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Sizes__Sm__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Sm__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Sm__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Sizes__Xl__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Xl__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Sizes__Xl__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Sizes__Xl__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Xl__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Xl__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Sizes__Xs__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Xs__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Sizes__Xs__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_Sizes__Xs__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Xs__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Sizes__Xs__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Merch_Image_UpdatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['DateTime']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
-  less_than?: InputMaybe<Scalars['DateTime']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']>;
-  like?: InputMaybe<Scalars['DateTime']>;
-  not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type Merch_Image_Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Merch_Image_Where = {
-  AND?: InputMaybe<Array<InputMaybe<Merch_Image_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<Merch_Image_Where_Or>>>;
-  alt?: InputMaybe<Merch_Image_Alt_Operator>;
-  createdAt?: InputMaybe<Merch_Image_CreatedAt_Operator>;
-  filename?: InputMaybe<Merch_Image_Filename_Operator>;
-  filesize?: InputMaybe<Merch_Image_Filesize_Operator>;
-  focalX?: InputMaybe<Merch_Image_FocalX_Operator>;
-  focalY?: InputMaybe<Merch_Image_FocalY_Operator>;
-  height?: InputMaybe<Merch_Image_Height_Operator>;
-  id?: InputMaybe<Merch_Image_Id_Operator>;
-  mimeType?: InputMaybe<Merch_Image_MimeType_Operator>;
-  prefix?: InputMaybe<Merch_Image_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<Merch_Image_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<Merch_Image_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<Merch_Image_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<Merch_Image_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<Merch_Image_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<Merch_Image_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<Merch_Image_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<Merch_Image_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<Merch_Image_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<Merch_Image_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<Merch_Image_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<Merch_Image_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<Merch_Image_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<Merch_Image_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<Merch_Image_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<Merch_Image_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<Merch_Image_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<Merch_Image_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<Merch_Image_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<Merch_Image_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<Merch_Image_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<Merch_Image_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<Merch_Image_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<Merch_Image_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<Merch_Image_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<Merch_Image_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<Merch_Image_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<Merch_Image_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<Merch_Image_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<Merch_Image_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<Merch_Image_UpdatedAt_Operator>;
-  url?: InputMaybe<Merch_Image_Url_Operator>;
-  width?: InputMaybe<Merch_Image_Width_Operator>;
-};
-
-export type Merch_Image_Where_And = {
-  AND?: InputMaybe<Array<InputMaybe<Merch_Image_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<Merch_Image_Where_Or>>>;
-  alt?: InputMaybe<Merch_Image_Alt_Operator>;
-  createdAt?: InputMaybe<Merch_Image_CreatedAt_Operator>;
-  filename?: InputMaybe<Merch_Image_Filename_Operator>;
-  filesize?: InputMaybe<Merch_Image_Filesize_Operator>;
-  focalX?: InputMaybe<Merch_Image_FocalX_Operator>;
-  focalY?: InputMaybe<Merch_Image_FocalY_Operator>;
-  height?: InputMaybe<Merch_Image_Height_Operator>;
-  id?: InputMaybe<Merch_Image_Id_Operator>;
-  mimeType?: InputMaybe<Merch_Image_MimeType_Operator>;
-  prefix?: InputMaybe<Merch_Image_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<Merch_Image_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<Merch_Image_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<Merch_Image_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<Merch_Image_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<Merch_Image_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<Merch_Image_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<Merch_Image_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<Merch_Image_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<Merch_Image_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<Merch_Image_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<Merch_Image_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<Merch_Image_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<Merch_Image_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<Merch_Image_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<Merch_Image_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<Merch_Image_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<Merch_Image_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<Merch_Image_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<Merch_Image_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<Merch_Image_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<Merch_Image_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<Merch_Image_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<Merch_Image_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<Merch_Image_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<Merch_Image_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<Merch_Image_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<Merch_Image_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<Merch_Image_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<Merch_Image_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<Merch_Image_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<Merch_Image_UpdatedAt_Operator>;
-  url?: InputMaybe<Merch_Image_Url_Operator>;
-  width?: InputMaybe<Merch_Image_Width_Operator>;
-};
-
-export type Merch_Image_Where_Or = {
-  AND?: InputMaybe<Array<InputMaybe<Merch_Image_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<Merch_Image_Where_Or>>>;
-  alt?: InputMaybe<Merch_Image_Alt_Operator>;
-  createdAt?: InputMaybe<Merch_Image_CreatedAt_Operator>;
-  filename?: InputMaybe<Merch_Image_Filename_Operator>;
-  filesize?: InputMaybe<Merch_Image_Filesize_Operator>;
-  focalX?: InputMaybe<Merch_Image_FocalX_Operator>;
-  focalY?: InputMaybe<Merch_Image_FocalY_Operator>;
-  height?: InputMaybe<Merch_Image_Height_Operator>;
-  id?: InputMaybe<Merch_Image_Id_Operator>;
-  mimeType?: InputMaybe<Merch_Image_MimeType_Operator>;
-  prefix?: InputMaybe<Merch_Image_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<Merch_Image_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<Merch_Image_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<Merch_Image_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<Merch_Image_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<Merch_Image_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<Merch_Image_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<Merch_Image_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<Merch_Image_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<Merch_Image_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<Merch_Image_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<Merch_Image_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<Merch_Image_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<Merch_Image_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<Merch_Image_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<Merch_Image_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<Merch_Image_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<Merch_Image_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<Merch_Image_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<Merch_Image_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<Merch_Image_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<Merch_Image_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<Merch_Image_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<Merch_Image_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<Merch_Image_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<Merch_Image_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<Merch_Image_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<Merch_Image_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<Merch_Image_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<Merch_Image_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<Merch_Image_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<Merch_Image_UpdatedAt_Operator>;
-  url?: InputMaybe<Merch_Image_Url_Operator>;
-  width?: InputMaybe<Merch_Image_Width_Operator>;
-};
-
-export type Merch_Image_Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
 export type Merch_Blurb_Operator = {
   all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   contains?: InputMaybe<Scalars['String']>;
@@ -8170,9 +6456,12 @@ export type Merch_Id_Operator = {
 };
 
 export type Merch_Image_Operator = {
-  equals?: InputMaybe<Scalars['String']>;
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+  equals?: InputMaybe<Scalars['JSON']>;
   exists?: InputMaybe<Scalars['Boolean']>;
-  not_equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+  not_equals?: InputMaybe<Scalars['JSON']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
 };
 
 export type Merch_SoldOut_Operator = {
@@ -8253,17 +6542,17 @@ export type Merch_Where_Or = {
 
 export type Merches = {
   __typename?: 'Merches';
-  docs?: Maybe<Array<Maybe<Merch>>>;
-  hasNextPage?: Maybe<Scalars['Boolean']>;
-  hasPrevPage?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
+  docs: Array<Merch>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
   nextPage?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-  pagingCounter?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
   prevPage?: Maybe<Scalars['Int']>;
-  totalDocs?: Maybe<Scalars['Int']>;
-  totalPages?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
 };
 
 export type Mutation = {
@@ -8275,6 +6564,7 @@ export type Mutation = {
   createMedia?: Maybe<Media>;
   createMerch?: Maybe<Merch>;
   createNewsPost?: Maybe<NewsPost>;
+  createPayloadLockedDocument?: Maybe<PayloadLockedDocument>;
   createPayloadPreference?: Maybe<PayloadPreference>;
   createShow?: Maybe<Show>;
   createTag?: Maybe<Tag>;
@@ -8286,10 +6576,22 @@ export type Mutation = {
   deleteMedia?: Maybe<Media>;
   deleteMerch?: Maybe<Merch>;
   deleteNewsPost?: Maybe<NewsPost>;
+  deletePayloadLockedDocument?: Maybe<PayloadLockedDocument>;
   deletePayloadPreference?: Maybe<PayloadPreference>;
   deleteShow?: Maybe<Show>;
   deleteTag?: Maybe<Tag>;
   deleteUser?: Maybe<User>;
+  duplicateCategory?: Maybe<Category>;
+  duplicateHost?: Maybe<Host>;
+  duplicateLabelRelease?: Maybe<LabelRelease>;
+  duplicateLiveVideo?: Maybe<LiveVideo>;
+  duplicateMedia?: Maybe<Media>;
+  duplicateMerch?: Maybe<Merch>;
+  duplicateNewsPost?: Maybe<NewsPost>;
+  duplicatePayloadLockedDocument?: Maybe<PayloadLockedDocument>;
+  duplicatePayloadPreference?: Maybe<PayloadPreference>;
+  duplicateShow?: Maybe<Show>;
+  duplicateTag?: Maybe<Tag>;
   forgotPasswordUser: Scalars['Boolean'];
   loginUser?: Maybe<UsersLoginResult>;
   logoutUser?: Maybe<Scalars['String']>;
@@ -8306,6 +6608,7 @@ export type Mutation = {
   updateMedia?: Maybe<Media>;
   updateMerch?: Maybe<Merch>;
   updateNewsPost?: Maybe<NewsPost>;
+  updatePayloadLockedDocument?: Maybe<PayloadLockedDocument>;
   updatePayloadPreference?: Maybe<PayloadPreference>;
   updateShow?: Maybe<Show>;
   updateTag?: Maybe<Tag>;
@@ -8316,36 +6619,42 @@ export type Mutation = {
 
 export type MutationCreateCategoryArgs = {
   data: MutationCategoryInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateHostArgs = {
   data: MutationHostInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateLabelReleaseArgs = {
   data: MutationLabelReleaseInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateLiveVideoArgs = {
   data: MutationLiveVideoInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateMediaArgs = {
   data: MutationMediaInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateMerchArgs = {
   data: MutationMerchInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
 };
 
@@ -8357,26 +6666,37 @@ export type MutationCreateNewsPostArgs = {
 };
 
 
+export type MutationCreatePayloadLockedDocumentArgs = {
+  data: MutationPayloadLockedDocumentInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
 export type MutationCreatePayloadPreferenceArgs = {
   data: MutationPayloadPreferenceInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateShowArgs = {
   data: MutationShowInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateTagArgs = {
   data: MutationTagInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
 };
 
 
 export type MutationCreateUserArgs = {
   data: MutationUserInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
 };
 
@@ -8416,6 +6736,11 @@ export type MutationDeleteNewsPostArgs = {
 };
 
 
+export type MutationDeletePayloadLockedDocumentArgs = {
+  id: Scalars['String'];
+};
+
+
 export type MutationDeletePayloadPreferenceArgs = {
   id: Scalars['String'];
 };
@@ -8436,6 +6761,72 @@ export type MutationDeleteUserArgs = {
 };
 
 
+export type MutationDuplicateCategoryArgs = {
+  data: MutationCategoryInput;
+  id: Scalars['String'];
+};
+
+
+export type MutationDuplicateHostArgs = {
+  data: MutationHostInput;
+  id: Scalars['String'];
+};
+
+
+export type MutationDuplicateLabelReleaseArgs = {
+  data: MutationLabelReleaseInput;
+  id: Scalars['String'];
+};
+
+
+export type MutationDuplicateLiveVideoArgs = {
+  data: MutationLiveVideoInput;
+  id: Scalars['String'];
+};
+
+
+export type MutationDuplicateMediaArgs = {
+  data: MutationMediaInput;
+  id: Scalars['String'];
+};
+
+
+export type MutationDuplicateMerchArgs = {
+  data: MutationMerchInput;
+  id: Scalars['String'];
+};
+
+
+export type MutationDuplicateNewsPostArgs = {
+  data: MutationNewsPostInput;
+  id: Scalars['String'];
+};
+
+
+export type MutationDuplicatePayloadLockedDocumentArgs = {
+  data: MutationPayloadLockedDocumentInput;
+  id: Scalars['String'];
+};
+
+
+export type MutationDuplicatePayloadPreferenceArgs = {
+  data: MutationPayloadPreferenceInput;
+  id: Scalars['String'];
+};
+
+
+export type MutationDuplicateShowArgs = {
+  data: MutationShowInput;
+  id: Scalars['String'];
+};
+
+
+export type MutationDuplicateTagArgs = {
+  data: MutationTagInput;
+  id: Scalars['String'];
+};
+
+
 export type MutationForgotPasswordUserArgs = {
   disableEmail?: InputMaybe<Scalars['Boolean']>;
   email: Scalars['String'];
@@ -8444,7 +6835,7 @@ export type MutationForgotPasswordUserArgs = {
 
 
 export type MutationLoginUserArgs = {
-  email?: InputMaybe<Scalars['String']>;
+  email: Scalars['String'];
   password?: InputMaybe<Scalars['String']>;
 };
 
@@ -8456,6 +6847,7 @@ export type MutationResetPasswordUserArgs = {
 
 
 export type MutationRestoreVersionNewsPostArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   id?: InputMaybe<Scalars['String']>;
 };
 
@@ -8475,6 +6867,7 @@ export type MutationUpdateAboutPageArgs = {
 export type MutationUpdateCategoryArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationCategoryUpdateInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
 };
@@ -8490,6 +6883,7 @@ export type MutationUpdateDonatePageArgs = {
 export type MutationUpdateHostArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationHostUpdateInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
 };
@@ -8498,6 +6892,7 @@ export type MutationUpdateHostArgs = {
 export type MutationUpdateLabelReleaseArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationLabelReleaseUpdateInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
 };
@@ -8506,6 +6901,7 @@ export type MutationUpdateLabelReleaseArgs = {
 export type MutationUpdateLiveVideoArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationLiveVideoUpdateInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
 };
@@ -8514,6 +6910,7 @@ export type MutationUpdateLiveVideoArgs = {
 export type MutationUpdateMediaArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationMediaUpdateInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
 };
@@ -8522,6 +6919,7 @@ export type MutationUpdateMediaArgs = {
 export type MutationUpdateMerchArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationMerchUpdateInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
 };
@@ -8536,9 +6934,19 @@ export type MutationUpdateNewsPostArgs = {
 };
 
 
+export type MutationUpdatePayloadLockedDocumentArgs = {
+  autosave?: InputMaybe<Scalars['Boolean']>;
+  data: MutationPayloadLockedDocumentUpdateInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
+  id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
 export type MutationUpdatePayloadPreferenceArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationPayloadPreferenceUpdateInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
 };
@@ -8547,6 +6955,7 @@ export type MutationUpdatePayloadPreferenceArgs = {
 export type MutationUpdateShowArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationShowUpdateInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
 };
@@ -8555,6 +6964,7 @@ export type MutationUpdateShowArgs = {
 export type MutationUpdateTagArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationTagUpdateInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
 };
@@ -8563,6 +6973,7 @@ export type MutationUpdateTagArgs = {
 export type MutationUpdateUserArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationUserUpdateInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
 };
@@ -8581,7 +6992,7 @@ export type NewsPost = {
   blurb?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['JSON']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
   previewBanner?: Maybe<Media>;
   publishDate?: Maybe<Scalars['DateTime']>;
   slug?: Maybe<Scalars['String']>;
@@ -8605,7 +7016,6 @@ export type NewsPostContentArgs = {
 export type NewsPostPreviewBannerArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   locale?: InputMaybe<LocaleInputType>;
-  where?: InputMaybe<NewsPost_PreviewBanner_Where>;
 };
 
 
@@ -8625,6 +7035,8 @@ export type NewsPostVersion = {
   id?: Maybe<Scalars['String']>;
   latest?: Maybe<Scalars['Boolean']>;
   parent?: Maybe<NewsPost>;
+  publishedLocale?: Maybe<NewsPostVersion_PublishedLocale>;
+  snapshot?: Maybe<Scalars['Boolean']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   version?: Maybe<NewsPostVersion_Version>;
 };
@@ -8668,7 +7080,6 @@ export type NewsPostVersion_VersionContentArgs = {
 export type NewsPostVersion_VersionPreviewBannerArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   locale?: InputMaybe<LocaleInputType>;
-  where?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Where>;
 };
 
 
@@ -8677,1204 +7088,15 @@ export type NewsPostVersion_VersionTagsArgs = {
   locale?: InputMaybe<LocaleInputType>;
 };
 
-export type NewsPostVersion_Version_PreviewBanner_Alt_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_CreatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['DateTime']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
-  less_than?: InputMaybe<Scalars['DateTime']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']>;
-  like?: InputMaybe<Scalars['DateTime']>;
-  not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_FocalX_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_FocalY_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Id_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Prefix_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Lg__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Sm__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Xl__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Xs__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_UpdatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['DateTime']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
-  less_than?: InputMaybe<Scalars['DateTime']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']>;
-  like?: InputMaybe<Scalars['DateTime']>;
-  not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Where = {
-  AND?: InputMaybe<Array<InputMaybe<NewsPostVersion_Version_PreviewBanner_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<NewsPostVersion_Version_PreviewBanner_Where_Or>>>;
-  alt?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Alt_Operator>;
-  createdAt?: InputMaybe<NewsPostVersion_Version_PreviewBanner_CreatedAt_Operator>;
-  filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Filename_Operator>;
-  filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Filesize_Operator>;
-  focalX?: InputMaybe<NewsPostVersion_Version_PreviewBanner_FocalX_Operator>;
-  focalY?: InputMaybe<NewsPostVersion_Version_PreviewBanner_FocalY_Operator>;
-  height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Height_Operator>;
-  id?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Id_Operator>;
-  mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_MimeType_Operator>;
-  prefix?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<NewsPostVersion_Version_PreviewBanner_UpdatedAt_Operator>;
-  url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Url_Operator>;
-  width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Width_Operator>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Where_And = {
-  AND?: InputMaybe<Array<InputMaybe<NewsPostVersion_Version_PreviewBanner_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<NewsPostVersion_Version_PreviewBanner_Where_Or>>>;
-  alt?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Alt_Operator>;
-  createdAt?: InputMaybe<NewsPostVersion_Version_PreviewBanner_CreatedAt_Operator>;
-  filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Filename_Operator>;
-  filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Filesize_Operator>;
-  focalX?: InputMaybe<NewsPostVersion_Version_PreviewBanner_FocalX_Operator>;
-  focalY?: InputMaybe<NewsPostVersion_Version_PreviewBanner_FocalY_Operator>;
-  height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Height_Operator>;
-  id?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Id_Operator>;
-  mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_MimeType_Operator>;
-  prefix?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<NewsPostVersion_Version_PreviewBanner_UpdatedAt_Operator>;
-  url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Url_Operator>;
-  width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Width_Operator>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Where_Or = {
-  AND?: InputMaybe<Array<InputMaybe<NewsPostVersion_Version_PreviewBanner_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<NewsPostVersion_Version_PreviewBanner_Where_Or>>>;
-  alt?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Alt_Operator>;
-  createdAt?: InputMaybe<NewsPostVersion_Version_PreviewBanner_CreatedAt_Operator>;
-  filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Filename_Operator>;
-  filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Filesize_Operator>;
-  focalX?: InputMaybe<NewsPostVersion_Version_PreviewBanner_FocalX_Operator>;
-  focalY?: InputMaybe<NewsPostVersion_Version_PreviewBanner_FocalY_Operator>;
-  height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Height_Operator>;
-  id?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Id_Operator>;
-  mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_MimeType_Operator>;
-  prefix?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<NewsPostVersion_Version_PreviewBanner_UpdatedAt_Operator>;
-  url?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Url_Operator>;
-  width?: InputMaybe<NewsPostVersion_Version_PreviewBanner_Width_Operator>;
-};
-
-export type NewsPostVersion_Version_PreviewBanner_Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
 export enum NewsPostVersion_Version__Status {
   Draft = 'draft',
   Published = 'published'
 }
 
-export type NewsPost_PreviewBanner_Alt_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_CreatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['DateTime']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
-  less_than?: InputMaybe<Scalars['DateTime']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']>;
-  like?: InputMaybe<Scalars['DateTime']>;
-  not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type NewsPost_PreviewBanner_Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_FocalX_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_FocalY_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Id_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Prefix_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Lg__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Lg__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Lg__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Lg__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Lg__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Lg__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Opengraph__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Opengraph__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Opengraph__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Opengraph__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Opengraph__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Opengraph__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Sm__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Sm__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Sm__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Sm__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Sm__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Sm__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Xl__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Xl__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Xl__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Xl__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Xl__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Xl__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Xs__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Xs__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Xs__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Xs__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Xs__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Sizes__Xs__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type NewsPost_PreviewBanner_UpdatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['DateTime']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
-  less_than?: InputMaybe<Scalars['DateTime']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']>;
-  like?: InputMaybe<Scalars['DateTime']>;
-  not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type NewsPost_PreviewBanner_Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type NewsPost_PreviewBanner_Where = {
-  AND?: InputMaybe<Array<InputMaybe<NewsPost_PreviewBanner_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<NewsPost_PreviewBanner_Where_Or>>>;
-  alt?: InputMaybe<NewsPost_PreviewBanner_Alt_Operator>;
-  createdAt?: InputMaybe<NewsPost_PreviewBanner_CreatedAt_Operator>;
-  filename?: InputMaybe<NewsPost_PreviewBanner_Filename_Operator>;
-  filesize?: InputMaybe<NewsPost_PreviewBanner_Filesize_Operator>;
-  focalX?: InputMaybe<NewsPost_PreviewBanner_FocalX_Operator>;
-  focalY?: InputMaybe<NewsPost_PreviewBanner_FocalY_Operator>;
-  height?: InputMaybe<NewsPost_PreviewBanner_Height_Operator>;
-  id?: InputMaybe<NewsPost_PreviewBanner_Id_Operator>;
-  mimeType?: InputMaybe<NewsPost_PreviewBanner_MimeType_Operator>;
-  prefix?: InputMaybe<NewsPost_PreviewBanner_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<NewsPost_PreviewBanner_UpdatedAt_Operator>;
-  url?: InputMaybe<NewsPost_PreviewBanner_Url_Operator>;
-  width?: InputMaybe<NewsPost_PreviewBanner_Width_Operator>;
-};
-
-export type NewsPost_PreviewBanner_Where_And = {
-  AND?: InputMaybe<Array<InputMaybe<NewsPost_PreviewBanner_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<NewsPost_PreviewBanner_Where_Or>>>;
-  alt?: InputMaybe<NewsPost_PreviewBanner_Alt_Operator>;
-  createdAt?: InputMaybe<NewsPost_PreviewBanner_CreatedAt_Operator>;
-  filename?: InputMaybe<NewsPost_PreviewBanner_Filename_Operator>;
-  filesize?: InputMaybe<NewsPost_PreviewBanner_Filesize_Operator>;
-  focalX?: InputMaybe<NewsPost_PreviewBanner_FocalX_Operator>;
-  focalY?: InputMaybe<NewsPost_PreviewBanner_FocalY_Operator>;
-  height?: InputMaybe<NewsPost_PreviewBanner_Height_Operator>;
-  id?: InputMaybe<NewsPost_PreviewBanner_Id_Operator>;
-  mimeType?: InputMaybe<NewsPost_PreviewBanner_MimeType_Operator>;
-  prefix?: InputMaybe<NewsPost_PreviewBanner_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<NewsPost_PreviewBanner_UpdatedAt_Operator>;
-  url?: InputMaybe<NewsPost_PreviewBanner_Url_Operator>;
-  width?: InputMaybe<NewsPost_PreviewBanner_Width_Operator>;
-};
-
-export type NewsPost_PreviewBanner_Where_Or = {
-  AND?: InputMaybe<Array<InputMaybe<NewsPost_PreviewBanner_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<NewsPost_PreviewBanner_Where_Or>>>;
-  alt?: InputMaybe<NewsPost_PreviewBanner_Alt_Operator>;
-  createdAt?: InputMaybe<NewsPost_PreviewBanner_CreatedAt_Operator>;
-  filename?: InputMaybe<NewsPost_PreviewBanner_Filename_Operator>;
-  filesize?: InputMaybe<NewsPost_PreviewBanner_Filesize_Operator>;
-  focalX?: InputMaybe<NewsPost_PreviewBanner_FocalX_Operator>;
-  focalY?: InputMaybe<NewsPost_PreviewBanner_FocalY_Operator>;
-  height?: InputMaybe<NewsPost_PreviewBanner_Height_Operator>;
-  id?: InputMaybe<NewsPost_PreviewBanner_Id_Operator>;
-  mimeType?: InputMaybe<NewsPost_PreviewBanner_MimeType_Operator>;
-  prefix?: InputMaybe<NewsPost_PreviewBanner_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<NewsPost_PreviewBanner_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<NewsPost_PreviewBanner_UpdatedAt_Operator>;
-  url?: InputMaybe<NewsPost_PreviewBanner_Url_Operator>;
-  width?: InputMaybe<NewsPost_PreviewBanner_Width_Operator>;
-};
-
-export type NewsPost_PreviewBanner_Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
+export enum NewsPostVersion_PublishedLocale {
+  En = 'en',
+  Pt = 'pt'
+}
 
 export enum NewsPost__Status {
   Draft = 'draft',
@@ -9971,9 +7193,12 @@ export type NewsPost_Id_Operator = {
 };
 
 export type NewsPost_PreviewBanner_Operator = {
-  equals?: InputMaybe<Scalars['String']>;
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+  equals?: InputMaybe<Scalars['JSON']>;
   exists?: InputMaybe<Scalars['Boolean']>;
-  not_equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+  not_equals?: InputMaybe<Scalars['JSON']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
 };
 
 export type NewsPost_PublishDate_Operator = {
@@ -10087,17 +7312,17 @@ export type NewsPost_Where_Or = {
 
 export type NewsPosts = {
   __typename?: 'NewsPosts';
-  docs?: Maybe<Array<Maybe<NewsPost>>>;
-  hasNextPage?: Maybe<Scalars['Boolean']>;
-  hasPrevPage?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
+  docs: Array<NewsPost>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
   nextPage?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-  pagingCounter?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
   prevPage?: Maybe<Scalars['Int']>;
-  totalDocs?: Maybe<Scalars['Int']>;
-  totalPages?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
 };
 
 export type NewsPostsCreateAccess = {
@@ -10922,10 +8147,585 @@ export type NewsPostsUpdateDocAccess = {
   where?: Maybe<Scalars['JSONObject']>;
 };
 
+export type PayloadLockedDocument = {
+  __typename?: 'PayloadLockedDocument';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  document?: Maybe<PayloadLockedDocument_Document_Relationship>;
+  globalSlug?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  user: PayloadLockedDocument_User_Relationship;
+};
+
+
+export type PayloadLockedDocumentDocumentArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
+export type PayloadLockedDocumentUserArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+export type PayloadLockedDocumentUpdate_DocumentRelationshipInput = {
+  relationTo?: InputMaybe<PayloadLockedDocumentUpdate_DocumentRelationshipInputRelationTo>;
+  value?: InputMaybe<Scalars['JSON']>;
+};
+
+export enum PayloadLockedDocumentUpdate_DocumentRelationshipInputRelationTo {
+  Categories = 'categories',
+  Hosts = 'hosts',
+  LabelReleases = 'labelReleases',
+  LiveVideos = 'liveVideos',
+  Media = 'media',
+  Merch = 'merch',
+  NewsPosts = 'newsPosts',
+  Shows = 'shows',
+  Tags = 'tags',
+  Users = 'users'
+}
+
+export type PayloadLockedDocumentUpdate_UserRelationshipInput = {
+  relationTo?: InputMaybe<PayloadLockedDocumentUpdate_UserRelationshipInputRelationTo>;
+  value?: InputMaybe<Scalars['JSON']>;
+};
+
+export enum PayloadLockedDocumentUpdate_UserRelationshipInputRelationTo {
+  Users = 'users'
+}
+
+export type PayloadLockedDocument_Document = Category | Host | LabelRelease | LiveVideo | Media | Merch | NewsPost | Show | Tag | User;
+
+export type PayloadLockedDocument_DocumentRelationshipInput = {
+  relationTo?: InputMaybe<PayloadLockedDocument_DocumentRelationshipInputRelationTo>;
+  value?: InputMaybe<Scalars['JSON']>;
+};
+
+export enum PayloadLockedDocument_DocumentRelationshipInputRelationTo {
+  Categories = 'categories',
+  Hosts = 'hosts',
+  LabelReleases = 'labelReleases',
+  LiveVideos = 'liveVideos',
+  Media = 'media',
+  Merch = 'merch',
+  NewsPosts = 'newsPosts',
+  Shows = 'shows',
+  Tags = 'tags',
+  Users = 'users'
+}
+
+export enum PayloadLockedDocument_Document_RelationTo {
+  Categories = 'categories',
+  Hosts = 'hosts',
+  LabelReleases = 'labelReleases',
+  LiveVideos = 'liveVideos',
+  Media = 'media',
+  Merch = 'merch',
+  NewsPosts = 'newsPosts',
+  Shows = 'shows',
+  Tags = 'tags',
+  Users = 'users'
+}
+
+export type PayloadLockedDocument_Document_Relationship = {
+  __typename?: 'PayloadLockedDocument_Document_Relationship';
+  relationTo?: Maybe<PayloadLockedDocument_Document_RelationTo>;
+  value?: Maybe<PayloadLockedDocument_Document>;
+};
+
+export type PayloadLockedDocument_User = User;
+
+export type PayloadLockedDocument_UserRelationshipInput = {
+  relationTo?: InputMaybe<PayloadLockedDocument_UserRelationshipInputRelationTo>;
+  value?: InputMaybe<Scalars['JSON']>;
+};
+
+export enum PayloadLockedDocument_UserRelationshipInputRelationTo {
+  Users = 'users'
+}
+
+export enum PayloadLockedDocument_User_RelationTo {
+  Users = 'users'
+}
+
+export type PayloadLockedDocument_User_Relationship = {
+  __typename?: 'PayloadLockedDocument_User_Relationship';
+  relationTo?: Maybe<PayloadLockedDocument_User_RelationTo>;
+  value?: Maybe<PayloadLockedDocument_User>;
+};
+
+export type PayloadLockedDocument_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type PayloadLockedDocument_Document_Relation = {
+  relationTo?: InputMaybe<PayloadLockedDocument_Document_Relation_RelationTo>;
+  value?: InputMaybe<Scalars['JSON']>;
+};
+
+export enum PayloadLockedDocument_Document_Relation_RelationTo {
+  Categories = 'categories',
+  Hosts = 'hosts',
+  LabelReleases = 'labelReleases',
+  LiveVideos = 'liveVideos',
+  Media = 'media',
+  Merch = 'merch',
+  NewsPosts = 'newsPosts',
+  Shows = 'shows',
+  Tags = 'tags',
+  Users = 'users'
+}
+
+export type PayloadLockedDocument_GlobalSlug_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type PayloadLockedDocument_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type PayloadLockedDocument_UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type PayloadLockedDocument_User_Relation = {
+  relationTo?: InputMaybe<PayloadLockedDocument_User_Relation_RelationTo>;
+  value?: InputMaybe<Scalars['JSON']>;
+};
+
+export enum PayloadLockedDocument_User_Relation_RelationTo {
+  Users = 'users'
+}
+
+export type PayloadLockedDocument_Where = {
+  AND?: InputMaybe<Array<InputMaybe<PayloadLockedDocument_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<PayloadLockedDocument_Where_Or>>>;
+  createdAt?: InputMaybe<PayloadLockedDocument_CreatedAt_Operator>;
+  document?: InputMaybe<PayloadLockedDocument_Document_Relation>;
+  globalSlug?: InputMaybe<PayloadLockedDocument_GlobalSlug_Operator>;
+  id?: InputMaybe<PayloadLockedDocument_Id_Operator>;
+  updatedAt?: InputMaybe<PayloadLockedDocument_UpdatedAt_Operator>;
+  user?: InputMaybe<PayloadLockedDocument_User_Relation>;
+};
+
+export type PayloadLockedDocument_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<PayloadLockedDocument_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<PayloadLockedDocument_Where_Or>>>;
+  createdAt?: InputMaybe<PayloadLockedDocument_CreatedAt_Operator>;
+  document?: InputMaybe<PayloadLockedDocument_Document_Relation>;
+  globalSlug?: InputMaybe<PayloadLockedDocument_GlobalSlug_Operator>;
+  id?: InputMaybe<PayloadLockedDocument_Id_Operator>;
+  updatedAt?: InputMaybe<PayloadLockedDocument_UpdatedAt_Operator>;
+  user?: InputMaybe<PayloadLockedDocument_User_Relation>;
+};
+
+export type PayloadLockedDocument_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<PayloadLockedDocument_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<PayloadLockedDocument_Where_Or>>>;
+  createdAt?: InputMaybe<PayloadLockedDocument_CreatedAt_Operator>;
+  document?: InputMaybe<PayloadLockedDocument_Document_Relation>;
+  globalSlug?: InputMaybe<PayloadLockedDocument_GlobalSlug_Operator>;
+  id?: InputMaybe<PayloadLockedDocument_Id_Operator>;
+  updatedAt?: InputMaybe<PayloadLockedDocument_UpdatedAt_Operator>;
+  user?: InputMaybe<PayloadLockedDocument_User_Relation>;
+};
+
+export type PayloadLockedDocuments = {
+  __typename?: 'PayloadLockedDocuments';
+  docs: Array<PayloadLockedDocument>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
+  nextPage?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
+  prevPage?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
+};
+
+export type PayloadLockedDocumentsCreateAccess = {
+  __typename?: 'PayloadLockedDocumentsCreateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadLockedDocumentsCreateDocAccess = {
+  __typename?: 'PayloadLockedDocumentsCreateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadLockedDocumentsDeleteAccess = {
+  __typename?: 'PayloadLockedDocumentsDeleteAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadLockedDocumentsDeleteDocAccess = {
+  __typename?: 'PayloadLockedDocumentsDeleteDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadLockedDocumentsDocAccessFields = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields';
+  createdAt?: Maybe<PayloadLockedDocumentsDocAccessFields_CreatedAt>;
+  document?: Maybe<PayloadLockedDocumentsDocAccessFields_Document>;
+  globalSlug?: Maybe<PayloadLockedDocumentsDocAccessFields_GlobalSlug>;
+  updatedAt?: Maybe<PayloadLockedDocumentsDocAccessFields_UpdatedAt>;
+  user?: Maybe<PayloadLockedDocumentsDocAccessFields_User>;
+};
+
+export type PayloadLockedDocumentsDocAccessFields_CreatedAt = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_createdAt';
+  create?: Maybe<PayloadLockedDocumentsDocAccessFields_CreatedAt_Create>;
+  delete?: Maybe<PayloadLockedDocumentsDocAccessFields_CreatedAt_Delete>;
+  read?: Maybe<PayloadLockedDocumentsDocAccessFields_CreatedAt_Read>;
+  update?: Maybe<PayloadLockedDocumentsDocAccessFields_CreatedAt_Update>;
+};
+
+export type PayloadLockedDocumentsDocAccessFields_CreatedAt_Create = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_CreatedAt_Delete = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_CreatedAt_Read = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_CreatedAt_Update = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_Document = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_document';
+  create?: Maybe<PayloadLockedDocumentsDocAccessFields_Document_Create>;
+  delete?: Maybe<PayloadLockedDocumentsDocAccessFields_Document_Delete>;
+  read?: Maybe<PayloadLockedDocumentsDocAccessFields_Document_Read>;
+  update?: Maybe<PayloadLockedDocumentsDocAccessFields_Document_Update>;
+};
+
+export type PayloadLockedDocumentsDocAccessFields_Document_Create = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_document_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_Document_Delete = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_document_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_Document_Read = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_document_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_Document_Update = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_document_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_GlobalSlug = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_globalSlug';
+  create?: Maybe<PayloadLockedDocumentsDocAccessFields_GlobalSlug_Create>;
+  delete?: Maybe<PayloadLockedDocumentsDocAccessFields_GlobalSlug_Delete>;
+  read?: Maybe<PayloadLockedDocumentsDocAccessFields_GlobalSlug_Read>;
+  update?: Maybe<PayloadLockedDocumentsDocAccessFields_GlobalSlug_Update>;
+};
+
+export type PayloadLockedDocumentsDocAccessFields_GlobalSlug_Create = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_globalSlug_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_GlobalSlug_Delete = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_globalSlug_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_GlobalSlug_Read = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_globalSlug_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_GlobalSlug_Update = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_globalSlug_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_UpdatedAt = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_updatedAt';
+  create?: Maybe<PayloadLockedDocumentsDocAccessFields_UpdatedAt_Create>;
+  delete?: Maybe<PayloadLockedDocumentsDocAccessFields_UpdatedAt_Delete>;
+  read?: Maybe<PayloadLockedDocumentsDocAccessFields_UpdatedAt_Read>;
+  update?: Maybe<PayloadLockedDocumentsDocAccessFields_UpdatedAt_Update>;
+};
+
+export type PayloadLockedDocumentsDocAccessFields_UpdatedAt_Create = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_UpdatedAt_Delete = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_UpdatedAt_Read = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_UpdatedAt_Update = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_User = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_user';
+  create?: Maybe<PayloadLockedDocumentsDocAccessFields_User_Create>;
+  delete?: Maybe<PayloadLockedDocumentsDocAccessFields_User_Delete>;
+  read?: Maybe<PayloadLockedDocumentsDocAccessFields_User_Read>;
+  update?: Maybe<PayloadLockedDocumentsDocAccessFields_User_Update>;
+};
+
+export type PayloadLockedDocumentsDocAccessFields_User_Create = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_user_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_User_Delete = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_user_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_User_Read = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_user_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsDocAccessFields_User_Update = {
+  __typename?: 'PayloadLockedDocumentsDocAccessFields_user_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields = {
+  __typename?: 'PayloadLockedDocumentsFields';
+  createdAt?: Maybe<PayloadLockedDocumentsFields_CreatedAt>;
+  document?: Maybe<PayloadLockedDocumentsFields_Document>;
+  globalSlug?: Maybe<PayloadLockedDocumentsFields_GlobalSlug>;
+  updatedAt?: Maybe<PayloadLockedDocumentsFields_UpdatedAt>;
+  user?: Maybe<PayloadLockedDocumentsFields_User>;
+};
+
+export type PayloadLockedDocumentsFields_CreatedAt = {
+  __typename?: 'PayloadLockedDocumentsFields_createdAt';
+  create?: Maybe<PayloadLockedDocumentsFields_CreatedAt_Create>;
+  delete?: Maybe<PayloadLockedDocumentsFields_CreatedAt_Delete>;
+  read?: Maybe<PayloadLockedDocumentsFields_CreatedAt_Read>;
+  update?: Maybe<PayloadLockedDocumentsFields_CreatedAt_Update>;
+};
+
+export type PayloadLockedDocumentsFields_CreatedAt_Create = {
+  __typename?: 'PayloadLockedDocumentsFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_CreatedAt_Delete = {
+  __typename?: 'PayloadLockedDocumentsFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_CreatedAt_Read = {
+  __typename?: 'PayloadLockedDocumentsFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_CreatedAt_Update = {
+  __typename?: 'PayloadLockedDocumentsFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_Document = {
+  __typename?: 'PayloadLockedDocumentsFields_document';
+  create?: Maybe<PayloadLockedDocumentsFields_Document_Create>;
+  delete?: Maybe<PayloadLockedDocumentsFields_Document_Delete>;
+  read?: Maybe<PayloadLockedDocumentsFields_Document_Read>;
+  update?: Maybe<PayloadLockedDocumentsFields_Document_Update>;
+};
+
+export type PayloadLockedDocumentsFields_Document_Create = {
+  __typename?: 'PayloadLockedDocumentsFields_document_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_Document_Delete = {
+  __typename?: 'PayloadLockedDocumentsFields_document_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_Document_Read = {
+  __typename?: 'PayloadLockedDocumentsFields_document_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_Document_Update = {
+  __typename?: 'PayloadLockedDocumentsFields_document_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_GlobalSlug = {
+  __typename?: 'PayloadLockedDocumentsFields_globalSlug';
+  create?: Maybe<PayloadLockedDocumentsFields_GlobalSlug_Create>;
+  delete?: Maybe<PayloadLockedDocumentsFields_GlobalSlug_Delete>;
+  read?: Maybe<PayloadLockedDocumentsFields_GlobalSlug_Read>;
+  update?: Maybe<PayloadLockedDocumentsFields_GlobalSlug_Update>;
+};
+
+export type PayloadLockedDocumentsFields_GlobalSlug_Create = {
+  __typename?: 'PayloadLockedDocumentsFields_globalSlug_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_GlobalSlug_Delete = {
+  __typename?: 'PayloadLockedDocumentsFields_globalSlug_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_GlobalSlug_Read = {
+  __typename?: 'PayloadLockedDocumentsFields_globalSlug_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_GlobalSlug_Update = {
+  __typename?: 'PayloadLockedDocumentsFields_globalSlug_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_UpdatedAt = {
+  __typename?: 'PayloadLockedDocumentsFields_updatedAt';
+  create?: Maybe<PayloadLockedDocumentsFields_UpdatedAt_Create>;
+  delete?: Maybe<PayloadLockedDocumentsFields_UpdatedAt_Delete>;
+  read?: Maybe<PayloadLockedDocumentsFields_UpdatedAt_Read>;
+  update?: Maybe<PayloadLockedDocumentsFields_UpdatedAt_Update>;
+};
+
+export type PayloadLockedDocumentsFields_UpdatedAt_Create = {
+  __typename?: 'PayloadLockedDocumentsFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_UpdatedAt_Delete = {
+  __typename?: 'PayloadLockedDocumentsFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_UpdatedAt_Read = {
+  __typename?: 'PayloadLockedDocumentsFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_UpdatedAt_Update = {
+  __typename?: 'PayloadLockedDocumentsFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_User = {
+  __typename?: 'PayloadLockedDocumentsFields_user';
+  create?: Maybe<PayloadLockedDocumentsFields_User_Create>;
+  delete?: Maybe<PayloadLockedDocumentsFields_User_Delete>;
+  read?: Maybe<PayloadLockedDocumentsFields_User_Read>;
+  update?: Maybe<PayloadLockedDocumentsFields_User_Update>;
+};
+
+export type PayloadLockedDocumentsFields_User_Create = {
+  __typename?: 'PayloadLockedDocumentsFields_user_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_User_Delete = {
+  __typename?: 'PayloadLockedDocumentsFields_user_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_User_Read = {
+  __typename?: 'PayloadLockedDocumentsFields_user_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsFields_User_Update = {
+  __typename?: 'PayloadLockedDocumentsFields_user_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadLockedDocumentsReadAccess = {
+  __typename?: 'PayloadLockedDocumentsReadAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadLockedDocumentsReadDocAccess = {
+  __typename?: 'PayloadLockedDocumentsReadDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadLockedDocumentsUpdateAccess = {
+  __typename?: 'PayloadLockedDocumentsUpdateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadLockedDocumentsUpdateDocAccess = {
+  __typename?: 'PayloadLockedDocumentsUpdateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
 export type PayloadPreference = {
   __typename?: 'PayloadPreference';
   createdAt?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
   key?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   user: PayloadPreference_User_Relationship;
@@ -11066,17 +8866,17 @@ export type PayloadPreference_Where_Or = {
 
 export type PayloadPreferences = {
   __typename?: 'PayloadPreferences';
-  docs?: Maybe<Array<Maybe<PayloadPreference>>>;
-  hasNextPage?: Maybe<Scalars['Boolean']>;
-  hasPrevPage?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
+  docs: Array<PayloadPreference>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
   nextPage?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-  pagingCounter?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
   prevPage?: Maybe<Scalars['Int']>;
-  totalDocs?: Maybe<Scalars['Int']>;
-  totalPages?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
 };
 
 export type PayloadPreferencesCreateAccess = {
@@ -11444,6 +9244,8 @@ export type Query = {
   NewsPost?: Maybe<NewsPost>;
   NewsPostBySlug?: Maybe<NewsPost>;
   NewsPosts?: Maybe<NewsPosts>;
+  PayloadLockedDocument?: Maybe<PayloadLockedDocument>;
+  PayloadLockedDocuments?: Maybe<PayloadLockedDocuments>;
   PayloadPreference?: Maybe<PayloadPreference>;
   PayloadPreferences?: Maybe<PayloadPreferences>;
   Show?: Maybe<Show>;
@@ -11462,6 +9264,7 @@ export type Query = {
   countLiveVideos?: Maybe<CountLiveVideos>;
   countMerches?: Maybe<CountMerches>;
   countNewsPosts?: Maybe<CountNewsPosts>;
+  countPayloadLockedDocuments?: Maybe<CountPayloadLockedDocuments>;
   countPayloadPreferences?: Maybe<CountPayloadPreferences>;
   countShows?: Maybe<CountShows>;
   countTags?: Maybe<CountTags>;
@@ -11476,6 +9279,7 @@ export type Query = {
   docAccessMedia?: Maybe<MediaDocAccess>;
   docAccessMerch?: Maybe<MerchDocAccess>;
   docAccessNewsPost?: Maybe<NewsPostsDocAccess>;
+  docAccessPayloadLockedDocument?: Maybe<Payload_Locked_DocumentsDocAccess>;
   docAccessPayloadPreference?: Maybe<Payload_PreferencesDocAccess>;
   docAccessShow?: Maybe<ShowsDocAccess>;
   docAccessTag?: Maybe<TagsDocAccess>;
@@ -11495,16 +9299,19 @@ export type QueryAboutPageArgs = {
 
 
 export type QueryCategoriesArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<Category_Where>;
 };
 
 
 export type QueryCategoryArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
@@ -11519,6 +9326,7 @@ export type QueryDonatePageArgs = {
 
 
 export type QueryHostArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
@@ -11526,16 +9334,19 @@ export type QueryHostArgs = {
 
 
 export type QueryHostsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<Host_Where>;
 };
 
 
 export type QueryLabelReleaseArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
@@ -11543,16 +9354,19 @@ export type QueryLabelReleaseArgs = {
 
 
 export type QueryLabelReleasesArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<LabelRelease_Where>;
 };
 
 
 export type QueryLiveVideoArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
@@ -11560,16 +9374,19 @@ export type QueryLiveVideoArgs = {
 
 
 export type QueryLiveVideosArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<LiveVideo_Where>;
 };
 
 
 export type QueryMediaArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
@@ -11577,6 +9394,7 @@ export type QueryMediaArgs = {
 
 
 export type QueryMerchArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
@@ -11584,10 +9402,12 @@ export type QueryMerchArgs = {
 
 
 export type QueryMerchesArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<Merch_Where>;
 };
@@ -11613,12 +9433,34 @@ export type QueryNewsPostsArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<NewsPost_Where>;
 };
 
 
+export type QueryPayloadLockedDocumentArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
+export type QueryPayloadLockedDocumentsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
+  page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
+  sort?: InputMaybe<Scalars['String']>;
+  where?: InputMaybe<PayloadLockedDocument_Where>;
+};
+
+
 export type QueryPayloadPreferenceArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
@@ -11626,16 +9468,19 @@ export type QueryPayloadPreferenceArgs = {
 
 
 export type QueryPayloadPreferencesArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<PayloadPreference_Where>;
 };
 
 
 export type QueryShowArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
@@ -11648,10 +9493,12 @@ export type QueryShowBySlugArgs = {
 
 
 export type QueryShowsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<Show_Where>;
 };
@@ -11663,6 +9510,7 @@ export type QueryShowsByCategoryArgs = {
 
 
 export type QueryTagArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
@@ -11670,16 +9518,19 @@ export type QueryTagArgs = {
 
 
 export type QueryTagsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<Tag_Where>;
 };
 
 
 export type QueryUserArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
@@ -11687,50 +9538,59 @@ export type QueryUserArgs = {
 
 
 export type QueryUsersArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<User_Where>;
 };
 
 
 export type QueryAllMediaArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<Media_Where>;
 };
 
 
 export type QueryCountCategoriesArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<Category_Where>;
 };
 
 
 export type QueryCountHostsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<Host_Where>;
 };
 
 
 export type QueryCountLabelReleasesArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<LabelRelease_Where>;
 };
 
 
 export type QueryCountLiveVideosArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<LiveVideo_Where>;
 };
 
 
 export type QueryCountMerchesArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<Merch_Where>;
 };
@@ -11743,31 +9603,43 @@ export type QueryCountNewsPostsArgs = {
 };
 
 
+export type QueryCountPayloadLockedDocumentsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<LocaleInputType>;
+  where?: InputMaybe<PayloadLockedDocument_Where>;
+};
+
+
 export type QueryCountPayloadPreferencesArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<PayloadPreference_Where>;
 };
 
 
 export type QueryCountShowsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<Show_Where>;
 };
 
 
 export type QueryCountTagsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<Tag_Where>;
 };
 
 
 export type QueryCountUsersArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<User_Where>;
 };
 
 
 export type QueryCountallMediaArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<Media_Where>;
 };
@@ -11808,6 +9680,11 @@ export type QueryDocAccessNewsPostArgs = {
 };
 
 
+export type QueryDocAccessPayloadLockedDocumentArgs = {
+  id: Scalars['String'];
+};
+
+
 export type QueryDocAccessPayloadPreferenceArgs = {
   id: Scalars['String'];
 };
@@ -11840,6 +9717,7 @@ export type QueryVersionsNewsPostsArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<VersionsNewsPost_Where>;
 };
@@ -11851,7 +9729,7 @@ export type Show = {
   coverImage?: Maybe<Media>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description: Scalars['JSON'];
-  id?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
   primaryHosts: Array<Host>;
   showName: Scalars['String'];
   slug: Scalars['String'];
@@ -11868,7 +9746,6 @@ export type ShowCategoriesArgs = {
 export type ShowCoverImageArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   locale?: InputMaybe<LocaleInputType>;
-  where?: InputMaybe<Show_CoverImage_Where>;
 };
 
 
@@ -11880,603 +9757,6 @@ export type ShowDescriptionArgs = {
 export type ShowPrimaryHostsArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   locale?: InputMaybe<LocaleInputType>;
-};
-
-export type Show_CoverImage_Alt_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_CreatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['DateTime']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
-  less_than?: InputMaybe<Scalars['DateTime']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']>;
-  like?: InputMaybe<Scalars['DateTime']>;
-  not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type Show_CoverImage_Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_FocalX_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_FocalY_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Id_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Prefix_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Lg__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Lg__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Sizes__Lg__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Sizes__Lg__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Lg__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Lg__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Sizes__Opengraph__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Opengraph__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Sizes__Opengraph__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Sizes__Opengraph__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Opengraph__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Opengraph__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Sizes__Sm__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Sm__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Sizes__Sm__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Sizes__Sm__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Sm__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Sm__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Sizes__Xl__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Xl__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Sizes__Xl__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Sizes__Xl__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Xl__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Xl__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Sizes__Xs__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Xs__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Sizes__Xs__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_Sizes__Xs__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Xs__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Sizes__Xs__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
-};
-
-export type Show_CoverImage_UpdatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['DateTime']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
-  less_than?: InputMaybe<Scalars['DateTime']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']>;
-  like?: InputMaybe<Scalars['DateTime']>;
-  not_equals?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type Show_CoverImage_Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contains?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  like?: InputMaybe<Scalars['String']>;
-  not_equals?: InputMaybe<Scalars['String']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type Show_CoverImage_Where = {
-  AND?: InputMaybe<Array<InputMaybe<Show_CoverImage_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<Show_CoverImage_Where_Or>>>;
-  alt?: InputMaybe<Show_CoverImage_Alt_Operator>;
-  createdAt?: InputMaybe<Show_CoverImage_CreatedAt_Operator>;
-  filename?: InputMaybe<Show_CoverImage_Filename_Operator>;
-  filesize?: InputMaybe<Show_CoverImage_Filesize_Operator>;
-  focalX?: InputMaybe<Show_CoverImage_FocalX_Operator>;
-  focalY?: InputMaybe<Show_CoverImage_FocalY_Operator>;
-  height?: InputMaybe<Show_CoverImage_Height_Operator>;
-  id?: InputMaybe<Show_CoverImage_Id_Operator>;
-  mimeType?: InputMaybe<Show_CoverImage_MimeType_Operator>;
-  prefix?: InputMaybe<Show_CoverImage_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<Show_CoverImage_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<Show_CoverImage_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<Show_CoverImage_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<Show_CoverImage_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<Show_CoverImage_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<Show_CoverImage_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<Show_CoverImage_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<Show_CoverImage_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<Show_CoverImage_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<Show_CoverImage_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<Show_CoverImage_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<Show_CoverImage_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<Show_CoverImage_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<Show_CoverImage_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<Show_CoverImage_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<Show_CoverImage_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<Show_CoverImage_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<Show_CoverImage_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<Show_CoverImage_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<Show_CoverImage_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<Show_CoverImage_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<Show_CoverImage_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<Show_CoverImage_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<Show_CoverImage_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<Show_CoverImage_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<Show_CoverImage_UpdatedAt_Operator>;
-  url?: InputMaybe<Show_CoverImage_Url_Operator>;
-  width?: InputMaybe<Show_CoverImage_Width_Operator>;
-};
-
-export type Show_CoverImage_Where_And = {
-  AND?: InputMaybe<Array<InputMaybe<Show_CoverImage_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<Show_CoverImage_Where_Or>>>;
-  alt?: InputMaybe<Show_CoverImage_Alt_Operator>;
-  createdAt?: InputMaybe<Show_CoverImage_CreatedAt_Operator>;
-  filename?: InputMaybe<Show_CoverImage_Filename_Operator>;
-  filesize?: InputMaybe<Show_CoverImage_Filesize_Operator>;
-  focalX?: InputMaybe<Show_CoverImage_FocalX_Operator>;
-  focalY?: InputMaybe<Show_CoverImage_FocalY_Operator>;
-  height?: InputMaybe<Show_CoverImage_Height_Operator>;
-  id?: InputMaybe<Show_CoverImage_Id_Operator>;
-  mimeType?: InputMaybe<Show_CoverImage_MimeType_Operator>;
-  prefix?: InputMaybe<Show_CoverImage_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<Show_CoverImage_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<Show_CoverImage_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<Show_CoverImage_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<Show_CoverImage_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<Show_CoverImage_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<Show_CoverImage_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<Show_CoverImage_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<Show_CoverImage_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<Show_CoverImage_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<Show_CoverImage_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<Show_CoverImage_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<Show_CoverImage_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<Show_CoverImage_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<Show_CoverImage_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<Show_CoverImage_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<Show_CoverImage_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<Show_CoverImage_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<Show_CoverImage_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<Show_CoverImage_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<Show_CoverImage_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<Show_CoverImage_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<Show_CoverImage_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<Show_CoverImage_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<Show_CoverImage_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<Show_CoverImage_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<Show_CoverImage_UpdatedAt_Operator>;
-  url?: InputMaybe<Show_CoverImage_Url_Operator>;
-  width?: InputMaybe<Show_CoverImage_Width_Operator>;
-};
-
-export type Show_CoverImage_Where_Or = {
-  AND?: InputMaybe<Array<InputMaybe<Show_CoverImage_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<Show_CoverImage_Where_Or>>>;
-  alt?: InputMaybe<Show_CoverImage_Alt_Operator>;
-  createdAt?: InputMaybe<Show_CoverImage_CreatedAt_Operator>;
-  filename?: InputMaybe<Show_CoverImage_Filename_Operator>;
-  filesize?: InputMaybe<Show_CoverImage_Filesize_Operator>;
-  focalX?: InputMaybe<Show_CoverImage_FocalX_Operator>;
-  focalY?: InputMaybe<Show_CoverImage_FocalY_Operator>;
-  height?: InputMaybe<Show_CoverImage_Height_Operator>;
-  id?: InputMaybe<Show_CoverImage_Id_Operator>;
-  mimeType?: InputMaybe<Show_CoverImage_MimeType_Operator>;
-  prefix?: InputMaybe<Show_CoverImage_Prefix_Operator>;
-  sizes__lg__filename?: InputMaybe<Show_CoverImage_Sizes__Lg__Filename_Operator>;
-  sizes__lg__filesize?: InputMaybe<Show_CoverImage_Sizes__Lg__Filesize_Operator>;
-  sizes__lg__height?: InputMaybe<Show_CoverImage_Sizes__Lg__Height_Operator>;
-  sizes__lg__mimeType?: InputMaybe<Show_CoverImage_Sizes__Lg__MimeType_Operator>;
-  sizes__lg__url?: InputMaybe<Show_CoverImage_Sizes__Lg__Url_Operator>;
-  sizes__lg__width?: InputMaybe<Show_CoverImage_Sizes__Lg__Width_Operator>;
-  sizes__opengraph__filename?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Filename_Operator>;
-  sizes__opengraph__filesize?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Filesize_Operator>;
-  sizes__opengraph__height?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Height_Operator>;
-  sizes__opengraph__mimeType?: InputMaybe<Show_CoverImage_Sizes__Opengraph__MimeType_Operator>;
-  sizes__opengraph__url?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Url_Operator>;
-  sizes__opengraph__width?: InputMaybe<Show_CoverImage_Sizes__Opengraph__Width_Operator>;
-  sizes__sm__filename?: InputMaybe<Show_CoverImage_Sizes__Sm__Filename_Operator>;
-  sizes__sm__filesize?: InputMaybe<Show_CoverImage_Sizes__Sm__Filesize_Operator>;
-  sizes__sm__height?: InputMaybe<Show_CoverImage_Sizes__Sm__Height_Operator>;
-  sizes__sm__mimeType?: InputMaybe<Show_CoverImage_Sizes__Sm__MimeType_Operator>;
-  sizes__sm__url?: InputMaybe<Show_CoverImage_Sizes__Sm__Url_Operator>;
-  sizes__sm__width?: InputMaybe<Show_CoverImage_Sizes__Sm__Width_Operator>;
-  sizes__xl__filename?: InputMaybe<Show_CoverImage_Sizes__Xl__Filename_Operator>;
-  sizes__xl__filesize?: InputMaybe<Show_CoverImage_Sizes__Xl__Filesize_Operator>;
-  sizes__xl__height?: InputMaybe<Show_CoverImage_Sizes__Xl__Height_Operator>;
-  sizes__xl__mimeType?: InputMaybe<Show_CoverImage_Sizes__Xl__MimeType_Operator>;
-  sizes__xl__url?: InputMaybe<Show_CoverImage_Sizes__Xl__Url_Operator>;
-  sizes__xl__width?: InputMaybe<Show_CoverImage_Sizes__Xl__Width_Operator>;
-  sizes__xs__filename?: InputMaybe<Show_CoverImage_Sizes__Xs__Filename_Operator>;
-  sizes__xs__filesize?: InputMaybe<Show_CoverImage_Sizes__Xs__Filesize_Operator>;
-  sizes__xs__height?: InputMaybe<Show_CoverImage_Sizes__Xs__Height_Operator>;
-  sizes__xs__mimeType?: InputMaybe<Show_CoverImage_Sizes__Xs__MimeType_Operator>;
-  sizes__xs__url?: InputMaybe<Show_CoverImage_Sizes__Xs__Url_Operator>;
-  sizes__xs__width?: InputMaybe<Show_CoverImage_Sizes__Xs__Width_Operator>;
-  updatedAt?: InputMaybe<Show_CoverImage_UpdatedAt_Operator>;
-  url?: InputMaybe<Show_CoverImage_Url_Operator>;
-  width?: InputMaybe<Show_CoverImage_Width_Operator>;
-};
-
-export type Show_CoverImage_Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
-  greater_than?: InputMaybe<Scalars['Float']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']>;
-  less_than?: InputMaybe<Scalars['Float']>;
-  less_than_equal?: InputMaybe<Scalars['Float']>;
-  not_equals?: InputMaybe<Scalars['Float']>;
 };
 
 export type Show_Active_Operator = {
@@ -12495,9 +9775,12 @@ export type Show_Categories_Operator = {
 };
 
 export type Show_CoverImage_Operator = {
-  equals?: InputMaybe<Scalars['String']>;
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+  equals?: InputMaybe<Scalars['JSON']>;
   exists?: InputMaybe<Scalars['Boolean']>;
-  not_equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+  not_equals?: InputMaybe<Scalars['JSON']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
 };
 
 export type Show_CreatedAt_Operator = {
@@ -12615,32 +9898,32 @@ export type Show_Where_Or = {
 
 export type Shows = {
   __typename?: 'Shows';
-  docs?: Maybe<Array<Maybe<Show>>>;
-  hasNextPage?: Maybe<Scalars['Boolean']>;
-  hasPrevPage?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
+  docs: Array<Show>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
   nextPage?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-  pagingCounter?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
   prevPage?: Maybe<Scalars['Int']>;
-  totalDocs?: Maybe<Scalars['Int']>;
-  totalPages?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
 };
 
 export type ShowsByCategory = {
   __typename?: 'ShowsByCategory';
-  docs?: Maybe<Array<Maybe<Show>>>;
-  hasNextPage?: Maybe<Scalars['Boolean']>;
-  hasPrevPage?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
+  docs: Array<Show>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
   nextPage?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-  pagingCounter?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
   prevPage?: Maybe<Scalars['Int']>;
-  totalDocs?: Maybe<Scalars['Int']>;
-  totalPages?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
 };
 
 export type ShowsCreateAccess = {
@@ -13224,7 +10507,7 @@ export type ShowsUpdateDocAccess = {
 export type Tag = {
   __typename?: 'Tag';
   createdAt?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
   name: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
@@ -13301,17 +10584,17 @@ export type Tag_Where_Or = {
 
 export type Tags = {
   __typename?: 'Tags';
-  docs?: Maybe<Array<Maybe<Tag>>>;
-  hasNextPage?: Maybe<Scalars['Boolean']>;
-  hasPrevPage?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
+  docs: Array<Tag>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
   nextPage?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-  pagingCounter?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
   prevPage?: Maybe<Scalars['Int']>;
-  totalDocs?: Maybe<Scalars['Int']>;
-  totalPages?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
 };
 
 export type TagsCreateAccess = {
@@ -13553,11 +10836,10 @@ export type User = {
   enableAPIKey?: Maybe<Scalars['Boolean']>;
   firstName: Scalars['String'];
   hash?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
   lastName: Scalars['String'];
   lockUntil?: Maybe<Scalars['DateTime']>;
   loginAttempts?: Maybe<Scalars['Float']>;
-  password: Scalars['String'];
   resetPasswordExpiration?: Maybe<Scalars['DateTime']>;
   resetPasswordToken?: Maybe<Scalars['String']>;
   roles?: Maybe<Array<User_Roles>>;
@@ -13722,17 +11004,17 @@ export type User_Where_Or = {
 
 export type Users = {
   __typename?: 'Users';
-  docs?: Maybe<Array<Maybe<User>>>;
-  hasNextPage?: Maybe<Scalars['Boolean']>;
-  hasPrevPage?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
+  docs: Array<User>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
   nextPage?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-  pagingCounter?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
   prevPage?: Maybe<Scalars['Int']>;
-  totalDocs?: Maybe<Scalars['Int']>;
-  totalPages?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
 };
 
 export type UsersCreateAccess = {
@@ -13767,7 +11049,6 @@ export type UsersDocAccessFields = {
   enableAPIKey?: Maybe<UsersDocAccessFields_EnableApiKey>;
   firstName?: Maybe<UsersDocAccessFields_FirstName>;
   lastName?: Maybe<UsersDocAccessFields_LastName>;
-  password?: Maybe<UsersDocAccessFields_Password>;
   roles?: Maybe<UsersDocAccessFields_Roles>;
   updatedAt?: Maybe<UsersDocAccessFields_UpdatedAt>;
 };
@@ -13940,34 +11221,6 @@ export type UsersDocAccessFields_LastName_Update = {
   permission: Scalars['Boolean'];
 };
 
-export type UsersDocAccessFields_Password = {
-  __typename?: 'UsersDocAccessFields_password';
-  create?: Maybe<UsersDocAccessFields_Password_Create>;
-  delete?: Maybe<UsersDocAccessFields_Password_Delete>;
-  read?: Maybe<UsersDocAccessFields_Password_Read>;
-  update?: Maybe<UsersDocAccessFields_Password_Update>;
-};
-
-export type UsersDocAccessFields_Password_Create = {
-  __typename?: 'UsersDocAccessFields_password_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type UsersDocAccessFields_Password_Delete = {
-  __typename?: 'UsersDocAccessFields_password_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type UsersDocAccessFields_Password_Read = {
-  __typename?: 'UsersDocAccessFields_password_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type UsersDocAccessFields_Password_Update = {
-  __typename?: 'UsersDocAccessFields_password_Update';
-  permission: Scalars['Boolean'];
-};
-
 export type UsersDocAccessFields_Roles = {
   __typename?: 'UsersDocAccessFields_roles';
   create?: Maybe<UsersDocAccessFields_Roles_Create>;
@@ -14032,7 +11285,6 @@ export type UsersFields = {
   enableAPIKey?: Maybe<UsersFields_EnableApiKey>;
   firstName?: Maybe<UsersFields_FirstName>;
   lastName?: Maybe<UsersFields_LastName>;
-  password?: Maybe<UsersFields_Password>;
   roles?: Maybe<UsersFields_Roles>;
   updatedAt?: Maybe<UsersFields_UpdatedAt>;
 };
@@ -14205,34 +11457,6 @@ export type UsersFields_LastName_Update = {
   permission: Scalars['Boolean'];
 };
 
-export type UsersFields_Password = {
-  __typename?: 'UsersFields_password';
-  create?: Maybe<UsersFields_Password_Create>;
-  delete?: Maybe<UsersFields_Password_Delete>;
-  read?: Maybe<UsersFields_Password_Read>;
-  update?: Maybe<UsersFields_Password_Update>;
-};
-
-export type UsersFields_Password_Create = {
-  __typename?: 'UsersFields_password_Create';
-  permission: Scalars['Boolean'];
-};
-
-export type UsersFields_Password_Delete = {
-  __typename?: 'UsersFields_password_Delete';
-  permission: Scalars['Boolean'];
-};
-
-export type UsersFields_Password_Read = {
-  __typename?: 'UsersFields_password_Read';
-  permission: Scalars['Boolean'];
-};
-
-export type UsersFields_Password_Update = {
-  __typename?: 'UsersFields_password_Update';
-  permission: Scalars['Boolean'];
-};
-
 export type UsersFields_Roles = {
   __typename?: 'UsersFields_roles';
   create?: Maybe<UsersFields_Roles_Create>;
@@ -14350,17 +11574,17 @@ export type AboutPageDocAccess = {
 
 export type AllMedia = {
   __typename?: 'allMedia';
-  docs?: Maybe<Array<Maybe<Media>>>;
-  hasNextPage?: Maybe<Scalars['Boolean']>;
-  hasPrevPage?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
+  docs: Array<Media>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
   nextPage?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-  pagingCounter?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
   prevPage?: Maybe<Scalars['Int']>;
-  totalDocs?: Maybe<Scalars['Int']>;
-  totalPages?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
 };
 
 export type CategoriesAccess = {
@@ -14408,6 +11632,11 @@ export type CountMerches = {
 
 export type CountNewsPosts = {
   __typename?: 'countNewsPosts';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountPayloadLockedDocuments = {
+  __typename?: 'countPayloadLockedDocuments';
   totalDocs?: Maybe<Scalars['Int']>;
 };
 
@@ -14625,6 +11854,7 @@ export type MutationMediaInput = {
   mimeType?: InputMaybe<Scalars['String']>;
   prefix?: InputMaybe<Scalars['String']>;
   sizes?: InputMaybe<MutationMedia_SizesInput>;
+  thumbnailURL?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
   url?: InputMaybe<Scalars['String']>;
   width?: InputMaybe<Scalars['Float']>;
@@ -14641,6 +11871,7 @@ export type MutationMediaUpdateInput = {
   mimeType?: InputMaybe<Scalars['String']>;
   prefix?: InputMaybe<Scalars['String']>;
   sizes?: InputMaybe<MutationMediaUpdate_SizesInput>;
+  thumbnailURL?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
   url?: InputMaybe<Scalars['String']>;
   width?: InputMaybe<Scalars['Float']>;
@@ -14804,6 +12035,22 @@ export type MutationNewsPostUpdateInput = {
   updatedAt?: InputMaybe<Scalars['String']>;
 };
 
+export type MutationPayloadLockedDocumentInput = {
+  createdAt?: InputMaybe<Scalars['String']>;
+  document?: InputMaybe<PayloadLockedDocument_DocumentRelationshipInput>;
+  globalSlug?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['String']>;
+  user?: InputMaybe<PayloadLockedDocument_UserRelationshipInput>;
+};
+
+export type MutationPayloadLockedDocumentUpdateInput = {
+  createdAt?: InputMaybe<Scalars['String']>;
+  document?: InputMaybe<PayloadLockedDocumentUpdate_DocumentRelationshipInput>;
+  globalSlug?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['String']>;
+  user?: InputMaybe<PayloadLockedDocumentUpdate_UserRelationshipInput>;
+};
+
 export type MutationPayloadPreferenceInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   key?: InputMaybe<Scalars['String']>;
@@ -14912,6 +12159,24 @@ export type NewsPostsDocAccess = {
   read?: Maybe<NewsPostsReadDocAccess>;
   readVersions?: Maybe<NewsPostsReadVersionsDocAccess>;
   update?: Maybe<NewsPostsUpdateDocAccess>;
+};
+
+export type Payload_Locked_DocumentsAccess = {
+  __typename?: 'payload_locked_documentsAccess';
+  create?: Maybe<PayloadLockedDocumentsCreateAccess>;
+  delete?: Maybe<PayloadLockedDocumentsDeleteAccess>;
+  fields?: Maybe<PayloadLockedDocumentsFields>;
+  read?: Maybe<PayloadLockedDocumentsReadAccess>;
+  update?: Maybe<PayloadLockedDocumentsUpdateAccess>;
+};
+
+export type Payload_Locked_DocumentsDocAccess = {
+  __typename?: 'payload_locked_documentsDocAccess';
+  create?: Maybe<PayloadLockedDocumentsCreateDocAccess>;
+  delete?: Maybe<PayloadLockedDocumentsDeleteDocAccess>;
+  fields?: Maybe<PayloadLockedDocumentsDocAccessFields>;
+  read?: Maybe<PayloadLockedDocumentsReadDocAccess>;
+  update?: Maybe<PayloadLockedDocumentsUpdateDocAccess>;
 };
 
 export type Payload_PreferencesAccess = {
@@ -15068,6 +12333,26 @@ export type VersionsNewsPost_Parent_Operator = {
   not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
 };
 
+export enum VersionsNewsPost_PublishedLocale_Input {
+  En = 'en',
+  Pt = 'pt'
+}
+
+export type VersionsNewsPost_PublishedLocale_Operator = {
+  all?: InputMaybe<Array<InputMaybe<VersionsNewsPost_PublishedLocale_Input>>>;
+  equals?: InputMaybe<VersionsNewsPost_PublishedLocale_Input>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<VersionsNewsPost_PublishedLocale_Input>>>;
+  not_equals?: InputMaybe<VersionsNewsPost_PublishedLocale_Input>;
+  not_in?: InputMaybe<Array<InputMaybe<VersionsNewsPost_PublishedLocale_Input>>>;
+};
+
+export type VersionsNewsPost_Snapshot_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  not_equals?: InputMaybe<Scalars['Boolean']>;
+};
+
 export type VersionsNewsPost_UpdatedAt_Operator = {
   equals?: InputMaybe<Scalars['DateTime']>;
   exists?: InputMaybe<Scalars['Boolean']>;
@@ -15153,9 +12438,12 @@ export type VersionsNewsPost_Version__CreatedAt_Operator = {
 };
 
 export type VersionsNewsPost_Version__PreviewBanner_Operator = {
-  equals?: InputMaybe<Scalars['String']>;
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+  equals?: InputMaybe<Scalars['JSON']>;
   exists?: InputMaybe<Scalars['Boolean']>;
-  not_equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+  not_equals?: InputMaybe<Scalars['JSON']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
 };
 
 export type VersionsNewsPost_Version__PublishDate_Operator = {
@@ -15217,6 +12505,8 @@ export type VersionsNewsPost_Where = {
   id?: InputMaybe<VersionsNewsPost_Id_Operator>;
   latest?: InputMaybe<VersionsNewsPost_Latest_Operator>;
   parent?: InputMaybe<VersionsNewsPost_Parent_Operator>;
+  publishedLocale?: InputMaybe<VersionsNewsPost_PublishedLocale_Operator>;
+  snapshot?: InputMaybe<VersionsNewsPost_Snapshot_Operator>;
   updatedAt?: InputMaybe<VersionsNewsPost_UpdatedAt_Operator>;
   version___status?: InputMaybe<VersionsNewsPost_Version___Status_Operator>;
   version__author?: InputMaybe<VersionsNewsPost_Version__Author_Operator>;
@@ -15240,6 +12530,8 @@ export type VersionsNewsPost_Where_And = {
   id?: InputMaybe<VersionsNewsPost_Id_Operator>;
   latest?: InputMaybe<VersionsNewsPost_Latest_Operator>;
   parent?: InputMaybe<VersionsNewsPost_Parent_Operator>;
+  publishedLocale?: InputMaybe<VersionsNewsPost_PublishedLocale_Operator>;
+  snapshot?: InputMaybe<VersionsNewsPost_Snapshot_Operator>;
   updatedAt?: InputMaybe<VersionsNewsPost_UpdatedAt_Operator>;
   version___status?: InputMaybe<VersionsNewsPost_Version___Status_Operator>;
   version__author?: InputMaybe<VersionsNewsPost_Version__Author_Operator>;
@@ -15263,6 +12555,8 @@ export type VersionsNewsPost_Where_Or = {
   id?: InputMaybe<VersionsNewsPost_Id_Operator>;
   latest?: InputMaybe<VersionsNewsPost_Latest_Operator>;
   parent?: InputMaybe<VersionsNewsPost_Parent_Operator>;
+  publishedLocale?: InputMaybe<VersionsNewsPost_PublishedLocale_Operator>;
+  snapshot?: InputMaybe<VersionsNewsPost_Snapshot_Operator>;
   updatedAt?: InputMaybe<VersionsNewsPost_UpdatedAt_Operator>;
   version___status?: InputMaybe<VersionsNewsPost_Version___Status_Operator>;
   version__author?: InputMaybe<VersionsNewsPost_Version__Author_Operator>;
@@ -15281,17 +12575,17 @@ export type VersionsNewsPost_Where_Or = {
 
 export type VersionsNewsPosts = {
   __typename?: 'versionsNewsPosts';
-  docs?: Maybe<Array<Maybe<NewsPostVersion>>>;
-  hasNextPage?: Maybe<Scalars['Boolean']>;
-  hasPrevPage?: Maybe<Scalars['Boolean']>;
-  limit?: Maybe<Scalars['Int']>;
+  docs: Array<NewsPostVersion>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
   nextPage?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-  pagingCounter?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
   prevPage?: Maybe<Scalars['Int']>;
-  totalDocs?: Maybe<Scalars['Int']>;
-  totalPages?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
 };
 
 export type ShowByFieldsQueryVariables = Exact<{
@@ -15299,49 +12593,49 @@ export type ShowByFieldsQueryVariables = Exact<{
 }>;
 
 
-export type ShowByFieldsQuery = { __typename?: 'Query', Shows?: { __typename?: 'Shows', docs?: Array<{ __typename?: 'Show', id?: string | null } | null> | null } | null };
+export type ShowByFieldsQuery = { __typename?: 'Query', Shows?: { __typename?: 'Shows', docs: Array<{ __typename?: 'Show', id: string }> } | null };
 
 export type ShowsQueryVariables = Exact<{
   where?: InputMaybe<Show_Where>;
 }>;
 
 
-export type ShowsQuery = { __typename?: 'Query', Shows?: { __typename?: 'Shows', docs?: Array<{ __typename?: 'Show', slug: string } | null> | null } | null };
+export type ShowsQuery = { __typename?: 'Query', Shows?: { __typename?: 'Shows', docs: Array<{ __typename?: 'Show', slug: string }> } | null };
 
 export type AllShowIDsQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
 }>;
 
 
-export type AllShowIDsQuery = { __typename?: 'Query', Shows?: { __typename?: 'Shows', docs?: Array<{ __typename?: 'Show', slug: string, id?: string | null, showName: string, primaryHosts: Array<{ __typename?: 'Host', name: string }> } | null> | null } | null };
+export type AllShowIDsQuery = { __typename?: 'Query', Shows?: { __typename?: 'Shows', docs: Array<{ __typename?: 'Show', slug: string, id: string, showName: string, primaryHosts: Array<{ __typename?: 'Host', name: string }> }> } | null };
 
 export type ShowsQueryQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
 }>;
 
 
-export type ShowsQueryQuery = { __typename?: 'Query', Shows?: { __typename?: 'Shows', totalDocs?: number | null, offset?: number | null, limit?: number | null, totalPages?: number | null, page?: number | null, pagingCounter?: number | null, hasPrevPage?: boolean | null, hasNextPage?: boolean | null, prevPage?: number | null, nextPage?: number | null, docs?: Array<{ __typename?: 'Show', id?: string | null, active?: boolean | null, slug: string, createdAt?: any | null, showName: string, description: any, primaryHosts: Array<{ __typename?: 'Host', id?: string | null, createdAt?: any | null, updatedAt?: any | null, name: string }>, categories?: Array<{ __typename?: 'Category', id?: string | null, createdAt?: any | null, updatedAt?: any | null, name: string }> | null, coverImage?: { __typename?: 'Media', alt?: string | null, sizes?: { __typename?: 'Media_Sizes', lg?: { __typename?: 'Media_Sizes_Lg', url?: string | null, width?: number | null, height?: number | null } | null, sm?: { __typename?: 'Media_Sizes_Sm', url?: string | null, width?: number | null, height?: number | null } | null } | null } | null } | null> | null } | null };
+export type ShowsQueryQuery = { __typename?: 'Query', Shows?: { __typename?: 'Shows', totalDocs: number, offset?: number | null, limit: number, totalPages: number, page: number, pagingCounter: number, hasPrevPage: boolean, hasNextPage: boolean, prevPage?: number | null, nextPage?: number | null, docs: Array<{ __typename?: 'Show', id: string, active?: boolean | null, slug: string, createdAt?: any | null, showName: string, description: any, primaryHosts: Array<{ __typename?: 'Host', id: string, createdAt?: any | null, updatedAt?: any | null, name: string }>, categories?: Array<{ __typename?: 'Category', id: string, createdAt?: any | null, updatedAt?: any | null, name: string }> | null, coverImage?: { __typename?: 'Media', alt?: string | null, sizes?: { __typename?: 'Media_Sizes', lg?: { __typename?: 'Media_Sizes_Lg', url?: string | null, width?: number | null, height?: number | null } | null, sm?: { __typename?: 'Media_Sizes_Sm', url?: string | null, width?: number | null, height?: number | null } | null } | null } | null }> } | null };
 
 export type CategoriesQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
 }>;
 
 
-export type CategoriesQuery = { __typename?: 'Query', Categories?: { __typename?: 'Categories', docs?: Array<{ __typename?: 'Category', name: string } | null> | null } | null };
+export type CategoriesQuery = { __typename?: 'Query', Categories?: { __typename?: 'Categories', docs: Array<{ __typename?: 'Category', name: string }> } | null };
 
 export type ShowsByCategoryQueryVariables = Exact<{
   categoryName: Scalars['String'];
 }>;
 
 
-export type ShowsByCategoryQuery = { __typename?: 'Query', ShowsByCategory?: { __typename?: 'ShowsByCategory', limit?: number | null, docs?: Array<{ __typename?: 'Show', showName: string, id?: string | null, slug: string, createdAt?: any | null, description: any, categories?: Array<{ __typename?: 'Category', name: string }> | null, primaryHosts: Array<{ __typename?: 'Host', name: string }>, coverImage?: { __typename?: 'Media', alt?: string | null, sizes?: { __typename?: 'Media_Sizes', lg?: { __typename?: 'Media_Sizes_Lg', url?: string | null, width?: number | null, height?: number | null } | null, sm?: { __typename?: 'Media_Sizes_Sm', url?: string | null, width?: number | null, height?: number | null } | null } | null } | null } | null> | null } | null };
+export type ShowsByCategoryQuery = { __typename?: 'Query', ShowsByCategory?: { __typename?: 'ShowsByCategory', limit: number, docs: Array<{ __typename?: 'Show', showName: string, id: string, slug: string, createdAt?: any | null, description: any, categories?: Array<{ __typename?: 'Category', name: string }> | null, primaryHosts: Array<{ __typename?: 'Host', name: string }>, coverImage?: { __typename?: 'Media', alt?: string | null, sizes?: { __typename?: 'Media_Sizes', lg?: { __typename?: 'Media_Sizes_Lg', url?: string | null, width?: number | null, height?: number | null } | null, sm?: { __typename?: 'Media_Sizes_Sm', url?: string | null, width?: number | null, height?: number | null } | null } | null } | null }> } | null };
 
 export type ShowBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
 
-export type ShowBySlugQuery = { __typename?: 'Query', ShowBySlug?: { __typename?: 'Show', slug: string, showName: string, id?: string | null, description: any, createdAt?: any | null, categories?: Array<{ __typename?: 'Category', name: string }> | null, primaryHosts: Array<{ __typename?: 'Host', name: string }>, coverImage?: { __typename?: 'Media', alt?: string | null, sizes?: { __typename?: 'Media_Sizes', lg?: { __typename?: 'Media_Sizes_Lg', url?: string | null, width?: number | null, height?: number | null } | null } | null } | null } | null };
+export type ShowBySlugQuery = { __typename?: 'Query', ShowBySlug?: { __typename?: 'Show', slug: string, showName: string, id: string, description: any, createdAt?: any | null, categories?: Array<{ __typename?: 'Category', name: string }> | null, primaryHosts: Array<{ __typename?: 'Host', name: string }>, coverImage?: { __typename?: 'Media', alt?: string | null, sizes?: { __typename?: 'Media_Sizes', lg?: { __typename?: 'Media_Sizes_Lg', url?: string | null, width?: number | null, height?: number | null } | null } | null } | null } | null };
 
 export type NewsPostsQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
@@ -15351,7 +12645,7 @@ export type NewsPostsQueryVariables = Exact<{
 }>;
 
 
-export type NewsPostsQuery = { __typename?: 'Query', NewsPosts?: { __typename?: 'NewsPosts', totalDocs?: number | null, totalPages?: number | null, docs?: Array<{ __typename?: 'NewsPost', id?: string | null, blurb?: string | null, slug?: string | null, publishDate?: any | null, title?: string | null, updatedAt?: any | null, authorName?: string | null, authorId?: string | null, previewBanner?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
+export type NewsPostsQuery = { __typename?: 'Query', NewsPosts?: { __typename?: 'NewsPosts', totalDocs: number, totalPages: number, docs: Array<{ __typename?: 'NewsPost', id: string, blurb?: string | null, slug?: string | null, publishDate?: any | null, title?: string | null, updatedAt?: any | null, authorName?: string | null, authorId?: string | null, previewBanner?: { __typename?: 'Media', url?: string | null } | null }> } | null };
 
 export type NewsPostQueryVariables = Exact<{
   newsPostId: Scalars['String'];
@@ -15359,14 +12653,14 @@ export type NewsPostQueryVariables = Exact<{
 }>;
 
 
-export type NewsPostQuery = { __typename?: 'Query', NewsPost?: { __typename?: 'NewsPost', authorId?: string | null, authorName?: string | null, blurb?: string | null, content?: any | null, createdAt?: any | null, id?: string | null, publishDate?: any | null, slug?: string | null, title?: string | null, previewBanner?: { __typename?: 'Media', url?: string | null } | null, tags?: Array<{ __typename?: 'Tag', name: string, id?: string | null }> | null } | null };
+export type NewsPostQuery = { __typename?: 'Query', NewsPost?: { __typename?: 'NewsPost', authorId?: string | null, authorName?: string | null, blurb?: string | null, content?: any | null, createdAt?: any | null, id: string, publishDate?: any | null, slug?: string | null, title?: string | null, previewBanner?: { __typename?: 'Media', url?: string | null } | null, tags?: Array<{ __typename?: 'Tag', name: string, id: string }> | null } | null };
 
 export type NewsPostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
 
-export type NewsPostBySlugQuery = { __typename?: 'Query', NewsPostBySlug?: { __typename?: 'NewsPost', authorId?: string | null, authorName?: string | null, blurb?: string | null, content?: any | null, createdAt?: any | null, id?: string | null, publishDate?: any | null, slug?: string | null, title?: string | null, previewBanner?: { __typename?: 'Media', url?: string | null } | null, tags?: Array<{ __typename?: 'Tag', name: string, id?: string | null }> | null } | null };
+export type NewsPostBySlugQuery = { __typename?: 'Query', NewsPostBySlug?: { __typename?: 'NewsPost', authorId?: string | null, authorName?: string | null, blurb?: string | null, content?: any | null, createdAt?: any | null, id: string, publishDate?: any | null, slug?: string | null, title?: string | null, previewBanner?: { __typename?: 'Media', url?: string | null } | null, tags?: Array<{ __typename?: 'Tag', name: string, id: string }> | null } | null };
 
 export type NewsPostContentBySlugAndLocaleQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -15381,7 +12675,7 @@ export type TagsQueryVariables = Exact<{
 }>;
 
 
-export type TagsQuery = { __typename?: 'Query', Tags?: { __typename?: 'Tags', docs?: Array<{ __typename?: 'Tag', id?: string | null, name: string } | null> | null } | null };
+export type TagsQuery = { __typename?: 'Query', Tags?: { __typename?: 'Tags', docs: Array<{ __typename?: 'Tag', id: string, name: string }> } | null };
 
 export type SearchHostsQueryVariables = Exact<{
   where?: InputMaybe<Host_Where>;
@@ -15389,21 +12683,21 @@ export type SearchHostsQueryVariables = Exact<{
 }>;
 
 
-export type SearchHostsQuery = { __typename?: 'Query', Hosts?: { __typename?: 'Hosts', docs?: Array<{ __typename?: 'Host', name: string, id?: string | null } | null> | null } | null };
+export type SearchHostsQuery = { __typename?: 'Query', Hosts?: { __typename?: 'Hosts', docs: Array<{ __typename?: 'Host', name: string, id: string }> } | null };
 
 export type MerchQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
 }>;
 
 
-export type MerchQuery = { __typename?: 'Query', Merches?: { __typename?: 'Merches', docs?: Array<{ __typename?: 'Merch', id?: string | null, blurb: string, soldOut?: boolean | null, title: string, url: string, image?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
+export type MerchQuery = { __typename?: 'Query', Merches?: { __typename?: 'Merches', docs: Array<{ __typename?: 'Merch', id: string, blurb: string, soldOut?: boolean | null, title: string, url: string, image?: { __typename?: 'Media', url?: string | null } | null }> } | null };
 
 export type LabelReleasesQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
 }>;
 
 
-export type LabelReleasesQuery = { __typename?: 'Query', LabelReleases?: { __typename?: 'LabelReleases', docs?: Array<{ __typename?: 'LabelRelease', id?: string | null, blurb: string, title: string, url: string, image?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
+export type LabelReleasesQuery = { __typename?: 'Query', LabelReleases?: { __typename?: 'LabelReleases', docs: Array<{ __typename?: 'LabelRelease', id: string, blurb: string, title: string, url: string, image?: { __typename?: 'Media', url?: string | null } | null }> } | null };
 
 export type LiveVideosQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
@@ -15411,7 +12705,7 @@ export type LiveVideosQueryVariables = Exact<{
 }>;
 
 
-export type LiveVideosQuery = { __typename?: 'Query', LiveVideos?: { __typename?: 'LiveVideos', docs?: Array<{ __typename?: 'LiveVideo', id?: string | null, title: string, url: string, date?: any | null, videoId?: string | null, image?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
+export type LiveVideosQuery = { __typename?: 'Query', LiveVideos?: { __typename?: 'LiveVideos', docs: Array<{ __typename?: 'LiveVideo', id: string, title: string, url: string, date?: any | null, videoId?: string | null, image?: { __typename?: 'Media', url?: string | null } | null }> } | null };
 
 export type PaginatedLiveVideosQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
@@ -15420,7 +12714,7 @@ export type PaginatedLiveVideosQueryVariables = Exact<{
 }>;
 
 
-export type PaginatedLiveVideosQuery = { __typename?: 'Query', LiveVideos?: { __typename?: 'LiveVideos', totalDocs?: number | null, totalPages?: number | null, docs?: Array<{ __typename?: 'LiveVideo', id?: string | null, title: string, url: string, date?: any | null, videoId?: string | null, image?: { __typename?: 'Media', url?: string | null } | null } | null> | null } | null };
+export type PaginatedLiveVideosQuery = { __typename?: 'Query', LiveVideos?: { __typename?: 'LiveVideos', totalDocs: number, totalPages: number, docs: Array<{ __typename?: 'LiveVideo', id: string, title: string, url: string, date?: any | null, videoId?: string | null, image?: { __typename?: 'Media', url?: string | null } | null }> } | null };
 
 export type AboutPageQueryQueryVariables = Exact<{
   locale?: InputMaybe<LocaleInputType>;

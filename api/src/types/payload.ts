@@ -343,6 +343,7 @@ export interface LiveVideo {
   date?: string | null;
   videoId?: string | null;
   image?: (string | null) | Media;
+  sortableId?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -625,6 +626,7 @@ export interface LiveVideosSelect<T extends boolean = true> {
   date?: T;
   videoId?: T;
   image?: T;
+  sortableId?: T;
   updatedAt?: T;
   createdAt?: T;
 }

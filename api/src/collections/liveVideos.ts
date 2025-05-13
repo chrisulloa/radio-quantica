@@ -1,13 +1,12 @@
-/* eslint-disable no-param-reassign */
-import {
+import payload, {
   CollectionAfterOperationHook,
   CollectionBeforeChangeHook,
   CollectionConfig,
 } from 'payload';
 import { LiveVideo } from 'payload/generated-types';
-import payload from 'payload';
 import { revalidateResource } from '../utils/revalidate';
 import { youtubeImageUrl, youtubeVideoId } from '../utils/youtube';
+import { UUIDv7 } from 'uuidv7-js';
 
 const uploadImageHook: CollectionBeforeChangeHook<LiveVideo> = async ({ data }) => {
   try {
@@ -44,6 +43,20 @@ const uploadImageHook: CollectionBeforeChangeHook<LiveVideo> = async ({ data }) 
   return data;
 };
 
+const addSortableId: CollectionBeforeChangeHook<LiveVideo> = ({ data }) => {
+  try {
+    if (data.date) {
+      const uuid = new UUIDv7();
+      const parsedDate = Date.parse(data.date);
+      data.sortableId = uuid.gen(parsedDate);
+    }
+  } catch (e) {
+    console.log(e);
+    console.log(`Failed to generate sortable ID for ${data.title}`);
+  }
+  return data;
+};
+
 const afterOperationHook: CollectionAfterOperationHook = ({
   operation, // name of the operation
   result, // the result of the operation, before modifications
@@ -52,7 +65,6 @@ const afterOperationHook: CollectionAfterOperationHook = ({
     revalidateResource('/', true);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return result; // return modified result as necessary
 };
 
@@ -67,7 +79,7 @@ const LiveVideos: CollectionConfig = {
   },
   hooks: {
     afterOperation: [afterOperationHook],
-    beforeChange: [uploadImageHook],
+    beforeChange: [uploadImageHook, addSortableId],
   },
   fields: [
     {
@@ -122,6 +134,11 @@ const LiveVideos: CollectionConfig = {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
+      admin: { readOnly: true },
+    },
+    {
+      name: 'sortableId',
+      type: 'text',
       admin: { readOnly: true },
     },
   ],
