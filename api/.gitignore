@@ -7,3 +7,4 @@ dist
 creds.json
 build
 .next/
+.env.dev
