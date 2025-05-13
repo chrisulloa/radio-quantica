@@ -1,5 +1,4 @@
 import { CollectionAfterOperationHook, CollectionConfig } from 'payload';
-import { Tag } from 'payload/generated-types';
 import { revalidateResource } from '../utils/revalidate';
 import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
@@ -12,7 +11,7 @@ const afterCreateHook: CollectionAfterOperationHook = ({
   if (operation === 'create') {
     revalidateResource(`/news`, true);
   }
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+
   return result; // return modified result as necessary
 };
 

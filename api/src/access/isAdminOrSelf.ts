@@ -1,4 +1,4 @@
-import { Access } from 'payload/config';
+import { Access } from 'payload';
 import { User } from '../types/payload';
 
 const isAdminOrSelf: Access = ({ req: { user } }: { req: { user: User } }) => {

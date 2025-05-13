@@ -72,6 +72,7 @@ export default [
       '@typescript-eslint/no-restricted-types': 'warn',
       '@typescript-eslint/no-floating-promises': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/require-await': 'warn'
     },
   },
 ];

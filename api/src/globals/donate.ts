@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import type { GlobalAfterChangeHook, GlobalConfig } from 'payload';
 import { revalidateResource } from '../utils/revalidate';
 
