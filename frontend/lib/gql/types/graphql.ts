@@ -1679,6 +1679,7 @@ export type LiveVideo = {
   date?: Maybe<Scalars['DateTime']>;
   id: Scalars['String'];
   image?: Maybe<Media>;
+  sortableId?: Maybe<Scalars['String']>;
   title: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
   url: Scalars['String'];
@@ -1733,6 +1734,17 @@ export type LiveVideo_Image_Operator = {
   not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
 };
 
+export type LiveVideo_SortableId_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
 export type LiveVideo_Title_Operator = {
   all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   contains?: InputMaybe<Scalars['String']>;
@@ -1782,6 +1794,7 @@ export type LiveVideo_Where = {
   date?: InputMaybe<LiveVideo_Date_Operator>;
   id?: InputMaybe<LiveVideo_Id_Operator>;
   image?: InputMaybe<LiveVideo_Image_Operator>;
+  sortableId?: InputMaybe<LiveVideo_SortableId_Operator>;
   title?: InputMaybe<LiveVideo_Title_Operator>;
   updatedAt?: InputMaybe<LiveVideo_UpdatedAt_Operator>;
   url?: InputMaybe<LiveVideo_Url_Operator>;
@@ -1795,6 +1808,7 @@ export type LiveVideo_Where_And = {
   date?: InputMaybe<LiveVideo_Date_Operator>;
   id?: InputMaybe<LiveVideo_Id_Operator>;
   image?: InputMaybe<LiveVideo_Image_Operator>;
+  sortableId?: InputMaybe<LiveVideo_SortableId_Operator>;
   title?: InputMaybe<LiveVideo_Title_Operator>;
   updatedAt?: InputMaybe<LiveVideo_UpdatedAt_Operator>;
   url?: InputMaybe<LiveVideo_Url_Operator>;
@@ -1808,6 +1822,7 @@ export type LiveVideo_Where_Or = {
   date?: InputMaybe<LiveVideo_Date_Operator>;
   id?: InputMaybe<LiveVideo_Id_Operator>;
   image?: InputMaybe<LiveVideo_Image_Operator>;
+  sortableId?: InputMaybe<LiveVideo_SortableId_Operator>;
   title?: InputMaybe<LiveVideo_Title_Operator>;
   updatedAt?: InputMaybe<LiveVideo_UpdatedAt_Operator>;
   url?: InputMaybe<LiveVideo_Url_Operator>;
@@ -1858,6 +1873,7 @@ export type LiveVideosDocAccessFields = {
   createdAt?: Maybe<LiveVideosDocAccessFields_CreatedAt>;
   date?: Maybe<LiveVideosDocAccessFields_Date>;
   image?: Maybe<LiveVideosDocAccessFields_Image>;
+  sortableId?: Maybe<LiveVideosDocAccessFields_SortableId>;
   title?: Maybe<LiveVideosDocAccessFields_Title>;
   updatedAt?: Maybe<LiveVideosDocAccessFields_UpdatedAt>;
   url?: Maybe<LiveVideosDocAccessFields_Url>;
@@ -1945,6 +1961,34 @@ export type LiveVideosDocAccessFields_Image_Read = {
 
 export type LiveVideosDocAccessFields_Image_Update = {
   __typename?: 'LiveVideosDocAccessFields_image_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_SortableId = {
+  __typename?: 'LiveVideosDocAccessFields_sortableId';
+  create?: Maybe<LiveVideosDocAccessFields_SortableId_Create>;
+  delete?: Maybe<LiveVideosDocAccessFields_SortableId_Delete>;
+  read?: Maybe<LiveVideosDocAccessFields_SortableId_Read>;
+  update?: Maybe<LiveVideosDocAccessFields_SortableId_Update>;
+};
+
+export type LiveVideosDocAccessFields_SortableId_Create = {
+  __typename?: 'LiveVideosDocAccessFields_sortableId_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_SortableId_Delete = {
+  __typename?: 'LiveVideosDocAccessFields_sortableId_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_SortableId_Read = {
+  __typename?: 'LiveVideosDocAccessFields_sortableId_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosDocAccessFields_SortableId_Update = {
+  __typename?: 'LiveVideosDocAccessFields_sortableId_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -2065,6 +2109,7 @@ export type LiveVideosFields = {
   createdAt?: Maybe<LiveVideosFields_CreatedAt>;
   date?: Maybe<LiveVideosFields_Date>;
   image?: Maybe<LiveVideosFields_Image>;
+  sortableId?: Maybe<LiveVideosFields_SortableId>;
   title?: Maybe<LiveVideosFields_Title>;
   updatedAt?: Maybe<LiveVideosFields_UpdatedAt>;
   url?: Maybe<LiveVideosFields_Url>;
@@ -2152,6 +2197,34 @@ export type LiveVideosFields_Image_Read = {
 
 export type LiveVideosFields_Image_Update = {
   __typename?: 'LiveVideosFields_image_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_SortableId = {
+  __typename?: 'LiveVideosFields_sortableId';
+  create?: Maybe<LiveVideosFields_SortableId_Create>;
+  delete?: Maybe<LiveVideosFields_SortableId_Delete>;
+  read?: Maybe<LiveVideosFields_SortableId_Read>;
+  update?: Maybe<LiveVideosFields_SortableId_Update>;
+};
+
+export type LiveVideosFields_SortableId_Create = {
+  __typename?: 'LiveVideosFields_sortableId_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_SortableId_Delete = {
+  __typename?: 'LiveVideosFields_sortableId_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_SortableId_Read = {
+  __typename?: 'LiveVideosFields_sortableId_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type LiveVideosFields_SortableId_Update = {
+  __typename?: 'LiveVideosFields_sortableId_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -11827,6 +11900,7 @@ export type MutationLiveVideoInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   date?: InputMaybe<Scalars['String']>;
   image?: InputMaybe<Scalars['String']>;
+  sortableId?: InputMaybe<Scalars['String']>;
   title: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['String']>;
   url: Scalars['String'];
@@ -11837,6 +11911,7 @@ export type MutationLiveVideoUpdateInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   date?: InputMaybe<Scalars['String']>;
   image?: InputMaybe<Scalars['String']>;
+  sortableId?: InputMaybe<Scalars['String']>;
   title?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
   url?: InputMaybe<Scalars['String']>;

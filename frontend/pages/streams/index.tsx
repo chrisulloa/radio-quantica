@@ -7,7 +7,7 @@ const PAGE_SIZE = 6;
 export async function getStaticProps() {
   const { data } = await client.query({
     query: paginatedVidsQuery,
-    variables: { page: 1, limit: PAGE_SIZE, sort: "-date" },
+    variables: { page: 1, limit: PAGE_SIZE, sort: "-sortableId" },
     fetchPolicy: "no-cache",
   });
 

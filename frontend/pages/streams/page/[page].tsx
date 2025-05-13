@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   const { data } = await client.query({
     query: paginatedVidsQuery,
-    variables: { page, limit: PAGE_SIZE, sort: "-date" },
+    variables: { page, limit: PAGE_SIZE, sort: "-sortableId" },
     fetchPolicy: "no-cache",
   });
 
