@@ -1,5 +1,5 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
-import serverBaseURL from "../utils";
+import { serverBaseURL } from "../utils";
 
 const graphqlURL = `${serverBaseURL}/api/graphql`;
 

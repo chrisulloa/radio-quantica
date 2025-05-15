@@ -1,6 +1,5 @@
-import { NextRequest } from "next/server";
 import axios from "axios";
-import serverBaseURL from "./utils";
+import { serverBaseURL } from "./utils";
 
 interface MeResponse {
   user?: {

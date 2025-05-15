@@ -4,7 +4,7 @@ import styles from "./player.module.css";
 import useSWR from "swr";
 import axios from "axios";
 import { NowPlayingResponse } from "../lib/services/azuracast";
-import serverBaseURL from "../lib/utils";
+import { libretimeServerURL } from "../lib/utils";
 import { DateTime } from "luxon";
 
 function VolumeButton({ volume }: { volume: number }) {
@@ -147,7 +147,7 @@ const initializeAudio = (
   setPause: React.Dispatch<React.SetStateAction<boolean>>,
   setVolume: React.Dispatch<React.SetStateAction<number>>
 ) => {
-  const audio = new Audio("https://stream.radioquantica.com:8443/stream");
+  const audio = new Audio("https://libretime.radioquantica.com/main.mp3");
   audio.addEventListener("play", () => {
     setPause(false);
   });
@@ -169,7 +169,7 @@ const PlayerView = () => {
   const [volume, setVolume] = useState<number>(1);
 
   const { data, error, isLoading } = useSWR(
-    `${serverBaseURL}/api/live-info`,
+    `${libretimeServerURL}/api/live-info`,
     fetcher,
     {
       refreshInterval: 10000,

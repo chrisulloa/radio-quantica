@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 import axios from "axios";
 import { WeeklySchedule } from "../lib/services/airtime";
 import useSWR from "swr";
-import serverBaseURL from "../lib/utils";
+import { libretimeServerURL } from "../lib/utils";
 
 type Day =
   | "sunday"
@@ -149,7 +149,7 @@ export default function SchedulePage() {
   }, []);
 
   const { data, error, isLoading } = useSWR(
-    `${serverBaseURL}/api/week-info`,
+    `${libretimeServerURL}/api/week-info`,
     fetcher
   );
 
