@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 import { buildConfig } from 'payload';
 import path from 'path';
 import { GraphQLString } from 'graphql';
@@ -81,7 +80,7 @@ export default buildConfig({
       method: 'get',
       handler: async (_req) => {
         const result = await fetch(
-          'https://airtime.radioquantica.com/api/week-info',
+          'https://libretime.radioquantica.com/api/week-info',
           {
             headers: {
               method: 'GET',
@@ -99,7 +98,7 @@ export default buildConfig({
       method: 'get',
       handler: async (_req) => {
         const result = await fetch(
-          'https://airtime.radioquantica.com/api/live-info',
+          'https://libretime.radioquantica.com/api/live-info',
           {
             headers: {
               method: 'GET',
