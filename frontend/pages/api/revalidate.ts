@@ -20,9 +20,11 @@ export default async function handler(
     (path?.includes("/shows/") ||
       path?.includes("/categories/") ||
       path?.includes("/news/") ||
+      path?.includes("/streams/") ||
       path === "/about" ||
       path === "/donate" ||
       path === "/news" ||
+      path === "/streams" ||
       path === "/shows" ||
       path === "/")
   ) {

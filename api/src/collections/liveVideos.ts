@@ -66,6 +66,12 @@ const afterOperationHook: CollectionAfterOperationHook = ({
 }) => {
   if (operation === 'create' || operation === 'update' || operation === 'delete') {
     revalidateResource('/', true);
+    revalidateResource('/streams');
+    revalidateResource('/streams/page/1');
+    revalidateResource('/streams/page/2');
+    revalidateResource('/streams/page/3');
+    revalidateResource('/streams/page/4');
+    revalidateResource('/streams/page/5');
   }
 
   return result; // return modified result as necessary
