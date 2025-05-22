@@ -225,8 +225,9 @@ export default function Home({
   const [isLiveVideoStream, setIsLiveVideoStream] = useState(false);
   const [showLiveVideoStreamSpinner, setShowLiveVideoStreamSpinner] =
     useState(false);
+  const [pollInterval, setPollInterval] = useState(10000);
   const { data, loading } = useQuery(youtubeChannelQuery, {
-    pollInterval: 10000,
+    pollInterval,
     fetchPolicy: "no-cache",
   });
 
@@ -239,9 +240,11 @@ export default function Home({
         setTimeout(() => {
           setShowLiveVideoStreamSpinner(false);
           setIsLiveVideoStream(true);
+          setPollInterval(30000);
         }, 2000);
       } else {
         setIsLiveVideoStream(false);
+        setPollInterval(10000);
       }
     }
     setIsMobile(deviceIsMobile());
