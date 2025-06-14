@@ -19,7 +19,7 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: ['build/*', 'dist/*', 'eslint.config.mjs', '.next/*'],
+    ignores: ['build/*', 'dist/*', 'eslint.config.mjs', '.next/*', "node_modules/*", "src/app/(payload)/admin/importMap.js"],
   },
   ...fixupConfigRules(
     compat.extends(
