@@ -26,8 +26,12 @@ const RestartLibretime: CollectionConfig = {
   hooks: {
     afterChange: [afterChangeHook],
   },
+  labels: {
+    plural: 'Restart Libretime',
+    singular: 'Restart Libretime',
+  },
   admin: {
-    group: 'Command',
+    group: 'Tasks',
   },
   fields: [
     {
