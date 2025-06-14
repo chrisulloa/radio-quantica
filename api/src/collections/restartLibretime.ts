@@ -40,7 +40,7 @@ const RestartLibretime: CollectionConfig = {
         description: 'Debug log of results',
         readOnly: true,
       },
-      type: 'text',
+      type: 'textarea',
     },
     {
       name: 'taskFinished',
