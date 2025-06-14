@@ -39,6 +39,8 @@ const handler: TaskHandler<'restartServer'> = async ({ input, req }) => {
       },
     };
   } catch (e) {
+    console.log('Error!');
+    console.log(e);
     return { output: { success: false } };
   }
 };
