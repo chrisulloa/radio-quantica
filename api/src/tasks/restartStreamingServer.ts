@@ -20,13 +20,11 @@ const handler: TaskHandler<'restartServer'> = async ({ input, req }) => {
       privateKey: LIBRETIME_DROPLET_KEY,
       passphrase: LIBRETIME_DROPLET_PASSPHRASE,
     };
-
     const ssh = new SSH2Promise(SSH_CONFIG);
-    const result = await ssh.exec('whoami');
+    const result = await ssh.exec('docker compose down && docker compose up -d');
     ssh.close();
     req.payload.update({
       collection: 'restartLibretime',
-
       id: input.collectionId,
       data: {
         taskFinished: true,
