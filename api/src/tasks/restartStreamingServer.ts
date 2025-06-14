@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { TaskConfig, TaskHandler } from 'payload';
 import SSH2Promise from 'ssh2-promise';
 import SSHConfig from 'ssh2-promise/lib/sshConfig';
@@ -21,14 +20,15 @@ const handler: TaskHandler<'restartServer'> = async ({ input, req }) => {
       passphrase: LIBRETIME_DROPLET_PASSPHRASE,
     };
     const ssh = new SSH2Promise(SSH_CONFIG);
-    const result = await ssh.exec('docker compose down && docker compose up -d');
+    const resultDown = (await ssh.exec('docker compose down')) as string;
+    const resultUp = (await ssh.exec('docker compose up -d')) as string;
     ssh.close();
     req.payload.update({
       collection: 'restartLibretime',
       id: input.collectionId,
       data: {
         taskFinished: true,
-        results: result,
+        results: [resultUp, resultDown].join('\n'),
       },
     });
 
