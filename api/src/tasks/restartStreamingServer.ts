@@ -20,15 +20,16 @@ const handler: TaskHandler<'restartServer'> = async ({ input, req }) => {
       passphrase: LIBRETIME_DROPLET_PASSPHRASE,
     };
     const ssh = new SSH2Promise(SSH_CONFIG);
-    const resultDown = (await ssh.exec('docker compose down')) as string;
-    const resultUp = (await ssh.exec('docker compose up -d')) as string;
+    const results = (await ssh.exec(
+      'docker compose down && docker compose up -d'
+    )) as string;
     ssh.close();
     req.payload.update({
       collection: 'restartLibretime',
       id: input.collectionId,
       data: {
         taskFinished: true,
-        results: [resultUp, resultDown].join('\n'),
+        results,
       },
     });
 
@@ -38,7 +39,6 @@ const handler: TaskHandler<'restartServer'> = async ({ input, req }) => {
       },
     };
   } catch (e) {
-    console.log(e);
     return { output: { success: false } };
   }
 };

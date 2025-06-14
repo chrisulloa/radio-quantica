@@ -40,14 +40,6 @@ export default buildConfig({
   sharp,
   collections: Collections,
   jobs: {
-    jobsCollectionOverrides: ({ defaultJobsCollection }) => {
-      if (!defaultJobsCollection.admin) {
-        defaultJobsCollection.admin = {};
-      }
-
-      defaultJobsCollection.admin.hidden = false;
-      return defaultJobsCollection;
-    },
     tasks: Tasks,
   },
   globals: Globals,
