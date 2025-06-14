@@ -8,6 +8,7 @@ import Tags from './tags';
 import Merch from './merch';
 import LabelReleases from './labelReleases';
 import LiveVideos from './liveVideos';
+import RestartLibretime from './restartLibretime';
 
 const Collections = [
   Users,
@@ -20,6 +21,7 @@ const Collections = [
   Merch,
   LabelReleases,
   LiveVideos,
+  RestartLibretime,
 ];
 
 export default Collections;

@@ -23,6 +23,7 @@ import Globals from './globals';
 import Users from './collections/users';
 import sharp from 'sharp';
 import seed from './seed';
+import Tasks from './tasks';
 
 const __dirname = path.resolve();
 
@@ -38,6 +39,17 @@ export default buildConfig({
   serverURL,
   sharp,
   collections: Collections,
+  jobs: {
+    jobsCollectionOverrides: ({ defaultJobsCollection }) => {
+      if (!defaultJobsCollection.admin) {
+        defaultJobsCollection.admin = {};
+      }
+
+      defaultJobsCollection.admin.hidden = false;
+      return defaultJobsCollection;
+    },
+    tasks: Tasks,
+  },
   globals: Globals,
   localization: {
     locales: [
