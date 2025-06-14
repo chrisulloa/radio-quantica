@@ -4,7 +4,7 @@
   "description": "Backend service for Radio Quantica website and admin tooling.",
   "main": "dist/index.js",
   "engines": {
-    "node": "20.x"
+    "node": "21.x"
   },
   "scripts": {
     "start": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts NODE_ENV=production next start",

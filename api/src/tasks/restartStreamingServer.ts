@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { TaskConfig, TaskHandler } from 'payload';
 import SSH2Promise from 'ssh2-promise';
+import SSHConfig from 'ssh2-promise/lib/sshConfig';
 
 const LIBRETIME_DROPLET_IP = process.env.LIBRETIME_DROPLET_IP;
 const LIBRETIME_DROPLET_KEY =
@@ -12,7 +13,7 @@ const LIBRETIME_DROPLET_PASSPHRASE = process.env.LIBRETIME_DROPLET_PASSPHRASE;
 
 const handler: TaskHandler<'restartServer'> = async ({ input, req }) => {
   try {
-    const SSH_CONFIG = {
+    const SSH_CONFIG: SSHConfig = {
       host: LIBRETIME_DROPLET_IP,
       port: parseInt(LIBRETIME_DROPLET_PORT),
       username: LIBRETIME_DROPLET_USER,
