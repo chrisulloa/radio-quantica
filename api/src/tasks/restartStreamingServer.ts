@@ -39,9 +39,22 @@ const handler: TaskHandler<'restartServer'> = async ({ input, req }) => {
       },
     };
   } catch (e) {
-    console.log('Error!');
-    console.log(e);
-    return { output: { success: false } };
+    req.payload.update({
+      collection: 'restartLibretime',
+      id: input.collectionId,
+      data: {
+        taskFinished: true,
+        results: (e as Error).toString(),
+      },
+    });
+    if (
+      e instanceof Error &&
+      e.toString().includes('Container root-liquidsoap-1  Started')
+    ) {
+      return { output: { success: true } };
+    } else {
+      return { output: { success: false } };
+    }
   }
 };
 
