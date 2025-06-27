@@ -11,8 +11,8 @@ function LanguageButton({
     <button
       onClick={onClick}
       value={lang}
-      className={`rounded-2xl border text-xs h-min p-2 hover:cursor-pointer border-white ${
-        isActive ? "text-black bg-white" : "text-white"
+      className={`rounded-2xl border text-xs h-min p-2 hover:cursor-pointer hover:text-black hover:bg-white border-white ${
+        isActive ? "text-black bg-white" : "text-white hover:opacity-70"
       }`}
     >
       {lang}

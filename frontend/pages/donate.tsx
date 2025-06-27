@@ -104,7 +104,7 @@ export default function About(props: DonatePageProps) {
               value="Non-Profit Community Radio"
             ></input>
             <input type="hidden" name="currency_code" value="EUR"></input>
-            <button className="text-white border px-5 py-3 rounded-xl hover:bg-white hover:text-black">
+            <button className="text-white border px-5 py-3 rounded-xl hover:bg-white hover:text-black hover:cursor-pointer">
               DONATE
             </button>
           </form>
