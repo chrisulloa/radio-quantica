@@ -2,7 +2,7 @@ import ShareButton from "./shareButton";
 
 export function NewsHeaderBackground({ title }: { title: string }) {
   return (
-    <div className="bg-white w-full">
+    <div className="bg-white w-full rounded-xl">
       <div className="flex w-full justify-end pr-6 py-4 relative z-1">
         <ShareButton black={true} text={title}></ShareButton>
       </div>

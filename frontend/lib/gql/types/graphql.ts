@@ -252,8 +252,10 @@ export type Access = {
   media?: Maybe<MediaAccess>;
   merch?: Maybe<MerchAccess>;
   newsPosts?: Maybe<NewsPostsAccess>;
+  payload_jobs?: Maybe<Payload_JobsAccess>;
   payload_locked_documents?: Maybe<Payload_Locked_DocumentsAccess>;
   payload_preferences?: Maybe<Payload_PreferencesAccess>;
+  restartLibretime?: Maybe<RestartLibretimeAccess>;
   shows?: Maybe<ShowsAccess>;
   tags?: Maybe<TagsAccess>;
   users?: Maybe<UsersAccess>;
@@ -6637,8 +6639,10 @@ export type Mutation = {
   createMedia?: Maybe<Media>;
   createMerch?: Maybe<Merch>;
   createNewsPost?: Maybe<NewsPost>;
+  createPayloadJob?: Maybe<PayloadJob>;
   createPayloadLockedDocument?: Maybe<PayloadLockedDocument>;
   createPayloadPreference?: Maybe<PayloadPreference>;
+  createRestartLibretime?: Maybe<RestartLibretime>;
   createShow?: Maybe<Show>;
   createTag?: Maybe<Tag>;
   createUser?: Maybe<User>;
@@ -6649,8 +6653,10 @@ export type Mutation = {
   deleteMedia?: Maybe<Media>;
   deleteMerch?: Maybe<Merch>;
   deleteNewsPost?: Maybe<NewsPost>;
+  deletePayloadJob?: Maybe<PayloadJob>;
   deletePayloadLockedDocument?: Maybe<PayloadLockedDocument>;
   deletePayloadPreference?: Maybe<PayloadPreference>;
+  deleteRestartLibretime?: Maybe<RestartLibretime>;
   deleteShow?: Maybe<Show>;
   deleteTag?: Maybe<Tag>;
   deleteUser?: Maybe<User>;
@@ -6661,8 +6667,10 @@ export type Mutation = {
   duplicateMedia?: Maybe<Media>;
   duplicateMerch?: Maybe<Merch>;
   duplicateNewsPost?: Maybe<NewsPost>;
+  duplicatePayloadJob?: Maybe<PayloadJob>;
   duplicatePayloadLockedDocument?: Maybe<PayloadLockedDocument>;
   duplicatePayloadPreference?: Maybe<PayloadPreference>;
+  duplicateRestartLibretime?: Maybe<RestartLibretime>;
   duplicateShow?: Maybe<Show>;
   duplicateTag?: Maybe<Tag>;
   forgotPasswordUser: Scalars['Boolean'];
@@ -6681,8 +6689,10 @@ export type Mutation = {
   updateMedia?: Maybe<Media>;
   updateMerch?: Maybe<Merch>;
   updateNewsPost?: Maybe<NewsPost>;
+  updatePayloadJob?: Maybe<PayloadJob>;
   updatePayloadLockedDocument?: Maybe<PayloadLockedDocument>;
   updatePayloadPreference?: Maybe<PayloadPreference>;
+  updateRestartLibretime?: Maybe<RestartLibretime>;
   updateShow?: Maybe<Show>;
   updateTag?: Maybe<Tag>;
   updateUser?: Maybe<User>;
@@ -6739,6 +6749,13 @@ export type MutationCreateNewsPostArgs = {
 };
 
 
+export type MutationCreatePayloadJobArgs = {
+  data: MutationPayloadJobInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
 export type MutationCreatePayloadLockedDocumentArgs = {
   data: MutationPayloadLockedDocumentInput;
   draft?: InputMaybe<Scalars['Boolean']>;
@@ -6748,6 +6765,13 @@ export type MutationCreatePayloadLockedDocumentArgs = {
 
 export type MutationCreatePayloadPreferenceArgs = {
   data: MutationPayloadPreferenceInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
+export type MutationCreateRestartLibretimeArgs = {
+  data: MutationRestartLibretimeInput;
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
 };
@@ -6809,12 +6833,22 @@ export type MutationDeleteNewsPostArgs = {
 };
 
 
+export type MutationDeletePayloadJobArgs = {
+  id: Scalars['String'];
+};
+
+
 export type MutationDeletePayloadLockedDocumentArgs = {
   id: Scalars['String'];
 };
 
 
 export type MutationDeletePayloadPreferenceArgs = {
+  id: Scalars['String'];
+};
+
+
+export type MutationDeleteRestartLibretimeArgs = {
   id: Scalars['String'];
 };
 
@@ -6876,6 +6910,12 @@ export type MutationDuplicateNewsPostArgs = {
 };
 
 
+export type MutationDuplicatePayloadJobArgs = {
+  data: MutationPayloadJobInput;
+  id: Scalars['String'];
+};
+
+
 export type MutationDuplicatePayloadLockedDocumentArgs = {
   data: MutationPayloadLockedDocumentInput;
   id: Scalars['String'];
@@ -6884,6 +6924,12 @@ export type MutationDuplicatePayloadLockedDocumentArgs = {
 
 export type MutationDuplicatePayloadPreferenceArgs = {
   data: MutationPayloadPreferenceInput;
+  id: Scalars['String'];
+};
+
+
+export type MutationDuplicateRestartLibretimeArgs = {
+  data: MutationRestartLibretimeInput;
   id: Scalars['String'];
 };
 
@@ -7007,6 +7053,15 @@ export type MutationUpdateNewsPostArgs = {
 };
 
 
+export type MutationUpdatePayloadJobArgs = {
+  autosave?: InputMaybe<Scalars['Boolean']>;
+  data: MutationPayloadJobUpdateInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
+  id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
 export type MutationUpdatePayloadLockedDocumentArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationPayloadLockedDocumentUpdateInput;
@@ -7019,6 +7074,15 @@ export type MutationUpdatePayloadLockedDocumentArgs = {
 export type MutationUpdatePayloadPreferenceArgs = {
   autosave?: InputMaybe<Scalars['Boolean']>;
   data: MutationPayloadPreferenceUpdateInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
+  id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
+export type MutationUpdateRestartLibretimeArgs = {
+  autosave?: InputMaybe<Scalars['Boolean']>;
+  data: MutationRestartLibretimeUpdateInput;
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
@@ -8220,6 +8284,1737 @@ export type NewsPostsUpdateDocAccess = {
   where?: Maybe<Scalars['JSONObject']>;
 };
 
+export type PayloadJob = {
+  __typename?: 'PayloadJob';
+  completedAt?: Maybe<Scalars['DateTime']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  error?: Maybe<Scalars['JSON']>;
+  hasError?: Maybe<Scalars['Boolean']>;
+  id: Scalars['String'];
+  input?: Maybe<Scalars['JSON']>;
+  log?: Maybe<Array<PayloadJob_Log>>;
+  processing?: Maybe<Scalars['Boolean']>;
+  queue?: Maybe<Scalars['String']>;
+  taskSlug?: Maybe<PayloadJob_TaskSlug>;
+  taskStatus?: Maybe<Scalars['JSON']>;
+  totalTried?: Maybe<Scalars['Float']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  waitUntil?: Maybe<Scalars['DateTime']>;
+};
+
+export enum PayloadJobUpdate_Log_TaskSlug_MutationInput {
+  Inline = 'inline',
+  RestartServer = 'restartServer'
+}
+
+export enum PayloadJobUpdate_TaskSlug_MutationInput {
+  Inline = 'inline',
+  RestartServer = 'restartServer'
+}
+
+export type PayloadJob_Log = {
+  __typename?: 'PayloadJob_Log';
+  completedAt?: Maybe<Scalars['DateTime']>;
+  error?: Maybe<Scalars['JSON']>;
+  executedAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+  input?: Maybe<Scalars['JSON']>;
+  output?: Maybe<Scalars['JSON']>;
+  state?: Maybe<PayloadJob_Log_State>;
+  taskID?: Maybe<Scalars['String']>;
+  taskSlug?: Maybe<PayloadJob_Log_TaskSlug>;
+};
+
+export enum PayloadJob_Log_State {
+  Failed = 'failed',
+  Succeeded = 'succeeded'
+}
+
+export enum PayloadJob_Log_TaskSlug {
+  Inline = 'inline',
+  RestartServer = 'restartServer'
+}
+
+export enum PayloadJob_Log_TaskSlug_MutationInput {
+  Inline = 'inline',
+  RestartServer = 'restartServer'
+}
+
+export type PayloadJob_CompletedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type PayloadJob_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type PayloadJob_Error_Operator = {
+  contains?: InputMaybe<Scalars['JSON']>;
+  equals?: InputMaybe<Scalars['JSON']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  intersects?: InputMaybe<Scalars['JSON']>;
+  like?: InputMaybe<Scalars['JSON']>;
+  not_equals?: InputMaybe<Scalars['JSON']>;
+  within?: InputMaybe<Scalars['JSON']>;
+};
+
+export type PayloadJob_HasError_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  not_equals?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type PayloadJob_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type PayloadJob_Input_Operator = {
+  contains?: InputMaybe<Scalars['JSON']>;
+  equals?: InputMaybe<Scalars['JSON']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  intersects?: InputMaybe<Scalars['JSON']>;
+  like?: InputMaybe<Scalars['JSON']>;
+  not_equals?: InputMaybe<Scalars['JSON']>;
+  within?: InputMaybe<Scalars['JSON']>;
+};
+
+export type PayloadJob_Log__CompletedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type PayloadJob_Log__Error_Operator = {
+  contains?: InputMaybe<Scalars['JSON']>;
+  equals?: InputMaybe<Scalars['JSON']>;
+  intersects?: InputMaybe<Scalars['JSON']>;
+  like?: InputMaybe<Scalars['JSON']>;
+  not_equals?: InputMaybe<Scalars['JSON']>;
+  within?: InputMaybe<Scalars['JSON']>;
+};
+
+export type PayloadJob_Log__ExecutedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type PayloadJob_Log__Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type PayloadJob_Log__Input_Operator = {
+  contains?: InputMaybe<Scalars['JSON']>;
+  equals?: InputMaybe<Scalars['JSON']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  intersects?: InputMaybe<Scalars['JSON']>;
+  like?: InputMaybe<Scalars['JSON']>;
+  not_equals?: InputMaybe<Scalars['JSON']>;
+  within?: InputMaybe<Scalars['JSON']>;
+};
+
+export type PayloadJob_Log__Output_Operator = {
+  contains?: InputMaybe<Scalars['JSON']>;
+  equals?: InputMaybe<Scalars['JSON']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  intersects?: InputMaybe<Scalars['JSON']>;
+  like?: InputMaybe<Scalars['JSON']>;
+  not_equals?: InputMaybe<Scalars['JSON']>;
+  within?: InputMaybe<Scalars['JSON']>;
+};
+
+export enum PayloadJob_Log__State_Input {
+  Failed = 'failed',
+  Succeeded = 'succeeded'
+}
+
+export type PayloadJob_Log__State_Operator = {
+  contains?: InputMaybe<PayloadJob_Log__State_Input>;
+  equals?: InputMaybe<PayloadJob_Log__State_Input>;
+  like?: InputMaybe<PayloadJob_Log__State_Input>;
+  not_equals?: InputMaybe<PayloadJob_Log__State_Input>;
+};
+
+export type PayloadJob_Log__TaskId_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export enum PayloadJob_Log__TaskSlug_Input {
+  Inline = 'inline',
+  RestartServer = 'restartServer'
+}
+
+export type PayloadJob_Log__TaskSlug_Operator = {
+  all?: InputMaybe<Array<InputMaybe<PayloadJob_Log__TaskSlug_Input>>>;
+  equals?: InputMaybe<PayloadJob_Log__TaskSlug_Input>;
+  in?: InputMaybe<Array<InputMaybe<PayloadJob_Log__TaskSlug_Input>>>;
+  not_equals?: InputMaybe<PayloadJob_Log__TaskSlug_Input>;
+  not_in?: InputMaybe<Array<InputMaybe<PayloadJob_Log__TaskSlug_Input>>>;
+};
+
+export type PayloadJob_Processing_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  not_equals?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type PayloadJob_Queue_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export enum PayloadJob_TaskSlug {
+  Inline = 'inline',
+  RestartServer = 'restartServer'
+}
+
+export enum PayloadJob_TaskSlug_Input {
+  Inline = 'inline',
+  RestartServer = 'restartServer'
+}
+
+export enum PayloadJob_TaskSlug_MutationInput {
+  Inline = 'inline',
+  RestartServer = 'restartServer'
+}
+
+export type PayloadJob_TaskSlug_Operator = {
+  all?: InputMaybe<Array<InputMaybe<PayloadJob_TaskSlug_Input>>>;
+  equals?: InputMaybe<PayloadJob_TaskSlug_Input>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<PayloadJob_TaskSlug_Input>>>;
+  not_equals?: InputMaybe<PayloadJob_TaskSlug_Input>;
+  not_in?: InputMaybe<Array<InputMaybe<PayloadJob_TaskSlug_Input>>>;
+};
+
+export type PayloadJob_TaskStatus_Operator = {
+  contains?: InputMaybe<Scalars['JSON']>;
+  equals?: InputMaybe<Scalars['JSON']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  intersects?: InputMaybe<Scalars['JSON']>;
+  like?: InputMaybe<Scalars['JSON']>;
+  not_equals?: InputMaybe<Scalars['JSON']>;
+  within?: InputMaybe<Scalars['JSON']>;
+};
+
+export type PayloadJob_TotalTried_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type PayloadJob_UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type PayloadJob_WaitUntil_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type PayloadJob_Where = {
+  AND?: InputMaybe<Array<InputMaybe<PayloadJob_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<PayloadJob_Where_Or>>>;
+  completedAt?: InputMaybe<PayloadJob_CompletedAt_Operator>;
+  createdAt?: InputMaybe<PayloadJob_CreatedAt_Operator>;
+  error?: InputMaybe<PayloadJob_Error_Operator>;
+  hasError?: InputMaybe<PayloadJob_HasError_Operator>;
+  id?: InputMaybe<PayloadJob_Id_Operator>;
+  input?: InputMaybe<PayloadJob_Input_Operator>;
+  log__completedAt?: InputMaybe<PayloadJob_Log__CompletedAt_Operator>;
+  log__error?: InputMaybe<PayloadJob_Log__Error_Operator>;
+  log__executedAt?: InputMaybe<PayloadJob_Log__ExecutedAt_Operator>;
+  log__id?: InputMaybe<PayloadJob_Log__Id_Operator>;
+  log__input?: InputMaybe<PayloadJob_Log__Input_Operator>;
+  log__output?: InputMaybe<PayloadJob_Log__Output_Operator>;
+  log__state?: InputMaybe<PayloadJob_Log__State_Operator>;
+  log__taskID?: InputMaybe<PayloadJob_Log__TaskId_Operator>;
+  log__taskSlug?: InputMaybe<PayloadJob_Log__TaskSlug_Operator>;
+  processing?: InputMaybe<PayloadJob_Processing_Operator>;
+  queue?: InputMaybe<PayloadJob_Queue_Operator>;
+  taskSlug?: InputMaybe<PayloadJob_TaskSlug_Operator>;
+  taskStatus?: InputMaybe<PayloadJob_TaskStatus_Operator>;
+  totalTried?: InputMaybe<PayloadJob_TotalTried_Operator>;
+  updatedAt?: InputMaybe<PayloadJob_UpdatedAt_Operator>;
+  waitUntil?: InputMaybe<PayloadJob_WaitUntil_Operator>;
+};
+
+export type PayloadJob_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<PayloadJob_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<PayloadJob_Where_Or>>>;
+  completedAt?: InputMaybe<PayloadJob_CompletedAt_Operator>;
+  createdAt?: InputMaybe<PayloadJob_CreatedAt_Operator>;
+  error?: InputMaybe<PayloadJob_Error_Operator>;
+  hasError?: InputMaybe<PayloadJob_HasError_Operator>;
+  id?: InputMaybe<PayloadJob_Id_Operator>;
+  input?: InputMaybe<PayloadJob_Input_Operator>;
+  log__completedAt?: InputMaybe<PayloadJob_Log__CompletedAt_Operator>;
+  log__error?: InputMaybe<PayloadJob_Log__Error_Operator>;
+  log__executedAt?: InputMaybe<PayloadJob_Log__ExecutedAt_Operator>;
+  log__id?: InputMaybe<PayloadJob_Log__Id_Operator>;
+  log__input?: InputMaybe<PayloadJob_Log__Input_Operator>;
+  log__output?: InputMaybe<PayloadJob_Log__Output_Operator>;
+  log__state?: InputMaybe<PayloadJob_Log__State_Operator>;
+  log__taskID?: InputMaybe<PayloadJob_Log__TaskId_Operator>;
+  log__taskSlug?: InputMaybe<PayloadJob_Log__TaskSlug_Operator>;
+  processing?: InputMaybe<PayloadJob_Processing_Operator>;
+  queue?: InputMaybe<PayloadJob_Queue_Operator>;
+  taskSlug?: InputMaybe<PayloadJob_TaskSlug_Operator>;
+  taskStatus?: InputMaybe<PayloadJob_TaskStatus_Operator>;
+  totalTried?: InputMaybe<PayloadJob_TotalTried_Operator>;
+  updatedAt?: InputMaybe<PayloadJob_UpdatedAt_Operator>;
+  waitUntil?: InputMaybe<PayloadJob_WaitUntil_Operator>;
+};
+
+export type PayloadJob_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<PayloadJob_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<PayloadJob_Where_Or>>>;
+  completedAt?: InputMaybe<PayloadJob_CompletedAt_Operator>;
+  createdAt?: InputMaybe<PayloadJob_CreatedAt_Operator>;
+  error?: InputMaybe<PayloadJob_Error_Operator>;
+  hasError?: InputMaybe<PayloadJob_HasError_Operator>;
+  id?: InputMaybe<PayloadJob_Id_Operator>;
+  input?: InputMaybe<PayloadJob_Input_Operator>;
+  log__completedAt?: InputMaybe<PayloadJob_Log__CompletedAt_Operator>;
+  log__error?: InputMaybe<PayloadJob_Log__Error_Operator>;
+  log__executedAt?: InputMaybe<PayloadJob_Log__ExecutedAt_Operator>;
+  log__id?: InputMaybe<PayloadJob_Log__Id_Operator>;
+  log__input?: InputMaybe<PayloadJob_Log__Input_Operator>;
+  log__output?: InputMaybe<PayloadJob_Log__Output_Operator>;
+  log__state?: InputMaybe<PayloadJob_Log__State_Operator>;
+  log__taskID?: InputMaybe<PayloadJob_Log__TaskId_Operator>;
+  log__taskSlug?: InputMaybe<PayloadJob_Log__TaskSlug_Operator>;
+  processing?: InputMaybe<PayloadJob_Processing_Operator>;
+  queue?: InputMaybe<PayloadJob_Queue_Operator>;
+  taskSlug?: InputMaybe<PayloadJob_TaskSlug_Operator>;
+  taskStatus?: InputMaybe<PayloadJob_TaskStatus_Operator>;
+  totalTried?: InputMaybe<PayloadJob_TotalTried_Operator>;
+  updatedAt?: InputMaybe<PayloadJob_UpdatedAt_Operator>;
+  waitUntil?: InputMaybe<PayloadJob_WaitUntil_Operator>;
+};
+
+export type PayloadJobs = {
+  __typename?: 'PayloadJobs';
+  docs: Array<PayloadJob>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
+  nextPage?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
+  prevPage?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
+};
+
+export type PayloadJobsCreateAccess = {
+  __typename?: 'PayloadJobsCreateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadJobsCreateDocAccess = {
+  __typename?: 'PayloadJobsCreateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadJobsDeleteAccess = {
+  __typename?: 'PayloadJobsDeleteAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadJobsDeleteDocAccess = {
+  __typename?: 'PayloadJobsDeleteDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadJobsDocAccessFields = {
+  __typename?: 'PayloadJobsDocAccessFields';
+  completedAt?: Maybe<PayloadJobsDocAccessFields_CompletedAt>;
+  createdAt?: Maybe<PayloadJobsDocAccessFields_CreatedAt>;
+  error?: Maybe<PayloadJobsDocAccessFields_Error>;
+  hasError?: Maybe<PayloadJobsDocAccessFields_HasError>;
+  input?: Maybe<PayloadJobsDocAccessFields_Input>;
+  log?: Maybe<PayloadJobsDocAccessFields_Log>;
+  processing?: Maybe<PayloadJobsDocAccessFields_Processing>;
+  queue?: Maybe<PayloadJobsDocAccessFields_Queue>;
+  taskSlug?: Maybe<PayloadJobsDocAccessFields_TaskSlug>;
+  taskStatus?: Maybe<PayloadJobsDocAccessFields_TaskStatus>;
+  totalTried?: Maybe<PayloadJobsDocAccessFields_TotalTried>;
+  updatedAt?: Maybe<PayloadJobsDocAccessFields_UpdatedAt>;
+  waitUntil?: Maybe<PayloadJobsDocAccessFields_WaitUntil>;
+};
+
+export type PayloadJobsDocAccessFields_CompletedAt = {
+  __typename?: 'PayloadJobsDocAccessFields_completedAt';
+  create?: Maybe<PayloadJobsDocAccessFields_CompletedAt_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_CompletedAt_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_CompletedAt_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_CompletedAt_Update>;
+};
+
+export type PayloadJobsDocAccessFields_CompletedAt_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_completedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_CompletedAt_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_completedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_CompletedAt_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_completedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_CompletedAt_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_completedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_CreatedAt = {
+  __typename?: 'PayloadJobsDocAccessFields_createdAt';
+  create?: Maybe<PayloadJobsDocAccessFields_CreatedAt_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_CreatedAt_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_CreatedAt_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_CreatedAt_Update>;
+};
+
+export type PayloadJobsDocAccessFields_CreatedAt_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_CreatedAt_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_CreatedAt_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_CreatedAt_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Error = {
+  __typename?: 'PayloadJobsDocAccessFields_error';
+  create?: Maybe<PayloadJobsDocAccessFields_Error_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_Error_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_Error_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_Error_Update>;
+};
+
+export type PayloadJobsDocAccessFields_Error_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_error_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Error_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_error_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Error_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_error_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Error_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_error_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_HasError = {
+  __typename?: 'PayloadJobsDocAccessFields_hasError';
+  create?: Maybe<PayloadJobsDocAccessFields_HasError_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_HasError_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_HasError_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_HasError_Update>;
+};
+
+export type PayloadJobsDocAccessFields_HasError_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_hasError_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_HasError_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_hasError_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_HasError_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_hasError_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_HasError_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_hasError_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Input = {
+  __typename?: 'PayloadJobsDocAccessFields_input';
+  create?: Maybe<PayloadJobsDocAccessFields_Input_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_Input_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_Input_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_Input_Update>;
+};
+
+export type PayloadJobsDocAccessFields_Input_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_input_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Input_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_input_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Input_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_input_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Input_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_input_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log = {
+  __typename?: 'PayloadJobsDocAccessFields_log';
+  create?: Maybe<PayloadJobsDocAccessFields_Log_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_Delete>;
+  fields?: Maybe<PayloadJobsDocAccessFields_Log_Fields>;
+  read?: Maybe<PayloadJobsDocAccessFields_Log_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_Log_Update>;
+};
+
+export type PayloadJobsDocAccessFields_Log_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Fields = {
+  __typename?: 'PayloadJobsDocAccessFields_log_Fields';
+  completedAt?: Maybe<PayloadJobsDocAccessFields_Log_CompletedAt>;
+  error?: Maybe<PayloadJobsDocAccessFields_Log_Error>;
+  executedAt?: Maybe<PayloadJobsDocAccessFields_Log_ExecutedAt>;
+  id?: Maybe<PayloadJobsDocAccessFields_Log_Id>;
+  input?: Maybe<PayloadJobsDocAccessFields_Log_Input>;
+  output?: Maybe<PayloadJobsDocAccessFields_Log_Output>;
+  state?: Maybe<PayloadJobsDocAccessFields_Log_State>;
+  taskID?: Maybe<PayloadJobsDocAccessFields_Log_TaskId>;
+  taskSlug?: Maybe<PayloadJobsDocAccessFields_Log_TaskSlug>;
+};
+
+export type PayloadJobsDocAccessFields_Log_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_CompletedAt = {
+  __typename?: 'PayloadJobsDocAccessFields_log_completedAt';
+  create?: Maybe<PayloadJobsDocAccessFields_Log_CompletedAt_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_CompletedAt_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_Log_CompletedAt_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_Log_CompletedAt_Update>;
+};
+
+export type PayloadJobsDocAccessFields_Log_CompletedAt_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_completedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_CompletedAt_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_completedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_CompletedAt_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_completedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_CompletedAt_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_completedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Error = {
+  __typename?: 'PayloadJobsDocAccessFields_log_error';
+  create?: Maybe<PayloadJobsDocAccessFields_Log_Error_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_Error_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_Log_Error_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_Log_Error_Update>;
+};
+
+export type PayloadJobsDocAccessFields_Log_Error_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_error_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Error_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_error_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Error_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_error_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Error_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_error_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_ExecutedAt = {
+  __typename?: 'PayloadJobsDocAccessFields_log_executedAt';
+  create?: Maybe<PayloadJobsDocAccessFields_Log_ExecutedAt_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_ExecutedAt_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_Log_ExecutedAt_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_Log_ExecutedAt_Update>;
+};
+
+export type PayloadJobsDocAccessFields_Log_ExecutedAt_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_executedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_ExecutedAt_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_executedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_ExecutedAt_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_executedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_ExecutedAt_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_executedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Id = {
+  __typename?: 'PayloadJobsDocAccessFields_log_id';
+  create?: Maybe<PayloadJobsDocAccessFields_Log_Id_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_Id_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_Log_Id_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_Log_Id_Update>;
+};
+
+export type PayloadJobsDocAccessFields_Log_Id_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_id_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Id_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_id_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Id_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_id_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Id_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_id_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Input = {
+  __typename?: 'PayloadJobsDocAccessFields_log_input';
+  create?: Maybe<PayloadJobsDocAccessFields_Log_Input_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_Input_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_Log_Input_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_Log_Input_Update>;
+};
+
+export type PayloadJobsDocAccessFields_Log_Input_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_input_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Input_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_input_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Input_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_input_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Input_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_input_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Output = {
+  __typename?: 'PayloadJobsDocAccessFields_log_output';
+  create?: Maybe<PayloadJobsDocAccessFields_Log_Output_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_Output_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_Log_Output_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_Log_Output_Update>;
+};
+
+export type PayloadJobsDocAccessFields_Log_Output_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_output_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Output_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_output_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Output_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_output_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_Output_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_output_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_State = {
+  __typename?: 'PayloadJobsDocAccessFields_log_state';
+  create?: Maybe<PayloadJobsDocAccessFields_Log_State_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_State_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_Log_State_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_Log_State_Update>;
+};
+
+export type PayloadJobsDocAccessFields_Log_State_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_state_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_State_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_state_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_State_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_state_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_State_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_state_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_TaskId = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskID';
+  create?: Maybe<PayloadJobsDocAccessFields_Log_TaskId_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_TaskId_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_Log_TaskId_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_Log_TaskId_Update>;
+};
+
+export type PayloadJobsDocAccessFields_Log_TaskId_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskID_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_TaskId_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskID_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_TaskId_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskID_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_TaskId_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskID_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_TaskSlug = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskSlug';
+  create?: Maybe<PayloadJobsDocAccessFields_Log_TaskSlug_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_TaskSlug_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_Log_TaskSlug_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_Log_TaskSlug_Update>;
+};
+
+export type PayloadJobsDocAccessFields_Log_TaskSlug_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskSlug_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_TaskSlug_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskSlug_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_TaskSlug_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskSlug_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Log_TaskSlug_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskSlug_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Processing = {
+  __typename?: 'PayloadJobsDocAccessFields_processing';
+  create?: Maybe<PayloadJobsDocAccessFields_Processing_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_Processing_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_Processing_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_Processing_Update>;
+};
+
+export type PayloadJobsDocAccessFields_Processing_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_processing_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Processing_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_processing_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Processing_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_processing_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Processing_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_processing_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Queue = {
+  __typename?: 'PayloadJobsDocAccessFields_queue';
+  create?: Maybe<PayloadJobsDocAccessFields_Queue_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_Queue_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_Queue_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_Queue_Update>;
+};
+
+export type PayloadJobsDocAccessFields_Queue_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_queue_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Queue_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_queue_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Queue_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_queue_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_Queue_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_queue_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_TaskSlug = {
+  __typename?: 'PayloadJobsDocAccessFields_taskSlug';
+  create?: Maybe<PayloadJobsDocAccessFields_TaskSlug_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_TaskSlug_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_TaskSlug_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_TaskSlug_Update>;
+};
+
+export type PayloadJobsDocAccessFields_TaskSlug_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_taskSlug_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_TaskSlug_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_taskSlug_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_TaskSlug_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_taskSlug_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_TaskSlug_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_taskSlug_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_TaskStatus = {
+  __typename?: 'PayloadJobsDocAccessFields_taskStatus';
+  create?: Maybe<PayloadJobsDocAccessFields_TaskStatus_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_TaskStatus_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_TaskStatus_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_TaskStatus_Update>;
+};
+
+export type PayloadJobsDocAccessFields_TaskStatus_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_taskStatus_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_TaskStatus_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_taskStatus_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_TaskStatus_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_taskStatus_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_TaskStatus_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_taskStatus_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_TotalTried = {
+  __typename?: 'PayloadJobsDocAccessFields_totalTried';
+  create?: Maybe<PayloadJobsDocAccessFields_TotalTried_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_TotalTried_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_TotalTried_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_TotalTried_Update>;
+};
+
+export type PayloadJobsDocAccessFields_TotalTried_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_totalTried_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_TotalTried_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_totalTried_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_TotalTried_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_totalTried_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_TotalTried_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_totalTried_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_UpdatedAt = {
+  __typename?: 'PayloadJobsDocAccessFields_updatedAt';
+  create?: Maybe<PayloadJobsDocAccessFields_UpdatedAt_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_UpdatedAt_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_UpdatedAt_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_UpdatedAt_Update>;
+};
+
+export type PayloadJobsDocAccessFields_UpdatedAt_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_UpdatedAt_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_UpdatedAt_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_UpdatedAt_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_WaitUntil = {
+  __typename?: 'PayloadJobsDocAccessFields_waitUntil';
+  create?: Maybe<PayloadJobsDocAccessFields_WaitUntil_Create>;
+  delete?: Maybe<PayloadJobsDocAccessFields_WaitUntil_Delete>;
+  read?: Maybe<PayloadJobsDocAccessFields_WaitUntil_Read>;
+  update?: Maybe<PayloadJobsDocAccessFields_WaitUntil_Update>;
+};
+
+export type PayloadJobsDocAccessFields_WaitUntil_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_waitUntil_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_WaitUntil_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_waitUntil_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_WaitUntil_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_waitUntil_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsDocAccessFields_WaitUntil_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_waitUntil_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields = {
+  __typename?: 'PayloadJobsFields';
+  completedAt?: Maybe<PayloadJobsFields_CompletedAt>;
+  createdAt?: Maybe<PayloadJobsFields_CreatedAt>;
+  error?: Maybe<PayloadJobsFields_Error>;
+  hasError?: Maybe<PayloadJobsFields_HasError>;
+  input?: Maybe<PayloadJobsFields_Input>;
+  log?: Maybe<PayloadJobsFields_Log>;
+  processing?: Maybe<PayloadJobsFields_Processing>;
+  queue?: Maybe<PayloadJobsFields_Queue>;
+  taskSlug?: Maybe<PayloadJobsFields_TaskSlug>;
+  taskStatus?: Maybe<PayloadJobsFields_TaskStatus>;
+  totalTried?: Maybe<PayloadJobsFields_TotalTried>;
+  updatedAt?: Maybe<PayloadJobsFields_UpdatedAt>;
+  waitUntil?: Maybe<PayloadJobsFields_WaitUntil>;
+};
+
+export type PayloadJobsFields_CompletedAt = {
+  __typename?: 'PayloadJobsFields_completedAt';
+  create?: Maybe<PayloadJobsFields_CompletedAt_Create>;
+  delete?: Maybe<PayloadJobsFields_CompletedAt_Delete>;
+  read?: Maybe<PayloadJobsFields_CompletedAt_Read>;
+  update?: Maybe<PayloadJobsFields_CompletedAt_Update>;
+};
+
+export type PayloadJobsFields_CompletedAt_Create = {
+  __typename?: 'PayloadJobsFields_completedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_CompletedAt_Delete = {
+  __typename?: 'PayloadJobsFields_completedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_CompletedAt_Read = {
+  __typename?: 'PayloadJobsFields_completedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_CompletedAt_Update = {
+  __typename?: 'PayloadJobsFields_completedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_CreatedAt = {
+  __typename?: 'PayloadJobsFields_createdAt';
+  create?: Maybe<PayloadJobsFields_CreatedAt_Create>;
+  delete?: Maybe<PayloadJobsFields_CreatedAt_Delete>;
+  read?: Maybe<PayloadJobsFields_CreatedAt_Read>;
+  update?: Maybe<PayloadJobsFields_CreatedAt_Update>;
+};
+
+export type PayloadJobsFields_CreatedAt_Create = {
+  __typename?: 'PayloadJobsFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_CreatedAt_Delete = {
+  __typename?: 'PayloadJobsFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_CreatedAt_Read = {
+  __typename?: 'PayloadJobsFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_CreatedAt_Update = {
+  __typename?: 'PayloadJobsFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Error = {
+  __typename?: 'PayloadJobsFields_error';
+  create?: Maybe<PayloadJobsFields_Error_Create>;
+  delete?: Maybe<PayloadJobsFields_Error_Delete>;
+  read?: Maybe<PayloadJobsFields_Error_Read>;
+  update?: Maybe<PayloadJobsFields_Error_Update>;
+};
+
+export type PayloadJobsFields_Error_Create = {
+  __typename?: 'PayloadJobsFields_error_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Error_Delete = {
+  __typename?: 'PayloadJobsFields_error_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Error_Read = {
+  __typename?: 'PayloadJobsFields_error_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Error_Update = {
+  __typename?: 'PayloadJobsFields_error_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_HasError = {
+  __typename?: 'PayloadJobsFields_hasError';
+  create?: Maybe<PayloadJobsFields_HasError_Create>;
+  delete?: Maybe<PayloadJobsFields_HasError_Delete>;
+  read?: Maybe<PayloadJobsFields_HasError_Read>;
+  update?: Maybe<PayloadJobsFields_HasError_Update>;
+};
+
+export type PayloadJobsFields_HasError_Create = {
+  __typename?: 'PayloadJobsFields_hasError_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_HasError_Delete = {
+  __typename?: 'PayloadJobsFields_hasError_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_HasError_Read = {
+  __typename?: 'PayloadJobsFields_hasError_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_HasError_Update = {
+  __typename?: 'PayloadJobsFields_hasError_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Input = {
+  __typename?: 'PayloadJobsFields_input';
+  create?: Maybe<PayloadJobsFields_Input_Create>;
+  delete?: Maybe<PayloadJobsFields_Input_Delete>;
+  read?: Maybe<PayloadJobsFields_Input_Read>;
+  update?: Maybe<PayloadJobsFields_Input_Update>;
+};
+
+export type PayloadJobsFields_Input_Create = {
+  __typename?: 'PayloadJobsFields_input_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Input_Delete = {
+  __typename?: 'PayloadJobsFields_input_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Input_Read = {
+  __typename?: 'PayloadJobsFields_input_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Input_Update = {
+  __typename?: 'PayloadJobsFields_input_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log = {
+  __typename?: 'PayloadJobsFields_log';
+  create?: Maybe<PayloadJobsFields_Log_Create>;
+  delete?: Maybe<PayloadJobsFields_Log_Delete>;
+  fields?: Maybe<PayloadJobsFields_Log_Fields>;
+  read?: Maybe<PayloadJobsFields_Log_Read>;
+  update?: Maybe<PayloadJobsFields_Log_Update>;
+};
+
+export type PayloadJobsFields_Log_Create = {
+  __typename?: 'PayloadJobsFields_log_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Delete = {
+  __typename?: 'PayloadJobsFields_log_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Fields = {
+  __typename?: 'PayloadJobsFields_log_Fields';
+  completedAt?: Maybe<PayloadJobsFields_Log_CompletedAt>;
+  error?: Maybe<PayloadJobsFields_Log_Error>;
+  executedAt?: Maybe<PayloadJobsFields_Log_ExecutedAt>;
+  id?: Maybe<PayloadJobsFields_Log_Id>;
+  input?: Maybe<PayloadJobsFields_Log_Input>;
+  output?: Maybe<PayloadJobsFields_Log_Output>;
+  state?: Maybe<PayloadJobsFields_Log_State>;
+  taskID?: Maybe<PayloadJobsFields_Log_TaskId>;
+  taskSlug?: Maybe<PayloadJobsFields_Log_TaskSlug>;
+};
+
+export type PayloadJobsFields_Log_Read = {
+  __typename?: 'PayloadJobsFields_log_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Update = {
+  __typename?: 'PayloadJobsFields_log_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_CompletedAt = {
+  __typename?: 'PayloadJobsFields_log_completedAt';
+  create?: Maybe<PayloadJobsFields_Log_CompletedAt_Create>;
+  delete?: Maybe<PayloadJobsFields_Log_CompletedAt_Delete>;
+  read?: Maybe<PayloadJobsFields_Log_CompletedAt_Read>;
+  update?: Maybe<PayloadJobsFields_Log_CompletedAt_Update>;
+};
+
+export type PayloadJobsFields_Log_CompletedAt_Create = {
+  __typename?: 'PayloadJobsFields_log_completedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_CompletedAt_Delete = {
+  __typename?: 'PayloadJobsFields_log_completedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_CompletedAt_Read = {
+  __typename?: 'PayloadJobsFields_log_completedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_CompletedAt_Update = {
+  __typename?: 'PayloadJobsFields_log_completedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Error = {
+  __typename?: 'PayloadJobsFields_log_error';
+  create?: Maybe<PayloadJobsFields_Log_Error_Create>;
+  delete?: Maybe<PayloadJobsFields_Log_Error_Delete>;
+  read?: Maybe<PayloadJobsFields_Log_Error_Read>;
+  update?: Maybe<PayloadJobsFields_Log_Error_Update>;
+};
+
+export type PayloadJobsFields_Log_Error_Create = {
+  __typename?: 'PayloadJobsFields_log_error_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Error_Delete = {
+  __typename?: 'PayloadJobsFields_log_error_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Error_Read = {
+  __typename?: 'PayloadJobsFields_log_error_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Error_Update = {
+  __typename?: 'PayloadJobsFields_log_error_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_ExecutedAt = {
+  __typename?: 'PayloadJobsFields_log_executedAt';
+  create?: Maybe<PayloadJobsFields_Log_ExecutedAt_Create>;
+  delete?: Maybe<PayloadJobsFields_Log_ExecutedAt_Delete>;
+  read?: Maybe<PayloadJobsFields_Log_ExecutedAt_Read>;
+  update?: Maybe<PayloadJobsFields_Log_ExecutedAt_Update>;
+};
+
+export type PayloadJobsFields_Log_ExecutedAt_Create = {
+  __typename?: 'PayloadJobsFields_log_executedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_ExecutedAt_Delete = {
+  __typename?: 'PayloadJobsFields_log_executedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_ExecutedAt_Read = {
+  __typename?: 'PayloadJobsFields_log_executedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_ExecutedAt_Update = {
+  __typename?: 'PayloadJobsFields_log_executedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Id = {
+  __typename?: 'PayloadJobsFields_log_id';
+  create?: Maybe<PayloadJobsFields_Log_Id_Create>;
+  delete?: Maybe<PayloadJobsFields_Log_Id_Delete>;
+  read?: Maybe<PayloadJobsFields_Log_Id_Read>;
+  update?: Maybe<PayloadJobsFields_Log_Id_Update>;
+};
+
+export type PayloadJobsFields_Log_Id_Create = {
+  __typename?: 'PayloadJobsFields_log_id_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Id_Delete = {
+  __typename?: 'PayloadJobsFields_log_id_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Id_Read = {
+  __typename?: 'PayloadJobsFields_log_id_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Id_Update = {
+  __typename?: 'PayloadJobsFields_log_id_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Input = {
+  __typename?: 'PayloadJobsFields_log_input';
+  create?: Maybe<PayloadJobsFields_Log_Input_Create>;
+  delete?: Maybe<PayloadJobsFields_Log_Input_Delete>;
+  read?: Maybe<PayloadJobsFields_Log_Input_Read>;
+  update?: Maybe<PayloadJobsFields_Log_Input_Update>;
+};
+
+export type PayloadJobsFields_Log_Input_Create = {
+  __typename?: 'PayloadJobsFields_log_input_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Input_Delete = {
+  __typename?: 'PayloadJobsFields_log_input_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Input_Read = {
+  __typename?: 'PayloadJobsFields_log_input_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Input_Update = {
+  __typename?: 'PayloadJobsFields_log_input_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Output = {
+  __typename?: 'PayloadJobsFields_log_output';
+  create?: Maybe<PayloadJobsFields_Log_Output_Create>;
+  delete?: Maybe<PayloadJobsFields_Log_Output_Delete>;
+  read?: Maybe<PayloadJobsFields_Log_Output_Read>;
+  update?: Maybe<PayloadJobsFields_Log_Output_Update>;
+};
+
+export type PayloadJobsFields_Log_Output_Create = {
+  __typename?: 'PayloadJobsFields_log_output_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Output_Delete = {
+  __typename?: 'PayloadJobsFields_log_output_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Output_Read = {
+  __typename?: 'PayloadJobsFields_log_output_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_Output_Update = {
+  __typename?: 'PayloadJobsFields_log_output_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_State = {
+  __typename?: 'PayloadJobsFields_log_state';
+  create?: Maybe<PayloadJobsFields_Log_State_Create>;
+  delete?: Maybe<PayloadJobsFields_Log_State_Delete>;
+  read?: Maybe<PayloadJobsFields_Log_State_Read>;
+  update?: Maybe<PayloadJobsFields_Log_State_Update>;
+};
+
+export type PayloadJobsFields_Log_State_Create = {
+  __typename?: 'PayloadJobsFields_log_state_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_State_Delete = {
+  __typename?: 'PayloadJobsFields_log_state_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_State_Read = {
+  __typename?: 'PayloadJobsFields_log_state_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_State_Update = {
+  __typename?: 'PayloadJobsFields_log_state_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_TaskId = {
+  __typename?: 'PayloadJobsFields_log_taskID';
+  create?: Maybe<PayloadJobsFields_Log_TaskId_Create>;
+  delete?: Maybe<PayloadJobsFields_Log_TaskId_Delete>;
+  read?: Maybe<PayloadJobsFields_Log_TaskId_Read>;
+  update?: Maybe<PayloadJobsFields_Log_TaskId_Update>;
+};
+
+export type PayloadJobsFields_Log_TaskId_Create = {
+  __typename?: 'PayloadJobsFields_log_taskID_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_TaskId_Delete = {
+  __typename?: 'PayloadJobsFields_log_taskID_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_TaskId_Read = {
+  __typename?: 'PayloadJobsFields_log_taskID_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_TaskId_Update = {
+  __typename?: 'PayloadJobsFields_log_taskID_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_TaskSlug = {
+  __typename?: 'PayloadJobsFields_log_taskSlug';
+  create?: Maybe<PayloadJobsFields_Log_TaskSlug_Create>;
+  delete?: Maybe<PayloadJobsFields_Log_TaskSlug_Delete>;
+  read?: Maybe<PayloadJobsFields_Log_TaskSlug_Read>;
+  update?: Maybe<PayloadJobsFields_Log_TaskSlug_Update>;
+};
+
+export type PayloadJobsFields_Log_TaskSlug_Create = {
+  __typename?: 'PayloadJobsFields_log_taskSlug_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_TaskSlug_Delete = {
+  __typename?: 'PayloadJobsFields_log_taskSlug_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_TaskSlug_Read = {
+  __typename?: 'PayloadJobsFields_log_taskSlug_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Log_TaskSlug_Update = {
+  __typename?: 'PayloadJobsFields_log_taskSlug_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Processing = {
+  __typename?: 'PayloadJobsFields_processing';
+  create?: Maybe<PayloadJobsFields_Processing_Create>;
+  delete?: Maybe<PayloadJobsFields_Processing_Delete>;
+  read?: Maybe<PayloadJobsFields_Processing_Read>;
+  update?: Maybe<PayloadJobsFields_Processing_Update>;
+};
+
+export type PayloadJobsFields_Processing_Create = {
+  __typename?: 'PayloadJobsFields_processing_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Processing_Delete = {
+  __typename?: 'PayloadJobsFields_processing_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Processing_Read = {
+  __typename?: 'PayloadJobsFields_processing_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Processing_Update = {
+  __typename?: 'PayloadJobsFields_processing_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Queue = {
+  __typename?: 'PayloadJobsFields_queue';
+  create?: Maybe<PayloadJobsFields_Queue_Create>;
+  delete?: Maybe<PayloadJobsFields_Queue_Delete>;
+  read?: Maybe<PayloadJobsFields_Queue_Read>;
+  update?: Maybe<PayloadJobsFields_Queue_Update>;
+};
+
+export type PayloadJobsFields_Queue_Create = {
+  __typename?: 'PayloadJobsFields_queue_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Queue_Delete = {
+  __typename?: 'PayloadJobsFields_queue_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Queue_Read = {
+  __typename?: 'PayloadJobsFields_queue_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_Queue_Update = {
+  __typename?: 'PayloadJobsFields_queue_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_TaskSlug = {
+  __typename?: 'PayloadJobsFields_taskSlug';
+  create?: Maybe<PayloadJobsFields_TaskSlug_Create>;
+  delete?: Maybe<PayloadJobsFields_TaskSlug_Delete>;
+  read?: Maybe<PayloadJobsFields_TaskSlug_Read>;
+  update?: Maybe<PayloadJobsFields_TaskSlug_Update>;
+};
+
+export type PayloadJobsFields_TaskSlug_Create = {
+  __typename?: 'PayloadJobsFields_taskSlug_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_TaskSlug_Delete = {
+  __typename?: 'PayloadJobsFields_taskSlug_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_TaskSlug_Read = {
+  __typename?: 'PayloadJobsFields_taskSlug_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_TaskSlug_Update = {
+  __typename?: 'PayloadJobsFields_taskSlug_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_TaskStatus = {
+  __typename?: 'PayloadJobsFields_taskStatus';
+  create?: Maybe<PayloadJobsFields_TaskStatus_Create>;
+  delete?: Maybe<PayloadJobsFields_TaskStatus_Delete>;
+  read?: Maybe<PayloadJobsFields_TaskStatus_Read>;
+  update?: Maybe<PayloadJobsFields_TaskStatus_Update>;
+};
+
+export type PayloadJobsFields_TaskStatus_Create = {
+  __typename?: 'PayloadJobsFields_taskStatus_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_TaskStatus_Delete = {
+  __typename?: 'PayloadJobsFields_taskStatus_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_TaskStatus_Read = {
+  __typename?: 'PayloadJobsFields_taskStatus_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_TaskStatus_Update = {
+  __typename?: 'PayloadJobsFields_taskStatus_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_TotalTried = {
+  __typename?: 'PayloadJobsFields_totalTried';
+  create?: Maybe<PayloadJobsFields_TotalTried_Create>;
+  delete?: Maybe<PayloadJobsFields_TotalTried_Delete>;
+  read?: Maybe<PayloadJobsFields_TotalTried_Read>;
+  update?: Maybe<PayloadJobsFields_TotalTried_Update>;
+};
+
+export type PayloadJobsFields_TotalTried_Create = {
+  __typename?: 'PayloadJobsFields_totalTried_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_TotalTried_Delete = {
+  __typename?: 'PayloadJobsFields_totalTried_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_TotalTried_Read = {
+  __typename?: 'PayloadJobsFields_totalTried_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_TotalTried_Update = {
+  __typename?: 'PayloadJobsFields_totalTried_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_UpdatedAt = {
+  __typename?: 'PayloadJobsFields_updatedAt';
+  create?: Maybe<PayloadJobsFields_UpdatedAt_Create>;
+  delete?: Maybe<PayloadJobsFields_UpdatedAt_Delete>;
+  read?: Maybe<PayloadJobsFields_UpdatedAt_Read>;
+  update?: Maybe<PayloadJobsFields_UpdatedAt_Update>;
+};
+
+export type PayloadJobsFields_UpdatedAt_Create = {
+  __typename?: 'PayloadJobsFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_UpdatedAt_Delete = {
+  __typename?: 'PayloadJobsFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_UpdatedAt_Read = {
+  __typename?: 'PayloadJobsFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_UpdatedAt_Update = {
+  __typename?: 'PayloadJobsFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_WaitUntil = {
+  __typename?: 'PayloadJobsFields_waitUntil';
+  create?: Maybe<PayloadJobsFields_WaitUntil_Create>;
+  delete?: Maybe<PayloadJobsFields_WaitUntil_Delete>;
+  read?: Maybe<PayloadJobsFields_WaitUntil_Read>;
+  update?: Maybe<PayloadJobsFields_WaitUntil_Update>;
+};
+
+export type PayloadJobsFields_WaitUntil_Create = {
+  __typename?: 'PayloadJobsFields_waitUntil_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_WaitUntil_Delete = {
+  __typename?: 'PayloadJobsFields_waitUntil_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_WaitUntil_Read = {
+  __typename?: 'PayloadJobsFields_waitUntil_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsFields_WaitUntil_Update = {
+  __typename?: 'PayloadJobsFields_waitUntil_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadJobsReadAccess = {
+  __typename?: 'PayloadJobsReadAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadJobsReadDocAccess = {
+  __typename?: 'PayloadJobsReadDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadJobsUpdateAccess = {
+  __typename?: 'PayloadJobsUpdateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadJobsUpdateDocAccess = {
+  __typename?: 'PayloadJobsUpdateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
 export type PayloadLockedDocument = {
   __typename?: 'PayloadLockedDocument';
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -8256,6 +10051,8 @@ export enum PayloadLockedDocumentUpdate_DocumentRelationshipInputRelationTo {
   Media = 'media',
   Merch = 'merch',
   NewsPosts = 'newsPosts',
+  PayloadJobs = 'payload_jobs',
+  RestartLibretime = 'restartLibretime',
   Shows = 'shows',
   Tags = 'tags',
   Users = 'users'
@@ -8270,7 +10067,7 @@ export enum PayloadLockedDocumentUpdate_UserRelationshipInputRelationTo {
   Users = 'users'
 }
 
-export type PayloadLockedDocument_Document = Category | Host | LabelRelease | LiveVideo | Media | Merch | NewsPost | Show | Tag | User;
+export type PayloadLockedDocument_Document = Category | Host | LabelRelease | LiveVideo | Media | Merch | NewsPost | PayloadJob | RestartLibretime | Show | Tag | User;
 
 export type PayloadLockedDocument_DocumentRelationshipInput = {
   relationTo?: InputMaybe<PayloadLockedDocument_DocumentRelationshipInputRelationTo>;
@@ -8285,6 +10082,8 @@ export enum PayloadLockedDocument_DocumentRelationshipInputRelationTo {
   Media = 'media',
   Merch = 'merch',
   NewsPosts = 'newsPosts',
+  PayloadJobs = 'payload_jobs',
+  RestartLibretime = 'restartLibretime',
   Shows = 'shows',
   Tags = 'tags',
   Users = 'users'
@@ -8298,6 +10097,8 @@ export enum PayloadLockedDocument_Document_RelationTo {
   Media = 'media',
   Merch = 'merch',
   NewsPosts = 'newsPosts',
+  PayloadJobs = 'payload_jobs',
+  RestartLibretime = 'restartLibretime',
   Shows = 'shows',
   Tags = 'tags',
   Users = 'users'
@@ -8354,6 +10155,8 @@ export enum PayloadLockedDocument_Document_Relation_RelationTo {
   Media = 'media',
   Merch = 'merch',
   NewsPosts = 'newsPosts',
+  PayloadJobs = 'payload_jobs',
+  RestartLibretime = 'restartLibretime',
   Shows = 'shows',
   Tags = 'tags',
   Users = 'users'
@@ -9317,10 +11120,14 @@ export type Query = {
   NewsPost?: Maybe<NewsPost>;
   NewsPostBySlug?: Maybe<NewsPost>;
   NewsPosts?: Maybe<NewsPosts>;
+  PayloadJob?: Maybe<PayloadJob>;
+  PayloadJobs?: Maybe<PayloadJobs>;
   PayloadLockedDocument?: Maybe<PayloadLockedDocument>;
   PayloadLockedDocuments?: Maybe<PayloadLockedDocuments>;
   PayloadPreference?: Maybe<PayloadPreference>;
   PayloadPreferences?: Maybe<PayloadPreferences>;
+  RestartLibretime?: Maybe<RestartLibretime>;
+  RestartLibretimes?: Maybe<RestartLibretimes>;
   Show?: Maybe<Show>;
   ShowBySlug?: Maybe<Show>;
   Shows?: Maybe<Shows>;
@@ -9337,8 +11144,10 @@ export type Query = {
   countLiveVideos?: Maybe<CountLiveVideos>;
   countMerches?: Maybe<CountMerches>;
   countNewsPosts?: Maybe<CountNewsPosts>;
+  countPayloadJobs?: Maybe<CountPayloadJobs>;
   countPayloadLockedDocuments?: Maybe<CountPayloadLockedDocuments>;
   countPayloadPreferences?: Maybe<CountPayloadPreferences>;
+  countRestartLibretimes?: Maybe<CountRestartLibretimes>;
   countShows?: Maybe<CountShows>;
   countTags?: Maybe<CountTags>;
   countUsers?: Maybe<CountUsers>;
@@ -9352,8 +11161,10 @@ export type Query = {
   docAccessMedia?: Maybe<MediaDocAccess>;
   docAccessMerch?: Maybe<MerchDocAccess>;
   docAccessNewsPost?: Maybe<NewsPostsDocAccess>;
+  docAccessPayloadJob?: Maybe<Payload_JobsDocAccess>;
   docAccessPayloadLockedDocument?: Maybe<Payload_Locked_DocumentsDocAccess>;
   docAccessPayloadPreference?: Maybe<Payload_PreferencesDocAccess>;
+  docAccessRestartLibretime?: Maybe<RestartLibretimeDocAccess>;
   docAccessShow?: Maybe<ShowsDocAccess>;
   docAccessTag?: Maybe<TagsDocAccess>;
   docAccessUser?: Maybe<UsersDocAccess>;
@@ -9512,6 +11323,26 @@ export type QueryNewsPostsArgs = {
 };
 
 
+export type QueryPayloadJobArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
+export type QueryPayloadJobsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
+  page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
+  sort?: InputMaybe<Scalars['String']>;
+  where?: InputMaybe<PayloadJob_Where>;
+};
+
+
 export type QueryPayloadLockedDocumentArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
@@ -9549,6 +11380,26 @@ export type QueryPayloadPreferencesArgs = {
   pagination?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<PayloadPreference_Where>;
+};
+
+
+export type QueryRestartLibretimeArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
+export type QueryRestartLibretimesArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
+  page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
+  sort?: InputMaybe<Scalars['String']>;
+  where?: InputMaybe<RestartLibretime_Where>;
 };
 
 
@@ -9676,6 +11527,13 @@ export type QueryCountNewsPostsArgs = {
 };
 
 
+export type QueryCountPayloadJobsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<LocaleInputType>;
+  where?: InputMaybe<PayloadJob_Where>;
+};
+
+
 export type QueryCountPayloadLockedDocumentsArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
@@ -9687,6 +11545,13 @@ export type QueryCountPayloadPreferencesArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
   where?: InputMaybe<PayloadPreference_Where>;
+};
+
+
+export type QueryCountRestartLibretimesArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<LocaleInputType>;
+  where?: InputMaybe<RestartLibretime_Where>;
 };
 
 
@@ -9753,12 +11618,22 @@ export type QueryDocAccessNewsPostArgs = {
 };
 
 
+export type QueryDocAccessPayloadJobArgs = {
+  id: Scalars['String'];
+};
+
+
 export type QueryDocAccessPayloadLockedDocumentArgs = {
   id: Scalars['String'];
 };
 
 
 export type QueryDocAccessPayloadPreferenceArgs = {
+  id: Scalars['String'];
+};
+
+
+export type QueryDocAccessRestartLibretimeArgs = {
   id: Scalars['String'];
 };
 
@@ -9793,6 +11668,395 @@ export type QueryVersionsNewsPostsArgs = {
   pagination?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
   where?: InputMaybe<VersionsNewsPost_Where>;
+};
+
+export type RestartLibretime = {
+  __typename?: 'RestartLibretime';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id: Scalars['String'];
+  results?: Maybe<Scalars['String']>;
+  taskFinished?: Maybe<Scalars['Boolean']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type RestartLibretimeCreateAccess = {
+  __typename?: 'RestartLibretimeCreateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type RestartLibretimeCreateDocAccess = {
+  __typename?: 'RestartLibretimeCreateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type RestartLibretimeDeleteAccess = {
+  __typename?: 'RestartLibretimeDeleteAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type RestartLibretimeDeleteDocAccess = {
+  __typename?: 'RestartLibretimeDeleteDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type RestartLibretimeDocAccessFields = {
+  __typename?: 'RestartLibretimeDocAccessFields';
+  createdAt?: Maybe<RestartLibretimeDocAccessFields_CreatedAt>;
+  results?: Maybe<RestartLibretimeDocAccessFields_Results>;
+  taskFinished?: Maybe<RestartLibretimeDocAccessFields_TaskFinished>;
+  updatedAt?: Maybe<RestartLibretimeDocAccessFields_UpdatedAt>;
+};
+
+export type RestartLibretimeDocAccessFields_CreatedAt = {
+  __typename?: 'RestartLibretimeDocAccessFields_createdAt';
+  create?: Maybe<RestartLibretimeDocAccessFields_CreatedAt_Create>;
+  delete?: Maybe<RestartLibretimeDocAccessFields_CreatedAt_Delete>;
+  read?: Maybe<RestartLibretimeDocAccessFields_CreatedAt_Read>;
+  update?: Maybe<RestartLibretimeDocAccessFields_CreatedAt_Update>;
+};
+
+export type RestartLibretimeDocAccessFields_CreatedAt_Create = {
+  __typename?: 'RestartLibretimeDocAccessFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_CreatedAt_Delete = {
+  __typename?: 'RestartLibretimeDocAccessFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_CreatedAt_Read = {
+  __typename?: 'RestartLibretimeDocAccessFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_CreatedAt_Update = {
+  __typename?: 'RestartLibretimeDocAccessFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_Results = {
+  __typename?: 'RestartLibretimeDocAccessFields_results';
+  create?: Maybe<RestartLibretimeDocAccessFields_Results_Create>;
+  delete?: Maybe<RestartLibretimeDocAccessFields_Results_Delete>;
+  read?: Maybe<RestartLibretimeDocAccessFields_Results_Read>;
+  update?: Maybe<RestartLibretimeDocAccessFields_Results_Update>;
+};
+
+export type RestartLibretimeDocAccessFields_Results_Create = {
+  __typename?: 'RestartLibretimeDocAccessFields_results_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_Results_Delete = {
+  __typename?: 'RestartLibretimeDocAccessFields_results_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_Results_Read = {
+  __typename?: 'RestartLibretimeDocAccessFields_results_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_Results_Update = {
+  __typename?: 'RestartLibretimeDocAccessFields_results_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_TaskFinished = {
+  __typename?: 'RestartLibretimeDocAccessFields_taskFinished';
+  create?: Maybe<RestartLibretimeDocAccessFields_TaskFinished_Create>;
+  delete?: Maybe<RestartLibretimeDocAccessFields_TaskFinished_Delete>;
+  read?: Maybe<RestartLibretimeDocAccessFields_TaskFinished_Read>;
+  update?: Maybe<RestartLibretimeDocAccessFields_TaskFinished_Update>;
+};
+
+export type RestartLibretimeDocAccessFields_TaskFinished_Create = {
+  __typename?: 'RestartLibretimeDocAccessFields_taskFinished_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_TaskFinished_Delete = {
+  __typename?: 'RestartLibretimeDocAccessFields_taskFinished_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_TaskFinished_Read = {
+  __typename?: 'RestartLibretimeDocAccessFields_taskFinished_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_TaskFinished_Update = {
+  __typename?: 'RestartLibretimeDocAccessFields_taskFinished_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_UpdatedAt = {
+  __typename?: 'RestartLibretimeDocAccessFields_updatedAt';
+  create?: Maybe<RestartLibretimeDocAccessFields_UpdatedAt_Create>;
+  delete?: Maybe<RestartLibretimeDocAccessFields_UpdatedAt_Delete>;
+  read?: Maybe<RestartLibretimeDocAccessFields_UpdatedAt_Read>;
+  update?: Maybe<RestartLibretimeDocAccessFields_UpdatedAt_Update>;
+};
+
+export type RestartLibretimeDocAccessFields_UpdatedAt_Create = {
+  __typename?: 'RestartLibretimeDocAccessFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_UpdatedAt_Delete = {
+  __typename?: 'RestartLibretimeDocAccessFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_UpdatedAt_Read = {
+  __typename?: 'RestartLibretimeDocAccessFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeDocAccessFields_UpdatedAt_Update = {
+  __typename?: 'RestartLibretimeDocAccessFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields = {
+  __typename?: 'RestartLibretimeFields';
+  createdAt?: Maybe<RestartLibretimeFields_CreatedAt>;
+  results?: Maybe<RestartLibretimeFields_Results>;
+  taskFinished?: Maybe<RestartLibretimeFields_TaskFinished>;
+  updatedAt?: Maybe<RestartLibretimeFields_UpdatedAt>;
+};
+
+export type RestartLibretimeFields_CreatedAt = {
+  __typename?: 'RestartLibretimeFields_createdAt';
+  create?: Maybe<RestartLibretimeFields_CreatedAt_Create>;
+  delete?: Maybe<RestartLibretimeFields_CreatedAt_Delete>;
+  read?: Maybe<RestartLibretimeFields_CreatedAt_Read>;
+  update?: Maybe<RestartLibretimeFields_CreatedAt_Update>;
+};
+
+export type RestartLibretimeFields_CreatedAt_Create = {
+  __typename?: 'RestartLibretimeFields_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_CreatedAt_Delete = {
+  __typename?: 'RestartLibretimeFields_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_CreatedAt_Read = {
+  __typename?: 'RestartLibretimeFields_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_CreatedAt_Update = {
+  __typename?: 'RestartLibretimeFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_Results = {
+  __typename?: 'RestartLibretimeFields_results';
+  create?: Maybe<RestartLibretimeFields_Results_Create>;
+  delete?: Maybe<RestartLibretimeFields_Results_Delete>;
+  read?: Maybe<RestartLibretimeFields_Results_Read>;
+  update?: Maybe<RestartLibretimeFields_Results_Update>;
+};
+
+export type RestartLibretimeFields_Results_Create = {
+  __typename?: 'RestartLibretimeFields_results_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_Results_Delete = {
+  __typename?: 'RestartLibretimeFields_results_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_Results_Read = {
+  __typename?: 'RestartLibretimeFields_results_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_Results_Update = {
+  __typename?: 'RestartLibretimeFields_results_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_TaskFinished = {
+  __typename?: 'RestartLibretimeFields_taskFinished';
+  create?: Maybe<RestartLibretimeFields_TaskFinished_Create>;
+  delete?: Maybe<RestartLibretimeFields_TaskFinished_Delete>;
+  read?: Maybe<RestartLibretimeFields_TaskFinished_Read>;
+  update?: Maybe<RestartLibretimeFields_TaskFinished_Update>;
+};
+
+export type RestartLibretimeFields_TaskFinished_Create = {
+  __typename?: 'RestartLibretimeFields_taskFinished_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_TaskFinished_Delete = {
+  __typename?: 'RestartLibretimeFields_taskFinished_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_TaskFinished_Read = {
+  __typename?: 'RestartLibretimeFields_taskFinished_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_TaskFinished_Update = {
+  __typename?: 'RestartLibretimeFields_taskFinished_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_UpdatedAt = {
+  __typename?: 'RestartLibretimeFields_updatedAt';
+  create?: Maybe<RestartLibretimeFields_UpdatedAt_Create>;
+  delete?: Maybe<RestartLibretimeFields_UpdatedAt_Delete>;
+  read?: Maybe<RestartLibretimeFields_UpdatedAt_Read>;
+  update?: Maybe<RestartLibretimeFields_UpdatedAt_Update>;
+};
+
+export type RestartLibretimeFields_UpdatedAt_Create = {
+  __typename?: 'RestartLibretimeFields_updatedAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_UpdatedAt_Delete = {
+  __typename?: 'RestartLibretimeFields_updatedAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_UpdatedAt_Read = {
+  __typename?: 'RestartLibretimeFields_updatedAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeFields_UpdatedAt_Update = {
+  __typename?: 'RestartLibretimeFields_updatedAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type RestartLibretimeReadAccess = {
+  __typename?: 'RestartLibretimeReadAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type RestartLibretimeReadDocAccess = {
+  __typename?: 'RestartLibretimeReadDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type RestartLibretimeUpdateAccess = {
+  __typename?: 'RestartLibretimeUpdateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type RestartLibretimeUpdateDocAccess = {
+  __typename?: 'RestartLibretimeUpdateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type RestartLibretime_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type RestartLibretime_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type RestartLibretime_Results_Operator = {
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+};
+
+export type RestartLibretime_TaskFinished_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  not_equals?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type RestartLibretime_UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type RestartLibretime_Where = {
+  AND?: InputMaybe<Array<InputMaybe<RestartLibretime_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<RestartLibretime_Where_Or>>>;
+  createdAt?: InputMaybe<RestartLibretime_CreatedAt_Operator>;
+  id?: InputMaybe<RestartLibretime_Id_Operator>;
+  results?: InputMaybe<RestartLibretime_Results_Operator>;
+  taskFinished?: InputMaybe<RestartLibretime_TaskFinished_Operator>;
+  updatedAt?: InputMaybe<RestartLibretime_UpdatedAt_Operator>;
+};
+
+export type RestartLibretime_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<RestartLibretime_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<RestartLibretime_Where_Or>>>;
+  createdAt?: InputMaybe<RestartLibretime_CreatedAt_Operator>;
+  id?: InputMaybe<RestartLibretime_Id_Operator>;
+  results?: InputMaybe<RestartLibretime_Results_Operator>;
+  taskFinished?: InputMaybe<RestartLibretime_TaskFinished_Operator>;
+  updatedAt?: InputMaybe<RestartLibretime_UpdatedAt_Operator>;
+};
+
+export type RestartLibretime_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<RestartLibretime_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<RestartLibretime_Where_Or>>>;
+  createdAt?: InputMaybe<RestartLibretime_CreatedAt_Operator>;
+  id?: InputMaybe<RestartLibretime_Id_Operator>;
+  results?: InputMaybe<RestartLibretime_Results_Operator>;
+  taskFinished?: InputMaybe<RestartLibretime_TaskFinished_Operator>;
+  updatedAt?: InputMaybe<RestartLibretime_UpdatedAt_Operator>;
+};
+
+export type RestartLibretimes = {
+  __typename?: 'RestartLibretimes';
+  docs: Array<RestartLibretime>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
+  nextPage?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
+  prevPage?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
 };
 
 export type Show = {
@@ -11708,6 +13972,11 @@ export type CountNewsPosts = {
   totalDocs?: Maybe<Scalars['Int']>;
 };
 
+export type CountPayloadJobs = {
+  __typename?: 'countPayloadJobs';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
 export type CountPayloadLockedDocuments = {
   __typename?: 'countPayloadLockedDocuments';
   totalDocs?: Maybe<Scalars['Int']>;
@@ -11715,6 +13984,11 @@ export type CountPayloadLockedDocuments = {
 
 export type CountPayloadPreferences = {
   __typename?: 'countPayloadPreferences';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountRestartLibretimes = {
+  __typename?: 'countRestartLibretimes';
   totalDocs?: Maybe<Scalars['Int']>;
 };
 
@@ -12110,6 +14384,62 @@ export type MutationNewsPostUpdateInput = {
   updatedAt?: InputMaybe<Scalars['String']>;
 };
 
+export type MutationPayloadJobInput = {
+  completedAt?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['String']>;
+  error?: InputMaybe<Scalars['JSON']>;
+  hasError?: InputMaybe<Scalars['Boolean']>;
+  input?: InputMaybe<Scalars['JSON']>;
+  log?: InputMaybe<Array<InputMaybe<MutationPayloadJob_LogInput>>>;
+  processing?: InputMaybe<Scalars['Boolean']>;
+  queue?: InputMaybe<Scalars['String']>;
+  taskSlug?: InputMaybe<PayloadJob_TaskSlug_MutationInput>;
+  taskStatus?: InputMaybe<Scalars['JSON']>;
+  totalTried?: InputMaybe<Scalars['Float']>;
+  updatedAt?: InputMaybe<Scalars['String']>;
+  waitUntil?: InputMaybe<Scalars['String']>;
+};
+
+export type MutationPayloadJobUpdateInput = {
+  completedAt?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['String']>;
+  error?: InputMaybe<Scalars['JSON']>;
+  hasError?: InputMaybe<Scalars['Boolean']>;
+  input?: InputMaybe<Scalars['JSON']>;
+  log?: InputMaybe<Array<InputMaybe<MutationPayloadJobUpdate_LogInput>>>;
+  processing?: InputMaybe<Scalars['Boolean']>;
+  queue?: InputMaybe<Scalars['String']>;
+  taskSlug?: InputMaybe<PayloadJobUpdate_TaskSlug_MutationInput>;
+  taskStatus?: InputMaybe<Scalars['JSON']>;
+  totalTried?: InputMaybe<Scalars['Float']>;
+  updatedAt?: InputMaybe<Scalars['String']>;
+  waitUntil?: InputMaybe<Scalars['String']>;
+};
+
+export type MutationPayloadJobUpdate_LogInput = {
+  completedAt: Scalars['String'];
+  error?: InputMaybe<Scalars['JSON']>;
+  executedAt: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  input?: InputMaybe<Scalars['JSON']>;
+  output?: InputMaybe<Scalars['JSON']>;
+  state: Scalars['String'];
+  taskID: Scalars['String'];
+  taskSlug: PayloadJobUpdate_Log_TaskSlug_MutationInput;
+};
+
+export type MutationPayloadJob_LogInput = {
+  completedAt: Scalars['String'];
+  error?: InputMaybe<Scalars['JSON']>;
+  executedAt: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  input?: InputMaybe<Scalars['JSON']>;
+  output?: InputMaybe<Scalars['JSON']>;
+  state: Scalars['String'];
+  taskID: Scalars['String'];
+  taskSlug: PayloadJob_Log_TaskSlug_MutationInput;
+};
+
 export type MutationPayloadLockedDocumentInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   document?: InputMaybe<PayloadLockedDocument_DocumentRelationshipInput>;
@@ -12140,6 +14470,20 @@ export type MutationPayloadPreferenceUpdateInput = {
   updatedAt?: InputMaybe<Scalars['String']>;
   user?: InputMaybe<PayloadPreferenceUpdate_UserRelationshipInput>;
   value?: InputMaybe<Scalars['JSON']>;
+};
+
+export type MutationRestartLibretimeInput = {
+  createdAt?: InputMaybe<Scalars['String']>;
+  results?: InputMaybe<Scalars['String']>;
+  taskFinished?: InputMaybe<Scalars['Boolean']>;
+  updatedAt?: InputMaybe<Scalars['String']>;
+};
+
+export type MutationRestartLibretimeUpdateInput = {
+  createdAt?: InputMaybe<Scalars['String']>;
+  results?: InputMaybe<Scalars['String']>;
+  taskFinished?: InputMaybe<Scalars['Boolean']>;
+  updatedAt?: InputMaybe<Scalars['String']>;
 };
 
 export type MutationShowInput = {
@@ -12236,6 +14580,24 @@ export type NewsPostsDocAccess = {
   update?: Maybe<NewsPostsUpdateDocAccess>;
 };
 
+export type Payload_JobsAccess = {
+  __typename?: 'payload_jobsAccess';
+  create?: Maybe<PayloadJobsCreateAccess>;
+  delete?: Maybe<PayloadJobsDeleteAccess>;
+  fields?: Maybe<PayloadJobsFields>;
+  read?: Maybe<PayloadJobsReadAccess>;
+  update?: Maybe<PayloadJobsUpdateAccess>;
+};
+
+export type Payload_JobsDocAccess = {
+  __typename?: 'payload_jobsDocAccess';
+  create?: Maybe<PayloadJobsCreateDocAccess>;
+  delete?: Maybe<PayloadJobsDeleteDocAccess>;
+  fields?: Maybe<PayloadJobsDocAccessFields>;
+  read?: Maybe<PayloadJobsReadDocAccess>;
+  update?: Maybe<PayloadJobsUpdateDocAccess>;
+};
+
 export type Payload_Locked_DocumentsAccess = {
   __typename?: 'payload_locked_documentsAccess';
   create?: Maybe<PayloadLockedDocumentsCreateAccess>;
@@ -12270,6 +14632,24 @@ export type Payload_PreferencesDocAccess = {
   fields?: Maybe<PayloadPreferencesDocAccessFields>;
   read?: Maybe<PayloadPreferencesReadDocAccess>;
   update?: Maybe<PayloadPreferencesUpdateDocAccess>;
+};
+
+export type RestartLibretimeAccess = {
+  __typename?: 'restartLibretimeAccess';
+  create?: Maybe<RestartLibretimeCreateAccess>;
+  delete?: Maybe<RestartLibretimeDeleteAccess>;
+  fields?: Maybe<RestartLibretimeFields>;
+  read?: Maybe<RestartLibretimeReadAccess>;
+  update?: Maybe<RestartLibretimeUpdateAccess>;
+};
+
+export type RestartLibretimeDocAccess = {
+  __typename?: 'restartLibretimeDocAccess';
+  create?: Maybe<RestartLibretimeCreateDocAccess>;
+  delete?: Maybe<RestartLibretimeDeleteDocAccess>;
+  fields?: Maybe<RestartLibretimeDocAccessFields>;
+  read?: Maybe<RestartLibretimeReadDocAccess>;
+  update?: Maybe<RestartLibretimeUpdateDocAccess>;
 };
 
 export type ShowsAccess = {
