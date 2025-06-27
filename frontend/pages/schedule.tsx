@@ -62,7 +62,7 @@ const DaysSelector = ({
         return (
           <button
             key={day}
-            className={`capitalize px-3 py-1  border ${
+            className={`capitalize px-3 py-1 hover:cursor-pointer border ${
               day === currentDay ? "bg-white text-black" : "hover:opacity-60"
             }`}
             onClick={onClick}

@@ -73,7 +73,7 @@ export default function NewsPost({
   return (
     <div className="mx-2 xl:mx-auto md:mb-5 md:w-5/6 lg:w-3/5 xl:w-5/12">
       <NewsHeader currentPath={router.asPath} post={post}></NewsHeader>
-      <div className="w-full text-[18px] text-[#bfbfbf] border border-1 p-3 rounded-xl">
+      <div className="w-full text-[18px] text-[#bfbfbf] border border p-3 rounded-xl">
         <NewsHeaderBackground
           title={post.title || "Latest News"}
         ></NewsHeaderBackground>
@@ -90,7 +90,7 @@ export default function NewsPost({
               }}
             ></LanguageSelector>
           )}
-          <div className="text-black my-auto rounded bg-white px-2 py-1 text-sm font-space-mono">
+          <div className="text-black my-auto rounded-sm bg-white px-2 py-1 text-sm font-space-mono">
             {post?.publishDate && formatCompactShowDate(post?.publishDate)}
           </div>
         </div>

@@ -105,10 +105,10 @@ export default function Shows({
           <input
             id="filterShows"
             name="Search"
-            className="text-white  text-sm bg-black w-full focus:outline-none border-b"
+            className="text-white  text-sm bg-black w-full focus:outline-hidden border-b"
             placeholder="Search..."
           ></input>
-          <div className="tracking-wide rounded text-sm text-white p-2">
+          <div className="tracking-wide rounded-sm text-sm text-white p-2">
             <SearchIcon></SearchIcon>
           </div>
         </form>

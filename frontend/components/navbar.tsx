@@ -95,7 +95,7 @@ export function NavBar() {
       <div
         className={`w-full ${
           isCollapsed ? "hidden h-full" : ""
-        } md:flex md:flex-grow md:w-auto justify-between`}
+        } md:flex md:grow md:w-auto justify-between`}
       >
         <ul className="text-lg h-full md:flex md:pt-0 items-center ml-2 mt-2 md:ml-0 md:mt-0">
           {navbarItems.map((item) => (

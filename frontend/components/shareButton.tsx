@@ -125,7 +125,7 @@ const ShareButton = (props: { text: string; black?: boolean }) => {
 
   return (
     <button
-      className="group hover:cursor-default drop-shadow"
+      className="group hover:cursor-default drop-shadow-sm"
       onClick={webShare}
     >
       <div
