@@ -116,7 +116,7 @@ export default function NewsPost({
           <iframe
             allowFullScreen={true}
             scrolling="no"
-            className="fp-iframe py-2 px-6"
+            className="fp-iframe pt-4 px-5"
             src={post.heyZineUrl}
             style={{ border: "0px", width: "100%", height: "800px" }}
           ></iframe>
