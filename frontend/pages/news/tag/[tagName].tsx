@@ -138,6 +138,7 @@ export default function NewsTagPage({
                   date={doc.publishDate}
                   description={doc.blurb}
                   priority={index === 0}
+                  previewBannerUrl={doc.previewBanner?.url}
                 ></NewsCard>
               );
             }
