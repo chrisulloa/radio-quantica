@@ -49,7 +49,7 @@ export default buildConfig({
       { label: 'Portuguese', code: 'pt' },
     ],
     defaultLocale: 'en',
-    fallback: true,
+    fallback: false,
   },
   onInit: async (payload) => {
     if (process.env.SEED) {
