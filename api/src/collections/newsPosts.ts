@@ -16,9 +16,6 @@ const beforeChangeHook: CollectionBeforeChangeHook<NewsPost> = ({
   data,
   originalDoc,
 }) => {
-  if (data.slug && originalDoc) {
-    return data;
-  }
   if (!originalDoc || !data.title) {
     throw new ValidationError({
       collection: 'newsPosts',
@@ -45,6 +42,10 @@ const beforeChangeHook: CollectionBeforeChangeHook<NewsPost> = ({
         },
       ],
     });
+  }
+
+  if (data.slug && originalDoc) {
+    return data;
   }
 
   data.slug = slugify(data.title);
