@@ -278,6 +278,10 @@ export interface NewsPost {
   content: {
     [k: string]: unknown;
   }[];
+  /**
+   * Add a heyzine URL to embed in the post https://heyzine.com/flip-book/38e360b571.html
+   */
+  heyZineUrl?: string | null;
   author?: (string | null) | User;
   authorName?: string | null;
   authorId?: string | null;
@@ -621,6 +625,7 @@ export interface CategoriesSelect<T extends boolean = true> {
 export interface NewsPostsSelect<T extends boolean = true> {
   title?: T;
   content?: T;
+  heyZineUrl?: T;
   author?: T;
   authorName?: T;
   authorId?: T;

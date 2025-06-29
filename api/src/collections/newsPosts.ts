@@ -18,7 +18,7 @@ const beforeChangeHook: CollectionBeforeChangeHook<NewsPost> = ({
   if (data.slug && originalDoc) {
     return data;
   }
-  if (!originalDoc && !data.title) {
+  if (!originalDoc || !data.title) {
     console.error(`Missing title to parse slug`);
     throw Error('Missing title');
   }
@@ -62,7 +62,7 @@ const afterCreateHook: CollectionAfterOperationHook = ({
     revalidateResource('/news/page/4');
     revalidateResource('/news/page/5');
   }
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+
   return result; // return modified result as necessary
 };
 
@@ -130,6 +130,15 @@ const NewsPosts: CollectionConfig = {
       type: 'richText',
       required: true,
       localized: true,
+    },
+    {
+      name: 'heyZineUrl',
+      type: 'text',
+      required: false,
+      admin: {
+        description:
+          'Add a heyzine URL to embed in the post https://heyzine.com/flip-book/38e360b571.html',
+      },
     },
     {
       name: 'author',
