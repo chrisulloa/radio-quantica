@@ -7,6 +7,7 @@ import RichTextNode from "../lib/textNode";
 import { useState } from "react";
 import LanguageSelector from "../components/languageSelector";
 import styles from "../components/content.module.css";
+import { defaultOgImage } from "../lib/utils";
 
 interface DonatePageProps {
   content: {
@@ -38,10 +39,7 @@ export default function About(props: DonatePageProps) {
         <meta name="twitter:site" content="@quanticaonline" />
         <meta name="twitter:title" content="Rádio Quântica | Donate" />
         <meta name="twitter:description" content="Donate to Rádio Quântica" />
-        <meta
-          name="twitter:image"
-          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-        />
+        <meta name="twitter:image" content={defaultOgImage} />
 
         <meta property="og:site_name" content="Rádio Quântica"></meta>
         <meta property="og:title" content="Rádio Quântica | Donate"></meta>
@@ -54,14 +52,8 @@ export default function About(props: DonatePageProps) {
           property="og:description"
           content="How to support and donate to Rádio Quântica"
         />
-        <meta
-          property="og:image"
-          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-        ></meta>
-        <meta
-          property="og:image:secure_url"
-          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-        ></meta>
+        <meta property="og:image" content={defaultOgImage}></meta>
+        <meta property="og:image:secure_url" content={defaultOgImage}></meta>
         <meta property="og:image:width" content="1200"></meta>
         <meta property="og:image:height" content="630"></meta>
         <meta

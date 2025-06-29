@@ -6,6 +6,7 @@ import Card from "../../../components/card";
 import GoBackLink from "../../../components/goBack";
 import { ShowContent } from "../../../components/showContent";
 import { getAllShowIDs, getShowData, ShowData } from "../../../lib/shows";
+import { defaultOgImage } from "../../../lib/utils";
 
 export async function getStaticPaths() {
   const allShowIDs = await getAllShowIDs();
@@ -54,10 +55,7 @@ export default function Show({
         <meta name="twitter:site" content="@quanticaonline" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={title} />
-        <meta
-          name="twitter:image"
-          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-        />
+        <meta name="twitter:image" content={defaultOgImage} />
 
         <meta property="og:site_name" content="Rádio Quântica"></meta>
         <meta property="og:title" content={title}></meta>
@@ -67,14 +65,8 @@ export default function Show({
           content={`https://radioquantica.com/${router.asPath}`}
         ></meta>
         <meta property="og:description" content={title} />
-        <meta
-          property="og:image"
-          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-        ></meta>
-        <meta
-          property="og:image:secure_url"
-          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-        ></meta>
+        <meta property="og:image" content={defaultOgImage}></meta>
+        <meta property="og:image:secure_url" content={defaultOgImage}></meta>
         <meta property="og:image:width" content="1200"></meta>
         <meta property="og:image:height" content="630"></meta>
         <meta

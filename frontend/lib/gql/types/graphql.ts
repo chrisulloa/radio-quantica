@@ -7129,6 +7129,7 @@ export type NewsPost = {
   blurb?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['JSON']>;
   createdAt?: Maybe<Scalars['DateTime']>;
+  heyZineUrl?: Maybe<Scalars['String']>;
   id: Scalars['String'];
   previewBanner?: Maybe<Media>;
   publishDate?: Maybe<Scalars['DateTime']>;
@@ -7194,6 +7195,7 @@ export type NewsPostVersion_Version = {
   blurb?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['JSON']>;
   createdAt?: Maybe<Scalars['DateTime']>;
+  heyZineUrl?: Maybe<Scalars['String']>;
   previewBanner?: Maybe<Media>;
   publishDate?: Maybe<Scalars['DateTime']>;
   slug?: Maybe<Scalars['String']>;
@@ -7303,6 +7305,7 @@ export type NewsPost_Blurb_Operator = {
 export type NewsPost_Content_Operator = {
   contains?: InputMaybe<Scalars['JSON']>;
   equals?: InputMaybe<Scalars['JSON']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
   like?: InputMaybe<Scalars['JSON']>;
   not_equals?: InputMaybe<Scalars['JSON']>;
 };
@@ -7316,6 +7319,17 @@ export type NewsPost_CreatedAt_Operator = {
   less_than_equal?: InputMaybe<Scalars['DateTime']>;
   like?: InputMaybe<Scalars['DateTime']>;
   not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type NewsPost_HeyZineUrl_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type NewsPost_Id_Operator = {
@@ -7400,6 +7414,7 @@ export type NewsPost_Where = {
   blurb?: InputMaybe<NewsPost_Blurb_Operator>;
   content?: InputMaybe<NewsPost_Content_Operator>;
   createdAt?: InputMaybe<NewsPost_CreatedAt_Operator>;
+  heyZineUrl?: InputMaybe<NewsPost_HeyZineUrl_Operator>;
   id?: InputMaybe<NewsPost_Id_Operator>;
   previewBanner?: InputMaybe<NewsPost_PreviewBanner_Operator>;
   publishDate?: InputMaybe<NewsPost_PublishDate_Operator>;
@@ -7419,6 +7434,7 @@ export type NewsPost_Where_And = {
   blurb?: InputMaybe<NewsPost_Blurb_Operator>;
   content?: InputMaybe<NewsPost_Content_Operator>;
   createdAt?: InputMaybe<NewsPost_CreatedAt_Operator>;
+  heyZineUrl?: InputMaybe<NewsPost_HeyZineUrl_Operator>;
   id?: InputMaybe<NewsPost_Id_Operator>;
   previewBanner?: InputMaybe<NewsPost_PreviewBanner_Operator>;
   publishDate?: InputMaybe<NewsPost_PublishDate_Operator>;
@@ -7438,6 +7454,7 @@ export type NewsPost_Where_Or = {
   blurb?: InputMaybe<NewsPost_Blurb_Operator>;
   content?: InputMaybe<NewsPost_Content_Operator>;
   createdAt?: InputMaybe<NewsPost_CreatedAt_Operator>;
+  heyZineUrl?: InputMaybe<NewsPost_HeyZineUrl_Operator>;
   id?: InputMaybe<NewsPost_Id_Operator>;
   previewBanner?: InputMaybe<NewsPost_PreviewBanner_Operator>;
   publishDate?: InputMaybe<NewsPost_PublishDate_Operator>;
@@ -7495,6 +7512,7 @@ export type NewsPostsDocAccessFields = {
   blurb?: Maybe<NewsPostsDocAccessFields_Blurb>;
   content?: Maybe<NewsPostsDocAccessFields_Content>;
   createdAt?: Maybe<NewsPostsDocAccessFields_CreatedAt>;
+  heyZineUrl?: Maybe<NewsPostsDocAccessFields_HeyZineUrl>;
   previewBanner?: Maybe<NewsPostsDocAccessFields_PreviewBanner>;
   publishDate?: Maybe<NewsPostsDocAccessFields_PublishDate>;
   slug?: Maybe<NewsPostsDocAccessFields_Slug>;
@@ -7699,6 +7717,34 @@ export type NewsPostsDocAccessFields_CreatedAt_Update = {
   permission: Scalars['Boolean'];
 };
 
+export type NewsPostsDocAccessFields_HeyZineUrl = {
+  __typename?: 'NewsPostsDocAccessFields_heyZineUrl';
+  create?: Maybe<NewsPostsDocAccessFields_HeyZineUrl_Create>;
+  delete?: Maybe<NewsPostsDocAccessFields_HeyZineUrl_Delete>;
+  read?: Maybe<NewsPostsDocAccessFields_HeyZineUrl_Read>;
+  update?: Maybe<NewsPostsDocAccessFields_HeyZineUrl_Update>;
+};
+
+export type NewsPostsDocAccessFields_HeyZineUrl_Create = {
+  __typename?: 'NewsPostsDocAccessFields_heyZineUrl_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsPostsDocAccessFields_HeyZineUrl_Delete = {
+  __typename?: 'NewsPostsDocAccessFields_heyZineUrl_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsPostsDocAccessFields_HeyZineUrl_Read = {
+  __typename?: 'NewsPostsDocAccessFields_heyZineUrl_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsPostsDocAccessFields_HeyZineUrl_Update = {
+  __typename?: 'NewsPostsDocAccessFields_heyZineUrl_Update';
+  permission: Scalars['Boolean'];
+};
+
 export type NewsPostsDocAccessFields_PreviewBanner = {
   __typename?: 'NewsPostsDocAccessFields_previewBanner';
   create?: Maybe<NewsPostsDocAccessFields_PreviewBanner_Create>;
@@ -7876,6 +7922,7 @@ export type NewsPostsFields = {
   blurb?: Maybe<NewsPostsFields_Blurb>;
   content?: Maybe<NewsPostsFields_Content>;
   createdAt?: Maybe<NewsPostsFields_CreatedAt>;
+  heyZineUrl?: Maybe<NewsPostsFields_HeyZineUrl>;
   previewBanner?: Maybe<NewsPostsFields_PreviewBanner>;
   publishDate?: Maybe<NewsPostsFields_PublishDate>;
   slug?: Maybe<NewsPostsFields_Slug>;
@@ -8077,6 +8124,34 @@ export type NewsPostsFields_CreatedAt_Read = {
 
 export type NewsPostsFields_CreatedAt_Update = {
   __typename?: 'NewsPostsFields_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsPostsFields_HeyZineUrl = {
+  __typename?: 'NewsPostsFields_heyZineUrl';
+  create?: Maybe<NewsPostsFields_HeyZineUrl_Create>;
+  delete?: Maybe<NewsPostsFields_HeyZineUrl_Delete>;
+  read?: Maybe<NewsPostsFields_HeyZineUrl_Read>;
+  update?: Maybe<NewsPostsFields_HeyZineUrl_Update>;
+};
+
+export type NewsPostsFields_HeyZineUrl_Create = {
+  __typename?: 'NewsPostsFields_heyZineUrl_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsPostsFields_HeyZineUrl_Delete = {
+  __typename?: 'NewsPostsFields_heyZineUrl_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsPostsFields_HeyZineUrl_Read = {
+  __typename?: 'NewsPostsFields_heyZineUrl_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type NewsPostsFields_HeyZineUrl_Update = {
+  __typename?: 'NewsPostsFields_heyZineUrl_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -14360,6 +14435,7 @@ export type MutationNewsPostInput = {
   blurb: Scalars['String'];
   content?: InputMaybe<Scalars['JSON']>;
   createdAt?: InputMaybe<Scalars['String']>;
+  heyZineUrl?: InputMaybe<Scalars['String']>;
   previewBanner?: InputMaybe<Scalars['String']>;
   publishDate?: InputMaybe<Scalars['String']>;
   slug?: InputMaybe<Scalars['String']>;
@@ -14376,6 +14452,7 @@ export type MutationNewsPostUpdateInput = {
   blurb?: InputMaybe<Scalars['String']>;
   content?: InputMaybe<Scalars['JSON']>;
   createdAt?: InputMaybe<Scalars['String']>;
+  heyZineUrl?: InputMaybe<Scalars['String']>;
   previewBanner?: InputMaybe<Scalars['String']>;
   publishDate?: InputMaybe<Scalars['String']>;
   slug?: InputMaybe<Scalars['String']>;
@@ -14877,6 +14954,7 @@ export type VersionsNewsPost_Version__Blurb_Operator = {
 export type VersionsNewsPost_Version__Content_Operator = {
   contains?: InputMaybe<Scalars['JSON']>;
   equals?: InputMaybe<Scalars['JSON']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
   like?: InputMaybe<Scalars['JSON']>;
   not_equals?: InputMaybe<Scalars['JSON']>;
 };
@@ -14890,6 +14968,17 @@ export type VersionsNewsPost_Version__CreatedAt_Operator = {
   less_than_equal?: InputMaybe<Scalars['DateTime']>;
   like?: InputMaybe<Scalars['DateTime']>;
   not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type VersionsNewsPost_Version__HeyZineUrl_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type VersionsNewsPost_Version__PreviewBanner_Operator = {
@@ -14970,6 +15059,7 @@ export type VersionsNewsPost_Where = {
   version__blurb?: InputMaybe<VersionsNewsPost_Version__Blurb_Operator>;
   version__content?: InputMaybe<VersionsNewsPost_Version__Content_Operator>;
   version__createdAt?: InputMaybe<VersionsNewsPost_Version__CreatedAt_Operator>;
+  version__heyZineUrl?: InputMaybe<VersionsNewsPost_Version__HeyZineUrl_Operator>;
   version__previewBanner?: InputMaybe<VersionsNewsPost_Version__PreviewBanner_Operator>;
   version__publishDate?: InputMaybe<VersionsNewsPost_Version__PublishDate_Operator>;
   version__slug?: InputMaybe<VersionsNewsPost_Version__Slug_Operator>;
@@ -14995,6 +15085,7 @@ export type VersionsNewsPost_Where_And = {
   version__blurb?: InputMaybe<VersionsNewsPost_Version__Blurb_Operator>;
   version__content?: InputMaybe<VersionsNewsPost_Version__Content_Operator>;
   version__createdAt?: InputMaybe<VersionsNewsPost_Version__CreatedAt_Operator>;
+  version__heyZineUrl?: InputMaybe<VersionsNewsPost_Version__HeyZineUrl_Operator>;
   version__previewBanner?: InputMaybe<VersionsNewsPost_Version__PreviewBanner_Operator>;
   version__publishDate?: InputMaybe<VersionsNewsPost_Version__PublishDate_Operator>;
   version__slug?: InputMaybe<VersionsNewsPost_Version__Slug_Operator>;
@@ -15020,6 +15111,7 @@ export type VersionsNewsPost_Where_Or = {
   version__blurb?: InputMaybe<VersionsNewsPost_Version__Blurb_Operator>;
   version__content?: InputMaybe<VersionsNewsPost_Version__Content_Operator>;
   version__createdAt?: InputMaybe<VersionsNewsPost_Version__CreatedAt_Operator>;
+  version__heyZineUrl?: InputMaybe<VersionsNewsPost_Version__HeyZineUrl_Operator>;
   version__previewBanner?: InputMaybe<VersionsNewsPost_Version__PreviewBanner_Operator>;
   version__publishDate?: InputMaybe<VersionsNewsPost_Version__PublishDate_Operator>;
   version__slug?: InputMaybe<VersionsNewsPost_Version__Slug_Operator>;
@@ -15115,7 +15207,7 @@ export type NewsPostBySlugQueryVariables = Exact<{
 }>;
 
 
-export type NewsPostBySlugQuery = { __typename?: 'Query', NewsPostBySlug?: { __typename?: 'NewsPost', authorId?: string | null, authorName?: string | null, blurb?: string | null, content?: any | null, createdAt?: any | null, id: string, publishDate?: any | null, slug?: string | null, title?: string | null, previewBanner?: { __typename?: 'Media', url?: string | null } | null, tags?: Array<{ __typename?: 'Tag', name: string, id: string }> | null } | null };
+export type NewsPostBySlugQuery = { __typename?: 'Query', NewsPostBySlug?: { __typename?: 'NewsPost', authorId?: string | null, authorName?: string | null, blurb?: string | null, content?: any | null, heyZineUrl?: string | null, createdAt?: any | null, id: string, publishDate?: any | null, slug?: string | null, title?: string | null, previewBanner?: { __typename?: 'Media', url?: string | null } | null, tags?: Array<{ __typename?: 'Tag', name: string, id: string }> | null } | null };
 
 export type NewsPostContentBySlugAndLocaleQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -15200,7 +15292,7 @@ export const ShowsByCategoryDocument = {"kind":"Document","definitions":[{"kind"
 export const ShowBySlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ShowBySlug"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"ShowBySlug"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"showName"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"categories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"primaryHosts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"coverImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"alt"}},{"kind":"Field","name":{"kind":"Name","value":"sizes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"lg"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<ShowBySlugQuery, ShowBySlugQueryVariables>;
 export const NewsPostsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"NewsPosts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"NewsPost_where"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"sort"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"NewsPosts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}},{"kind":"Argument","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}},{"kind":"Argument","name":{"kind":"Name","value":"sort"},"value":{"kind":"Variable","name":{"kind":"Name","value":"sort"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"publishDate"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"authorName"}},{"kind":"Field","name":{"kind":"Name","value":"authorId"}},{"kind":"Field","name":{"kind":"Name","value":"previewBanner"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"totalDocs"}},{"kind":"Field","name":{"kind":"Name","value":"totalPages"}}]}}]}}]} as unknown as DocumentNode<NewsPostsQuery, NewsPostsQueryVariables>;
 export const NewsPostDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"NewsPost"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"newsPostId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"draft"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Boolean"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"NewsPost"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"newsPostId"}}},{"kind":"Argument","name":{"kind":"Name","value":"draft"},"value":{"kind":"Variable","name":{"kind":"Name","value":"draft"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"authorId"}},{"kind":"Field","name":{"kind":"Name","value":"authorName"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"publishDate"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"previewBanner"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"tags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<NewsPostQuery, NewsPostQueryVariables>;
-export const NewsPostBySlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"NewsPostBySlug"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"NewsPostBySlug"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"authorId"}},{"kind":"Field","name":{"kind":"Name","value":"authorName"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"publishDate"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"previewBanner"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"tags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<NewsPostBySlugQuery, NewsPostBySlugQueryVariables>;
+export const NewsPostBySlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"NewsPostBySlug"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"NewsPostBySlug"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"authorId"}},{"kind":"Field","name":{"kind":"Name","value":"authorName"}},{"kind":"Field","name":{"kind":"Name","value":"blurb"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"heyZineUrl"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"publishDate"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"previewBanner"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"tags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<NewsPostBySlugQuery, NewsPostBySlugQueryVariables>;
 export const NewsPostContentBySlugAndLocaleDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"NewsPostContentBySlugAndLocale"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"NewsPostBySlug"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}},{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<NewsPostContentBySlugAndLocaleQuery, NewsPostContentBySlugAndLocaleQueryVariables>;
 export const TagsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Tags"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Tag_where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Tags"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]}}]} as unknown as DocumentNode<TagsQuery, TagsQueryVariables>;
 export const SearchHostsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"SearchHosts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Host_where"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Hosts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<SearchHostsQuery, SearchHostsQueryVariables>;

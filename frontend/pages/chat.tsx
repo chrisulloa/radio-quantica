@@ -1,5 +1,6 @@
 import Head from "next/head";
 import GoBackLink from "../components/goBack";
+import { defaultOgImage } from "../lib/utils";
 
 export default function Chat() {
   return (
@@ -10,24 +11,15 @@ export default function Chat() {
         <meta name="twitter:site" content="@quanticaonline" />
         <meta name="twitter:title" content="Rádio Quântica | About Us" />
         <meta name="twitter:description" content="Rádio Quântica Chat" />
-        <meta
-          name="twitter:image"
-          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-        />
+        <meta name="twitter:image" content={defaultOgImage} />
 
         <meta property="og:site_name" content="Rádio Quântica"></meta>
         <meta property="og:title" content="Rádio Quântica | Chat"></meta>
         <meta property="og:type" content="website"></meta>
         <meta property="og:url" content="https://radioquantica.com/chat"></meta>
         <meta property="og:description" content="Rádio Quântica Chat" />
-        <meta
-          property="og:image"
-          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-        ></meta>
-        <meta
-          property="og:image:secure_url"
-          content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-        ></meta>
+        <meta property="og:image" content={defaultOgImage}></meta>
+        <meta property="og:image:secure_url" content={defaultOgImage}></meta>
         <meta property="og:image:width" content="1200"></meta>
         <meta property="og:image:height" content="630"></meta>
         <meta

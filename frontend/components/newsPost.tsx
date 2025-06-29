@@ -10,6 +10,7 @@ import NewsContent from "./newsContent";
 import NewsTags from "./newsTags";
 import LanguageSelector from "./languageSelector";
 import { useState } from "react";
+import { defaultOgImage } from "../lib/utils";
 
 const NewsHeader = ({
   post,
@@ -20,12 +21,17 @@ const NewsHeader = ({
 }) => {
   if (!post) return <div></div>;
 
-  const postImage = (post.content as RichTextNode[]).find(
-    (val) => val.type === "upload"
-  );
-  const defaultOgImage =
-    "https://radioquantica.com/assets/radio_quantica_social_banner.jpg";
-  const ogImage = postImage?.value?.sizes.opengraph.url;
+  let ogImage: string | undefined;
+  if (post?.previewBanner?.url) {
+    ogImage = post.previewBanner.url;
+  }
+  if (!ogImage && post.content) {
+    const postImage = (post.content as RichTextNode[]).find(
+      (val) => val.type === "upload"
+    );
+    ogImage = postImage?.value?.sizes.opengraph.url;
+  }
+
   return (
     <Head>
       <title>{post?.title}</title>
@@ -71,9 +77,21 @@ export default function NewsPost({
     return <div></div>;
   }
   return (
-    <div className="mx-2 xl:mx-auto md:mb-5 md:w-5/6 lg:w-3/5 xl:w-5/12">
+    <div
+      className={
+        !!post?.heyZineUrl
+          ? "mx-2 lg:mx-auto lg:w-7/8"
+          : "mx-2 xl:mx-auto md:mb-5 md:w-5/6 lg:w-3/5 xl:w-5/12"
+      }
+    >
       <NewsHeader currentPath={router.asPath} post={post}></NewsHeader>
-      <div className="w-full text-[18px] text-[#bfbfbf] border border p-3 rounded-xl">
+      <div
+        className={
+          !!post?.heyZineUrl
+            ? "w-full text-[18px] text-[#bfbfbf]"
+            : "w-full text-[18px] text-[#bfbfbf] border p-3 rounded-xl"
+        }
+      >
         <NewsHeaderBackground
           title={post.title || "Latest News"}
         ></NewsHeaderBackground>
@@ -94,13 +112,24 @@ export default function NewsPost({
             {post?.publishDate && formatCompactShowDate(post?.publishDate)}
           </div>
         </div>
-        <NewsContent
-          content={language === "EN" ? enContent : ptContent}
-          image={{
-            url: post?.previewBanner?.url,
-            alt: post?.title || "News Post Image",
-          }}
-        />
+        {post?.heyZineUrl && (
+          <iframe
+            allowFullScreen={true}
+            scrolling="no"
+            className="fp-iframe p-8"
+            src="https://heyzine.com/flip-book/38e360b571.html"
+            style={{ border: "0px", width: "100%", height: "800px" }}
+          ></iframe>
+        )}
+        {!post?.heyZineUrl && (
+          <NewsContent
+            content={language === "EN" ? enContent : ptContent}
+            image={{
+              url: post?.previewBanner?.url,
+              alt: post?.title || "News Post Image",
+            }}
+          />
+        )}
         {post?.tags && (
           <div className="flex flex-wrap mb-4">
             <NewsTags tags={post.tags}></NewsTags>

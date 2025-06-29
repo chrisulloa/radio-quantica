@@ -26,6 +26,7 @@ import { useQuery } from "@apollo/client";
 import { LoadingSpinner } from "../components/loadingSpinner";
 import LiveVideoCard from "../components/liveVideoCard";
 import VideoCard from "../components/videoCard";
+import { defaultOgImage } from "../lib/utils";
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -82,10 +83,7 @@ const HomePageHeader = () => {
         name="twitter:description"
         content="Online community radio station based in Lisbon, Portugal."
       />
-      <meta
-        name="twitter:image"
-        content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-      />
+      <meta name="twitter:image" content={defaultOgImage} />
 
       <meta property="og:site_name" content="Rádio Quântica"></meta>
       <meta property="og:title" content="Rádio Quântica"></meta>
@@ -95,14 +93,8 @@ const HomePageHeader = () => {
         property="og:description"
         content="Online community radio station based in Lisbon, Portugal."
       ></meta>
-      <meta
-        property="og:image"
-        content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-      ></meta>
-      <meta
-        property="og:image:secure_url"
-        content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-      ></meta>
+      <meta property="og:image" content={defaultOgImage}></meta>
+      <meta property="og:image:secure_url" content={defaultOgImage}></meta>
       <meta property="og:image:width" content="1200"></meta>
       <meta property="og:image:height" content="630"></meta>
       <meta property="og:image:alt" content="Rádio Quântica Banner"></meta>

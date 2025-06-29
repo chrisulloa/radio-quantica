@@ -16,7 +16,6 @@ export default function NewsContent({
   if (!content) {
     return <></>;
   }
-  console.log(image.url);
   return (
     <div
       id={styles.showContent}

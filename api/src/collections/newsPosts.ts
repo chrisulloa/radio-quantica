@@ -4,6 +4,7 @@ import {
   CollectionAfterOperationHook,
   CollectionBeforeChangeHook,
   CollectionConfig,
+  ValidationError,
 } from 'payload';
 import { Buffer } from 'buffer';
 import slugify from '../utils/slugify';
@@ -19,8 +20,31 @@ const beforeChangeHook: CollectionBeforeChangeHook<NewsPost> = ({
     return data;
   }
   if (!originalDoc || !data.title) {
-    console.error(`Missing title to parse slug`);
-    throw Error('Missing title');
+    throw new ValidationError({
+      collection: 'newsPosts',
+      errors: [
+        {
+          message: 'Missing title',
+          path: 'title',
+        },
+      ],
+    });
+  }
+
+  if (!data.content && !data.heyZineUrl) {
+    throw new ValidationError({
+      collection: 'newsPosts',
+      errors: [
+        {
+          message: 'You have to provide content or heyZineURL',
+          path: 'content',
+        },
+        {
+          message: 'You have to provide content or heyZineURL',
+          path: 'heyZineUrl',
+        },
+      ],
+    });
   }
 
   data.slug = slugify(data.title);
@@ -128,7 +152,7 @@ const NewsPosts: CollectionConfig = {
     {
       name: 'content',
       type: 'richText',
-      required: true,
+      required: false,
       localized: true,
     },
     {

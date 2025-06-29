@@ -275,9 +275,11 @@ export interface Media {
 export interface NewsPost {
   id: string;
   title: string;
-  content: {
-    [k: string]: unknown;
-  }[];
+  content?:
+    | {
+        [k: string]: unknown;
+      }[]
+    | null;
   /**
    * Add a heyzine URL to embed in the post https://heyzine.com/flip-book/38e360b571.html
    */

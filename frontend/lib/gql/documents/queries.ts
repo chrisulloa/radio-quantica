@@ -220,6 +220,7 @@ export const newsPostBySlugQuery = graphql(`
       authorName
       blurb
       content
+      heyZineUrl
       createdAt
       id
       publishDate

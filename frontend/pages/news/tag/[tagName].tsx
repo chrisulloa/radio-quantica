@@ -9,6 +9,7 @@ import { NewsPost } from "../../../lib/gql/types/graphql";
 import capitalize from "lodash/capitalize";
 import GoBackLink from "../../../components/goBack";
 import Link from "next/link";
+import { defaultOgImage } from "../../../lib/utils";
 
 const PAGE_SIZE = 100;
 
@@ -81,10 +82,7 @@ const NewsTagHeader = (props: { tagName: string }) => {
         name="twitter:description"
         content={`Rádio Quântica ${capitalizedName} News`}
       />
-      <meta
-        name="twitter:image"
-        content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-      />
+      <meta name="twitter:image" content={defaultOgImage} />
 
       <meta property="og:site_name" content="Rádio Quântica"></meta>
       <meta
@@ -100,14 +98,8 @@ const NewsTagHeader = (props: { tagName: string }) => {
         property="og:description"
         content={`Rádio Quântica ${capitalizedName} News`}
       />
-      <meta
-        property="og:image"
-        content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-      ></meta>
-      <meta
-        property="og:image:secure_url"
-        content="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-      ></meta>
+      <meta property="og:image" content={defaultOgImage}></meta>
+      <meta property="og:image:secure_url" content={defaultOgImage}></meta>
       <meta property="og:image:width" content="1200"></meta>
       <meta property="og:image:height" content="630"></meta>
       <meta
