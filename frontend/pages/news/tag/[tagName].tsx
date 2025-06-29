@@ -71,23 +71,23 @@ const NewsTagHeader = (props: { tagName: string }) => {
   const capitalizedName = capitalize(props.tagName);
   return (
     <Head>
-      <title>{`${capitalizedName} News - Rádio Quântica`}</title>
+      <title>{`${capitalizedName} - Rádio Quântica`}</title>
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@quanticaonline" />
       <meta
         name="twitter:title"
-        content={`Rádio Quântica | ${capitalizedName} News`}
+        content={`Rádio Quântica | ${capitalizedName}`}
       />
       <meta
         name="twitter:description"
-        content={`Rádio Quântica ${capitalizedName} News`}
+        content={`Rádio Quântica ${capitalizedName}`}
       />
       <meta name="twitter:image" content={defaultOgImage} />
 
       <meta property="og:site_name" content="Rádio Quântica"></meta>
       <meta
         property="og:title"
-        content={`Rádio Quântica ${capitalizedName} News`}
+        content={`Rádio Quântica ${capitalizedName}`}
       ></meta>
       <meta property="og:type" content="website"></meta>
       <meta
@@ -96,7 +96,7 @@ const NewsTagHeader = (props: { tagName: string }) => {
       ></meta>
       <meta
         property="og:description"
-        content={`Rádio Quântica ${capitalizedName} News`}
+        content={`Rádio Quântica ${capitalizedName}`}
       />
       <meta property="og:image" content={defaultOgImage}></meta>
       <meta property="og:image:secure_url" content={defaultOgImage}></meta>
