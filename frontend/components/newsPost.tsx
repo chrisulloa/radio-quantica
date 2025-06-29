@@ -112,20 +112,20 @@ export default function NewsPost({
             {post?.publishDate && formatCompactShowDate(post?.publishDate)}
           </div>
         </div>
-        {post?.heyZineUrl && (
+        {post.heyZineUrl && (
           <iframe
             allowFullScreen={true}
             scrolling="no"
             className="fp-iframe p-8"
-            src="https://heyzine.com/flip-book/38e360b571.html"
+            src={post.heyZineUrl}
             style={{ border: "0px", width: "100%", height: "800px" }}
           ></iframe>
         )}
-        {!post?.heyZineUrl && (
+        {post.content && (
           <NewsContent
             content={language === "EN" ? enContent : ptContent}
             image={{
-              url: post?.previewBanner?.url,
+              url: post.heyZineUrl ? undefined : post?.previewBanner?.url,
               alt: post?.title || "News Post Image",
             }}
           />
