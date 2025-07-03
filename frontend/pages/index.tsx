@@ -15,6 +15,7 @@ import {
   LiveVideosQuery,
   MerchQuery,
   NewsPostsQuery,
+  YoutubeChannelQueryQuery,
 } from "../lib/gql/types/graphql";
 import React from "react";
 import { deviceIsMobile } from "../lib/deviceInfo";
@@ -201,6 +202,135 @@ const LiveVideos = (props: { liveVideos: LiveVideosQuery["LiveVideos"] }) => {
   );
 };
 
+const LeftContent = ({
+  isLiveVideoStream,
+  showLiveVideoStreamSpinner,
+  data,
+  newsPosts,
+  merch,
+  labelReleases,
+  liveVideos,
+  isMobile,
+}: {
+  isLiveVideoStream: boolean;
+  showLiveVideoStreamSpinner: boolean;
+  data: YoutubeChannelQueryQuery | undefined;
+  newsPosts: NewsPostsQuery["NewsPosts"];
+  merch: MerchQuery["Merches"];
+  labelReleases: LabelReleasesQuery["LabelReleases"];
+  liveVideos: LiveVideosQuery["LiveVideos"];
+  isMobile: boolean;
+}) => {
+  return (
+    <>
+      <div className="flex justify-between">
+        {isLiveVideoStream && (
+          <div className="flex">
+            <svg className="animate-pulse mr-3" height="20" width="20">
+              <circle cx="50%" cy="50%" r="6" fill="red" />
+            </svg>
+            <h1 className="text-white">LIVE NOW</h1>
+          </div>
+        )}
+        {!isLiveVideoStream && <h1 className="text-white">LATEST</h1>}
+        <Link
+          href="/streams"
+          className="text-white hover:bg-white hover:text-black font-space-mono"
+        >
+          VIDS ↗
+        </Link>
+      </div>
+      <hr className="mt-4"></hr>
+      <div className="mb-8 justify-center flex mt-5">
+        {showLiveVideoStreamSpinner && (
+          <div className="h-[500px] flex">
+            <div className="m-auto">
+              <LoadingSpinner delay={0}></LoadingSpinner>
+            </div>
+          </div>
+        )}
+        {isLiveVideoStream &&
+          !showLiveVideoStreamSpinner &&
+          data?.YoutubeChannel?.videoId &&
+          data.YoutubeChannel?.imageUrl && (
+            <LiveVideoCard
+              videoId={data.YoutubeChannel.videoId}
+              imageUrl={data.YoutubeChannel.imageUrl}
+            />
+          )}
+        {!isLiveVideoStream && !showLiveVideoStreamSpinner && (
+          <LiveVideos liveVideos={liveVideos}></LiveVideos>
+        )}
+      </div>
+      <div className="flex justify-between">
+        <h1 className="text-white">NEWS</h1>
+        <Link
+          href="/news"
+          className="text-white hover:bg-white hover:text-black font-space-mono"
+        >
+          MORE ↗
+        </Link>
+      </div>
+      <hr className="mt-4"></hr>
+      <div className="grid gap-5 w-full mt-5 mb-5 md:grid-cols-3 grid-cols-1">
+        {newsPosts && <NewsCards posts={newsPosts}></NewsCards>}
+      </div>
+      <div className="flex justify-between">
+        <h1 className="text-white">MERCH</h1>
+        <Link
+          href="https://quanticaonline.bandcamp.com/merch"
+          target="_blank"
+          className="text-white hover:bg-white hover:text-black font-space-mono"
+        >
+          MORE ↗
+        </Link>
+      </div>
+      <hr className="mt-4"></hr>
+      <div className="grid gap-5 w-full mt-5 mb-5 md:grid-cols-3 grid-cols-1">
+        {merch && <MerchCards merch={merch} isMobile={isMobile}></MerchCards>}
+      </div>
+      <div className="flex justify-between">
+        <h1 className="text-white">LABEL</h1>
+        <Link
+          href="https://quanticaonline.bandcamp.com/music"
+          target="_blank"
+          className="text-white hover:bg-white hover:text-black font-space-mono"
+        >
+          MORE ↗
+        </Link>
+      </div>
+      <hr className="mt-4"></hr>
+      <div className="grid gap-5 w-full mt-5 mb-8 md:grid-cols-3 grid-cols-1">
+        {labelReleases && (
+          <LabelReleasesCards
+            labelReleases={labelReleases}
+            isMobile={isMobile}
+          ></LabelReleasesCards>
+        )}
+      </div>
+    </>
+  );
+};
+
+const RightContent = () => {
+  return (
+    <div className="fixed lg:w-[175px] xl:w-[220px] text-white p-3 border flex-col">
+      <p className="mx-auto font-space-mono text-sm px-1 text-balance">
+        Rádio Quântica muda de espaço e lança crowdfunding para continuar sua
+        programação cultural independente
+      </p>
+
+      <Link
+        href="https://www.gofundme.com/f/help-radio-quantica-move-studio-start-a-community-artspace?lang=en_GB&amp;ts=1749136892&amp;utm_campaign=fp_sharesheet&amp;utm_medium=customer&amp;utm_source=copy_link&amp;attribution_id=sl%3Afac6f332-a5a1-43db-8beb-0bccbda1f72a"
+        className="border px-3 py-2 text-sm w-full block text-center mt-3 hover:text-black hover:bg-white"
+        target="_blank"
+      >
+        Donate Now!
+      </Link>
+    </div>
+  );
+};
+
 export default function Home({
   newsPosts,
   merch,
@@ -243,93 +373,25 @@ export default function Home({
   }, [data, loading]);
 
   return (
-    <div>
+    <div className="w-full">
       <HomePageHeader></HomePageHeader>
-      <div className="w-11/12 lg:w-9/12 2xl:w-7/12 md:ml-8 mx-auto">
-        <div className="flex justify-between">
-          {isLiveVideoStream && (
-            <div className="flex">
-              <svg className="animate-pulse mr-3" height="20" width="20">
-                <circle cx="50%" cy="50%" r="6" fill="red" />
-              </svg>
-              <h1 className="text-white">LIVE NOW</h1>
-            </div>
-          )}
-          {!isLiveVideoStream && <h1 className="text-white">LATEST</h1>}
-          <Link
-            href="/streams"
-            className="text-white hover:bg-white hover:text-black font-space-mono"
-          >
-            VIDS ↗
-          </Link>
-        </div>
-        <hr className="mt-4"></hr>
-        <div className="mb-8 justify-center flex mt-5">
-          {showLiveVideoStreamSpinner && (
-            <div className="h-[500px] flex">
-              <div className="m-auto">
-                <LoadingSpinner delay={0}></LoadingSpinner>
-              </div>
-            </div>
-          )}
-          {isLiveVideoStream &&
-            !showLiveVideoStreamSpinner &&
-            data?.YoutubeChannel?.videoId &&
-            data.YoutubeChannel?.imageUrl && (
-              <LiveVideoCard
-                videoId={data.YoutubeChannel.videoId}
-                imageUrl={data.YoutubeChannel.imageUrl}
-              />
-            )}
-          {!isLiveVideoStream && !showLiveVideoStreamSpinner && (
-            <LiveVideos liveVideos={liveVideos}></LiveVideos>
-          )}
-        </div>
-        <div className="flex justify-between">
-          <h1 className="text-white">NEWS</h1>
-          <Link
-            href="/news"
-            className="text-white hover:bg-white hover:text-black font-space-mono"
-          >
-            MORE ↗
-          </Link>
-        </div>
-        <hr className="mt-4"></hr>
-        <div className="grid gap-5 w-full mt-5 mb-5 md:grid-cols-3 grid-cols-1">
-          {newsPosts && <NewsCards posts={newsPosts}></NewsCards>}
-        </div>
-        <div className="flex justify-between">
-          <h1 className="text-white">MERCH</h1>
-          <Link
-            href="https://quanticaonline.bandcamp.com/merch"
-            target="_blank"
-            className="text-white hover:bg-white hover:text-black font-space-mono"
-          >
-            MORE ↗
-          </Link>
-        </div>
-        <hr className="mt-4"></hr>
-        <div className="grid gap-5 w-full mt-5 mb-5 md:grid-cols-3 grid-cols-1">
-          {merch && <MerchCards merch={merch} isMobile={isMobile}></MerchCards>}
-        </div>
-        <div className="flex justify-between">
-          <h1 className="text-white">LABEL</h1>
-          <Link
-            href="https://quanticaonline.bandcamp.com/music"
-            target="_blank"
-            className="text-white hover:bg-white hover:text-black font-space-mono"
-          >
-            MORE ↗
-          </Link>
-        </div>
-        <hr className="mt-4"></hr>
-        <div className="grid gap-5 w-full mt-5 mb-8 md:grid-cols-3 grid-cols-1">
-          {labelReleases && (
-            <LabelReleasesCards
-              labelReleases={labelReleases}
+      <div className="w-full mx-auto">
+        <div className="grid grid-cols-13">
+          <div className="md:col-span-13 lg:col-span-10 xl:col-span-9 col-span-13 p-4">
+            <LeftContent
               isMobile={isMobile}
-            ></LabelReleasesCards>
-          )}
+              isLiveVideoStream={isLiveVideoStream}
+              showLiveVideoStreamSpinner={showLiveVideoStreamSpinner}
+              data={data}
+              newsPosts={newsPosts}
+              merch={merch}
+              liveVideos={liveVideos}
+              labelReleases={labelReleases}
+            ></LeftContent>
+          </div>
+          <div className="md:col-span-0 lg:col-span-3 xl:col-span-3 p-4">
+            <RightContent></RightContent>
+          </div>
         </div>
       </div>
     </div>
