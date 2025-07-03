@@ -321,7 +321,7 @@ const RightContent = () => {
           alt="Radio Quantica Logo"
           height={405}
           width={300}
-          className="object-cover"
+          className="object-scale-down"
         ></Image>
       </div>
 
@@ -332,7 +332,7 @@ const RightContent = () => {
 
       <Link
         href="https://www.gofundme.com/f/help-radio-quantica-move-studio-start-a-community-artspace?lang=en_GB&amp;ts=1749136892&amp;utm_campaign=fp_sharesheet&amp;utm_medium=customer&amp;utm_source=copy_link&amp;attribution_id=sl%3Afac6f332-a5a1-43db-8beb-0bccbda1f72a"
-        className="border px-3 py-2 text-sm w-full block text-center mt-3 hover:text-black hover:bg-white"
+        className="border px-3 py-2 text-sm w-full block text-center mt-4 hover:text-black hover:bg-white"
         target="_blank"
       >
         Donate Now!
