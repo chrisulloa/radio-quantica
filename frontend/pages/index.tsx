@@ -376,8 +376,8 @@ export default function Home({
     <div className="w-full">
       <HomePageHeader></HomePageHeader>
       <div className="w-full mx-auto">
-        <div className="grid grid-cols-13">
-          <div className="md:col-span-13 lg:col-span-10 xl:col-span-9 col-span-13 p-4">
+        <div className="grid grid-cols-14">
+          <div className="lg:col-span-11 xl:col-span-9 col-span-14 p-4">
             <LeftContent
               isMobile={isMobile}
               isLiveVideoStream={isLiveVideoStream}
