@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { NewsCard } from "../components/newsCard";
 import {
@@ -21,13 +22,12 @@ import React from "react";
 import { deviceIsMobile } from "../lib/deviceInfo";
 import { MerchCard } from "../components/merchCard";
 import { LabelReleaseCard } from "../components/labelReleaseCard";
-import LiteYouTubeEmbed from "react-lite-youtube-embed";
-import { formatCompactShowDate } from "../lib/dates";
 import { useQuery } from "@apollo/client";
 import { LoadingSpinner } from "../components/loadingSpinner";
 import LiveVideoCard from "../components/liveVideoCard";
 import VideoCard from "../components/videoCard";
 import { defaultOgImage } from "../lib/utils";
+import QuanticaLogo from "../components/icons/quanticaLogo";
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -315,7 +315,17 @@ const LeftContent = ({
 const RightContent = () => {
   return (
     <div className="fixed lg:w-[175px] xl:w-[220px] text-white p-3 border flex-col">
-      <p className="mx-auto font-space-mono text-sm px-1 text-balance">
+      <div className="flex h-[90px]">
+        <Image
+          src="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
+          alt="Radio Quantica Logo"
+          height={405}
+          width={300}
+          className="object-cover"
+        ></Image>
+      </div>
+
+      <p className="mx-auto font-space-mono text-sm px-1 text-center">
         Rádio Quântica muda de espaço e lança crowdfunding para continuar sua
         programação cultural independente
       </p>

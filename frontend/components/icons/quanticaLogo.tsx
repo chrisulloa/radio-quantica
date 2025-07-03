@@ -1,10 +1,21 @@
-export const QuanticaLogo = () => {
+import React, { Component } from "react";
+
+interface QuanticaLogoProps {
+  color?: "black" | "white";
+}
+
+const defaultProps: QuanticaLogoProps = {
+  color: "black",
+};
+
+const QuanticaLogo: React.FC<QuanticaLogoProps> = (propsIn) => {
+  const props = { ...defaultProps, ...propsIn };
   return (
     <svg
       version="1.1"
       id="svg1"
       viewBox="0 0 800 800"
-      className="stroke-black stroke-[6px]"
+      className={`stroke-${props.color} stroke-[6px]`}
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs id="defs1" />
@@ -17,3 +28,5 @@ export const QuanticaLogo = () => {
     </svg>
   );
 };
+
+export default QuanticaLogo;

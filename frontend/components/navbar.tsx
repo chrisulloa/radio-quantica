@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useCallback, useState } from "react";
-import { QuanticaLogo } from "./icons/quanticaLogo";
+import QuanticaLogo from "./icons/quanticaLogo";
 import styles from "./navbar.module.css";
 import { FacebookIcon } from "./icons/facebookIcon";
 import { InstagramIcon } from "./icons/instagramIcon";
