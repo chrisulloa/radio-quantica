@@ -16,6 +16,7 @@ const QuanticaLogo: React.FC<QuanticaLogoProps> = (propsIn) => {
       id="svg1"
       viewBox="0 0 800 800"
       className={`stroke-${props.color} stroke-[6px]`}
+      style={{ imageRendering: "crisp-edges", opacity: 0.99 }}
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs id="defs1" />
