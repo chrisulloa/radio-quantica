@@ -1,6 +1,6 @@
 #quanticaLogo {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   animation: spin 5s ease infinite;
 }
 
@@ -9,8 +9,8 @@
 }
 
 #quanticaLogoSmall {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   animation: spin 5s ease infinite;
 }
 @keyframes spin {

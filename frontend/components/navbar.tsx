@@ -57,14 +57,14 @@ export function NavBar() {
         id={styles.logoLink}
       >
         <div
-          className="container w-[33px] h-[33px] hidden lg:block mb-1 mr-3"
+          className="container hidden lg:block mb-1 mr-3"
           id={styles.quanticaLogo}
         >
           <QuanticaLogo></QuanticaLogo>
         </div>
         <div className="flex h-full gap-x-3 align-middle">
           <div
-            className="container w-[16px] h-[16px] my-auto md:hidden"
+            className="container my-auto md:hidden"
             id={styles.quanticaLogoSmall}
           >
             <QuanticaLogo></QuanticaLogo>

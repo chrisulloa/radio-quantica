@@ -27,7 +27,6 @@ import { LoadingSpinner } from "../components/loadingSpinner";
 import LiveVideoCard from "../components/liveVideoCard";
 import VideoCard from "../components/videoCard";
 import { defaultOgImage } from "../lib/utils";
-import QuanticaLogo from "../components/icons/quanticaLogo";
 
 export async function getStaticProps() {
   const { data } = await client.query({
