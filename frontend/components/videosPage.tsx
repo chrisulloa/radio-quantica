@@ -54,7 +54,7 @@ export default function VideosPage({
     return <div className="text-white">Unable to load videos...</div>;
   }
   return (
-    <div className="md:ml-8 px-4 md:px-0 w-full md:w-10/12 lg:w-10/12 2xl:w-10/12 mb-5">
+    <div className="md:ml-4 px-4 md:px-0 w-full md:w-10/12 lg:w-10/12 2xl:w-10/12 mb-5">
       <StreamsHeader page={currentPage}></StreamsHeader>
       <div className="flex justify-between mb-4">
         <h1 className="text-white">STREAMS</h1>
