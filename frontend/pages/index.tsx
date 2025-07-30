@@ -325,7 +325,7 @@ const RightContent = () => {
       </div>
 
       <p className="mx-auto font-space-mono text-sm px-1 text-center">
-        Rádio Quântica muda de espaço e lança crowdfunding para continuar sua
+        Rádio Quântica muda de espaço e lança crowdfunding para continuar a sua
         programação cultural independente
       </p>
 
