@@ -22,6 +22,10 @@ const navbarItems = [
     link: "https://quanticaonline.bandcamp.com/merch",
     newTab: true,
   },
+  {
+    text: "Jornal Q",
+    link: "/news/tag/jornal",
+  },
 ];
 
 export function NavBar() {
