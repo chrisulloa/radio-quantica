@@ -63,6 +63,7 @@ function CurrentShow({
     <div className={`flex justify-between ${styles["banner-scroll"]}`}>
       <div>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</div>
       <div>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</div>
+      <div>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</div>
     </div>
   ) : (
     <div>{showName}</div>
