@@ -61,7 +61,7 @@ export function NavBar() {
         id={styles.logoLink}
       >
         <div
-          className="container hidden lg:block mb-1 mr-3"
+          className="container hidden md:block mb-1 mr-3"
           id={styles.quanticaLogo}
         >
           <QuanticaLogo></QuanticaLogo>
@@ -74,7 +74,7 @@ export function NavBar() {
             <QuanticaLogo></QuanticaLogo>
           </div>
 
-          <div className="flex align-middle my-auto pr-3 pt-1 md:pt-0">
+          <div className="align-middle my-auto pr-3 pt-1 md:pt-0 flex md:hidden xl:flex">
             <div className="w-full h-full flex text-black">QUÂNTICA</div>
           </div>
         </div>
@@ -108,7 +108,7 @@ export function NavBar() {
                 href={item.link}
                 target={item.newTab ? "_blank" : ""}
                 onClick={collapseAfterClickHandler}
-                className="block h-full hover:bg-black hover:text-white md:px-2"
+                className="block h-full hover:bg-black hover:text-white md:px-2 whitespace-nowrap"
               >
                 {item.text}
               </Link>
@@ -146,7 +146,7 @@ export function NavBar() {
             </div>
           </li>
         </ul>
-        <div className="align-middle lg:flex justify-start gap-x-3 my-2 hidden">
+        <div className="align-middle xl:flex justify-start gap-x-3 my-2 hidden">
           <IconButton
             label={"YouTube"}
             url="https://www.youtube.com/channel/UCrJUlunwq20no8FY9oczb_A"
