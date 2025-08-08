@@ -43,7 +43,7 @@ export function Spinner(props: ISpinnerProps) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="animate-spin stroke-white"
+      className="animate-spin stroke-white w-[24px] h-[24px]"
     >
       <line x1="12" y1="2" x2="12" y2="6"></line>
       <line x1="12" y1="18" x2="12" y2="22"></line>
