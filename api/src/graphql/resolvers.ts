@@ -177,27 +177,26 @@ export const goFundMeStatusResolver = async (_obj, _args, _context) => {
   if (cacheValue) {
     result = cacheValue;
   } else {
-    const resp = await axios.post<{ data: { fundraiser: GoFundMeResponse } }>(
-      'https://graphql.gofundme.com/graphql',
-      {
+    const resp = await fetch('https://graphql.gofundme.com/graphql', {
+      method: 'POST',
+      body: JSON.stringify({
         operationName: 'GetFundraiser',
         query:
           'query GetFundraiser(\n  $slug: ID!\n) {\n  fundraiser(slug: $slug) {\n    currentAmount {\n      amount\n      currencyCode\n    }\n    donationCount\n    donationsEnabled\n    uniqueDonorCount\n    goalAmount {\n      amount\n      currencyCode\n    }\n  }\n}',
         variables: {
           slug: 'help-radio-quantica-move-studio-start-a-community-artspace',
         },
+      }),
+
+      headers: {
+        'User-Agent':
+          'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+        'content-type': 'application/json',
       },
-      {
-        headers: {
-          'User-Agent':
-            'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
-          'content-type': 'application/json',
-        },
-        validateStatus: () => true,
-      }
-    );
-    console.log(resp.data);
-    const fundraiserData = resp.data.data.fundraiser;
+    });
+    const data = (await resp.json()) as { data: { fundraiser: GoFundMeResponse } };
+    console.log(data);
+    const fundraiserData = data.data.fundraiser;
     result = {
       uniqueDonorCount: fundraiserData.uniqueDonorCount,
       goalAmount: fundraiserData.goalAmount.amount,
