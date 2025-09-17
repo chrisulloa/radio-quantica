@@ -190,8 +190,10 @@ export const goFundMeStatusResolver = async (_obj, _args, _context) => {
         headers: {
           'content-type': 'application/json',
         },
+        validateStatus: () => true,
       }
     );
+    console.log(resp.data);
     const fundraiserData = resp.data.data.fundraiser;
     result = {
       uniqueDonorCount: fundraiserData.uniqueDonorCount,
