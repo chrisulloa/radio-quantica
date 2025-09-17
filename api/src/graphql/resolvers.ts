@@ -188,6 +188,8 @@ export const goFundMeStatusResolver = async (_obj, _args, _context) => {
       },
       {
         headers: {
+          'User-Agent':
+            'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
           'content-type': 'application/json',
         },
         validateStatus: () => true,
