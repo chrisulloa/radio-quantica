@@ -180,6 +180,7 @@ export const goFundMeStatusResolver = async (_obj, _args, _context) => {
     const resp = await axios.post<{ data: { fundraiser: GoFundMeResponse } }>(
       'https://graphql.gofundme.com/graphql',
       {
+        operationName: 'GetFundraiser',
         query:
           'query GetFundraiser(\n  $slug: ID!\n) {\n  fundraiser(slug: $slug) {\n    currentAmount {\n      amount\n      currencyCode\n    }\n    donationCount\n    donationsEnabled\n    uniqueDonorCount\n    goalAmount {\n      amount\n      currencyCode\n    }\n  }\n}',
         variables: {
