@@ -1,6 +1,6 @@
 import { buildConfig } from 'payload';
 import path from 'path';
-import { GraphQLString } from 'graphql';
+import { GraphQLObjectType, GraphQLString } from 'graphql';
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
 import { slateEditor } from '@payloadcms/richtext-slate';
 import { buildPaginatedListType } from '@payloadcms/graphql/types';
@@ -11,6 +11,7 @@ import {
   showBySlugResolver,
   newsPostBySlugResolver,
   youtubeChannelResolver,
+  goFundMeStatusResolver,
 } from './graphql/resolvers';
 import {
   spacesURL,
@@ -153,6 +154,18 @@ export default buildConfig({
           },
         }),
         resolve: youtubeChannelResolver,
+      },
+      GoFundMe: {
+        type: new GraphQL.GraphQLObjectType({
+          name: 'GoFundMe',
+          fields: {
+            uniqueDonorCount: { type: GraphQL.GraphQLInt },
+            goalAmount: { type: GraphQL.GraphQLFloat },
+            currentAmount: { type: GraphQL.GraphQLFloat },
+            donationCount: { type: GraphQL.GraphQLInt },
+          },
+        }),
+        resolve: goFundMeStatusResolver,
       },
       ShowsByCategory: {
         type: buildPaginatedListType(

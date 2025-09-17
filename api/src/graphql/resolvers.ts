@@ -147,3 +147,61 @@ export const youtubeChannelResolver = async (_obj, _args, _context) => {
 
   return result;
 };
+
+interface GoFundMeResponse {
+  uniqueDonorCount: number;
+  goalAmount: {
+    amount: number;
+    currencyCode: string;
+  };
+  currentAmount: {
+    amount: number;
+    currencyCode: string;
+  };
+  donationCount: number;
+  donationsEnabled: boolean;
+}
+
+interface GoFundMeValue {
+  uniqueDonorCount: number;
+  goalAmount: number;
+  currentAmount: number;
+  donationCount: number;
+}
+
+export const goFundMeStatusResolver = async (_obj, _args, _context) => {
+  const cacheKey = 'GoFundMeResult';
+  const cacheValue = cache.getCache(cacheKey) as GoFundMeValue | undefined;
+  let result: GoFundMeValue | undefined;
+
+  if (cacheValue) {
+    result = cacheValue;
+  } else {
+    const resp = await axios.post<{ data: { fundraiser: GoFundMeResponse } }>(
+      'https://graphql.gofundme.com/graphql',
+      {
+        headers: {
+          'content-type': 'application/json',
+          Authorization:
+            'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZTU2ODZiMDQxZjk2YjI3MTEwOWUxMSIsImNvbGxlY3Rpb24iOiJ1c2VycyIsImVtYWlsIjoiY2hyaXN0aWFuQHBhcnRpY2xlLmZtIiwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNzA1NDUwMTI3LCJleHAiOjE3MDU0NTczMjd9.ccqowHuIkGS0aisTzvb-dEWKOa2kK_M7qKGF4KZuTD4',
+        },
+        body: JSON.stringify({
+          query:
+            'query GetFundraiser(\n  $slug: ID!\n) {\n  fundraiser(slug: $slug) {\n    currentAmount {\n      amount\n      currencyCode\n    }\n    donationCount\n    donationsEnabled\n    uniqueDonorCount\n    goalAmount {\n      amount\n      currencyCode\n    }\n  }\n}',
+          variables: {
+            slug: 'help-radio-quantica-move-studio-start-a-community-artspace',
+          },
+        }),
+      }
+    );
+    const fundraiserData = resp.data.data.fundraiser;
+    result = {
+      uniqueDonorCount: fundraiserData.uniqueDonorCount,
+      goalAmount: fundraiserData.goalAmount.amount,
+      currentAmount: fundraiserData.currentAmount.amount,
+      donationCount: fundraiserData.donationCount,
+    };
+    cache.setCache(cacheKey, result);
+  }
+  return result;
+};
