@@ -152,11 +152,9 @@ interface GoFundMeResponse {
   uniqueDonorCount: number;
   goalAmount: {
     amount: number;
-    currencyCode: string;
   };
   currentAmount: {
     amount: number;
-    currencyCode: string;
   };
   donationCount: number;
   donationsEnabled: boolean;
@@ -180,9 +178,9 @@ export const goFundMeStatusResolver = async (_obj, _args, _context) => {
     const resp = await fetch('https://graphql.gofundme.com/graphql', {
       method: 'POST',
       body: JSON.stringify({
-        operationName: 'GetFundraiser',
+        operationName: 'Cofund_GetFundraiser',
         query:
-          'query GetFundraiser(\n  $slug: ID!\n) {\n  fundraiser(slug: $slug) {\n    currentAmount {\n      amount\n      currencyCode\n    }\n    donationCount\n    donationsEnabled\n    uniqueDonorCount\n    goalAmount {\n      amount\n      currencyCode\n    }\n  }\n}',
+          'query Cofund_GetFundraiser($slug: ID!) { fundraiser(slug: $slug) { currentAmount { amount } donationCount donationsEnabled uniqueDonorCount goalAmount { amount currencyCode }}}',
         variables: {
           slug: 'help-radio-quantica-move-studio-start-a-community-artspace',
         },
@@ -194,9 +192,12 @@ export const goFundMeStatusResolver = async (_obj, _args, _context) => {
         'content-type': 'application/json',
       },
     });
-    const data = (await resp.json()) as { data: { fundraiser: GoFundMeResponse } };
-    console.log(data);
-    const fundraiserData = data.data.fundraiser;
+    const {
+      data: { fundraiser },
+    } = (await resp.json()) as {
+      data: { fundraiser: GoFundMeResponse };
+    };
+    const fundraiserData = fundraiser;
     result = {
       uniqueDonorCount: fundraiserData.uniqueDonorCount,
       goalAmount: fundraiserData.goalAmount.amount,
