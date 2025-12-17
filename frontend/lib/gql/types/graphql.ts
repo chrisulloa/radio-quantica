@@ -808,6 +808,14 @@ export enum FallbackLocaleInputType {
   Pt = 'pt'
 }
 
+export type GoFundMe = {
+  __typename?: 'GoFundMe';
+  currentAmount?: Maybe<Scalars['Float']>;
+  donationCount?: Maybe<Scalars['Int']>;
+  goalAmount?: Maybe<Scalars['Float']>;
+  uniqueDonorCount?: Maybe<Scalars['Int']>;
+};
+
 export type Host = {
   __typename?: 'Host';
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -11183,6 +11191,7 @@ export type Query = {
   Categories?: Maybe<Categories>;
   Category?: Maybe<Category>;
   DonatePage?: Maybe<DonatePage>;
+  GoFundMe?: Maybe<GoFundMe>;
   Host?: Maybe<Host>;
   Hosts?: Maybe<Hosts>;
   LabelRelease?: Maybe<LabelRelease>;

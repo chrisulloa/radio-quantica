@@ -6,6 +6,7 @@ import axios from "axios";
 import { NowPlayingResponse } from "../lib/services/azuracast";
 import { libretimeServerURL } from "../lib/utils";
 import { DateTime } from "luxon";
+import { Marquee, MarqueeContent, MarqueeItem } from "./ui/shadcn-io/marquee";
 
 function VolumeButton({ volume }: { volume: number }) {
   let file;
@@ -60,11 +61,13 @@ function CurrentShow({
   viewportWidth: number | undefined;
 }) {
   return viewportWidth && viewportWidth < 420 ? (
-    <div className={`flex justify-between ${styles["banner-scroll"]}`}>
-      <div>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</div>
-      <div>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</div>
-      <div>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</div>
-    </div>
+    <Marquee>
+      <MarqueeContent pauseOnHover={false}>
+        <MarqueeItem>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</MarqueeItem>
+        <MarqueeItem>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</MarqueeItem>
+        <MarqueeItem>&nbsp;&nbsp;{showName}&nbsp;&nbsp;</MarqueeItem>
+      </MarqueeContent>
+    </Marquee>
   ) : (
     <div>{showName}</div>
   );
