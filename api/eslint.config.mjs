@@ -17,7 +17,8 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
-export default [
+/** @type {import("eslint").ESLint.ConfigData[]} */
+const config = [
   {
     ignores: ['build/*', 'dist/*', 'eslint.config.mjs', '.next/*', "node_modules/*", "src/app/(payload)/admin/importMap.js"],
   },
@@ -48,7 +49,7 @@ export default [
       ecmaVersion: 'latest',
       sourceType: 'module',
       parserOptions: {
-        tsconfigRootDir: '.',
+        tsconfigRootDir: __dirname,
         project: './tsconfig.json',
       },
     },
@@ -76,3 +77,5 @@ export default [
     },
   },
 ];
+
+export default config;
