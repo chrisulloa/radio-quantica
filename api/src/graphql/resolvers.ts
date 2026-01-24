@@ -127,15 +127,19 @@ export const youtubeChannelResolver = async (_obj, _args, _context) => {
     }
     if (isLive) {
       const videoIdMatches = text.match(/"watchEndpoint":{"videoId":"(.*?)"/);
-      const videoId = videoIdMatches[1];
-      const imageUrl = youtubeLiveImageUrl(videoId);
-      result = {
-        isLive: true,
-        channelId,
-        url: canonicalURL,
-        imageUrl,
-        videoId,
-      };
+      if (videoIdMatches) {
+        const videoId = videoIdMatches[1];
+        const imageUrl = youtubeLiveImageUrl(videoId);
+        result = {
+          isLive: true,
+          channelId,
+          url: canonicalURL,
+          imageUrl,
+          videoId,
+        };
+      } else {
+        result = { isLive: false, channelId };
+      }
     } else {
       result = {
         isLive,
