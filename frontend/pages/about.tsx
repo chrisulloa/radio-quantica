@@ -8,6 +8,7 @@ import { useState } from "react";
 import LanguageSelector from "../components/languageSelector";
 import styles from "../components/content.module.css";
 import { defaultOgImage } from "../lib/utils";
+import Image from "next/image";
 
 interface AboutPageProps {
   content: {
@@ -84,6 +85,14 @@ export default function About(props: AboutPageProps) {
       </div>
       <div className="my-8">
         <GoBackLink fallback="/"></GoBackLink>
+      </div>
+      <div className="pb-8">
+        <Image
+          src="/logos.png"
+          height={200}
+          width={650}
+          alt="Apoio Republica Portuguesa"
+        ></Image>
       </div>
     </div>
   );

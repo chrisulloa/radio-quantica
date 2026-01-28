@@ -313,8 +313,8 @@ const LeftContent = ({
 
 const RightContent = () => {
   return (
-    <div className="fixed lg:w-[175px] xl:w-[220px] text-white p-3 border flex-col">
-      <div className="flex h-[90px]">
+    <div className="lg:fixed lg:w-[175px] xl:w-[220px] text-white p-3 border flex-col">
+      <div className="flex justify-center h-[90px]">
         <Image
           src="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
           alt="Radio Quantica Logo"
@@ -398,10 +398,18 @@ export default function Home({
               labelReleases={labelReleases}
             ></LeftContent>
           </div>
-          <div className="md:col-span-0 lg:col-span-3 xl:col-span-3 p-4">
+          <div className="col-span-14 lg:col-span-3 xl:col-span-3 p-4">
             <RightContent></RightContent>
           </div>
         </div>
+      </div>
+      <div className="pb-8">
+        <Image
+          src="/logos.png"
+          height={200}
+          width={650}
+          alt="Apoio Republica Portuguesa"
+        ></Image>
       </div>
     </div>
   );
