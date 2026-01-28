@@ -14,6 +14,7 @@ const uploadImageHook: CollectionBeforeChangeHook<LiveVideo> = async ({
 }) => {
   try {
     const videoId = youtubeVideoId(data.url.trim());
+    data.videoId = videoId;
     const imageUrl = youtubeImageUrl(videoId);
     const name = `${data.title
       .trim()
@@ -37,7 +38,6 @@ const uploadImageHook: CollectionBeforeChangeHook<LiveVideo> = async ({
         },
       });
       data.image = `${result.id}`;
-      data.videoId = videoId;
       return data;
     }
   } catch (e) {
@@ -144,7 +144,6 @@ const LiveVideos: CollectionConfig = {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
-      admin: { readOnly: true },
     },
     {
       name: 'sortableId',
