@@ -17,7 +17,7 @@ const documents = {
     "\n  query Shows($where: Show_where) {\n    Shows(where: $where) {\n      docs {\n        slug\n      }\n    }\n  }\n": types.ShowsDocument,
     "\n  query AllShowIDs($limit: Int) {\n    Shows(limit: $limit) {\n      docs {\n        slug\n        id\n        showName\n        primaryHosts {\n          name\n        }\n      }\n    }\n  }\n": types.AllShowIDsDocument,
     "\n  query ShowsQuery($limit: Int) {\n    Shows(limit: $limit) {\n      docs {\n        id\n        active\n        slug\n        createdAt\n        showName\n        description\n        primaryHosts {\n          id\n          createdAt\n          updatedAt\n          name\n        }\n        categories {\n          id\n          createdAt\n          updatedAt\n          name\n        }\n        coverImage {\n          alt\n          sizes {\n            lg {\n              url\n              width\n              height\n            }\n            sm {\n              url\n              width\n              height\n            }\n          }\n        }\n      }\n      totalDocs\n      offset\n      limit\n      totalPages\n      page\n      pagingCounter\n      hasPrevPage\n      hasNextPage\n      prevPage\n      nextPage\n    }\n  }\n": types.ShowsQueryDocument,
-    "\n    query Categories($limit: Int) {\n      Categories(limit: $limit) {\n        docs {\n          name\n        }\n      }\n    }\n  ": types.CategoriesDocument,
+    "\n  query Categories($limit: Int) {\n    Categories(limit: $limit) {\n      docs {\n        name\n      }\n    }\n  }\n": types.CategoriesDocument,
     "\n  query ShowsByCategory($categoryName: String!) {\n    ShowsByCategory(categoryName: $categoryName) {\n      docs {\n        showName\n        id\n        slug\n        createdAt\n        description\n        categories {\n          name\n        }\n        primaryHosts {\n          name\n        }\n        coverImage {\n          alt\n          sizes {\n            lg {\n              url\n              width\n              height\n            }\n            sm {\n              url\n              width\n              height\n            }\n          }\n        }\n      }\n      limit\n    }\n  }\n": types.ShowsByCategoryDocument,
     "\n  query ShowBySlug($slug: String!) {\n    ShowBySlug(slug: $slug) {\n      slug\n      showName\n      id\n      description\n      createdAt\n      categories {\n        name\n      }\n      primaryHosts {\n        name\n      }\n      coverImage {\n        alt\n        sizes {\n          lg {\n            url\n            width\n            height\n          }\n        }\n      }\n    }\n  }\n": types.ShowBySlugDocument,
     "\n  query NewsPosts(\n    $limit: Int\n    $page: Int\n    $where: NewsPost_where\n    $sort: String\n  ) {\n    NewsPosts(limit: $limit, page: $page, where: $where, sort: $sort) {\n      docs {\n        id\n        blurb\n        slug\n        publishDate\n        title\n        updatedAt\n        authorName\n        authorId\n        previewBanner {\n          url\n        }\n      }\n      totalDocs\n      totalPages\n    }\n  }\n": types.NewsPostsDocument,
@@ -33,6 +33,7 @@ const documents = {
     "\n  query AboutPageQuery($locale: LocaleInputType) {\n    AboutPage(locale: $locale) {\n      content\n    }\n  }\n": types.AboutPageQueryDocument,
     "\n  query DonatePageQuery($locale: LocaleInputType) {\n    DonatePage(locale: $locale) {\n      content\n    }\n  }\n": types.DonatePageQueryDocument,
     "\n  query YoutubeChannelQuery {\n    YoutubeChannel {\n      isLive\n      channelId\n      url\n      videoId\n      imageUrl\n    }\n  }\n": types.YoutubeChannelQueryDocument,
+    "\n  query OwncastQuery {\n    Owncast {\n      isLive\n    }\n  }\n": types.OwncastQueryDocument,
 };
 
 /**
@@ -68,7 +69,7 @@ export function graphql(source: "\n  query ShowsQuery($limit: Int) {\n    Shows(
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n    query Categories($limit: Int) {\n      Categories(limit: $limit) {\n        docs {\n          name\n        }\n      }\n    }\n  "): (typeof documents)["\n    query Categories($limit: Int) {\n      Categories(limit: $limit) {\n        docs {\n          name\n        }\n      }\n    }\n  "];
+export function graphql(source: "\n  query Categories($limit: Int) {\n    Categories(limit: $limit) {\n      docs {\n        name\n      }\n    }\n  }\n"): (typeof documents)["\n  query Categories($limit: Int) {\n    Categories(limit: $limit) {\n      docs {\n        name\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -129,6 +130,10 @@ export function graphql(source: "\n  query DonatePageQuery($locale: LocaleInputT
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query YoutubeChannelQuery {\n    YoutubeChannel {\n      isLive\n      channelId\n      url\n      videoId\n      imageUrl\n    }\n  }\n"): (typeof documents)["\n  query YoutubeChannelQuery {\n    YoutubeChannel {\n      isLive\n      channelId\n      url\n      videoId\n      imageUrl\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query OwncastQuery {\n    Owncast {\n      isLive\n    }\n  }\n"): (typeof documents)["\n  query OwncastQuery {\n    Owncast {\n      isLive\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

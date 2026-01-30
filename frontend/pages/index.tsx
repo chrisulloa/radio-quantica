@@ -8,7 +8,7 @@ import {
   latestNewsQuery,
   liveVideosQuery,
   merchQuery,
-  youtubeChannelQuery,
+  owncastQuery,
 } from "../lib/gql/documents/queries";
 import client from "../lib/services/graphql";
 import {
@@ -16,7 +16,7 @@ import {
   LiveVideosQuery,
   MerchQuery,
   NewsPostsQuery,
-  YoutubeChannelQueryQuery,
+  OwncastQueryQuery,
 } from "../lib/gql/types/graphql";
 import React from "react";
 import { deviceIsMobile } from "../lib/deviceInfo";
@@ -203,8 +203,6 @@ const LiveVideos = (props: { liveVideos: LiveVideosQuery["LiveVideos"] }) => {
 
 const LeftContent = ({
   isLiveVideoStream,
-  showLiveVideoStreamSpinner,
-  data,
   newsPosts,
   merch,
   labelReleases,
@@ -212,8 +210,6 @@ const LeftContent = ({
   isMobile,
 }: {
   isLiveVideoStream: boolean;
-  showLiveVideoStreamSpinner: boolean;
-  data: YoutubeChannelQueryQuery | undefined;
   newsPosts: NewsPostsQuery["NewsPosts"];
   merch: MerchQuery["Merches"];
   labelReleases: LabelReleasesQuery["LabelReleases"];
@@ -240,27 +236,8 @@ const LeftContent = ({
         </Link>
       </div>
       <hr className="mt-4"></hr>
-      <div className="mb-8 justify-center flex mt-5">
-        {showLiveVideoStreamSpinner && (
-          <div className="h-[500px] flex">
-            <div className="m-auto">
-              <LoadingSpinner delay={0}></LoadingSpinner>
-            </div>
-          </div>
-        )}
-        {isLiveVideoStream &&
-          !showLiveVideoStreamSpinner &&
-          data?.YoutubeChannel?.videoId &&
-          data.YoutubeChannel?.imageUrl && (
-            <LiveVideoCard
-              videoId={data.YoutubeChannel.videoId}
-              imageUrl={data.YoutubeChannel.imageUrl}
-            />
-          )}
-        {!isLiveVideoStream && !showLiveVideoStreamSpinner && (
-          <LiveVideos liveVideos={liveVideos}></LiveVideos>
-        )}
-      </div>
+      {isLiveVideoStream && <LiveVideoCard />}
+      {!isLiveVideoStream && <LiveVideos liveVideos={liveVideos}></LiveVideos>}
       <div className="flex justify-between">
         <h1 className="text-white">NEWS</h1>
         <Link
@@ -354,22 +331,17 @@ export default function Home({
 }) {
   const [isMobile, setIsMobile] = useState(false);
   const [isLiveVideoStream, setIsLiveVideoStream] = useState(false);
-  const [showLiveVideoStreamSpinner, setShowLiveVideoStreamSpinner] =
-    useState(false);
+
   const [pollInterval, setPollInterval] = useState(10000);
-  const { data, loading } = useQuery(youtubeChannelQuery, {
+  const { data, loading } = useQuery(owncastQuery, {
     pollInterval,
     fetchPolicy: "no-cache",
   });
 
   useEffect(() => {
     if (!loading && data) {
-      if (data.YoutubeChannel?.isLive === true) {
+      if (data.Owncast?.isLive === true) {
         setTimeout(() => {
-          setShowLiveVideoStreamSpinner(true);
-        }, 250);
-        setTimeout(() => {
-          setShowLiveVideoStreamSpinner(false);
           setIsLiveVideoStream(true);
           setPollInterval(30000);
         }, 2000);
@@ -390,8 +362,6 @@ export default function Home({
             <LeftContent
               isMobile={isMobile}
               isLiveVideoStream={isLiveVideoStream}
-              showLiveVideoStreamSpinner={showLiveVideoStreamSpinner}
-              data={data}
               newsPosts={newsPosts}
               merch={merch}
               liveVideos={liveVideos}

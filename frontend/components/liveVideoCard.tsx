@@ -1,16 +1,15 @@
-import LiteYouTubeEmbed from "react-lite-youtube-embed";
-
-const LiveVideoCard = (props: { videoId: string; imageUrl: string }) => {
-  const { videoId, imageUrl } = props;
+const LiveVideoCard = () => {
   return (
     <div className="w-full">
-      <LiteYouTubeEmbed
-        thumbnail={`${imageUrl}`}
-        aspectHeight={9}
-        aspectWidth={16}
-        id={`${videoId}`}
-        title={"Live now!"}
-      ></LiteYouTubeEmbed>
+      <iframe
+        className="w-full aspect-ratio py-4 px-4"
+        src="https://owncast.radioquantica.com/embed/video"
+        title="Owncast"
+        height="400px"
+        width="550px"
+        referrerPolicy="origin"
+        allowFullScreen
+      ></iframe>
     </div>
   );
 };

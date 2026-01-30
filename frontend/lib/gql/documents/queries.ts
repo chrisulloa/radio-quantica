@@ -87,17 +87,15 @@ export const showsQuery = graphql(`
   }
 `);
 
-export const allCategories = graphql(
-  `
-    query Categories($limit: Int) {
-      Categories(limit: $limit) {
-        docs {
-          name
-        }
+export const allCategories = graphql(`
+  query Categories($limit: Int) {
+    Categories(limit: $limit) {
+      docs {
+        name
       }
     }
-  `
-);
+  }
+`);
 
 export const showsByCategory = graphql(`
   query ShowsByCategory($categoryName: String!) {
@@ -360,6 +358,14 @@ export const youtubeChannelQuery = graphql(`
       url
       videoId
       imageUrl
+    }
+  }
+`);
+
+export const owncastQuery = graphql(`
+  query OwncastQuery {
+    Owncast {
+      isLive
     }
   }
 `);

@@ -253,6 +253,7 @@ export type Access = {
   merch?: Maybe<MerchAccess>;
   newsPosts?: Maybe<NewsPostsAccess>;
   payload_jobs?: Maybe<Payload_JobsAccess>;
+  payload_kv?: Maybe<Payload_KvAccess>;
   payload_locked_documents?: Maybe<Payload_Locked_DocumentsAccess>;
   payload_preferences?: Maybe<Payload_PreferencesAccess>;
   restartLibretime?: Maybe<RestartLibretimeAccess>;
@@ -6648,6 +6649,7 @@ export type Mutation = {
   createMerch?: Maybe<Merch>;
   createNewsPost?: Maybe<NewsPost>;
   createPayloadJob?: Maybe<PayloadJob>;
+  createPayloadKv?: Maybe<PayloadKv>;
   createPayloadLockedDocument?: Maybe<PayloadLockedDocument>;
   createPayloadPreference?: Maybe<PayloadPreference>;
   createRestartLibretime?: Maybe<RestartLibretime>;
@@ -6662,6 +6664,7 @@ export type Mutation = {
   deleteMerch?: Maybe<Merch>;
   deleteNewsPost?: Maybe<NewsPost>;
   deletePayloadJob?: Maybe<PayloadJob>;
+  deletePayloadKv?: Maybe<PayloadKv>;
   deletePayloadLockedDocument?: Maybe<PayloadLockedDocument>;
   deletePayloadPreference?: Maybe<PayloadPreference>;
   deleteRestartLibretime?: Maybe<RestartLibretime>;
@@ -6676,6 +6679,7 @@ export type Mutation = {
   duplicateMerch?: Maybe<Merch>;
   duplicateNewsPost?: Maybe<NewsPost>;
   duplicatePayloadJob?: Maybe<PayloadJob>;
+  duplicatePayloadKv?: Maybe<PayloadKv>;
   duplicatePayloadLockedDocument?: Maybe<PayloadLockedDocument>;
   duplicatePayloadPreference?: Maybe<PayloadPreference>;
   duplicateRestartLibretime?: Maybe<RestartLibretime>;
@@ -6698,6 +6702,7 @@ export type Mutation = {
   updateMerch?: Maybe<Merch>;
   updateNewsPost?: Maybe<NewsPost>;
   updatePayloadJob?: Maybe<PayloadJob>;
+  updatePayloadKv?: Maybe<PayloadKv>;
   updatePayloadLockedDocument?: Maybe<PayloadLockedDocument>;
   updatePayloadPreference?: Maybe<PayloadPreference>;
   updateRestartLibretime?: Maybe<RestartLibretime>;
@@ -6764,6 +6769,13 @@ export type MutationCreatePayloadJobArgs = {
 };
 
 
+export type MutationCreatePayloadKvArgs = {
+  data: MutationPayloadKvInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<LocaleInputType>;
+};
+
+
 export type MutationCreatePayloadLockedDocumentArgs = {
   data: MutationPayloadLockedDocumentInput;
   draft?: InputMaybe<Scalars['Boolean']>;
@@ -6808,71 +6820,91 @@ export type MutationCreateUserArgs = {
 
 export type MutationDeleteCategoryArgs = {
   id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationDeleteHostArgs = {
   id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationDeleteLabelReleaseArgs = {
   id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationDeleteLiveVideoArgs = {
   id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationDeleteMediaArgs = {
   id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationDeleteMerchArgs = {
   id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationDeleteNewsPostArgs = {
   id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationDeletePayloadJobArgs = {
   id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+export type MutationDeletePayloadKvArgs = {
+  id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationDeletePayloadLockedDocumentArgs = {
   id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationDeletePayloadPreferenceArgs = {
   id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationDeleteRestartLibretimeArgs = {
   id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationDeleteShowArgs = {
   id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationDeleteTagArgs = {
   id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationDeleteUserArgs = {
   id: Scalars['String'];
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -6924,6 +6956,12 @@ export type MutationDuplicatePayloadJobArgs = {
 };
 
 
+export type MutationDuplicatePayloadKvArgs = {
+  data: MutationPayloadKvInput;
+  id: Scalars['String'];
+};
+
+
 export type MutationDuplicatePayloadLockedDocumentArgs = {
   data: MutationPayloadLockedDocumentInput;
   id: Scalars['String'];
@@ -6967,6 +7005,11 @@ export type MutationLoginUserArgs = {
 };
 
 
+export type MutationLogoutUserArgs = {
+  allSessions?: InputMaybe<Scalars['Boolean']>;
+};
+
+
 export type MutationResetPasswordUserArgs = {
   password?: InputMaybe<Scalars['String']>;
   token?: InputMaybe<Scalars['String']>;
@@ -6997,6 +7040,7 @@ export type MutationUpdateCategoryArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -7013,6 +7057,7 @@ export type MutationUpdateHostArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -7022,6 +7067,7 @@ export type MutationUpdateLabelReleaseArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -7031,6 +7077,7 @@ export type MutationUpdateLiveVideoArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -7040,6 +7087,7 @@ export type MutationUpdateMediaArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -7049,6 +7097,7 @@ export type MutationUpdateMerchArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -7058,6 +7107,7 @@ export type MutationUpdateNewsPostArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -7067,6 +7117,17 @@ export type MutationUpdatePayloadJobArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+export type MutationUpdatePayloadKvArgs = {
+  autosave?: InputMaybe<Scalars['Boolean']>;
+  data: MutationPayloadKvUpdateInput;
+  draft?: InputMaybe<Scalars['Boolean']>;
+  id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -7076,6 +7137,7 @@ export type MutationUpdatePayloadLockedDocumentArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -7085,6 +7147,7 @@ export type MutationUpdatePayloadPreferenceArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -7094,6 +7157,7 @@ export type MutationUpdateRestartLibretimeArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -7103,6 +7167,7 @@ export type MutationUpdateShowArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -7112,6 +7177,7 @@ export type MutationUpdateTagArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -7121,6 +7187,7 @@ export type MutationUpdateUserArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -8365,6 +8432,11 @@ export type NewsPostsUpdateDocAccess = {
   __typename?: 'NewsPostsUpdateDocAccess';
   permission: Scalars['Boolean'];
   where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type Owncast = {
+  __typename?: 'Owncast';
+  isLive?: Maybe<Scalars['Boolean']>;
 };
 
 export type PayloadJob = {
@@ -10098,6 +10170,254 @@ export type PayloadJobsUpdateDocAccess = {
   where?: Maybe<Scalars['JSONObject']>;
 };
 
+export type PayloadKv = {
+  __typename?: 'PayloadKv';
+  data: Scalars['JSON'];
+  id: Scalars['String'];
+  key: Scalars['String'];
+};
+
+export type PayloadKvCreateAccess = {
+  __typename?: 'PayloadKvCreateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadKvCreateDocAccess = {
+  __typename?: 'PayloadKvCreateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadKvDeleteAccess = {
+  __typename?: 'PayloadKvDeleteAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadKvDeleteDocAccess = {
+  __typename?: 'PayloadKvDeleteDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadKvDocAccessFields = {
+  __typename?: 'PayloadKvDocAccessFields';
+  data?: Maybe<PayloadKvDocAccessFields_Data>;
+  key?: Maybe<PayloadKvDocAccessFields_Key>;
+};
+
+export type PayloadKvDocAccessFields_Data = {
+  __typename?: 'PayloadKvDocAccessFields_data';
+  create?: Maybe<PayloadKvDocAccessFields_Data_Create>;
+  delete?: Maybe<PayloadKvDocAccessFields_Data_Delete>;
+  read?: Maybe<PayloadKvDocAccessFields_Data_Read>;
+  update?: Maybe<PayloadKvDocAccessFields_Data_Update>;
+};
+
+export type PayloadKvDocAccessFields_Data_Create = {
+  __typename?: 'PayloadKvDocAccessFields_data_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvDocAccessFields_Data_Delete = {
+  __typename?: 'PayloadKvDocAccessFields_data_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvDocAccessFields_Data_Read = {
+  __typename?: 'PayloadKvDocAccessFields_data_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvDocAccessFields_Data_Update = {
+  __typename?: 'PayloadKvDocAccessFields_data_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvDocAccessFields_Key = {
+  __typename?: 'PayloadKvDocAccessFields_key';
+  create?: Maybe<PayloadKvDocAccessFields_Key_Create>;
+  delete?: Maybe<PayloadKvDocAccessFields_Key_Delete>;
+  read?: Maybe<PayloadKvDocAccessFields_Key_Read>;
+  update?: Maybe<PayloadKvDocAccessFields_Key_Update>;
+};
+
+export type PayloadKvDocAccessFields_Key_Create = {
+  __typename?: 'PayloadKvDocAccessFields_key_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvDocAccessFields_Key_Delete = {
+  __typename?: 'PayloadKvDocAccessFields_key_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvDocAccessFields_Key_Read = {
+  __typename?: 'PayloadKvDocAccessFields_key_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvDocAccessFields_Key_Update = {
+  __typename?: 'PayloadKvDocAccessFields_key_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvFields = {
+  __typename?: 'PayloadKvFields';
+  data?: Maybe<PayloadKvFields_Data>;
+  key?: Maybe<PayloadKvFields_Key>;
+};
+
+export type PayloadKvFields_Data = {
+  __typename?: 'PayloadKvFields_data';
+  create?: Maybe<PayloadKvFields_Data_Create>;
+  delete?: Maybe<PayloadKvFields_Data_Delete>;
+  read?: Maybe<PayloadKvFields_Data_Read>;
+  update?: Maybe<PayloadKvFields_Data_Update>;
+};
+
+export type PayloadKvFields_Data_Create = {
+  __typename?: 'PayloadKvFields_data_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvFields_Data_Delete = {
+  __typename?: 'PayloadKvFields_data_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvFields_Data_Read = {
+  __typename?: 'PayloadKvFields_data_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvFields_Data_Update = {
+  __typename?: 'PayloadKvFields_data_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvFields_Key = {
+  __typename?: 'PayloadKvFields_key';
+  create?: Maybe<PayloadKvFields_Key_Create>;
+  delete?: Maybe<PayloadKvFields_Key_Delete>;
+  read?: Maybe<PayloadKvFields_Key_Read>;
+  update?: Maybe<PayloadKvFields_Key_Update>;
+};
+
+export type PayloadKvFields_Key_Create = {
+  __typename?: 'PayloadKvFields_key_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvFields_Key_Delete = {
+  __typename?: 'PayloadKvFields_key_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvFields_Key_Read = {
+  __typename?: 'PayloadKvFields_key_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvFields_Key_Update = {
+  __typename?: 'PayloadKvFields_key_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PayloadKvReadAccess = {
+  __typename?: 'PayloadKvReadAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadKvReadDocAccess = {
+  __typename?: 'PayloadKvReadDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadKvUpdateAccess = {
+  __typename?: 'PayloadKvUpdateAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadKvUpdateDocAccess = {
+  __typename?: 'PayloadKvUpdateDocAccess';
+  permission: Scalars['Boolean'];
+  where?: Maybe<Scalars['JSONObject']>;
+};
+
+export type PayloadKv_Data_Operator = {
+  contains?: InputMaybe<Scalars['JSON']>;
+  equals?: InputMaybe<Scalars['JSON']>;
+  intersects?: InputMaybe<Scalars['JSON']>;
+  like?: InputMaybe<Scalars['JSON']>;
+  not_equals?: InputMaybe<Scalars['JSON']>;
+  within?: InputMaybe<Scalars['JSON']>;
+};
+
+export type PayloadKv_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type PayloadKv_Key_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type PayloadKv_Where = {
+  AND?: InputMaybe<Array<InputMaybe<PayloadKv_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<PayloadKv_Where_Or>>>;
+  data?: InputMaybe<PayloadKv_Data_Operator>;
+  id?: InputMaybe<PayloadKv_Id_Operator>;
+  key?: InputMaybe<PayloadKv_Key_Operator>;
+};
+
+export type PayloadKv_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<PayloadKv_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<PayloadKv_Where_Or>>>;
+  data?: InputMaybe<PayloadKv_Data_Operator>;
+  id?: InputMaybe<PayloadKv_Id_Operator>;
+  key?: InputMaybe<PayloadKv_Key_Operator>;
+};
+
+export type PayloadKv_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<PayloadKv_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<PayloadKv_Where_Or>>>;
+  data?: InputMaybe<PayloadKv_Data_Operator>;
+  id?: InputMaybe<PayloadKv_Id_Operator>;
+  key?: InputMaybe<PayloadKv_Key_Operator>;
+};
+
+export type PayloadKvs = {
+  __typename?: 'PayloadKvs';
+  docs: Array<PayloadKv>;
+  hasNextPage: Scalars['Boolean'];
+  hasPrevPage: Scalars['Boolean'];
+  limit: Scalars['Int'];
+  nextPage?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  page: Scalars['Int'];
+  pagingCounter: Scalars['Int'];
+  prevPage?: Maybe<Scalars['Int']>;
+  totalDocs: Scalars['Int'];
+  totalPages: Scalars['Int'];
+};
+
 export type PayloadLockedDocument = {
   __typename?: 'PayloadLockedDocument';
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -10134,7 +10454,6 @@ export enum PayloadLockedDocumentUpdate_DocumentRelationshipInputRelationTo {
   Media = 'media',
   Merch = 'merch',
   NewsPosts = 'newsPosts',
-  PayloadJobs = 'payload_jobs',
   RestartLibretime = 'restartLibretime',
   Shows = 'shows',
   Tags = 'tags',
@@ -10150,7 +10469,7 @@ export enum PayloadLockedDocumentUpdate_UserRelationshipInputRelationTo {
   Users = 'users'
 }
 
-export type PayloadLockedDocument_Document = Category | Host | LabelRelease | LiveVideo | Media | Merch | NewsPost | PayloadJob | RestartLibretime | Show | Tag | User;
+export type PayloadLockedDocument_Document = Category | Host | LabelRelease | LiveVideo | Media | Merch | NewsPost | RestartLibretime | Show | Tag | User;
 
 export type PayloadLockedDocument_DocumentRelationshipInput = {
   relationTo?: InputMaybe<PayloadLockedDocument_DocumentRelationshipInputRelationTo>;
@@ -10165,7 +10484,6 @@ export enum PayloadLockedDocument_DocumentRelationshipInputRelationTo {
   Media = 'media',
   Merch = 'merch',
   NewsPosts = 'newsPosts',
-  PayloadJobs = 'payload_jobs',
   RestartLibretime = 'restartLibretime',
   Shows = 'shows',
   Tags = 'tags',
@@ -10180,7 +10498,6 @@ export enum PayloadLockedDocument_Document_RelationTo {
   Media = 'media',
   Merch = 'merch',
   NewsPosts = 'newsPosts',
-  PayloadJobs = 'payload_jobs',
   RestartLibretime = 'restartLibretime',
   Shows = 'shows',
   Tags = 'tags',
@@ -10238,7 +10555,6 @@ export enum PayloadLockedDocument_Document_Relation_RelationTo {
   Media = 'media',
   Merch = 'merch',
   NewsPosts = 'newsPosts',
-  PayloadJobs = 'payload_jobs',
   RestartLibretime = 'restartLibretime',
   Shows = 'shows',
   Tags = 'tags',
@@ -11204,8 +11520,11 @@ export type Query = {
   NewsPost?: Maybe<NewsPost>;
   NewsPostBySlug?: Maybe<NewsPost>;
   NewsPosts?: Maybe<NewsPosts>;
+  Owncast?: Maybe<Owncast>;
   PayloadJob?: Maybe<PayloadJob>;
   PayloadJobs?: Maybe<PayloadJobs>;
+  PayloadKv?: Maybe<PayloadKv>;
+  PayloadKvs?: Maybe<PayloadKvs>;
   PayloadLockedDocument?: Maybe<PayloadLockedDocument>;
   PayloadLockedDocuments?: Maybe<PayloadLockedDocuments>;
   PayloadPreference?: Maybe<PayloadPreference>;
@@ -11229,6 +11548,7 @@ export type Query = {
   countMerches?: Maybe<CountMerches>;
   countNewsPosts?: Maybe<CountNewsPosts>;
   countPayloadJobs?: Maybe<CountPayloadJobs>;
+  countPayloadKvs?: Maybe<CountPayloadKvs>;
   countPayloadLockedDocuments?: Maybe<CountPayloadLockedDocuments>;
   countPayloadPreferences?: Maybe<CountPayloadPreferences>;
   countRestartLibretimes?: Maybe<CountRestartLibretimes>;
@@ -11246,6 +11566,7 @@ export type Query = {
   docAccessMerch?: Maybe<MerchDocAccess>;
   docAccessNewsPost?: Maybe<NewsPostsDocAccess>;
   docAccessPayloadJob?: Maybe<Payload_JobsDocAccess>;
+  docAccessPayloadKv?: Maybe<Payload_KvDocAccess>;
   docAccessPayloadLockedDocument?: Maybe<Payload_Locked_DocumentsDocAccess>;
   docAccessPayloadPreference?: Maybe<Payload_PreferencesDocAccess>;
   docAccessRestartLibretime?: Maybe<RestartLibretimeDocAccess>;
@@ -11263,6 +11584,7 @@ export type QueryAboutPageArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11273,7 +11595,9 @@ export type QueryCategoriesArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<Category_Where>;
 };
 
@@ -11283,6 +11607,8 @@ export type QueryCategoryArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11290,6 +11616,7 @@ export type QueryDonatePageArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11298,6 +11625,8 @@ export type QueryHostArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11308,7 +11637,9 @@ export type QueryHostsArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<Host_Where>;
 };
 
@@ -11318,6 +11649,8 @@ export type QueryLabelReleaseArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11328,7 +11661,9 @@ export type QueryLabelReleasesArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<LabelRelease_Where>;
 };
 
@@ -11338,6 +11673,8 @@ export type QueryLiveVideoArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11348,7 +11685,9 @@ export type QueryLiveVideosArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<LiveVideo_Where>;
 };
 
@@ -11358,6 +11697,8 @@ export type QueryMediaArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11366,6 +11707,8 @@ export type QueryMerchArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11376,7 +11719,9 @@ export type QueryMerchesArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<Merch_Where>;
 };
 
@@ -11386,6 +11731,8 @@ export type QueryNewsPostArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11402,7 +11749,9 @@ export type QueryNewsPostsArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<NewsPost_Where>;
 };
 
@@ -11412,6 +11761,8 @@ export type QueryPayloadJobArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11422,8 +11773,34 @@ export type QueryPayloadJobsArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<PayloadJob_Where>;
+};
+
+
+export type QueryPayloadKvArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  id: Scalars['String'];
+  locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+export type QueryPayloadKvsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<LocaleInputType>;
+  page?: InputMaybe<Scalars['Int']>;
+  pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
+  where?: InputMaybe<PayloadKv_Where>;
 };
 
 
@@ -11432,6 +11809,8 @@ export type QueryPayloadLockedDocumentArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11442,7 +11821,9 @@ export type QueryPayloadLockedDocumentsArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<PayloadLockedDocument_Where>;
 };
 
@@ -11452,6 +11833,8 @@ export type QueryPayloadPreferenceArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11462,7 +11845,9 @@ export type QueryPayloadPreferencesArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<PayloadPreference_Where>;
 };
 
@@ -11472,6 +11857,8 @@ export type QueryRestartLibretimeArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11482,7 +11869,9 @@ export type QueryRestartLibretimesArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<RestartLibretime_Where>;
 };
 
@@ -11492,6 +11881,8 @@ export type QueryShowArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11507,7 +11898,9 @@ export type QueryShowsArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<Show_Where>;
 };
 
@@ -11522,6 +11915,8 @@ export type QueryTagArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11532,7 +11927,9 @@ export type QueryTagsArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<Tag_Where>;
 };
 
@@ -11542,6 +11939,8 @@ export type QueryUserArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id: Scalars['String'];
   locale?: InputMaybe<LocaleInputType>;
+  select?: InputMaybe<Scalars['Boolean']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11552,7 +11951,9 @@ export type QueryUsersArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<User_Where>;
 };
 
@@ -11564,7 +11965,9 @@ export type QueryAllMediaArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<Media_Where>;
 };
 
@@ -11572,6 +11975,7 @@ export type QueryAllMediaArgs = {
 export type QueryCountCategoriesArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<Category_Where>;
 };
 
@@ -11579,6 +11983,7 @@ export type QueryCountCategoriesArgs = {
 export type QueryCountHostsArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<Host_Where>;
 };
 
@@ -11586,6 +11991,7 @@ export type QueryCountHostsArgs = {
 export type QueryCountLabelReleasesArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<LabelRelease_Where>;
 };
 
@@ -11593,6 +11999,7 @@ export type QueryCountLabelReleasesArgs = {
 export type QueryCountLiveVideosArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<LiveVideo_Where>;
 };
 
@@ -11600,6 +12007,7 @@ export type QueryCountLiveVideosArgs = {
 export type QueryCountMerchesArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<Merch_Where>;
 };
 
@@ -11607,6 +12015,7 @@ export type QueryCountMerchesArgs = {
 export type QueryCountNewsPostsArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<NewsPost_Where>;
 };
 
@@ -11614,13 +12023,23 @@ export type QueryCountNewsPostsArgs = {
 export type QueryCountPayloadJobsArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<PayloadJob_Where>;
+};
+
+
+export type QueryCountPayloadKvsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
+  where?: InputMaybe<PayloadKv_Where>;
 };
 
 
 export type QueryCountPayloadLockedDocumentsArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<PayloadLockedDocument_Where>;
 };
 
@@ -11628,6 +12047,7 @@ export type QueryCountPayloadLockedDocumentsArgs = {
 export type QueryCountPayloadPreferencesArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<PayloadPreference_Where>;
 };
 
@@ -11635,6 +12055,7 @@ export type QueryCountPayloadPreferencesArgs = {
 export type QueryCountRestartLibretimesArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<RestartLibretime_Where>;
 };
 
@@ -11642,6 +12063,7 @@ export type QueryCountRestartLibretimesArgs = {
 export type QueryCountShowsArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<Show_Where>;
 };
 
@@ -11649,6 +12071,7 @@ export type QueryCountShowsArgs = {
 export type QueryCountTagsArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<Tag_Where>;
 };
 
@@ -11656,6 +12079,7 @@ export type QueryCountTagsArgs = {
 export type QueryCountUsersArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<User_Where>;
 };
 
@@ -11663,6 +12087,7 @@ export type QueryCountUsersArgs = {
 export type QueryCountallMediaArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<Media_Where>;
 };
 
@@ -11707,6 +12132,11 @@ export type QueryDocAccessPayloadJobArgs = {
 };
 
 
+export type QueryDocAccessPayloadKvArgs = {
+  id: Scalars['String'];
+};
+
+
 export type QueryDocAccessPayloadLockedDocumentArgs = {
   id: Scalars['String'];
 };
@@ -11741,6 +12171,7 @@ export type QueryVersionNewsPostArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>;
   id?: InputMaybe<Scalars['String']>;
   locale?: InputMaybe<LocaleInputType>;
+  trash?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -11750,7 +12181,9 @@ export type QueryVersionsNewsPostsArgs = {
   locale?: InputMaybe<LocaleInputType>;
   page?: InputMaybe<Scalars['Int']>;
   pagination?: InputMaybe<Scalars['Boolean']>;
+  select?: InputMaybe<Scalars['Boolean']>;
   sort?: InputMaybe<Scalars['String']>;
+  trash?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<VersionsNewsPost_Where>;
 };
 
@@ -13265,6 +13698,7 @@ export type User = {
   resetPasswordToken?: Maybe<Scalars['String']>;
   roles?: Maybe<Array<User_Roles>>;
   salt?: Maybe<Scalars['String']>;
+  sessions?: Maybe<Array<User_Sessions>>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -13273,6 +13707,13 @@ export enum UserUpdate_Roles_MutationInput {
   Creator = 'creator',
   Editor = 'editor'
 }
+
+export type User_Sessions = {
+  __typename?: 'User_Sessions';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  expiresAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+};
 
 export type User_ApiKey_Operator = {
   all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
@@ -13370,6 +13811,37 @@ export type User_Roles_Operator = {
   not_in?: InputMaybe<Array<InputMaybe<User_Roles_Input>>>;
 };
 
+export type User_Sessions__CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type User_Sessions__ExpiresAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type User_Sessions__Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
 export type User_UpdatedAt_Operator = {
   equals?: InputMaybe<Scalars['DateTime']>;
   exists?: InputMaybe<Scalars['Boolean']>;
@@ -13392,6 +13864,9 @@ export type User_Where = {
   id?: InputMaybe<User_Id_Operator>;
   lastName?: InputMaybe<User_LastName_Operator>;
   roles?: InputMaybe<User_Roles_Operator>;
+  sessions__createdAt?: InputMaybe<User_Sessions__CreatedAt_Operator>;
+  sessions__expiresAt?: InputMaybe<User_Sessions__ExpiresAt_Operator>;
+  sessions__id?: InputMaybe<User_Sessions__Id_Operator>;
   updatedAt?: InputMaybe<User_UpdatedAt_Operator>;
 };
 
@@ -13406,6 +13881,9 @@ export type User_Where_And = {
   id?: InputMaybe<User_Id_Operator>;
   lastName?: InputMaybe<User_LastName_Operator>;
   roles?: InputMaybe<User_Roles_Operator>;
+  sessions__createdAt?: InputMaybe<User_Sessions__CreatedAt_Operator>;
+  sessions__expiresAt?: InputMaybe<User_Sessions__ExpiresAt_Operator>;
+  sessions__id?: InputMaybe<User_Sessions__Id_Operator>;
   updatedAt?: InputMaybe<User_UpdatedAt_Operator>;
 };
 
@@ -13420,6 +13898,9 @@ export type User_Where_Or = {
   id?: InputMaybe<User_Id_Operator>;
   lastName?: InputMaybe<User_LastName_Operator>;
   roles?: InputMaybe<User_Roles_Operator>;
+  sessions__createdAt?: InputMaybe<User_Sessions__CreatedAt_Operator>;
+  sessions__expiresAt?: InputMaybe<User_Sessions__ExpiresAt_Operator>;
+  sessions__id?: InputMaybe<User_Sessions__Id_Operator>;
   updatedAt?: InputMaybe<User_UpdatedAt_Operator>;
 };
 
@@ -13471,6 +13952,7 @@ export type UsersDocAccessFields = {
   firstName?: Maybe<UsersDocAccessFields_FirstName>;
   lastName?: Maybe<UsersDocAccessFields_LastName>;
   roles?: Maybe<UsersDocAccessFields_Roles>;
+  sessions?: Maybe<UsersDocAccessFields_Sessions>;
   updatedAt?: Maybe<UsersDocAccessFields_UpdatedAt>;
 };
 
@@ -13670,6 +14152,126 @@ export type UsersDocAccessFields_Roles_Update = {
   permission: Scalars['Boolean'];
 };
 
+export type UsersDocAccessFields_Sessions = {
+  __typename?: 'UsersDocAccessFields_sessions';
+  create?: Maybe<UsersDocAccessFields_Sessions_Create>;
+  delete?: Maybe<UsersDocAccessFields_Sessions_Delete>;
+  fields?: Maybe<UsersDocAccessFields_Sessions_Fields>;
+  read?: Maybe<UsersDocAccessFields_Sessions_Read>;
+  update?: Maybe<UsersDocAccessFields_Sessions_Update>;
+};
+
+export type UsersDocAccessFields_Sessions_Create = {
+  __typename?: 'UsersDocAccessFields_sessions_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_Delete = {
+  __typename?: 'UsersDocAccessFields_sessions_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_Fields = {
+  __typename?: 'UsersDocAccessFields_sessions_Fields';
+  createdAt?: Maybe<UsersDocAccessFields_Sessions_CreatedAt>;
+  expiresAt?: Maybe<UsersDocAccessFields_Sessions_ExpiresAt>;
+  id?: Maybe<UsersDocAccessFields_Sessions_Id>;
+};
+
+export type UsersDocAccessFields_Sessions_Read = {
+  __typename?: 'UsersDocAccessFields_sessions_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_Update = {
+  __typename?: 'UsersDocAccessFields_sessions_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_CreatedAt = {
+  __typename?: 'UsersDocAccessFields_sessions_createdAt';
+  create?: Maybe<UsersDocAccessFields_Sessions_CreatedAt_Create>;
+  delete?: Maybe<UsersDocAccessFields_Sessions_CreatedAt_Delete>;
+  read?: Maybe<UsersDocAccessFields_Sessions_CreatedAt_Read>;
+  update?: Maybe<UsersDocAccessFields_Sessions_CreatedAt_Update>;
+};
+
+export type UsersDocAccessFields_Sessions_CreatedAt_Create = {
+  __typename?: 'UsersDocAccessFields_sessions_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_CreatedAt_Delete = {
+  __typename?: 'UsersDocAccessFields_sessions_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_CreatedAt_Read = {
+  __typename?: 'UsersDocAccessFields_sessions_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_CreatedAt_Update = {
+  __typename?: 'UsersDocAccessFields_sessions_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_ExpiresAt = {
+  __typename?: 'UsersDocAccessFields_sessions_expiresAt';
+  create?: Maybe<UsersDocAccessFields_Sessions_ExpiresAt_Create>;
+  delete?: Maybe<UsersDocAccessFields_Sessions_ExpiresAt_Delete>;
+  read?: Maybe<UsersDocAccessFields_Sessions_ExpiresAt_Read>;
+  update?: Maybe<UsersDocAccessFields_Sessions_ExpiresAt_Update>;
+};
+
+export type UsersDocAccessFields_Sessions_ExpiresAt_Create = {
+  __typename?: 'UsersDocAccessFields_sessions_expiresAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_ExpiresAt_Delete = {
+  __typename?: 'UsersDocAccessFields_sessions_expiresAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_ExpiresAt_Read = {
+  __typename?: 'UsersDocAccessFields_sessions_expiresAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_ExpiresAt_Update = {
+  __typename?: 'UsersDocAccessFields_sessions_expiresAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_Id = {
+  __typename?: 'UsersDocAccessFields_sessions_id';
+  create?: Maybe<UsersDocAccessFields_Sessions_Id_Create>;
+  delete?: Maybe<UsersDocAccessFields_Sessions_Id_Delete>;
+  read?: Maybe<UsersDocAccessFields_Sessions_Id_Read>;
+  update?: Maybe<UsersDocAccessFields_Sessions_Id_Update>;
+};
+
+export type UsersDocAccessFields_Sessions_Id_Create = {
+  __typename?: 'UsersDocAccessFields_sessions_id_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_Id_Delete = {
+  __typename?: 'UsersDocAccessFields_sessions_id_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_Id_Read = {
+  __typename?: 'UsersDocAccessFields_sessions_id_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersDocAccessFields_Sessions_Id_Update = {
+  __typename?: 'UsersDocAccessFields_sessions_id_Update';
+  permission: Scalars['Boolean'];
+};
+
 export type UsersDocAccessFields_UpdatedAt = {
   __typename?: 'UsersDocAccessFields_updatedAt';
   create?: Maybe<UsersDocAccessFields_UpdatedAt_Create>;
@@ -13707,6 +14309,7 @@ export type UsersFields = {
   firstName?: Maybe<UsersFields_FirstName>;
   lastName?: Maybe<UsersFields_LastName>;
   roles?: Maybe<UsersFields_Roles>;
+  sessions?: Maybe<UsersFields_Sessions>;
   updatedAt?: Maybe<UsersFields_UpdatedAt>;
 };
 
@@ -13906,6 +14509,126 @@ export type UsersFields_Roles_Update = {
   permission: Scalars['Boolean'];
 };
 
+export type UsersFields_Sessions = {
+  __typename?: 'UsersFields_sessions';
+  create?: Maybe<UsersFields_Sessions_Create>;
+  delete?: Maybe<UsersFields_Sessions_Delete>;
+  fields?: Maybe<UsersFields_Sessions_Fields>;
+  read?: Maybe<UsersFields_Sessions_Read>;
+  update?: Maybe<UsersFields_Sessions_Update>;
+};
+
+export type UsersFields_Sessions_Create = {
+  __typename?: 'UsersFields_sessions_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_Delete = {
+  __typename?: 'UsersFields_sessions_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_Fields = {
+  __typename?: 'UsersFields_sessions_Fields';
+  createdAt?: Maybe<UsersFields_Sessions_CreatedAt>;
+  expiresAt?: Maybe<UsersFields_Sessions_ExpiresAt>;
+  id?: Maybe<UsersFields_Sessions_Id>;
+};
+
+export type UsersFields_Sessions_Read = {
+  __typename?: 'UsersFields_sessions_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_Update = {
+  __typename?: 'UsersFields_sessions_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_CreatedAt = {
+  __typename?: 'UsersFields_sessions_createdAt';
+  create?: Maybe<UsersFields_Sessions_CreatedAt_Create>;
+  delete?: Maybe<UsersFields_Sessions_CreatedAt_Delete>;
+  read?: Maybe<UsersFields_Sessions_CreatedAt_Read>;
+  update?: Maybe<UsersFields_Sessions_CreatedAt_Update>;
+};
+
+export type UsersFields_Sessions_CreatedAt_Create = {
+  __typename?: 'UsersFields_sessions_createdAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_CreatedAt_Delete = {
+  __typename?: 'UsersFields_sessions_createdAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_CreatedAt_Read = {
+  __typename?: 'UsersFields_sessions_createdAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_CreatedAt_Update = {
+  __typename?: 'UsersFields_sessions_createdAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_ExpiresAt = {
+  __typename?: 'UsersFields_sessions_expiresAt';
+  create?: Maybe<UsersFields_Sessions_ExpiresAt_Create>;
+  delete?: Maybe<UsersFields_Sessions_ExpiresAt_Delete>;
+  read?: Maybe<UsersFields_Sessions_ExpiresAt_Read>;
+  update?: Maybe<UsersFields_Sessions_ExpiresAt_Update>;
+};
+
+export type UsersFields_Sessions_ExpiresAt_Create = {
+  __typename?: 'UsersFields_sessions_expiresAt_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_ExpiresAt_Delete = {
+  __typename?: 'UsersFields_sessions_expiresAt_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_ExpiresAt_Read = {
+  __typename?: 'UsersFields_sessions_expiresAt_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_ExpiresAt_Update = {
+  __typename?: 'UsersFields_sessions_expiresAt_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_Id = {
+  __typename?: 'UsersFields_sessions_id';
+  create?: Maybe<UsersFields_Sessions_Id_Create>;
+  delete?: Maybe<UsersFields_Sessions_Id_Delete>;
+  read?: Maybe<UsersFields_Sessions_Id_Read>;
+  update?: Maybe<UsersFields_Sessions_Id_Update>;
+};
+
+export type UsersFields_Sessions_Id_Create = {
+  __typename?: 'UsersFields_sessions_id_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_Id_Delete = {
+  __typename?: 'UsersFields_sessions_id_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_Id_Read = {
+  __typename?: 'UsersFields_sessions_id_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type UsersFields_Sessions_Id_Update = {
+  __typename?: 'UsersFields_sessions_id_Update';
+  permission: Scalars['Boolean'];
+};
+
 export type UsersFields_UpdatedAt = {
   __typename?: 'UsersFields_updatedAt';
   create?: Maybe<UsersFields_UpdatedAt_Create>;
@@ -14058,6 +14781,11 @@ export type CountNewsPosts = {
 
 export type CountPayloadJobs = {
   __typename?: 'countPayloadJobs';
+  totalDocs?: Maybe<Scalars['Int']>;
+};
+
+export type CountPayloadKvs = {
+  __typename?: 'countPayloadKvs';
   totalDocs?: Maybe<Scalars['Int']>;
 };
 
@@ -14526,6 +15254,16 @@ export type MutationPayloadJob_LogInput = {
   taskSlug: PayloadJob_Log_TaskSlug_MutationInput;
 };
 
+export type MutationPayloadKvInput = {
+  data: Scalars['JSON'];
+  key: Scalars['String'];
+};
+
+export type MutationPayloadKvUpdateInput = {
+  data?: InputMaybe<Scalars['JSON']>;
+  key?: InputMaybe<Scalars['String']>;
+};
+
 export type MutationPayloadLockedDocumentInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   document?: InputMaybe<PayloadLockedDocument_DocumentRelationshipInput>;
@@ -14624,6 +15362,7 @@ export type MutationUserInput = {
   resetPasswordToken?: InputMaybe<Scalars['String']>;
   roles?: InputMaybe<Array<InputMaybe<User_Roles_MutationInput>>>;
   salt?: InputMaybe<Scalars['String']>;
+  sessions?: InputMaybe<Array<InputMaybe<MutationUser_SessionsInput>>>;
   updatedAt?: InputMaybe<Scalars['String']>;
 };
 
@@ -14643,7 +15382,20 @@ export type MutationUserUpdateInput = {
   resetPasswordToken?: InputMaybe<Scalars['String']>;
   roles?: InputMaybe<Array<InputMaybe<UserUpdate_Roles_MutationInput>>>;
   salt?: InputMaybe<Scalars['String']>;
+  sessions?: InputMaybe<Array<InputMaybe<MutationUserUpdate_SessionsInput>>>;
   updatedAt?: InputMaybe<Scalars['String']>;
+};
+
+export type MutationUserUpdate_SessionsInput = {
+  createdAt?: InputMaybe<Scalars['String']>;
+  expiresAt: Scalars['String'];
+  id: Scalars['String'];
+};
+
+export type MutationUser_SessionsInput = {
+  createdAt?: InputMaybe<Scalars['String']>;
+  expiresAt: Scalars['String'];
+  id: Scalars['String'];
 };
 
 export type NewsPostsAccess = {
@@ -14682,6 +15434,24 @@ export type Payload_JobsDocAccess = {
   fields?: Maybe<PayloadJobsDocAccessFields>;
   read?: Maybe<PayloadJobsReadDocAccess>;
   update?: Maybe<PayloadJobsUpdateDocAccess>;
+};
+
+export type Payload_KvAccess = {
+  __typename?: 'payload_kvAccess';
+  create?: Maybe<PayloadKvCreateAccess>;
+  delete?: Maybe<PayloadKvDeleteAccess>;
+  fields?: Maybe<PayloadKvFields>;
+  read?: Maybe<PayloadKvReadAccess>;
+  update?: Maybe<PayloadKvUpdateAccess>;
+};
+
+export type Payload_KvDocAccess = {
+  __typename?: 'payload_kvDocAccess';
+  create?: Maybe<PayloadKvCreateDocAccess>;
+  delete?: Maybe<PayloadKvDeleteDocAccess>;
+  fields?: Maybe<PayloadKvDocAccessFields>;
+  read?: Maybe<PayloadKvReadDocAccess>;
+  update?: Maybe<PayloadKvUpdateDocAccess>;
 };
 
 export type Payload_Locked_DocumentsAccess = {
@@ -15291,6 +16061,11 @@ export type YoutubeChannelQueryQueryVariables = Exact<{ [key: string]: never; }>
 
 export type YoutubeChannelQueryQuery = { __typename?: 'Query', YoutubeChannel?: { __typename?: 'YoutubeChannel', isLive?: boolean | null, channelId?: string | null, url?: string | null, videoId?: string | null, imageUrl?: string | null } | null };
 
+export type OwncastQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type OwncastQueryQuery = { __typename?: 'Query', Owncast?: { __typename?: 'Owncast', isLive?: boolean | null } | null };
+
 
 export const ShowByFieldsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ShowByFields"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Show_where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Shows"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<ShowByFieldsQuery, ShowByFieldsQueryVariables>;
 export const ShowsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Shows"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Show_where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Shows"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"docs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}}]}}]}}]} as unknown as DocumentNode<ShowsQuery, ShowsQueryVariables>;
@@ -15312,3 +16087,4 @@ export const PaginatedLiveVideosDocument = {"kind":"Document","definitions":[{"k
 export const AboutPageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AboutPageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"LocaleInputType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AboutPage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<AboutPageQueryQuery, AboutPageQueryQueryVariables>;
 export const DonatePageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"DonatePageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"LocaleInputType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"DonatePage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]} as unknown as DocumentNode<DonatePageQueryQuery, DonatePageQueryQueryVariables>;
 export const YoutubeChannelQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"YoutubeChannelQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"YoutubeChannel"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isLive"}},{"kind":"Field","name":{"kind":"Name","value":"channelId"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"videoId"}},{"kind":"Field","name":{"kind":"Name","value":"imageUrl"}}]}}]}}]} as unknown as DocumentNode<YoutubeChannelQueryQuery, YoutubeChannelQueryQueryVariables>;
+export const OwncastQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"OwncastQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Owncast"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isLive"}}]}}]}}]} as unknown as DocumentNode<OwncastQueryQuery, OwncastQueryQueryVariables>;
