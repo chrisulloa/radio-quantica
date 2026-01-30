@@ -100,6 +100,17 @@ const fetchYoutubeLivePage = async (channelId: string) => {
   return response.data as string;
 };
 
+export const owncastResolver = async (_obj, _args, _context) => {
+  const cacheKey = `OwncastIsLive`;
+  const cacheValue = cache.getCache(cacheKey) as boolean | undefined;
+
+  if (cacheValue != undefined) {
+    return { isLive: cacheValue };
+  }
+
+  return { isLive: false };
+};
+
 export const youtubeChannelResolver = async (_obj, _args, _context) => {
   let isLive = false;
   let result: YoutubeChannelResolverResult | undefined;

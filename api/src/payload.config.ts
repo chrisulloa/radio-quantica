@@ -1,6 +1,6 @@
 import { buildConfig } from 'payload';
 import path from 'path';
-import { GraphQLObjectType, GraphQLString } from 'graphql';
+import { GraphQLString } from 'graphql';
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
 import { slateEditor } from '@payloadcms/richtext-slate';
 import { buildPaginatedListType } from '@payloadcms/graphql/types';
@@ -12,6 +12,7 @@ import {
   newsPostBySlugResolver,
   youtubeChannelResolver,
   goFundMeStatusResolver,
+  owncastResolver,
 } from './graphql/resolvers';
 import {
   spacesURL,
@@ -25,6 +26,7 @@ import Users from './collections/users';
 import sharp from 'sharp';
 import seed from './seed';
 import Tasks from './tasks';
+import cache from './utils/cache';
 
 const __dirname = path.resolve();
 
@@ -116,6 +118,20 @@ export default buildConfig({
         return Response.json(data);
       },
     },
+    {
+      path: '/set-owncast-status',
+      method: 'post',
+      handler: async (req) => {
+        const data = (await req.json()) as {
+          type: 'STREAM_STARTED' | 'STREAM_STOPPED';
+        };
+
+        cache.setCache('OwncastIsLive', data.type === 'STREAM_STARTED');
+        return Response.json({
+          message: `Success`,
+        });
+      },
+    },
   ],
   graphQL: {
     queries: (GraphQL, payload) => ({
@@ -139,6 +155,15 @@ export default buildConfig({
           },
         },
         resolve: showBySlugResolver,
+      },
+      Owncast: {
+        type: new GraphQL.GraphQLObjectType({
+          name: 'Owncast',
+          fields: {
+            isLive: { type: GraphQL.GraphQLBoolean },
+          },
+        }),
+        resolve: owncastResolver,
       },
       YoutubeChannel: {
         type: new GraphQL.GraphQLObjectType({

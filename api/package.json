@@ -6,6 +6,7 @@
   "engines": {
     "node": "21.x"
   },
+  "type": "module",
   "scripts": {
     "start": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts NODE_ENV=production next start",
     "build": "./build.sh",
