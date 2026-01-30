@@ -9,7 +9,7 @@
     "outDir": "dist",
     "declaration": true,
     "jsx": "preserve",
-    "module": "nodenext",
+    "module": "preserve",
     "esModuleInterop": true,
     "allowJs": true,
     "allowImportingTsExtensions": true,
@@ -18,7 +18,7 @@
     "strict": false,
     "skipLibCheck": true,
     "sourceMap": true,
-    "moduleResolution": "nodenext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "noErrorTruncation": true,
     "paths": {
