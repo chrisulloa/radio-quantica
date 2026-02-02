@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { Payload } from 'payload';
+import { Payload, getPayload } from 'payload';
 import { parse } from 'node-html-parser';
 import { randomInt } from 'crypto';
 import { youtubeLiveImageUrl } from '../utils/youtube';
 import cache from '../utils/cache';
-import { SiteSetting } from 'payload/generated-types';
+import configPromise from '@/payload.config';
 
 export const showsByCategoryResolver = async (
   obj,
@@ -104,9 +104,10 @@ const fetchYoutubeLivePage = async (channelId: string) => {
 export const owncastResolver = async (
   _obj: unknown,
   _args: unknown,
-  context: { payload: Payload }
+  _context: unknown
 ) => {
-  const status = await context.payload.findGlobal({
+  const payload = await getPayload({ config: configPromise });
+  const status = await payload.findGlobal({
     slug: 'siteSettings',
   });
 
