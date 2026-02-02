@@ -26,7 +26,6 @@ import Users from './collections/users';
 import sharp from 'sharp';
 import seed from './seed';
 import Tasks from './tasks';
-import cache from './utils/cache';
 
 const __dirname = path.resolve();
 
@@ -127,7 +126,10 @@ export default buildConfig({
         };
         if (data.type === 'STREAM_STARTED') {
           // If we get a start signal, set live immediately
-          cache.setCache('OwncastIsLive', true);
+          req.payload.updateGlobal({
+            slug: 'siteSettings',
+            data: { isLive: true },
+          });
         } else if (data.type === 'STREAM_STOPPED') {
           // WAIT before marking offline to see if it's just a flicker
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
@@ -142,11 +144,17 @@ export default buildConfig({
               };
 
               if (!status.online) {
-                cache.setCache('OwncastIsLive', false);
+                req.payload.updateGlobal({
+                  slug: 'siteSettings',
+                  data: { isLive: false },
+                });
               }
             } catch (e) {
               // Fallback if API fails
-              cache.setCache('OwncastIsLive', false);
+              req.payload.updateGlobal({
+                slug: 'siteSettings',
+                data: { isLive: false },
+              });
             }
           }, 30000); // 30-second grace period
         }

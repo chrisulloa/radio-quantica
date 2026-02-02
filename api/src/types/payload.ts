@@ -110,10 +110,12 @@ export interface Config {
   globals: {
     aboutPage: AboutPage;
     donatePage: DonatePage;
+    siteSettings: SiteSetting;
   };
   globalsSelect: {
     aboutPage: AboutPageSelect<false> | AboutPageSelect<true>;
     donatePage: DonatePageSelect<false> | DonatePageSelect<true>;
+    siteSettings: SiteSettingsSelect<false> | SiteSettingsSelect<true>;
   };
   locale: 'en' | 'pt';
   user: User & {
@@ -902,6 +904,16 @@ export interface DonatePage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "siteSettings".
+ */
+export interface SiteSetting {
+  id: string;
+  isLive?: boolean | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "aboutPage_select".
  */
 export interface AboutPageSelect<T extends boolean = true> {
@@ -916,6 +928,16 @@ export interface AboutPageSelect<T extends boolean = true> {
  */
 export interface DonatePageSelect<T extends boolean = true> {
   content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "siteSettings_select".
+ */
+export interface SiteSettingsSelect<T extends boolean = true> {
+  isLive?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

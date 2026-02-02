@@ -4,6 +4,7 @@ import { parse } from 'node-html-parser';
 import { randomInt } from 'crypto';
 import { youtubeLiveImageUrl } from '../utils/youtube';
 import cache from '../utils/cache';
+import { SiteSetting } from 'payload/generated-types';
 
 export const showsByCategoryResolver = async (
   obj,
@@ -100,15 +101,16 @@ const fetchYoutubeLivePage = async (channelId: string) => {
   return response.data as string;
 };
 
-export const owncastResolver = async (_obj, _args, _context) => {
-  const cacheKey = `OwncastIsLive`;
-  const cacheValue = cache.getCache(cacheKey) as boolean | undefined;
+export const owncastResolver = async (
+  _obj: unknown,
+  _args: unknown,
+  context: { payload: Payload }
+) => {
+  const status = await context.payload.findGlobal({
+    slug: 'siteSettings',
+  });
 
-  if (cacheValue != undefined) {
-    return { isLive: cacheValue };
-  }
-
-  return { isLive: false };
+  return { isLive: !!status.isLive };
 };
 
 export const youtubeChannelResolver = async (_obj, _args, _context) => {
