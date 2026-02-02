@@ -125,11 +125,33 @@ export default buildConfig({
         const data = (await req.json()) as {
           type: 'STREAM_STARTED' | 'STREAM_STOPPED';
         };
+        if (data.type === 'STREAM_STARTED') {
+          // If we get a start signal, set live immediately
+          cache.setCache('OwncastIsLive', true);
+        } else if (data.type === 'STREAM_STOPPED') {
+          // WAIT before marking offline to see if it's just a flicker
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          setTimeout(async () => {
+            // Double check: Ask Owncast API if it's REALLY offline now
+            try {
+              const response = await fetch(
+                'https://owncast.radioquantica.com/api/status'
+              );
+              const status = (await response.json()) as {
+                online: boolean;
+              };
 
-        cache.setCache('OwncastIsLive', data.type === 'STREAM_STARTED');
-        return Response.json({
-          message: `Success`,
-        });
+              if (!status.online) {
+                cache.setCache('OwncastIsLive', false);
+              }
+            } catch (e) {
+              // Fallback if API fails
+              cache.setCache('OwncastIsLive', false);
+            }
+          }, 30000); // 30-second grace period
+        }
+
+        return Response.json({ message: 'Success' });
       },
     },
   ],
