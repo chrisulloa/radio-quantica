@@ -21,7 +21,7 @@ const VideoCard = (props: {
         id={`${video.videoId}`}
         title={video.title}
       ></LiteYouTubeEmbed>
-      <div className="text-white font-space-mono justify-center w-full flex text-sm mt-2">
+      <div className="text-white font-space-mono justify-center w-full flex text-sm mt-2 text-center">
         {formatCompactShowDate(`${video.date}`)} - {video.title}
       </div>
     </div>

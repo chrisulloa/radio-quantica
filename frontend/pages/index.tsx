@@ -16,14 +16,12 @@ import {
   LiveVideosQuery,
   MerchQuery,
   NewsPostsQuery,
-  OwncastQueryQuery,
 } from "../lib/gql/types/graphql";
 import React from "react";
 import { deviceIsMobile } from "../lib/deviceInfo";
 import { MerchCard } from "../components/merchCard";
 import { LabelReleaseCard } from "../components/labelReleaseCard";
 import { useQuery } from "@apollo/client";
-import { LoadingSpinner } from "../components/loadingSpinner";
 import LiveVideoCard from "../components/liveVideoCard";
 import VideoCard from "../components/videoCard";
 import { defaultOgImage } from "../lib/utils";
@@ -238,7 +236,7 @@ const LeftContent = ({
       <hr className="mt-4"></hr>
       {isLiveVideoStream && <LiveVideoCard />}
       {!isLiveVideoStream && <LiveVideos liveVideos={liveVideos}></LiveVideos>}
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-8">
         <h1 className="text-white">NEWS</h1>
         <Link
           href="/news"
