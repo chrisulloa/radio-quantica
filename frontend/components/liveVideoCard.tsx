@@ -5,7 +5,7 @@ const LiveVideoCard = () => {
         className="w-full aspect-ratio py-4 px-4"
         src="https://owncast.radioquantica.com/embed/video"
         title="Owncast"
-        height="800px"
+        height="650px"
         width="550px"
         referrerPolicy="origin"
         allowFullScreen
