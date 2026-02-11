@@ -1,16 +1,14 @@
 const LiveVideoCard = () => {
   return (
-    <div className="w-full">
-      <iframe
-        className="w-full aspect-ratio py-4 px-4 sm:h-[60vh] h-[35vh]"
-        src="https://owncast.radioquantica.com/embed/video"
-        title="Owncast"
-        height="650px"
-        width="550px"
-        referrerPolicy="origin"
-        allowFullScreen
-      ></iframe>
-    </div>
+    <iframe
+      className="w-full aspect-ratio py-4 px-4"
+      src="https://owncast.radioquantica.com/embed/video"
+      title="Owncast"
+      height="650px"
+      width="550px"
+      referrerPolicy="origin"
+      allowFullScreen
+    ></iframe>
   );
 };
 
