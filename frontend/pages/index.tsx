@@ -74,6 +74,7 @@ const HomePageHeader = () => {
   return (
     <Head>
       <title>Rádio Quântica</title>
+      <meta name="description" content="Rádio Quântica is a Lisbon-based community radio station and underground arts platform, broadcasting 24/7 since 2015. Stream live shows, news, and independent music.">
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@quanticaonline" />
       <meta name="twitter:title" content="Rádio Quântica" />
