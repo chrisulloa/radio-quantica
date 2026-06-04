@@ -141,7 +141,7 @@ export default function SchedulePage() {
 
   const { data, error, isLoading } = useSWR(
     `${libretimeServerURL}/api/week-info`,
-    fetcher
+    fetcher,
   );
 
   const schedule = data ? data[day] : emptySchedule[day];
@@ -165,14 +165,15 @@ export default function SchedulePage() {
         <h1 className="pb-2 text-xl">SCHEDULE</h1>
         <hr className="w-full"></hr>
         <div className="pt-4">
-          {days.map((d) => {
-            return (
-              <div className="pb-2" key={d}>
-                <p className="underline pb-1 pt-4">{d.toUpperCase()}</p>
-                <DaySchedule schedule={schedule}></DaySchedule>
-              </div>
-            );
-          })}
+          {data &&
+            days.map((d) => {
+              return (
+                <div className="pb-2" key={d}>
+                  <p className="underline pb-1 pt-4">{d.toUpperCase()}</p>
+                  <DaySchedule schedule={data[d]}></DaySchedule>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>
