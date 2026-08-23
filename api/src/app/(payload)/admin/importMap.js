@@ -42,8 +42,9 @@ import { UploadElementButton as UploadElementButton_0b388c087d9de8c4f011dd323a13
 import { UploadElement as UploadElement_0b388c087d9de8c4f011dd323a130cfb } from '@payloadcms/richtext-slate/client'
 import { WithUpload as WithUpload_0b388c087d9de8c4f011dd323a130cfb } from '@payloadcms/richtext-slate/client'
 import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from '@payloadcms/storage-s3/client'
-import { CollectionCards as CollectionCards_ab83ff7e88da8d3530831f296ec4756a } from '@payloadcms/ui/rsc'
+import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 
+/** @type import('payload').ImportMap */
 export const importMap = {
   "@payloadcms/richtext-slate/rsc#RscEntrySlateCell": RscEntrySlateCell_0e78253914a550fdacd75626f1dabe17,
   "@payloadcms/richtext-slate/rsc#RscEntrySlateField": RscEntrySlateField_0e78253914a550fdacd75626f1dabe17,
@@ -89,5 +90,5 @@ export const importMap = {
   "@payloadcms/richtext-slate/client#UploadElement": UploadElement_0b388c087d9de8c4f011dd323a130cfb,
   "@payloadcms/richtext-slate/client#WithUpload": WithUpload_0b388c087d9de8c4f011dd323a130cfb,
   "@payloadcms/storage-s3/client#S3ClientUploadHandler": S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24,
-  "@payloadcms/ui/rsc#CollectionCards": CollectionCards_ab83ff7e88da8d3530831f296ec4756a
+  "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1
 }
