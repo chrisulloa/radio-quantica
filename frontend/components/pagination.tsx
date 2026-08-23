@@ -5,7 +5,8 @@ import usePagination from "../hooks/usePagination";
 export type PaginationProps = {
   totalPages: number;
   currentPage: number;
-  renderPageLink: (page: number) => string;
+  renderPageLink?: (page: number) => string;
+  onPageClick?: (page: number) => void;
 };
 
 export const dotts = "...";
@@ -14,6 +15,7 @@ const Pagination = ({
   totalPages,
   currentPage,
   renderPageLink,
+  onPageClick,
 }: PaginationProps) => {
   const pages = usePagination(totalPages, currentPage);
 
@@ -25,10 +27,23 @@ const Pagination = ({
           <span key={i} className="px-4 font-semibold text-dos-grey">
             {pageNumber}
           </span>
+        ) : onPageClick ? (
+          <button
+            key={i}
+            type="button"
+            onClick={() => onPageClick(pageNumber as number)}
+            className={`${
+              pageNumber === currentPage
+                ? "text-dos-grey pointer-events-none cursor-default"
+                : "text-white  hover:text-dos-grey"
+            } px-2 mx-1 font-semibold no-underline`}
+          >
+            {pageNumber}
+          </button>
         ) : (
           <Link
             key={i}
-            href={renderPageLink(pageNumber as number)}
+            href={renderPageLink!(pageNumber as number)}
             className={`${
               pageNumber === currentPage
                 ? "text-dos-grey pointer-events-none cursor-default"

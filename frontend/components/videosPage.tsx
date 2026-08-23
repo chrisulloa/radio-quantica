@@ -1,9 +1,16 @@
 import Head from "next/head";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import debounce from "lodash/debounce";
+import { useLazyQuery } from "@apollo/client";
 import { LiveVideo } from "../lib/gql/types/graphql";
 import Pagination from "./pagination";
 import Link from "next/link";
 import VideoCard from "./videoCard";
 import { defaultOgImage } from "../lib/utils";
+import { paginatedVidsQuery } from "../lib/gql/documents/queries";
+import { SearchIcon } from "./icons/searchIcon";
+
+const SEARCH_LIMIT = 24;
 
 const StreamsHeader = ({ page }: { page: number }) => {
   const title = `Streams - Page ${page} - Rádio Quântica`;
@@ -50,48 +57,133 @@ export default function VideosPage({
   totalPages: number;
   pageSize: number;
 }) {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchPage, setSearchPage] = useState(1);
+  const isSearching = searchTerm.trim().length > 0;
+
+  const [runSearch, { data: searchData, loading: searchLoading }] =
+    useLazyQuery(paginatedVidsQuery, { fetchPolicy: "network-only" });
+
+  const executeSearch = useCallback(
+    (term: string, page: number) => {
+      runSearch({
+        variables: {
+          page,
+          limit: SEARCH_LIMIT,
+          sort: "-sortableId",
+          where: { title: { like: term } },
+        },
+      });
+    },
+    [runSearch]
+  );
+
+  const debouncedSearch = useMemo(
+    () =>
+      debounce((term: string) => {
+        setSearchPage(1);
+        if (term.trim()) {
+          executeSearch(term, 1);
+        }
+      }, 300),
+    [executeSearch]
+  );
+
+  useEffect(() => {
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [debouncedSearch]);
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setSearchTerm(val);
+    debouncedSearch(val);
+  };
+
+  const handleSearchPageClick = (page: number) => {
+    setSearchPage(page);
+    executeSearch(searchTerm, page);
+  };
+
   if (!vids) {
     return <div className="text-white">Unable to load videos...</div>;
   }
+
+  const searchResults = searchData?.LiveVideos?.docs ?? [];
+  const displayedVids = isSearching ? searchResults : vids;
+  const displayedTotalPages = isSearching
+    ? searchData?.LiveVideos?.totalPages ?? 1
+    : totalPages;
+
   return (
     <div className="md:ml-4 px-4 md:px-0 w-full md:w-10/12 lg:w-10/12 2xl:w-10/12 mb-5">
       <StreamsHeader page={currentPage}></StreamsHeader>
       <div className="flex justify-between mb-4">
         <h1 className="text-white">STREAMS</h1>
-        <div className="text-white">
-          {currentPage !== 1 && (
-            <Link
-              href={`/streams/page/${currentPage - 1}`}
-              className="text-white hover:text-dos-grey"
-            >
-              ←
-            </Link>
-          )}
-          &nbsp;&nbsp;
-          {currentPage < totalPages && (
-            <Link
-              href={`/streams/page/${currentPage + 1}`}
-              className="text-white hover:text-dos-grey"
-            >
-              →
-            </Link>
-          )}
-        </div>
+        {!isSearching && (
+          <div className="text-white">
+            {currentPage !== 1 && (
+              <Link
+                href={`/streams/page/${currentPage - 1}`}
+                className="text-white hover:text-dos-grey"
+              >
+                ←
+              </Link>
+            )}
+            &nbsp;&nbsp;
+            {currentPage < totalPages && (
+              <Link
+                href={`/streams/page/${currentPage + 1}`}
+                className="text-white hover:text-dos-grey"
+              >
+                →
+              </Link>
+            )}
+          </div>
+        )}
       </div>
+      <form
+        autoComplete="off"
+        className="flex flex-row mt-2 mb-4 divide-white border-b border-white justify-end"
+      >
+        <input
+          name="Search"
+          className="text-white text-sm bg-black w-full focus:outline-hidden"
+          placeholder="Search streams..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+        ></input>
+        <div className="tracking-wide rounded-sm text-sm text-white p-2">
+          <SearchIcon></SearchIcon>
+        </div>
+      </form>
       <hr></hr>
       <div className="grid lg:grid-cols-3 gap-6 text-white w-full mt-4">
-        {vids.map((doc) => {
+        {isSearching && searchLoading && <div>Searching...</div>}
+        {isSearching && !searchLoading && searchResults.length === 0 && (
+          <div>No streams found for &ldquo;{searchTerm}&rdquo;</div>
+        )}
+        {displayedVids.map((doc) => {
           if (doc) {
             return <VideoCard key={doc.id} video={doc}></VideoCard>;
           }
         })}
       </div>
       <div className="flex justify-center sm:ml-0 sm:justify-start w-full">
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          renderPageLink={(page: number) => `/streams/page/${page}`}
-        ></Pagination>
+        {isSearching ? (
+          <Pagination
+            currentPage={searchPage}
+            totalPages={displayedTotalPages}
+            onPageClick={handleSearchPageClick}
+          ></Pagination>
+        ) : (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            renderPageLink={(page: number) => `/streams/page/${page}`}
+          ></Pagination>
+        )}
       </div>
     </div>
   );

@@ -316,8 +316,13 @@ export const liveVideosQuery = graphql(`
 `);
 
 export const paginatedVidsQuery = graphql(`
-  query PaginatedLiveVideos($limit: Int, $page: Int, $sort: String) {
-    LiveVideos(limit: $limit, page: $page, sort: $sort) {
+  query PaginatedLiveVideos(
+    $limit: Int
+    $page: Int
+    $sort: String
+    $where: LiveVideo_where
+  ) {
+    LiveVideos(limit: $limit, page: $page, sort: $sort, where: $where) {
       docs {
         id
         title
