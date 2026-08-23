@@ -162,7 +162,7 @@ const fetcher = (url: string) =>
 
 const initializeAudio = (
   setPause: React.Dispatch<React.SetStateAction<boolean>>,
-  setVolume: React.Dispatch<React.SetStateAction<number>>
+  setVolume: React.Dispatch<React.SetStateAction<number>>,
 ) => {
   const audio = new Audio("https://libretime.radioquantica.com/main.mp3");
   audio.addEventListener("play", () => {
@@ -194,7 +194,7 @@ const PlayerView = () => {
     fetcher,
     {
       refreshInterval: 10000,
-    }
+    },
   );
 
   const display = useMemo(() => {
@@ -210,7 +210,7 @@ const PlayerView = () => {
     if (nextShow && nextShowName && nextShowStartTime) {
       const nextShowStartTimeFormatted = DateTime.fromFormat(
         nextShowStartTime,
-        "yyyy-MM-dd HH:mm:ss"
+        "yyyy-MM-dd HH:mm:ss",
       ).toFormat("M/d HH:mm");
       return `NEXT SHOW: ${nextShowName} ${nextShowStartTimeFormatted}`;
     }
@@ -228,7 +228,7 @@ const PlayerView = () => {
 
       e.preventDefault();
     },
-    [audioRef, isPaused, setPause, setVolume]
+    [audioRef, isPaused, setPause, setVolume],
   );
 
   const volumeSliderHandler = useCallback(
@@ -241,7 +241,7 @@ const PlayerView = () => {
 
       e.preventDefault();
     },
-    [audioRef]
+    [audioRef],
   );
 
   const volumeClickHandler = useCallback(
@@ -254,7 +254,7 @@ const PlayerView = () => {
 
       e.preventDefault();
     },
-    [audioRef]
+    [audioRef],
   );
 
   useEffect(() => {

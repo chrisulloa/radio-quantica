@@ -17,7 +17,7 @@ const HomePageAnnouncementCard = ({ cards }: { cards: AnnouncementCard[] }) => {
                 alt={card.image.alt || card.title || "Rádio Quântica"}
                 height={90}
                 width={220}
-                className="object-scale-down"
+                className="object-scale-down h-[90px] w-[220px]"
               ></Image>
             </div>
           )}
