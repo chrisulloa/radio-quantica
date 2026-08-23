@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import debounce from "lodash/debounce";
 import { useLazyQuery } from "@apollo/client";
 import { LiveVideo } from "../lib/gql/types/graphql";
@@ -11,6 +11,15 @@ import { paginatedVidsQuery } from "../lib/gql/documents/queries";
 import { SearchIcon } from "./icons/searchIcon";
 
 const SEARCH_LIMIT = 24;
+const SEARCH_SKELETON_COUNT = 6;
+const SEARCH_SKELETON_MIN_MS = 1000;
+
+const VideoCardSkeleton = () => (
+  <div className="animate-pulse">
+    <div className="w-full aspect-video bg-dos-grey/20 rounded-sm"></div>
+    <div className="h-4 bg-dos-grey/20 rounded-sm w-2/3 mx-auto mt-3"></div>
+  </div>
+);
 
 const StreamsHeader = ({ page }: { page: number }) => {
   const title = `Streams - Page ${page} - Rádio Quântica`;
@@ -64,8 +73,19 @@ export default function VideosPage({
   const [runSearch, { data: searchData, loading: searchLoading }] =
     useLazyQuery(paginatedVidsQuery, { fetchPolicy: "network-only" });
 
+  const [minSkeletonElapsed, setMinSkeletonElapsed] = useState(true);
+  const minSkeletonTimer = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined,
+  );
+
   const executeSearch = useCallback(
     (term: string, page: number) => {
+      setMinSkeletonElapsed(false);
+      clearTimeout(minSkeletonTimer.current);
+      minSkeletonTimer.current = setTimeout(
+        () => setMinSkeletonElapsed(true),
+        SEARCH_SKELETON_MIN_MS,
+      );
       runSearch({
         variables: {
           page,
@@ -85,13 +105,14 @@ export default function VideosPage({
         if (term.trim()) {
           executeSearch(term, 1);
         }
-      }, 300),
+      }, 600),
     [executeSearch],
   );
 
   useEffect(() => {
     return () => {
       debouncedSearch.cancel();
+      clearTimeout(minSkeletonTimer.current);
     };
   }, [debouncedSearch]);
 
@@ -108,6 +129,7 @@ export default function VideosPage({
 
   const handleClearSearch = () => {
     debouncedSearch.cancel();
+    clearTimeout(minSkeletonTimer.current);
     setSearchTerm("");
     setSearchPage(1);
   };
@@ -175,15 +197,21 @@ export default function VideosPage({
         </div>
       </form>
       <div className="grid lg:grid-cols-3 gap-6 text-white w-full mt-4">
-        {isSearching && searchLoading && <div>Searching...</div>}
-        {isSearching && !searchLoading && searchResults.length === 0 && (
-          <div>No streams found for &ldquo;{searchTerm}&rdquo;</div>
-        )}
-        {displayedVids.map((doc) => {
-          if (doc) {
-            return <VideoCard key={doc.id} video={doc}></VideoCard>;
-          }
-        })}
+        {isSearching && (searchLoading || !minSkeletonElapsed)
+          ? Array.from({ length: SEARCH_SKELETON_COUNT }).map((_, i) => (
+              <VideoCardSkeleton key={i}></VideoCardSkeleton>
+            ))
+          : displayedVids.map((doc) => {
+              if (doc) {
+                return <VideoCard key={doc.id} video={doc}></VideoCard>;
+              }
+            })}
+        {isSearching &&
+          !searchLoading &&
+          minSkeletonElapsed &&
+          searchResults.length === 0 && (
+            <div>No streams found for &ldquo;{searchTerm}&rdquo;</div>
+          )}
       </div>
       <div className="flex justify-center sm:ml-0 sm:justify-start w-full">
         {isSearching ? (
