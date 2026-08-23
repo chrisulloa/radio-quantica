@@ -75,7 +75,7 @@ export default function VideosPage({
         },
       });
     },
-    [runSearch]
+    [runSearch],
   );
 
   const debouncedSearch = useMemo(
@@ -86,7 +86,7 @@ export default function VideosPage({
           executeSearch(term, 1);
         }
       }, 300),
-    [executeSearch]
+    [executeSearch],
   );
 
   useEffect(() => {
@@ -113,7 +113,7 @@ export default function VideosPage({
   const searchResults = searchData?.LiveVideos?.docs ?? [];
   const displayedVids = isSearching ? searchResults : vids;
   const displayedTotalPages = isSearching
-    ? searchData?.LiveVideos?.totalPages ?? 1
+    ? (searchData?.LiveVideos?.totalPages ?? 1)
     : totalPages;
 
   return (
@@ -158,7 +158,6 @@ export default function VideosPage({
           <SearchIcon></SearchIcon>
         </div>
       </form>
-      <hr></hr>
       <div className="grid lg:grid-cols-3 gap-6 text-white w-full mt-4">
         {isSearching && searchLoading && <div>Searching...</div>}
         {isSearching && !searchLoading && searchResults.length === 0 && (
