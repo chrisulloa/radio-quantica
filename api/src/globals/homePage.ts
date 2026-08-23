@@ -1,7 +1,8 @@
 import type { GlobalAfterChangeHook, GlobalConfig } from 'payload';
 import { revalidateResource } from '../utils/revalidate';
+import { HomePage as HomePageDoc } from 'payload/generated-types';
 
-const afterChangeHook: GlobalAfterChangeHook = ({ doc }) => {
+const afterChangeHook: GlobalAfterChangeHook = ({ doc }: { doc: HomePageDoc }) => {
   revalidateResource('/', true);
   return doc;
 };
