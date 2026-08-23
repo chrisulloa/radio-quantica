@@ -110,11 +110,13 @@ export interface Config {
   globals: {
     aboutPage: AboutPage;
     donatePage: DonatePage;
+    homePage: HomePage;
     siteSettings: SiteSetting;
   };
   globalsSelect: {
     aboutPage: AboutPageSelect<false> | AboutPageSelect<true>;
     donatePage: DonatePageSelect<false> | DonatePageSelect<true>;
+    homePage: HomePageSelect<false> | HomePageSelect<true>;
     siteSettings: SiteSettingsSelect<false> | SiteSettingsSelect<true>;
   };
   locale: 'en' | 'pt';
@@ -904,6 +906,25 @@ export interface DonatePage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "homePage".
+ */
+export interface HomePage {
+  id: string;
+  announcementCards?:
+    | {
+        title?: string | null;
+        subtitle?: string | null;
+        url: string;
+        newTab?: boolean | null;
+        image?: (string | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "siteSettings".
  */
 export interface SiteSetting {
@@ -928,6 +949,25 @@ export interface AboutPageSelect<T extends boolean = true> {
  */
 export interface DonatePageSelect<T extends boolean = true> {
   content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "homePage_select".
+ */
+export interface HomePageSelect<T extends boolean = true> {
+  announcementCards?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        url?: T;
+        newTab?: T;
+        image?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
