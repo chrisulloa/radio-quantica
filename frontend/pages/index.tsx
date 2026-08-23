@@ -244,7 +244,7 @@ const LeftContent = ({
           VIDS ↗
         </Link>
       </div>
-      <hr className="mt-4"></hr>
+      <hr className="mt-4 mb-4"></hr>
       {isLiveVideoStream && <LiveVideoCard />}
       {!isLiveVideoStream && <LiveVideos liveVideos={liveVideos}></LiveVideos>}
       <div className="flex justify-between mt-8">
