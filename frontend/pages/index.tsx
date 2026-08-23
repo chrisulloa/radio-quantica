@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NewsCard } from "../components/newsCard";
 import {
   labelReleasesQuery,
@@ -319,11 +319,15 @@ export default function Home({
     pollInterval,
     fetchPolicy: "no-cache",
   });
+  const liveTransitionTimer = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined,
+  );
 
   useEffect(() => {
     if (!loading && data) {
+      clearTimeout(liveTransitionTimer.current);
       if (data.Owncast?.isLive === true) {
-        setTimeout(() => {
+        liveTransitionTimer.current = setTimeout(() => {
           setIsLiveVideoStream(true);
           setPollInterval(30000);
         }, 2000);
@@ -334,6 +338,10 @@ export default function Home({
     }
     setIsMobile(deviceIsMobile());
   }, [data, loading]);
+
+  useEffect(() => {
+    return () => clearTimeout(liveTransitionTimer.current);
+  }, []);
 
   return (
     <div className="w-full">
