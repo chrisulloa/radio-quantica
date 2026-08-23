@@ -25,6 +25,8 @@ import { useQuery } from "@apollo/client";
 import LiveVideoCard from "../components/liveVideoCard";
 import VideoCard from "../components/videoCard";
 import { defaultOgImage } from "../lib/utils";
+import HomePageAnnouncementCard from "../components/homePageAnnouncementCard";
+import { getHomePageData } from "../lib/homePage";
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -60,12 +62,17 @@ export async function getStaticProps() {
     fetchPolicy: "no-cache",
   });
   const liveVideos = liveVideosData.LiveVideos;
+  const homePage = await getHomePageData();
+  if (!homePage) {
+    throw new Error("Failed to fetch HomePage global data");
+  }
   return {
     props: {
       newsPosts,
       merch,
       labelReleases,
       liveVideos,
+      homePage,
     },
   };
 }
@@ -74,7 +81,10 @@ const HomePageHeader = () => {
   return (
     <Head>
       <title>Rádio Quântica</title>
-      <meta name="description" content="Rádio Quântica is a Lisbon-based community radio station and underground arts platform, broadcasting 24/7 since 2015. Stream live shows, news, and independent music." />
+      <meta
+        name="description"
+        content="Rádio Quântica is a Lisbon-based community radio station and underground arts platform, broadcasting 24/7 since 2015. Stream live shows, news, and independent music."
+      />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@quanticaonline" />
       <meta name="twitter:title" content="Rádio Quântica" />
@@ -287,46 +297,19 @@ const LeftContent = ({
   );
 };
 
-const RightContent = () => {
-  return (
-    <div className="lg:fixed lg:w-[175px] xl:w-[220px] text-white p-3 border flex-col">
-      <div className="flex justify-center h-[90px]">
-        <Image
-          src="https://radio-quantica.ams3.cdn.digitaloceanspaces.com/assets/radio_quantica_social_banner.jpg"
-          alt="Radio Quantica Logo"
-          height={405}
-          width={300}
-          className="object-scale-down"
-        ></Image>
-      </div>
-
-      <p className="mx-auto font-space-mono text-sm px-1 text-center">
-        Rádio Quântica muda de espaço e lança crowdfunding para continuar a sua
-        programação cultural independente
-      </p>
-
-      <Link
-        href="https://www.gofundme.com/f/help-radio-quantica-move-studio-start-a-community-artspace?lang=en_GB&amp;ts=1749136892&amp;utm_campaign=fp_sharesheet&amp;utm_medium=customer&amp;utm_source=copy_link&amp;attribution_id=sl%3Afac6f332-a5a1-43db-8beb-0bccbda1f72a"
-        className="border px-3 py-2 text-sm w-full block text-center mt-4 hover:text-black hover:bg-white"
-        target="_blank"
-      >
-        Donate Now!
-      </Link>
-    </div>
-  );
-};
-
 export default function Home({
   newsPosts,
   merch,
   labelReleases,
   liveVideos,
+  homePage,
 }: {
   categories: string[];
   newsPosts: NewsPostsQuery["NewsPosts"];
   merch: MerchQuery["Merches"];
   labelReleases: LabelReleasesQuery["LabelReleases"];
   liveVideos: LiveVideosQuery["LiveVideos"];
+  homePage: NonNullable<Awaited<ReturnType<typeof getHomePageData>>>;
 }) {
   const [isMobile, setIsMobile] = useState(false);
   const [isLiveVideoStream, setIsLiveVideoStream] = useState(false);
@@ -368,7 +351,9 @@ export default function Home({
             ></LeftContent>
           </div>
           <div className="col-span-14 lg:col-span-3 xl:col-span-3 p-4">
-            <RightContent></RightContent>
+            <HomePageAnnouncementCard
+              cards={homePage.announcementCards || []}
+            ></HomePageAnnouncementCard>
           </div>
         </div>
       </div>

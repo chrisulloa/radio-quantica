@@ -32,6 +32,7 @@ const documents = {
     "\n  query PaginatedLiveVideos($limit: Int, $page: Int, $sort: String) {\n    LiveVideos(limit: $limit, page: $page, sort: $sort) {\n      docs {\n        id\n        title\n        url\n        date\n        videoId\n        image {\n          url\n        }\n      }\n      totalDocs\n      totalPages\n    }\n  }\n": types.PaginatedLiveVideosDocument,
     "\n  query AboutPageQuery($locale: LocaleInputType) {\n    AboutPage(locale: $locale) {\n      content\n    }\n  }\n": types.AboutPageQueryDocument,
     "\n  query DonatePageQuery($locale: LocaleInputType) {\n    DonatePage(locale: $locale) {\n      content\n    }\n  }\n": types.DonatePageQueryDocument,
+    "\n  query HomePageQuery {\n    HomePage {\n      announcementCards {\n        title\n        subtitle\n        url\n        newTab\n        image {\n          url\n          alt\n        }\n      }\n    }\n  }\n": types.HomePageQueryDocument,
     "\n  query YoutubeChannelQuery {\n    YoutubeChannel {\n      isLive\n      channelId\n      url\n      videoId\n      imageUrl\n    }\n  }\n": types.YoutubeChannelQueryDocument,
     "\n  query OwncastQuery {\n    Owncast {\n      isLive\n    }\n  }\n": types.OwncastQueryDocument,
 };
@@ -126,6 +127,10 @@ export function graphql(source: "\n  query AboutPageQuery($locale: LocaleInputTy
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query DonatePageQuery($locale: LocaleInputType) {\n    DonatePage(locale: $locale) {\n      content\n    }\n  }\n"): (typeof documents)["\n  query DonatePageQuery($locale: LocaleInputType) {\n    DonatePage(locale: $locale) {\n      content\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query HomePageQuery {\n    HomePage {\n      announcementCards {\n        title\n        subtitle\n        url\n        newTab\n        image {\n          url\n          alt\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query HomePageQuery {\n    HomePage {\n      announcementCards {\n        title\n        subtitle\n        url\n        newTab\n        image {\n          url\n          alt\n        }\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

@@ -350,6 +350,23 @@ export const donatePageInfoQuery = graphql(`
   }
 `);
 
+export const homePageQuery = graphql(`
+  query HomePageQuery {
+    HomePage {
+      announcementCards {
+        title
+        subtitle
+        url
+        newTab
+        image {
+          url
+          alt
+        }
+      }
+    }
+  }
+`);
+
 export const youtubeChannelQuery = graphql(`
   query YoutubeChannelQuery {
     YoutubeChannel {

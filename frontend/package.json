@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"next dev --turbopack -p 3001\"  \"graphql-codegen --config codegen.ts --watch\"",
+    "dev:local": "NEXT_PUBLIC_SERVER_BASE_URL=http://localhost:3000 npm run dev",
+    "dev:prod": "NEXT_PUBLIC_SERVER_BASE_URL=https://api.radioquantica.com npm run dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
