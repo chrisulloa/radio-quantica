@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { deviceIsMobile } from "../lib/deviceInfo";
+
+const subscribeToNothing = () => () => {};
 
 const _encode = (v: string) => {
   if (v === undefined || v === null) return "";
@@ -116,10 +118,11 @@ const ShareButton = (props: { text: string; black?: boolean }) => {
   };
 
   // Disable drop down for mobile
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    setIsMobile(deviceIsMobile());
-  }, []);
+  const isMobile = useSyncExternalStore(
+    subscribeToNothing,
+    deviceIsMobile,
+    () => false,
+  );
 
   const hoverEffect = !isMobile ? "group-hover:scale-100" : "";
 

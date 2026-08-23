@@ -1,5 +1,12 @@
 import Image from "next/image";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import styles from "./player.module.css";
 import useSWR from "swr";
 import axios from "axios";
@@ -7,6 +14,12 @@ import { NowPlayingResponse } from "../lib/services/azuracast";
 import { libretimeServerURL } from "../lib/utils";
 import { DateTime } from "luxon";
 import { Marquee, MarqueeContent, MarqueeItem } from "./ui/shadcn-io/marquee";
+
+const subscribeToResize = (callback: () => void) => {
+  window.addEventListener("resize", callback);
+  return () => window.removeEventListener("resize", callback);
+};
+const getViewportWidthSnapshot = () => window.innerWidth;
 
 function VolumeButton({ volume }: { volume: number }) {
   let file;
@@ -167,7 +180,11 @@ const initializeAudio = (
 };
 
 const PlayerView = () => {
-  const [viewportWidth, setViewportWidth] = useState<number | undefined>();
+  const viewportWidth = useSyncExternalStore(
+    subscribeToResize,
+    getViewportWidthSnapshot,
+    () => undefined,
+  );
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPaused, setPause] = useState<boolean>(true);
   const [volume, setVolume] = useState<number>(1);
@@ -180,34 +197,24 @@ const PlayerView = () => {
     }
   );
 
-  const [display, setDisplay] = useState<string>("");
-
-  useEffect(() => {
-    setViewportWidth(window.innerWidth);
-    window.addEventListener("resize", () =>
-      setViewportWidth(window.innerWidth)
-    );
-  }, []);
-
-  useEffect(() => {
-    if (data) {
-      const show = data.currentShow[0]?.name || data.current?.name;
-      const nextShow = data.nextShow[0];
-      const nextShowName = nextShow.name;
-      const nextShowStartTime = nextShow.start_timestamp;
-      if (show) {
-        setDisplay(`NOW: ${show}`);
-      } else if (nextShow && nextShowName && nextShowStartTime) {
-        const nextShowStartTimeFormatted = DateTime.fromFormat(
-          nextShowStartTime,
-          "yyyy-MM-dd HH:mm:ss"
-        ).toFormat("M/d HH:mm");
-        setDisplay(`NEXT SHOW: ${nextShowName} ${nextShowStartTimeFormatted}`);
-      } else {
-        setDisplay("Offline");
-      }
+  const display = useMemo(() => {
+    if (error) return "Offline";
+    if (!data) return "";
+    const show = data.currentShow[0]?.name || data.current?.name;
+    const nextShow = data.nextShow[0];
+    const nextShowName = nextShow.name;
+    const nextShowStartTime = nextShow.start_timestamp;
+    if (show) {
+      return `NOW: ${show}`;
     }
-    if (error) setDisplay("Offline");
+    if (nextShow && nextShowName && nextShowStartTime) {
+      const nextShowStartTimeFormatted = DateTime.fromFormat(
+        nextShowStartTime,
+        "yyyy-MM-dd HH:mm:ss"
+      ).toFormat("M/d HH:mm");
+      return `NEXT SHOW: ${nextShowName} ${nextShowStartTimeFormatted}`;
+    }
+    return "Offline";
   }, [data, error]);
 
   const pauseClickHandler = useCallback(

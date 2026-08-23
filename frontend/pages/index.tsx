@@ -332,6 +332,10 @@ export default function Home({
           setPollInterval(30000);
         }, 2000);
       } else {
+        // Synchronizes local state with the polled Owncast status; unlike
+        // the delayed "live" transition above, dropping out of live mode
+        // is intentionally immediate, not debounced.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsLiveVideoStream(false);
         setPollInterval(10000);
       }

@@ -1,23 +1,24 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 interface IGoBackLinkProps {
   fallback: string;
   isHidden?: boolean;
 }
 
-export function GoBackLink({ fallback, isHidden }: IGoBackLinkProps) {
-  const [hasPrevPage, setHasPrevPage] = useState(false);
-  const [prevPage, setPrevPage] = useState(fallback);
+const subscribeToNothing = () => () => {};
 
-  useEffect(() => {
-    const storage = globalThis?.sessionStorage;
-    if (!storage) return;
-    const prev = storage.getItem("prevPath");
-    const hasPrevPage = storage.getItem("hasPrevPage");
-    setHasPrevPage(hasPrevPage === "true");
-    setPrevPage(prev || fallback);
-  }, [fallback, prevPage]);
+export function GoBackLink({ fallback, isHidden }: IGoBackLinkProps) {
+  const hasPrevPage = useSyncExternalStore(
+    subscribeToNothing,
+    () => globalThis?.sessionStorage?.getItem("hasPrevPage") === "true",
+    () => false,
+  );
+  const prevPage = useSyncExternalStore(
+    subscribeToNothing,
+    () => globalThis?.sessionStorage?.getItem("prevPath") || fallback,
+    () => fallback,
+  );
 
   return hasPrevPage ? (
     <Link

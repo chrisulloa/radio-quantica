@@ -24,7 +24,8 @@ const nextConfig = {
     ],
   },
   reactStrictMode: false,
-  experimental: {}
+  experimental: {},
+  agentRules: false,
 }
 
 module.exports = nextConfig

@@ -57,12 +57,6 @@ export default function Shows({
   categories: string[];
   allShowData: ShowData[];
 }) {
-  useEffect(() => {
-    return () => {
-      debouncedResults.cancel();
-    };
-  });
-
   const [shows, setShows] = useState<ShowData[]>(allShowData);
   const handleSearch = useCallback(
     (e: any) => {
@@ -83,6 +77,13 @@ export default function Shows({
   const debouncedResults = useMemo(() => {
     return debounce(handleSearch, 200);
   }, [handleSearch]);
+
+  useEffect(() => {
+    return () => {
+      debouncedResults.cancel();
+    };
+  }, [debouncedResults]);
+
   return (
     <div className="grid gap-y-5 md:gap-36 lg:gap-42 w-11/12 sm:w-9/12 md:ml-8 mx-auto grid-cols-1 md:grid-cols-6 mb-8">
       <ShowsPageHeader></ShowsPageHeader>

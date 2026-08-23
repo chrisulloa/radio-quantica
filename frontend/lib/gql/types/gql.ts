@@ -10,9 +10,34 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * 2. It is not minifiable, so the string of a GraphQL query will be multiple times inside the bundle.
  * 3. It does not support dead code elimination, so it will add unused operations.
  *
- * Therefore it is highly recommended to use the babel-plugin for production.
+ * Therefore it is highly recommended to use the babel or swc plugin for production.
+ * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
-const documents = {
+type Documents = {
+    "\n  query ShowByFields($where: Show_where) {\n    Shows(where: $where) {\n      docs {\n        id\n      }\n    }\n  }\n": typeof types.ShowByFieldsDocument,
+    "\n  query Shows($where: Show_where) {\n    Shows(where: $where) {\n      docs {\n        slug\n      }\n    }\n  }\n": typeof types.ShowsDocument,
+    "\n  query AllShowIDs($limit: Int) {\n    Shows(limit: $limit) {\n      docs {\n        slug\n        id\n        showName\n        primaryHosts {\n          name\n        }\n      }\n    }\n  }\n": typeof types.AllShowIDsDocument,
+    "\n  query ShowsQuery($limit: Int) {\n    Shows(limit: $limit) {\n      docs {\n        id\n        active\n        slug\n        createdAt\n        showName\n        description\n        primaryHosts {\n          id\n          createdAt\n          updatedAt\n          name\n        }\n        categories {\n          id\n          createdAt\n          updatedAt\n          name\n        }\n        coverImage {\n          alt\n          sizes {\n            lg {\n              url\n              width\n              height\n            }\n            sm {\n              url\n              width\n              height\n            }\n          }\n        }\n      }\n      totalDocs\n      offset\n      limit\n      totalPages\n      page\n      pagingCounter\n      hasPrevPage\n      hasNextPage\n      prevPage\n      nextPage\n    }\n  }\n": typeof types.ShowsQueryDocument,
+    "\n  query Categories($limit: Int) {\n    Categories(limit: $limit) {\n      docs {\n        name\n      }\n    }\n  }\n": typeof types.CategoriesDocument,
+    "\n  query ShowsByCategory($categoryName: String!) {\n    ShowsByCategory(categoryName: $categoryName) {\n      docs {\n        showName\n        id\n        slug\n        createdAt\n        description\n        categories {\n          name\n        }\n        primaryHosts {\n          name\n        }\n        coverImage {\n          alt\n          sizes {\n            lg {\n              url\n              width\n              height\n            }\n            sm {\n              url\n              width\n              height\n            }\n          }\n        }\n      }\n      limit\n    }\n  }\n": typeof types.ShowsByCategoryDocument,
+    "\n  query ShowBySlug($slug: String!) {\n    ShowBySlug(slug: $slug) {\n      slug\n      showName\n      id\n      description\n      createdAt\n      categories {\n        name\n      }\n      primaryHosts {\n        name\n      }\n      coverImage {\n        alt\n        sizes {\n          lg {\n            url\n            width\n            height\n          }\n        }\n      }\n    }\n  }\n": typeof types.ShowBySlugDocument,
+    "\n  query NewsPosts(\n    $limit: Int\n    $page: Int\n    $where: NewsPost_where\n    $sort: String\n  ) {\n    NewsPosts(limit: $limit, page: $page, where: $where, sort: $sort) {\n      docs {\n        id\n        blurb\n        slug\n        publishDate\n        title\n        updatedAt\n        authorName\n        authorId\n        previewBanner {\n          url\n        }\n      }\n      totalDocs\n      totalPages\n    }\n  }\n": typeof types.NewsPostsDocument,
+    "\n  query NewsPost($newsPostId: String!, $draft: Boolean) {\n    NewsPost(id: $newsPostId, draft: $draft) {\n      authorId\n      authorName\n      blurb\n      content\n      createdAt\n      id\n      publishDate\n      slug\n      title\n      previewBanner {\n        url\n      }\n      tags {\n        name\n        id\n      }\n    }\n  }\n": typeof types.NewsPostDocument,
+    "\n  query NewsPostBySlug($slug: String!) {\n    NewsPostBySlug(slug: $slug) {\n      authorId\n      authorName\n      blurb\n      content\n      heyZineUrl\n      createdAt\n      id\n      publishDate\n      slug\n      title\n      previewBanner {\n        url\n      }\n      tags {\n        name\n        id\n      }\n    }\n  }\n": typeof types.NewsPostBySlugDocument,
+    "\n  query NewsPostContentBySlugAndLocale($slug: String!, $locale: String!) {\n    NewsPostBySlug(slug: $slug, locale: $locale) {\n      content\n    }\n  }\n": typeof types.NewsPostContentBySlugAndLocaleDocument,
+    "\n  query Tags($where: Tag_where) {\n    Tags(where: $where) {\n      docs {\n        id\n        name\n      }\n    }\n  }\n": typeof types.TagsDocument,
+    "\n  query SearchHosts($where: Host_where, $limit: Int) {\n    Hosts(where: $where, limit: $limit) {\n      docs {\n        name\n        id\n      }\n    }\n  }\n": typeof types.SearchHostsDocument,
+    "\n  query Merch($limit: Int) {\n    Merches(limit: $limit) {\n      docs {\n        id\n        blurb\n        soldOut\n        image {\n          url\n        }\n        title\n        url\n      }\n    }\n  }\n": typeof types.MerchDocument,
+    "\n  query LabelReleases($limit: Int) {\n    LabelReleases(limit: $limit) {\n      docs {\n        id\n        blurb\n        image {\n          url\n        }\n        title\n        url\n      }\n    }\n  }\n": typeof types.LabelReleasesDocument,
+    "\n  query LiveVideos($limit: Int, $sort: String) {\n    LiveVideos(limit: $limit, sort: $sort) {\n      docs {\n        id\n        title\n        url\n        date\n        videoId\n        image {\n          url\n        }\n      }\n    }\n  }\n": typeof types.LiveVideosDocument,
+    "\n  query PaginatedLiveVideos(\n    $limit: Int\n    $page: Int\n    $sort: String\n    $where: LiveVideo_where\n  ) {\n    LiveVideos(limit: $limit, page: $page, sort: $sort, where: $where) {\n      docs {\n        id\n        title\n        url\n        date\n        videoId\n        image {\n          url\n        }\n      }\n      totalDocs\n      totalPages\n    }\n  }\n": typeof types.PaginatedLiveVideosDocument,
+    "\n  query AboutPageQuery($locale: LocaleInputType) {\n    AboutPage(locale: $locale) {\n      content\n    }\n  }\n": typeof types.AboutPageQueryDocument,
+    "\n  query DonatePageQuery($locale: LocaleInputType) {\n    DonatePage(locale: $locale) {\n      content\n    }\n  }\n": typeof types.DonatePageQueryDocument,
+    "\n  query HomePageQuery {\n    HomePage {\n      announcementCards {\n        title\n        subtitle\n        url\n        newTab\n        image {\n          url\n          alt\n        }\n      }\n    }\n  }\n": typeof types.HomePageQueryDocument,
+    "\n  query YoutubeChannelQuery {\n    YoutubeChannel {\n      isLive\n      channelId\n      url\n      videoId\n      imageUrl\n    }\n  }\n": typeof types.YoutubeChannelQueryDocument,
+    "\n  query OwncastQuery {\n    Owncast {\n      isLive\n    }\n  }\n": typeof types.OwncastQueryDocument,
+};
+const documents: Documents = {
     "\n  query ShowByFields($where: Show_where) {\n    Shows(where: $where) {\n      docs {\n        id\n      }\n    }\n  }\n": types.ShowByFieldsDocument,
     "\n  query Shows($where: Show_where) {\n    Shows(where: $where) {\n      docs {\n        slug\n      }\n    }\n  }\n": types.ShowsDocument,
     "\n  query AllShowIDs($limit: Int) {\n    Shows(limit: $limit) {\n      docs {\n        slug\n        id\n        showName\n        primaryHosts {\n          name\n        }\n      }\n    }\n  }\n": types.AllShowIDsDocument,
@@ -43,12 +68,12 @@ const documents = {
  *
  * @example
  * ```ts
- * const query = gql(`query GetUser($id: ID!) { user(id: $id) { name } }`);
+ * const query = graphql(`query GetUser($id: ID!) { user(id: $id) { name } }`);
  * ```
  *
  * The query argument is unknown!
  * Please regenerate the types.
-**/
+ */
 export function graphql(source: string): unknown;
 
 /**

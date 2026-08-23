@@ -100,6 +100,10 @@ export default function VideosPage({
 
   const debouncedSearch = useMemo(
     () =>
+      // Only ever invoked from the search input's onChange handler, never
+      // synchronously during render, so reading minSkeletonTimer.current
+      // via executeSearch here is safe.
+      // eslint-disable-next-line react-hooks/refs
       debounce((term: string) => {
         setSearchPage(1);
         if (term.trim()) {
