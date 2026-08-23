@@ -106,6 +106,12 @@ export default function VideosPage({
     executeSearch(searchTerm, page);
   };
 
+  const handleClearSearch = () => {
+    debouncedSearch.cancel();
+    setSearchTerm("");
+    setSearchPage(1);
+  };
+
   if (!vids) {
     return <div className="text-white">Unable to load videos...</div>;
   }
@@ -145,7 +151,7 @@ export default function VideosPage({
       </div>
       <form
         autoComplete="off"
-        className="flex flex-row mt-2 mb-4 divide-white border-b border-white justify-end"
+        className="flex flex-row mt-2 mb-4 divide-white border-b border-white justify-end xl:w-3/5"
       >
         <input
           name="Search"
@@ -154,6 +160,16 @@ export default function VideosPage({
           value={searchTerm}
           onChange={handleSearchChange}
         ></input>
+        {isSearching && (
+          <button
+            type="button"
+            onClick={handleClearSearch}
+            aria-label="Clear search"
+            className="text-white hover:text-dos-grey px-2 hover:cursor-pointer"
+          >
+            ×
+          </button>
+        )}
         <div className="tracking-wide rounded-sm text-sm text-white p-2">
           <SearchIcon></SearchIcon>
         </div>
