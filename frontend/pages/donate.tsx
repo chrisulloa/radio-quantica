@@ -2,7 +2,6 @@ import Head from "next/head";
 import SerializeLexical from "../components/serializeLexical";
 import GoBackLink from "../components/goBack";
 import { getDonatePageInfo } from "../lib/pageInfo";
-import { LocaleInputType } from "../lib/gql/types/graphql";
 import { LexicalRootDoc } from "../lib/lexicalNode";
 import { useState } from "react";
 import LanguageSelector from "../components/languageSelector";
@@ -17,13 +16,13 @@ interface DonatePageProps {
 }
 
 export async function getStaticProps(): Promise<{ props: DonatePageProps }> {
-  const pt = await getDonatePageInfo(LocaleInputType.Pt);
-  const en = await getDonatePageInfo(LocaleInputType.En);
+  const pt = await getDonatePageInfo("pt");
+  const en = await getDonatePageInfo("en");
   return {
     props: {
       content: {
-        portuguese: pt?.content,
-        english: en?.content,
+        portuguese: pt?.content as LexicalRootDoc,
+        english: en?.content as LexicalRootDoc,
       },
     },
   };

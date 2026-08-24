@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import debounce from "lodash/debounce";
 import { useLazyQuery } from "@apollo/client";
-import { LiveVideo } from "../lib/gql/types/graphql";
+import { PaginatedLiveVideosQuery } from "../lib/gql/types/graphql";
 import Pagination from "./pagination";
 import Link from "next/link";
 import VideoCard from "./videoCard";
@@ -55,6 +55,10 @@ const StreamsHeader = ({ page }: { page: number }) => {
     </Head>
   );
 };
+
+type LiveVideo = NonNullable<
+  PaginatedLiveVideosQuery["LiveVideos"]
+>["docs"][number];
 
 export default function VideosPage({
   vids,

@@ -5,7 +5,7 @@ import {
 } from "../../../lib/gql/documents/queries";
 import { NewsCard } from "../../../components/newsCard";
 import client from "../../../lib/services/graphql";
-import { NewsPost } from "../../../lib/gql/types/graphql";
+import { NewsPostsQuery } from "../../../lib/gql/types/graphql";
 import capitalize from "lodash/capitalize";
 import GoBackLink from "../../../components/goBack";
 import Link from "next/link";
@@ -111,6 +111,8 @@ const NewsTagHeader = (props: { tagName: string }) => {
   );
 };
 
+type NewsPost = NonNullable<NewsPostsQuery["NewsPosts"]>["docs"][number];
+
 export default function NewsTagPage({
   newsPosts,
   tagName,
@@ -135,7 +137,7 @@ export default function NewsTagPage({
                   link={`/news/${doc.slug}`}
                   title={doc.title}
                   newWindow={false}
-                  date={doc.publishDate}
+                  date={doc.publishDate ?? undefined}
                   description={doc.blurb}
                   priority={index === 0}
                   previewBannerUrl={doc.previewBanner?.url}

@@ -7,8 +7,22 @@ import {
   showsQuery,
   allShowIDs,
 } from "./gql/documents/queries";
-import { Show } from "./gql/types/graphql";
+import {
+  AllShowIDsQuery,
+  ShowsByCategoryQuery,
+  ShowsQueryQuery,
+} from "./gql/types/graphql";
 import { LexicalRootDoc } from "./lexicalNode";
+
+type ShowsQueryDoc = NonNullable<
+  NonNullable<ShowsQueryQuery["Shows"]>["docs"][number]
+>;
+type AllShowIDsDoc = NonNullable<
+  NonNullable<AllShowIDsQuery["Shows"]>["docs"][number]
+>;
+type ShowsByCategoryDoc = NonNullable<
+  NonNullable<ShowsByCategoryQuery["ShowsByCategory"]>["docs"][number]
+>;
 
 interface ShowMetadata {
   title: string;
@@ -69,7 +83,7 @@ export async function getShowData(slug: string): Promise<ShowData | null> {
     image: show.coverImage,
     title: show.showName,
     host: show.primaryHosts.map((host) => host.name).join(" + "),
-    date: show.createdAt,
+    date: show.createdAt ?? "",
     hidden: false,
     description: "",
     categories: show.categories?.map((c) => c.name) || [],
@@ -92,7 +106,7 @@ export async function getAllShowData(
   });
   if (data.Shows && data.Shows.docs) {
     const res = data.Shows.docs
-      .filter((doc): doc is Show => doc != null)
+      .filter((doc): doc is ShowsQueryDoc => doc != null)
       .map((doc): ShowData | undefined => {
         if (doc != null) {
           return {
@@ -102,7 +116,7 @@ export async function getAllShowData(
             hidden: doc.active === false,
             title: doc.showName,
             host: doc.primaryHosts.map((host) => host.name).join(" + "),
-            date: doc.createdAt,
+            date: doc.createdAt ?? "",
             description: "",
             image: doc.coverImage,
           };
@@ -137,14 +151,7 @@ export async function getAllShowIDs(): Promise<ShowIDMapping[]> {
   });
   if (!data.Shows?.docs) return [];
   return data.Shows.docs
-    .filter(
-      (
-        value
-      ): value is Pick<
-        Show,
-        "__typename" | "id" | "showName" | "primaryHosts" | "slug"
-      > => value != null
-    )
+    .filter((value): value is AllShowIDsDoc => value != null)
     .map((value) => ({
       id: value.slug,
       title: value.showName,
@@ -167,14 +174,14 @@ export async function getShowsByCategory(
     return [];
 
   return data.ShowsByCategory.docs
-    .filter((doc): doc is Show => doc != null)
+    .filter((doc): doc is ShowsByCategoryDoc => doc != null)
     .map((doc) => {
       return {
         id: doc.slug,
         title: doc.showName,
         host: doc.primaryHosts.map((host) => host.name).join(" + "),
         hidden: false,
-        date: doc.createdAt,
+        date: doc.createdAt ?? "",
         description: doc.description.toString(),
         categories: doc.categories?.map((category) => category.name) || [],
         image: doc.coverImage,

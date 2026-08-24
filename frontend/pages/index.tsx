@@ -183,7 +183,7 @@ const NewsCards = (props: { posts: NewsPostsQuery["NewsPosts"] }) => {
               newWindow={false}
               title={doc.title}
               description={doc.blurb}
-              date={doc.publishDate}
+              date={doc.publishDate ?? undefined}
               previewBannerUrl={doc.previewBanner?.url}
               priority={index === 0}
             ></NewsCard>

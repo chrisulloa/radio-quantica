@@ -2,7 +2,6 @@ import Head from "next/head";
 import SerializeLexical from "../components/serializeLexical";
 import GoBackLink from "../components/goBack";
 import { getAboutPageInfo } from "../lib/pageInfo";
-import { LocaleInputType } from "../lib/gql/types/graphql";
 import { LexicalRootDoc } from "../lib/lexicalNode";
 import { useState } from "react";
 import LanguageSelector from "../components/languageSelector";
@@ -18,13 +17,13 @@ interface AboutPageProps {
 }
 
 export async function getStaticProps(): Promise<{ props: AboutPageProps }> {
-  const ptContent = await getAboutPageInfo(LocaleInputType.Pt);
-  const enContent = await getAboutPageInfo(LocaleInputType.En);
+  const ptContent = await getAboutPageInfo("pt");
+  const enContent = await getAboutPageInfo("en");
   return {
     props: {
       content: {
-        portuguese: ptContent,
-        english: enContent,
+        portuguese: ptContent as LexicalRootDoc,
+        english: enContent as LexicalRootDoc,
       },
     },
   };

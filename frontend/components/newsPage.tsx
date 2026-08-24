@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { NewsPost } from "../lib/gql/types/graphql";
+import { NewsPostsQuery } from "../lib/gql/types/graphql";
 import { NewsCard } from "./newsCard";
 import TagsCard from "./tagsCard";
 import Pagination from "./pagination";
@@ -40,6 +40,8 @@ const NewsPageHeader = ({ page }: { page: number }) => {
     </Head>
   );
 };
+
+type NewsPost = NonNullable<NewsPostsQuery["NewsPosts"]>["docs"][number];
 
 export default function NewsPage({
   newsPosts,
@@ -93,7 +95,7 @@ export default function NewsPage({
                     link={`/news/${doc.slug}`}
                     title={doc.title}
                     newWindow={false}
-                    date={doc.publishDate}
+                    date={doc.publishDate ?? undefined}
                     description={doc.blurb}
                     previewBannerUrl={doc.previewBanner?.url}
                     priority={index === 0}

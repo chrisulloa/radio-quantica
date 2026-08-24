@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev --turbopack -p 3001\"  \"graphql-codegen --config codegen.js --watch\"",
+    "dev": "concurrently \"next dev --turbopack -p 3001\"  \"graphql-codegen --config codegen.ts --watch\"",
     "dev:local": "NEXT_PUBLIC_SERVER_BASE_URL=http://localhost:3000 npm run dev",
     "dev:prod": "NEXT_PUBLIC_SERVER_BASE_URL=https://api.radioquantica.com npm run dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "generate": "graphql-codegen --config codegen.js"
+    "generate": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.13.8",
@@ -39,6 +39,7 @@
     "@graphql-codegen/cli": "^7.3.1",
     "@graphql-codegen/client-preset": "^5.2.4",
     "@graphql-codegen/typescript-resolvers": "^5.1.7",
+    "@parcel/watcher": "^2.6.0",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/escape-html": "^1.0.2",
     "@types/lodash": "^4.14.191",

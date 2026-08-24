@@ -3,16 +3,17 @@
 type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 /** Internal type. DO NOT USE DIRECTLY. */
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+import { LexicalRootDoc } from '../../lexicalNode';
 import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Host_CreatedAt_Operator = {
-  equals?: unknown;
+  equals?: string | null | undefined;
   exists?: boolean | null | undefined;
-  greater_than?: unknown;
-  greater_than_equal?: unknown;
-  less_than?: unknown;
-  less_than_equal?: unknown;
-  like?: unknown;
-  not_equals?: unknown;
+  greater_than?: string | null | undefined;
+  greater_than_equal?: string | null | undefined;
+  less_than?: string | null | undefined;
+  less_than_equal?: string | null | undefined;
+  like?: string | null | undefined;
+  not_equals?: string | null | undefined;
 };
 
 export type Host_Id_Operator = {
@@ -37,14 +38,14 @@ export type Host_Name_Operator = {
 };
 
 export type Host_UpdatedAt_Operator = {
-  equals?: unknown;
+  equals?: string | null | undefined;
   exists?: boolean | null | undefined;
-  greater_than?: unknown;
-  greater_than_equal?: unknown;
-  less_than?: unknown;
-  less_than_equal?: unknown;
-  like?: unknown;
-  not_equals?: unknown;
+  greater_than?: string | null | undefined;
+  greater_than_equal?: string | null | undefined;
+  less_than?: string | null | undefined;
+  less_than_equal?: string | null | undefined;
+  like?: string | null | undefined;
+  not_equals?: string | null | undefined;
 };
 
 export type Host_Where = {
@@ -75,25 +76,25 @@ export type Host_Where_Or = {
 };
 
 export type LiveVideo_CreatedAt_Operator = {
-  equals?: unknown;
+  equals?: string | null | undefined;
   exists?: boolean | null | undefined;
-  greater_than?: unknown;
-  greater_than_equal?: unknown;
-  less_than?: unknown;
-  less_than_equal?: unknown;
-  like?: unknown;
-  not_equals?: unknown;
+  greater_than?: string | null | undefined;
+  greater_than_equal?: string | null | undefined;
+  less_than?: string | null | undefined;
+  less_than_equal?: string | null | undefined;
+  like?: string | null | undefined;
+  not_equals?: string | null | undefined;
 };
 
 export type LiveVideo_Date_Operator = {
-  equals?: unknown;
+  equals?: string | null | undefined;
   exists?: boolean | null | undefined;
-  greater_than?: unknown;
-  greater_than_equal?: unknown;
-  less_than?: unknown;
-  less_than_equal?: unknown;
-  like?: unknown;
-  not_equals?: unknown;
+  greater_than?: string | null | undefined;
+  greater_than_equal?: string | null | undefined;
+  less_than?: string | null | undefined;
+  less_than_equal?: string | null | undefined;
+  like?: string | null | undefined;
+  not_equals?: string | null | undefined;
 };
 
 export type LiveVideo_Id_Operator = {
@@ -138,14 +139,14 @@ export type LiveVideo_Title_Operator = {
 };
 
 export type LiveVideo_UpdatedAt_Operator = {
-  equals?: unknown;
+  equals?: string | null | undefined;
   exists?: boolean | null | undefined;
-  greater_than?: unknown;
-  greater_than_equal?: unknown;
-  less_than?: unknown;
-  less_than_equal?: unknown;
-  like?: unknown;
-  not_equals?: unknown;
+  greater_than?: string | null | undefined;
+  greater_than_equal?: string | null | undefined;
+  less_than?: string | null | undefined;
+  less_than_equal?: string | null | undefined;
+  like?: string | null | undefined;
+  not_equals?: string | null | undefined;
 };
 
 export type LiveVideo_Url_Operator = {
@@ -278,14 +279,14 @@ export type NewsPost_Content_Operator = {
 };
 
 export type NewsPost_CreatedAt_Operator = {
-  equals?: unknown;
+  equals?: string | null | undefined;
   exists?: boolean | null | undefined;
-  greater_than?: unknown;
-  greater_than_equal?: unknown;
-  less_than?: unknown;
-  less_than_equal?: unknown;
-  like?: unknown;
-  not_equals?: unknown;
+  greater_than?: string | null | undefined;
+  greater_than_equal?: string | null | undefined;
+  less_than?: string | null | undefined;
+  less_than_equal?: string | null | undefined;
+  like?: string | null | undefined;
+  not_equals?: string | null | undefined;
 };
 
 export type NewsPost_HeyZineUrl_Operator = {
@@ -320,14 +321,14 @@ export type NewsPost_PreviewBanner_Operator = {
 };
 
 export type NewsPost_PublishDate_Operator = {
-  equals?: unknown;
+  equals?: string | null | undefined;
   exists?: boolean | null | undefined;
-  greater_than?: unknown;
-  greater_than_equal?: unknown;
-  less_than?: unknown;
-  less_than_equal?: unknown;
-  like?: unknown;
-  not_equals?: unknown;
+  greater_than?: string | null | undefined;
+  greater_than_equal?: string | null | undefined;
+  less_than?: string | null | undefined;
+  less_than_equal?: string | null | undefined;
+  like?: string | null | undefined;
+  not_equals?: string | null | undefined;
 };
 
 export type NewsPost_Slug_Operator = {
@@ -361,14 +362,14 @@ export type NewsPost_Title_Operator = {
 };
 
 export type NewsPost_UpdatedAt_Operator = {
-  equals?: unknown;
+  equals?: string | null | undefined;
   exists?: boolean | null | undefined;
-  greater_than?: unknown;
-  greater_than_equal?: unknown;
-  less_than?: unknown;
-  less_than_equal?: unknown;
-  like?: unknown;
-  not_equals?: unknown;
+  greater_than?: string | null | undefined;
+  greater_than_equal?: string | null | undefined;
+  less_than?: string | null | undefined;
+  less_than_equal?: string | null | undefined;
+  like?: string | null | undefined;
+  not_equals?: string | null | undefined;
 };
 
 export type NewsPost_Where = {
@@ -456,14 +457,14 @@ export type Show_CoverImage_Operator = {
 };
 
 export type Show_CreatedAt_Operator = {
-  equals?: unknown;
+  equals?: string | null | undefined;
   exists?: boolean | null | undefined;
-  greater_than?: unknown;
-  greater_than_equal?: unknown;
-  less_than?: unknown;
-  less_than_equal?: unknown;
-  like?: unknown;
-  not_equals?: unknown;
+  greater_than?: string | null | undefined;
+  greater_than_equal?: string | null | undefined;
+  less_than?: string | null | undefined;
+  less_than_equal?: string | null | undefined;
+  like?: string | null | undefined;
+  not_equals?: string | null | undefined;
 };
 
 export type Show_Description_Operator = {
@@ -513,14 +514,14 @@ export type Show_Slug_Operator = {
 };
 
 export type Show_UpdatedAt_Operator = {
-  equals?: unknown;
+  equals?: string | null | undefined;
   exists?: boolean | null | undefined;
-  greater_than?: unknown;
-  greater_than_equal?: unknown;
-  less_than?: unknown;
-  less_than_equal?: unknown;
-  like?: unknown;
-  not_equals?: unknown;
+  greater_than?: string | null | undefined;
+  greater_than_equal?: string | null | undefined;
+  less_than?: string | null | undefined;
+  less_than_equal?: string | null | undefined;
+  like?: string | null | undefined;
+  not_equals?: string | null | undefined;
 };
 
 export type Show_Where = {
@@ -569,14 +570,14 @@ export type Show_Where_Or = {
 };
 
 export type Tag_CreatedAt_Operator = {
-  equals?: unknown;
+  equals?: string | null | undefined;
   exists?: boolean | null | undefined;
-  greater_than?: unknown;
-  greater_than_equal?: unknown;
-  less_than?: unknown;
-  less_than_equal?: unknown;
-  like?: unknown;
-  not_equals?: unknown;
+  greater_than?: string | null | undefined;
+  greater_than_equal?: string | null | undefined;
+  less_than?: string | null | undefined;
+  less_than_equal?: string | null | undefined;
+  like?: string | null | undefined;
+  not_equals?: string | null | undefined;
 };
 
 export type Tag_Id_Operator = {
@@ -601,14 +602,14 @@ export type Tag_Name_Operator = {
 };
 
 export type Tag_UpdatedAt_Operator = {
-  equals?: unknown;
+  equals?: string | null | undefined;
   exists?: boolean | null | undefined;
-  greater_than?: unknown;
-  greater_than_equal?: unknown;
-  less_than?: unknown;
-  less_than_equal?: unknown;
-  like?: unknown;
-  not_equals?: unknown;
+  greater_than?: string | null | undefined;
+  greater_than_equal?: string | null | undefined;
+  less_than?: string | null | undefined;
+  less_than_equal?: string | null | undefined;
+  like?: string | null | undefined;
+  not_equals?: string | null | undefined;
 };
 
 export type Tag_Where = {
@@ -664,7 +665,7 @@ export type ShowsQueryQueryVariables = Exact<{
 }>;
 
 
-export type ShowsQueryQuery = { Shows: { totalDocs: number, offset: number | null, limit: number, totalPages: number, page: number, pagingCounter: number, hasPrevPage: boolean, hasNextPage: boolean, prevPage: number | null, nextPage: number | null, docs: Array<{ id: string, active: boolean | null, slug: string, createdAt: unknown, showName: string, description: unknown, primaryHosts: Array<{ id: string, createdAt: unknown, updatedAt: unknown, name: string }>, categories: Array<{ id: string, createdAt: unknown, updatedAt: unknown, name: string }> | null, coverImage: { alt: string | null, sizes: { lg: { url: string | null, width: number | null, height: number | null } | null, sm: { url: string | null, width: number | null, height: number | null } | null } | null } | null }> } | null };
+export type ShowsQueryQuery = { Shows: { totalDocs: number, offset: number | null, limit: number, totalPages: number, page: number, pagingCounter: number, hasPrevPage: boolean, hasNextPage: boolean, prevPage: number | null, nextPage: number | null, docs: Array<{ id: string, active: boolean | null, slug: string, createdAt: string | null, showName: string, description: LexicalRootDoc, primaryHosts: Array<{ id: string, createdAt: string | null, updatedAt: string | null, name: string }>, categories: Array<{ id: string, createdAt: string | null, updatedAt: string | null, name: string }> | null, coverImage: { alt: string | null, sizes: { lg: { url: string | null, width: number | null, height: number | null } | null, sm: { url: string | null, width: number | null, height: number | null } | null } | null } | null }> } | null };
 
 export type CategoriesQueryVariables = Exact<{
   limit?: number | null | undefined;
@@ -678,14 +679,14 @@ export type ShowsByCategoryQueryVariables = Exact<{
 }>;
 
 
-export type ShowsByCategoryQuery = { ShowsByCategory: { limit: number, docs: Array<{ showName: string, id: string, slug: string, createdAt: unknown, description: unknown, categories: Array<{ name: string }> | null, primaryHosts: Array<{ name: string }>, coverImage: { alt: string | null, sizes: { lg: { url: string | null, width: number | null, height: number | null } | null, sm: { url: string | null, width: number | null, height: number | null } | null } | null } | null }> } | null };
+export type ShowsByCategoryQuery = { ShowsByCategory: { limit: number, docs: Array<{ showName: string, id: string, slug: string, createdAt: string | null, description: LexicalRootDoc, categories: Array<{ name: string }> | null, primaryHosts: Array<{ name: string }>, coverImage: { alt: string | null, sizes: { lg: { url: string | null, width: number | null, height: number | null } | null, sm: { url: string | null, width: number | null, height: number | null } | null } | null } | null }> } | null };
 
 export type ShowBySlugQueryVariables = Exact<{
   slug: string;
 }>;
 
 
-export type ShowBySlugQuery = { ShowBySlug: { slug: string, showName: string, id: string, description: unknown, createdAt: unknown, categories: Array<{ name: string }> | null, primaryHosts: Array<{ name: string }>, coverImage: { alt: string | null, sizes: { lg: { url: string | null, width: number | null, height: number | null } | null } | null } | null } | null };
+export type ShowBySlugQuery = { ShowBySlug: { slug: string, showName: string, id: string, description: LexicalRootDoc, createdAt: string | null, categories: Array<{ name: string }> | null, primaryHosts: Array<{ name: string }>, coverImage: { alt: string | null, sizes: { lg: { url: string | null, width: number | null, height: number | null } | null } | null } | null } | null };
 
 export type NewsPostsQueryVariables = Exact<{
   limit?: number | null | undefined;
@@ -695,7 +696,7 @@ export type NewsPostsQueryVariables = Exact<{
 }>;
 
 
-export type NewsPostsQuery = { NewsPosts: { totalDocs: number, totalPages: number, docs: Array<{ id: string, blurb: string | null, slug: string | null, publishDate: unknown, title: string | null, updatedAt: unknown, authorName: string | null, authorId: string | null, previewBanner: { url: string | null } | null }> } | null };
+export type NewsPostsQuery = { NewsPosts: { totalDocs: number, totalPages: number, docs: Array<{ id: string, blurb: string | null, slug: string | null, publishDate: string | null, title: string | null, updatedAt: string | null, authorName: string | null, authorId: string | null, previewBanner: { url: string | null } | null }> } | null };
 
 export type NewsPostQueryVariables = Exact<{
   newsPostId: string;
@@ -703,14 +704,14 @@ export type NewsPostQueryVariables = Exact<{
 }>;
 
 
-export type NewsPostQuery = { NewsPost: { authorId: string | null, authorName: string | null, blurb: string | null, content: unknown, createdAt: unknown, id: string, publishDate: unknown, slug: string | null, title: string | null, previewBanner: { url: string | null } | null, tags: Array<{ name: string, id: string }> | null } | null };
+export type NewsPostQuery = { NewsPost: { authorId: string | null, authorName: string | null, blurb: string | null, content: LexicalRootDoc | null, createdAt: string | null, id: string, publishDate: string | null, slug: string | null, title: string | null, previewBanner: { url: string | null } | null, tags: Array<{ name: string, id: string }> | null } | null };
 
 export type NewsPostBySlugQueryVariables = Exact<{
   slug: string;
 }>;
 
 
-export type NewsPostBySlugQuery = { NewsPostBySlug: { authorId: string | null, authorName: string | null, blurb: string | null, content: unknown, heyZineUrl: string | null, createdAt: unknown, id: string, publishDate: unknown, slug: string | null, title: string | null, previewBanner: { url: string | null } | null, tags: Array<{ name: string, id: string }> | null } | null };
+export type NewsPostBySlugQuery = { NewsPostBySlug: { authorId: string | null, authorName: string | null, blurb: string | null, content: LexicalRootDoc | null, heyZineUrl: string | null, createdAt: string | null, id: string, publishDate: string | null, slug: string | null, title: string | null, previewBanner: { url: string | null } | null, tags: Array<{ name: string, id: string }> | null } | null };
 
 export type NewsPostContentBySlugAndLocaleQueryVariables = Exact<{
   slug: string;
@@ -718,7 +719,7 @@ export type NewsPostContentBySlugAndLocaleQueryVariables = Exact<{
 }>;
 
 
-export type NewsPostContentBySlugAndLocaleQuery = { NewsPostBySlug: { content: unknown } | null };
+export type NewsPostContentBySlugAndLocaleQuery = { NewsPostBySlug: { content: LexicalRootDoc | null } | null };
 
 export type TagsQueryVariables = Exact<{
   where?: Tag_Where | null | undefined;
@@ -755,7 +756,7 @@ export type LiveVideosQueryVariables = Exact<{
 }>;
 
 
-export type LiveVideosQuery = { LiveVideos: { docs: Array<{ id: string, title: string, url: string, date: unknown, videoId: string | null, image: { url: string | null } | null }> } | null };
+export type LiveVideosQuery = { LiveVideos: { docs: Array<{ id: string, title: string, url: string, date: string | null, videoId: string | null, image: { url: string | null } | null }> } | null };
 
 export type PaginatedLiveVideosQueryVariables = Exact<{
   limit?: number | null | undefined;
@@ -765,21 +766,21 @@ export type PaginatedLiveVideosQueryVariables = Exact<{
 }>;
 
 
-export type PaginatedLiveVideosQuery = { LiveVideos: { totalDocs: number, totalPages: number, docs: Array<{ id: string, title: string, url: string, date: unknown, videoId: string | null, image: { url: string | null } | null }> } | null };
+export type PaginatedLiveVideosQuery = { LiveVideos: { totalDocs: number, totalPages: number, docs: Array<{ id: string, title: string, url: string, date: string | null, videoId: string | null, image: { url: string | null } | null }> } | null };
 
 export type AboutPageQueryQueryVariables = Exact<{
   locale?: LocaleInputType | null | undefined;
 }>;
 
 
-export type AboutPageQueryQuery = { AboutPage: { content: unknown } | null };
+export type AboutPageQueryQuery = { AboutPage: { content: LexicalRootDoc | null } | null };
 
 export type DonatePageQueryQueryVariables = Exact<{
   locale?: LocaleInputType | null | undefined;
 }>;
 
 
-export type DonatePageQueryQuery = { DonatePage: { content: unknown } | null };
+export type DonatePageQueryQuery = { DonatePage: { content: LexicalRootDoc | null } | null };
 
 export type HomePageQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
