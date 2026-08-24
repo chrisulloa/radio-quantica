@@ -5,6 +5,8 @@ import {
   CollectionConfig,
 } from 'payload';
 import { Show } from 'payload/generated-types';
+import { lexicalEditor } from '@payloadcms/richtext-lexical';
+import { SlateToLexicalFeature } from '@payloadcms/richtext-lexical/migrate';
 import { revalidateResource } from '../utils/revalidate';
 import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
@@ -73,6 +75,14 @@ const Shows: CollectionConfig = {
       name: 'description',
       type: 'richText',
       required: true,
+      // TODO: remove SlateToLexicalFeature once the migration to convert
+      // existing Slate content to Lexical has run in production.
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
+          SlateToLexicalFeature({ disableHooks: true }),
+        ],
+      }),
     },
     {
       name: 'primaryHosts',

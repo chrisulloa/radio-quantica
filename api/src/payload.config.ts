@@ -2,7 +2,7 @@ import { buildConfig } from 'payload';
 import path from 'path';
 import { GraphQLString } from 'graphql';
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
-import { slateEditor } from '@payloadcms/richtext-slate';
+import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { buildPaginatedListType } from '@payloadcms/graphql/types';
 import { s3Storage } from '@payloadcms/storage-s3';
 import Collections from './collections';
@@ -34,7 +34,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  editor: slateEditor({}),
+  editor: lexicalEditor(),
   db: mongooseAdapter({
     url: process.env.MONGO_URL,
   }),
