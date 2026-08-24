@@ -77,9 +77,14 @@
     "payload": "^3.88.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "sharp": "^0.34.5",
+    "sharp": "^0.35.3",
     "ssh2-promise": "^1.0.3",
     "uuidv7-js": "^1.1.4",
     "winston": "^3.13.0"
+  },
+  "overrides": {
+    "ip-address": "^10.4.0",
+    "dompurify": "^3.4.14",
+    "@eslint/plugin-kit": "^0.4.1"
   }
 }
