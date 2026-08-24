@@ -18,7 +18,7 @@ const serializeTextNode = (node: LexicalNode, key: number) => {
 
   if (format & LexicalTextFormat.BOLD) {
     text = (
-      <strong className="text-white" key={key}>
+      <strong className="text-white font-bold" key={key}>
         {text}
       </strong>
     );
@@ -55,6 +55,15 @@ const serializeTextNode = (node: LexicalNode, key: number) => {
   return <Fragment key={key}>{text}</Fragment>;
 };
 
+const HEADING_CLASSNAMES: Record<NonNullable<LexicalNode["tag"]>, string> = {
+  h1: "text-2xl font-bold mb-4 mt-6",
+  h2: "text-xl font-bold mb-3 mt-5",
+  h3: "text-lg font-bold mb-2 mt-4",
+  h4: "text-base font-bold mb-2 mt-3",
+  h5: "text-sm font-bold mb-1 mt-2",
+  h6: "text-xs font-bold mb-1 mt-2",
+};
+
 const serializeChildren = (nodes: LexicalNode[] | undefined) =>
   (nodes || []).map((node: LexicalNode, i: number) => {
     if (!node) {
@@ -76,7 +85,11 @@ const serializeChildren = (nodes: LexicalNode[] | undefined) =>
     switch (node.type) {
       case "heading": {
         const Tag = node.tag || "h1";
-        return <Tag key={i}>{serializeChildren(node.children)}</Tag>;
+        return (
+          <Tag key={i} className={HEADING_CLASSNAMES[Tag]}>
+            {serializeChildren(node.children)}
+          </Tag>
+        );
       }
       case "quote":
         return <blockquote key={i}>{serializeChildren(node.children)}</blockquote>;
@@ -106,8 +119,18 @@ const serializeChildren = (nodes: LexicalNode[] | undefined) =>
             : undefined;
         if (!value) return null;
 
-        const image = value.sizes?.lg || value.sizes?.sm;
-        const imageUrl = image?.url || value.url || "";
+        // Payload still stitches together a URL (e.g. ".../media/null") when a
+        // given size wasn't actually generated for this upload, instead of
+        // omitting it. Skip those rather than rendering a broken image.
+        const isUsableUrl = (url: string | undefined): url is string =>
+          !!url && !/\/(null|undefined)$/.test(url);
+
+        const image = [value.sizes?.lg, value.sizes?.sm].find((size) =>
+          isUsableUrl(size?.url)
+        );
+        const imageUrl = image?.url || (isUsableUrl(value.url) ? value.url : "");
+        if (!imageUrl) return null;
+
         const alt = value.alt || "Rádio Quântica Image";
 
         return (
