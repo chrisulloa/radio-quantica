@@ -73,7 +73,7 @@ export default function About(props: DonatePageProps) {
           />
         </div>
         <hr className="my-4"></hr>
-        <div className="font-space-mono" id={styles.showContent}>
+        <div className="font-space-mono" id={styles.richText}>
           {language === "EN"
             ? SerializeLexical(props.content.english)
             : SerializeLexical(props.content.portuguese)}

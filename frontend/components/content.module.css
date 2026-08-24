@@ -1,23 +1,13 @@
-#showContent a {
+#richText a {
   color: white;
 }
 
-#showContent p {
-  color: #b1b1b1;
-}
-
-#showContent a:hover {
+#richText a:hover {
   color: black;
   background-color: white;
 }
 
-#showContent h1 {
-  font-size: 1.125rem; /* 18px */
-  line-height: 1.75rem; /* 28px */
-  margin-top: 1.25rem;
-}
-
-#showContent ul {
+#richText ul {
   margin-left: 0.5rem;
   list-style-position: inside;
   list-style-type: disc;

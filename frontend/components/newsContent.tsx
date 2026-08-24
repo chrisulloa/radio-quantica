@@ -18,7 +18,7 @@ export default function NewsContent({
   }
   return (
     <div
-      id={styles.showContent}
+      id={styles.richText}
       className="text-white px-5 py-3 whitespace-pre-wrap font-space-mono leading-8 break-words"
     >
       {image.url && (
