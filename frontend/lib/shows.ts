@@ -8,7 +8,7 @@ import {
   allShowIDs,
 } from "./gql/documents/queries";
 import { Show } from "./gql/types/graphql";
-import RichTextNode from "./textNode";
+import { LexicalRootDoc } from "./lexicalNode";
 
 interface ShowMetadata {
   title: string;
@@ -41,7 +41,7 @@ export interface ShowImage {
 
 export interface ShowData extends ShowMetadata {
   id: string;
-  content?: RichTextNode[];
+  content?: LexicalRootDoc;
   image?: ShowImage | null;
 }
 

@@ -1,13 +1,14 @@
-import Serialize from "./serialize";
+import { LexicalRootDoc } from "../lib/lexicalNode";
+import SerializeLexical from "./serializeLexical";
 import styles from "./content.module.css";
 
-export function ShowContent({ content }: { content: any }) {
+export function ShowContent({ content }: { content: LexicalRootDoc }) {
   return (
     <div
       id={styles.showContent}
       className="w-full text-white whitespace-pre-wrap font-space-mono text-lg"
     >
-      {Serialize(content)}
+      {SerializeLexical(content)}
     </div>
   );
 }

@@ -1,5 +1,5 @@
-import RichTextNode from "../lib/textNode";
-import Serialize from "./serialize";
+import { LexicalRootDoc } from "../lib/lexicalNode";
+import SerializeLexical from "./serializeLexical";
 import styles from "./content.module.css";
 import Image from "next/image";
 
@@ -7,7 +7,7 @@ export default function NewsContent({
   content,
   image,
 }: {
-  content: RichTextNode[];
+  content: LexicalRootDoc;
   image: {
     url?: string | null;
     alt: string;
@@ -31,7 +31,7 @@ export default function NewsContent({
           ></Image>
         </div>
       )}
-      {Serialize(content)}
+      {SerializeLexical(content)}
     </div>
   );
 }

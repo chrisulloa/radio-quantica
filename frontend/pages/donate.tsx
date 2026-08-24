@@ -1,9 +1,9 @@
 import Head from "next/head";
-import Serialize from "../components/serialize";
+import SerializeLexical from "../components/serializeLexical";
 import GoBackLink from "../components/goBack";
 import { getDonatePageInfo } from "../lib/pageInfo";
 import { LocaleInputType } from "../lib/gql/types/graphql";
-import RichTextNode from "../lib/textNode";
+import { LexicalRootDoc } from "../lib/lexicalNode";
 import { useState } from "react";
 import LanguageSelector from "../components/languageSelector";
 import styles from "../components/content.module.css";
@@ -11,8 +11,8 @@ import { defaultOgImage } from "../lib/utils";
 
 interface DonatePageProps {
   content: {
-    portuguese: RichTextNode[];
-    english: RichTextNode[];
+    portuguese: LexicalRootDoc;
+    english: LexicalRootDoc;
   };
 }
 
@@ -75,8 +75,8 @@ export default function About(props: DonatePageProps) {
         <hr className="my-4"></hr>
         <div className="font-space-mono" id={styles.showContent}>
           {language === "EN"
-            ? Serialize(props.content.english)
-            : Serialize(props.content.portuguese)}
+            ? SerializeLexical(props.content.english)
+            : SerializeLexical(props.content.portuguese)}
         </div>
         <div className="flex justify-center mt-8">
           <form

@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { NewsHeaderBackground } from "./newsHeaderBackground";
 import Link from "next/link";
 import { formatCompactShowDate } from "../lib/dates";
-import RichTextNode from "../lib/textNode";
+import { findFirstUploadValue, LexicalRootDoc } from "../lib/lexicalNode";
 import GoBackLink from "./goBack";
 import NewsContent from "./newsContent";
 import NewsTags from "./newsTags";
@@ -26,10 +26,8 @@ const NewsHeader = ({
     ogImage = post.previewBanner.url;
   }
   if (!ogImage && post.content) {
-    const postImage = (post.content as RichTextNode[]).find(
-      (val) => val.type === "upload"
-    );
-    ogImage = postImage?.value?.sizes.opengraph.url;
+    const postImage = findFirstUploadValue(post.content as LexicalRootDoc);
+    ogImage = postImage?.sizes?.opengraph?.url;
   }
 
   return (
