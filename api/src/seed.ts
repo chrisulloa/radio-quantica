@@ -69,10 +69,10 @@ const seed = async (payload: Payload) => {
   const { id: authorId } = await payload.create({
     collection: 'users',
     data: {
-      email: 'christian@particle.fm',
+      email: 'admin@example.com',
       password: 'test',
-      firstName: 'Christian',
-      lastName: 'Gonzalez',
+      firstName: 'Admin',
+      lastName: 'User',
       roles: ['admin'],
     },
   });
@@ -80,7 +80,7 @@ const seed = async (payload: Payload) => {
   await payload.create({
     collection: 'users',
     data: {
-      email: 'info@particle.fm',
+      email: 'api@example.com',
       password: 'admin',
       firstName: 'API',
       lastName: 'USER',

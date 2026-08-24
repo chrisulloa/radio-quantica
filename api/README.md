@@ -15,16 +15,7 @@ Libretime and Owncast streaming integrations fit in.
    docker run -d --name radio-quantica-mongo -p 27017:27017 mongo
    ```
 
-2. **Create `.env.dev`** in this directory (it's gitignored) with at least:
-
-   ```
-   NODE_ENV=development
-   PAYLOAD_CONFIG_PATH=src/payload.config.ts
-   MONGO_URL=mongodb://localhost:27017/radio-quantica
-   PAYLOAD_SECRET=<any-random-string-for-local-dev>
-   PAYLOAD_DROP_DATABASE=false
-   SEED=false
-   ```
+2. **Create `.env.dev`** in this directory by copying `.env.example` (`.env.dev` is gitignored — never commit it). The defaults set `SEED=true`, which seeds some sample content and two throwaway admin users (see `src/seed.ts`) on first boot.
 
    A few features are backed by external services and only need their
    variables set if you're exercising that feature locally:
