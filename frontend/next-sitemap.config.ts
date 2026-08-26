@@ -1,6 +1,6 @@
 import type { IConfig } from "next-sitemap";
 
-const SITE_URL = "https://radioquantica.com";
+const SITE_URL = "https://www.radioquantica.com";
 const API_URL =
   process.env.NODE_ENV !== "development"
     ? "https://api.radioquantica.com"

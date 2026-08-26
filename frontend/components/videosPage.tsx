@@ -40,7 +40,7 @@ const StreamsHeader = ({ page }: { page: number }) => {
       <meta property="og:type" content="website"></meta>
       <meta
         property="og:url"
-        content="https://radioquantica.com/streams"
+        content="https://www.radioquantica.com/streams"
       ></meta>
       <meta property="og:description" content="Rádio Quântica Latest Streams" />
       <meta property="og:image" content={defaultOgImage}></meta>

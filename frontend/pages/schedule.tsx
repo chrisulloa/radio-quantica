@@ -117,7 +117,7 @@ const ScheduleHead = () => {
       <meta property="og:type" content="website"></meta>
       <meta
         property="og:url"
-        content="https://radioquantica.com/schedule"
+        content="https://www.radioquantica.com/schedule"
       ></meta>
       <meta property="og:description" content="Rádio Quântica Upcoming Shows" />
       <meta property="og:image" content={defaultOgImage}></meta>

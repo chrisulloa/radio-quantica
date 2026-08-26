@@ -49,7 +49,7 @@ export default function About(props: AboutPageProps) {
         <meta property="og:type" content="website"></meta>
         <meta
           property="og:url"
-          content="https://radioquantica.com/about"
+          content="https://www.radioquantica.com/about"
         ></meta>
         <meta
           property="og:description"

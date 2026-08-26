@@ -23,7 +23,7 @@ const NewsPageHeader = ({ page }: { page: number }) => {
       <meta property="og:site_name" content="Rádio Quântica"></meta>
       <meta property="og:title" content="Rádio Quântica Latest News"></meta>
       <meta property="og:type" content="website"></meta>
-      <meta property="og:url" content="https://radioquantica.com/news"></meta>
+      <meta property="og:url" content="https://www.radioquantica.com/news"></meta>
       <meta
         property="og:description"
         content="Rádio Quântica's upcoming events, latest news, articles & more."

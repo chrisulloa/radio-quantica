@@ -36,7 +36,7 @@ const ShowsPageHeader = () => (
     <meta property="og:site_name" content="Rádio Quântica"></meta>
     <meta property="og:title" content="Rádio Quântica Shows"></meta>
     <meta property="og:type" content="website"></meta>
-    <meta property="og:url" content="https://radioquantica.com/shows"></meta>
+    <meta property="og:url" content="https://www.radioquantica.com/shows"></meta>
     <meta property="og:description" content="Rádio Quântica Shows" />
     <meta property="og:image" content={defaultOgImage}></meta>
     <meta property="og:image:secure_url" content={defaultOgImage}></meta>

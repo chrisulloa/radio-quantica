@@ -53,7 +53,7 @@ const NewsHeader = ({
       />
       <meta
         property="og:url"
-        content={`https://radioquantica.com${currentPath}`}
+        content={`https://www.radioquantica.com${currentPath}`}
       ></meta>
       <meta property="og:image" content={ogImage || defaultOgImage}></meta>
     </Head>

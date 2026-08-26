@@ -16,7 +16,7 @@ export default function Chat() {
         <meta property="og:site_name" content="Rádio Quântica"></meta>
         <meta property="og:title" content="Rádio Quântica | Chat"></meta>
         <meta property="og:type" content="website"></meta>
-        <meta property="og:url" content="https://radioquantica.com/chat"></meta>
+        <meta property="og:url" content="https://www.radioquantica.com/chat"></meta>
         <meta property="og:description" content="Rádio Quântica Chat" />
         <meta property="og:image" content={defaultOgImage}></meta>
         <meta property="og:image:secure_url" content={defaultOgImage}></meta>

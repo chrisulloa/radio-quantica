@@ -92,7 +92,7 @@ const NewsTagHeader = (props: { tagName: string }) => {
       <meta property="og:type" content="website"></meta>
       <meta
         property="og:url"
-        content={`https://radioquantica.com/news/tag/${props.tagName}`}
+        content={`https://www.radioquantica.com/news/tag/${props.tagName}`}
       ></meta>
       <meta
         property="og:description"
