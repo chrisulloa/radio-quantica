@@ -55,12 +55,20 @@ export const showBySlugResolver = async (
 
 export const newsPostBySlugResolver = async (
   obj,
-  args: { slug: string; locale?: string },
-  context: { req: { payload: Payload } }
+  args: { slug: string; locale?: string; draft?: boolean },
+  context: { req: { payload: Payload; user?: unknown } }
 ) => {
+  const draft = Boolean(args.draft);
+
+  // payload.find() (Local API) defaults to overrideAccess: true, which
+  // bypasses newsPosts' access.read rule entirely. Never honor draft:true
+  // unless the request is authenticated, mirroring that rule's own check.
+  if (draft && !context.req.user) return null;
+
   const { docs } = await context.req.payload.find({
     collection: 'newsPosts',
     depth: 0,
+    draft,
     locale: args.locale as 'en' | 'pt' | 'all',
     fallbackLocale: null,
     where: {

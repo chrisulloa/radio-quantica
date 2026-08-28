@@ -174,6 +174,9 @@ export default buildConfig({
           locale: {
             type: GraphQLString,
           },
+          draft: {
+            type: GraphQL.GraphQLBoolean,
+          },
         },
         resolve: newsPostBySlugResolver,
       },

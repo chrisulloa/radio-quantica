@@ -71,13 +71,10 @@ const toISO = (date: string | null | undefined) =>
 const config: IConfig = {
   siteUrl: SITE_URL,
   generateRobotsTxt: true,
-  // Preview links carry an auth token in the URL and must never be crawled
-  // or indexed (see pages/news/preview/[id].tsx).
-  exclude: ["/news/preview/*"],
   robotsTxtOptions: {
-    policies: [
-      { userAgent: "*", allow: "/", disallow: ["/api/", "/news/preview/"] },
-    ],
+    // Preview links carry an auth token and must never be crawled or
+    // indexed (see pages/api/preview.ts) — already covered by /api/.
+    policies: [{ userAgent: "*", allow: "/", disallow: ["/api/"] }],
   },
   additionalPaths: async () => {
     // pages/shows/[id]/index.tsx and pages/categories/[id].tsx are already

@@ -27,7 +27,7 @@ const isAdminOrEditor = async (auth: string) => {
     const result = await axios.request<MeResponse>(options);
     return Boolean(
       result.data.user &&
-        result.data.user.roles.some((role) => validRoles.includes(role))
+      result.data.user.roles.some((role) => validRoles.includes(role)),
     );
   } catch (e) {
     console.log(e);

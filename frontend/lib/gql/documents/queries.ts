@@ -188,34 +188,9 @@ export const latestNewsQuery = graphql(`
   }
 `);
 
-export const draftNewsPostQuery = graphql(`
-  query NewsPost($newsPostId: String!, $draft: Boolean) {
-    NewsPost(id: $newsPostId, draft: $draft) {
-      authorId
-      authorName
-      blurb
-      content
-      createdAt
-      id
-      publishDate
-      slug
-      title
-      previewBanner {
-        url
-        width
-        height
-      }
-      tags {
-        name
-        id
-      }
-    }
-  }
-`);
-
 export const newsPostBySlugQuery = graphql(`
-  query NewsPostBySlug($slug: String!) {
-    NewsPostBySlug(slug: $slug) {
+  query NewsPostBySlug($slug: String!, $draft: Boolean) {
+    NewsPostBySlug(slug: $slug, draft: $draft) {
       authorId
       authorName
       blurb
@@ -240,8 +215,12 @@ export const newsPostBySlugQuery = graphql(`
 `);
 
 export const newsPostContentBySlugAndLocaleQuery = graphql(`
-  query NewsPostContentBySlugAndLocale($slug: String!, $locale: String!) {
-    NewsPostBySlug(slug: $slug, locale: $locale) {
+  query NewsPostContentBySlugAndLocale(
+    $slug: String!
+    $locale: String!
+    $draft: Boolean
+  ) {
+    NewsPostBySlug(slug: $slug, locale: $locale, draft: $draft) {
       content
     }
   }

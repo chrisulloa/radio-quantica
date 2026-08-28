@@ -6,7 +6,6 @@ import {
   CollectionConfig,
   ValidationError,
 } from 'payload';
-import { Buffer } from 'buffer';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import slugify from '../utils/slugify';
 import { revalidateResource } from '../utils/revalidate';
@@ -99,19 +98,11 @@ const NewsPosts: CollectionConfig = {
     defaultColumns: ['title', 'publishDate', 'tags', 'status'],
     group: 'Content',
     preview: (doc, { token }) => {
-      try {
-        const post = doc as unknown as NewsPost;
-        const identifier = JSON.stringify({ id: post.id, token });
-        const encoded: string = Buffer.from(identifier, 'utf8').toString('base64');
-        if (post?.id) {
-          return `${websiteUrl}/news/preview/${encoded}`;
-        }
-      } catch (e) {
-        console.log('Failed to generate preview URL');
-        console.log(e);
-      }
+      const post = doc as unknown as NewsPost;
+      if (!post?.id || !post?.slug) return null;
 
-      return null;
+      const params = new URLSearchParams({ token, slug: post.slug });
+      return `${websiteUrl}/api/preview?${params.toString()}`;
     },
   },
   hooks: {

@@ -62,10 +62,12 @@ const NewsHeader = ({
 
 export default function NewsPost({
   post,
+  isDraft,
   enContent,
   ptContent,
 }: {
   post: NewsPostBySlugQuery["NewsPostBySlug"];
+  isDraft?: boolean;
   enContent: any;
   ptContent: any;
 }) {
@@ -82,6 +84,14 @@ export default function NewsPost({
           : "mx-2 xl:mx-auto md:mb-5 md:w-5/6 lg:w-3/5 xl:w-5/12"
       }
     >
+      {isDraft && (
+        <div className="flex items-center justify-between bg-yellow-300 text-black text-sm px-3 py-2 mb-2 font-space-mono">
+          <span>Viewing draft preview</span>
+          <a href={`/api/exit-preview?slug=${post.slug}`} className="underline">
+            Exit preview
+          </a>
+        </div>
+      )}
       <NewsHeader currentPath={router.asPath} post={post}></NewsHeader>
       <div
         className={
