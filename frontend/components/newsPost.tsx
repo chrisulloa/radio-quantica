@@ -125,6 +125,8 @@ export default function NewsPost({
             image={{
               url: post.heyZineUrl ? undefined : post?.previewBanner?.url,
               alt: post?.title || "News Post Image",
+              width: post?.previewBanner?.width,
+              height: post?.previewBanner?.height,
             }}
           />
         )}

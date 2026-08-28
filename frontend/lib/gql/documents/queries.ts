@@ -202,6 +202,8 @@ export const draftNewsPostQuery = graphql(`
       title
       previewBanner {
         url
+        width
+        height
       }
       tags {
         name
@@ -226,6 +228,8 @@ export const newsPostBySlugQuery = graphql(`
       title
       previewBanner {
         url
+        width
+        height
       }
       tags {
         name

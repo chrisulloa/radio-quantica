@@ -7,6 +7,7 @@ import GoBackLink from "../../../components/goBack";
 import { ShowContent } from "../../../components/showContent";
 import { getAllShowIDs, getShowData, ShowData } from "../../../lib/shows";
 import { defaultOgImage } from "../../../lib/utils";
+import LightboxImage from "../../../components/lightboxImage";
 
 export async function getStaticPaths() {
   const allShowIDs = await getAllShowIDs();
@@ -86,13 +87,14 @@ export default function Show({
             show.image.sizes.lg.url &&
             show.image.sizes.lg.width &&
             show.image.sizes.lg.height && (
-              <Image
+              <LightboxImage
                 className="max-h-[60vh] h-min object-scale-down"
                 alt={show.image.alt || `${show.title} image`}
                 src={show.image.sizes?.lg.url}
                 height={show.image.sizes?.lg?.height}
                 width={show.image.sizes?.lg?.width}
-              ></Image>
+                fullSrc={show.image.sizes?.lg.url}
+              ></LightboxImage>
             )}
         </div>
         <div className="col-span-6 md:col-span-3">

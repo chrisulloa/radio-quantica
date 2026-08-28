@@ -85,12 +85,13 @@ export default function About(props: AboutPageProps) {
       <div className="my-8">
         <GoBackLink fallback="/"></GoBackLink>
       </div>
-      <div className="pb-8">
+      <div className="pb-8 max-w-162.5">
         <Image
           src="/logos.png"
           height={200}
-          width={650}
+          width={1200}
           alt="Apoio Republica Portuguesa"
+          className="w-full h-auto"
         ></Image>
       </div>
     </div>

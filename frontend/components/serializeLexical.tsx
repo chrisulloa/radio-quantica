@@ -1,11 +1,11 @@
 import { Fragment } from "react";
 import escapeHTML from "escape-html";
-import Image from "next/image";
 import Link from "next/link";
 import LexicalNode, {
   LexicalRootDoc,
   LexicalTextFormat,
 } from "../lib/lexicalNode";
+import LightboxImage from "./lightboxImage";
 
 const serializeTextNode = (node: LexicalNode, key: number) => {
   let text = (
@@ -92,7 +92,9 @@ const serializeChildren = (nodes: LexicalNode[] | undefined) =>
         );
       }
       case "quote":
-        return <blockquote key={i}>{serializeChildren(node.children)}</blockquote>;
+        return (
+          <blockquote key={i}>{serializeChildren(node.children)}</blockquote>
+        );
       case "list": {
         const ListTag = node.listType === "number" ? "ol" : "ul";
         return <ListTag key={i}>{serializeChildren(node.children)}</ListTag>;
@@ -126,15 +128,21 @@ const serializeChildren = (nodes: LexicalNode[] | undefined) =>
           !!url && !/\/(null|undefined)$/.test(url);
 
         const image = [value.sizes?.lg, value.sizes?.sm].find((size) =>
-          isUsableUrl(size?.url)
+          isUsableUrl(size?.url),
         );
-        const imageUrl = image?.url || (isUsableUrl(value.url) ? value.url : "");
+
+        const imageUrl =
+          image?.url || (isUsableUrl(value.url) ? value.url : "");
         if (!imageUrl) return null;
+
+        const fullImageUrl = isUsableUrl(value.sizes?.xl?.url)
+          ? value.sizes?.xl?.url
+          : imageUrl;
 
         const alt = value.alt || "Rádio Quântica Image";
 
         return (
-          <Image
+          <LightboxImage
             key={i}
             src={imageUrl}
             alt={alt}
@@ -142,7 +150,8 @@ const serializeChildren = (nodes: LexicalNode[] | undefined) =>
             height={image?.height || value.height}
             sizes="(max-width: 768px) 80vw, 65vw"
             className="py-4"
-          ></Image>
+            fullSrc={fullImageUrl}
+          ></LightboxImage>
         );
       }
       default:

@@ -2,6 +2,7 @@ import { LexicalRootDoc } from "../lib/lexicalNode";
 import SerializeLexical from "./serializeLexical";
 import styles from "./content.module.css";
 import Image from "next/image";
+import LightboxImage from "./lightboxImage";
 
 export default function NewsContent({
   content,
@@ -11,6 +12,8 @@ export default function NewsContent({
   image: {
     url?: string | null;
     alt: string;
+    width?: number | null;
+    height?: number | null;
   };
 }) {
   if (!content) {
@@ -23,12 +26,14 @@ export default function NewsContent({
     >
       {image.url && (
         <div className="relative h-[40vh] md:h-[650px] w-full text-right my-8">
-          <Image
+          <LightboxImage
             src={image.url}
             alt={image.alt}
-            fill
-            className="object-contain h-full w-full left-0"
-          ></Image>
+            width={image.width || 1200}
+            height={image.height || 630}
+            className="h-full w-full object-contain"
+            fullSrc={image.url}
+          ></LightboxImage>
         </div>
       )}
       {SerializeLexical(content)}
