@@ -93,7 +93,7 @@ export default function LightboxImage({
                 width={10}
                 height={10}
                 alt=""
-                className="w-6 h-auto invert"
+                className="w-6 h-auto"
               ></Image>
             </button>
             {/* Intrinsically sized (not `fill`) so this element's box matches
